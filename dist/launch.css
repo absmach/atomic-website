@@ -1,0 +1,147 @@
+/* The launch starts with an idea. Keep the composer at the center. */
+body { font-synthesis: none; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.site-header { border-bottom: 0; }
+.header-row { height: 80px; }
+.brand { letter-spacing: -.065em; font-weight: 750; }
+.prompt-hero { position: relative; isolation: isolate; background: var(--paper); }
+.prompt-hero::before {
+  content: ''; position: absolute; z-index: -1; inset: 0 0 auto;
+  height: max(650px, calc(100svh - 80px));
+  background:
+    radial-gradient(ellipse at 50% 22%, #fbfaf8 15%, #fbfaf800 68%),
+    radial-gradient(ellipse at 4% 82%, #c4b4fa 0, #e0d5fb70 40%, #e0d5fb00 68%),
+    radial-gradient(ellipse at 100% 95%, #d9bced 0, #e8dcf270 40%, #e8dcf200 68%),
+    linear-gradient(180deg, #fbfaf8 0%, #f8f5fa 55%, #e7def8 100%);
+  mask-image: linear-gradient(#000 82%, transparent);
+}
+.prompt-opening {
+  min-height: max(650px, calc(100svh - 80px));
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding-block: 68px 110px; text-align: center;
+}
+.launch-tag {
+  display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px;
+  border: 1px solid #dcd3e8; border-radius: 100px; background: #ffffff80;
+  color: #695580; font-size: .75rem; line-height: 1.7; font-weight: 650;
+}
+.launch-tag::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #8360d8; }
+.prompt-hero h1 {
+  font-size: clamp(3rem, 5.25vw, 5rem); line-height: 1.12; letter-spacing: -.052em;
+  font-weight: 650; margin: 22px 0 19px; text-wrap: balance;
+}
+.prompt-hero h1 span { color: var(--violet); }
+.prompt-intro { max-width: 570px; font-size: 1.0625rem; line-height: 1.8; color: #716879; text-wrap: balance; }
+.prompt-composer {
+  width: min(100%, 680px); margin-top: 33px; padding: 19px 19px 15px;
+  background: #fff; border: 1px solid #d8cfe8; border-radius: 18px;
+  box-shadow: 0 20px 55px #68459014, 0 2px 7px #38254405;
+  transition: border-color .2s, box-shadow .2s;
+}
+.prompt-composer:focus-within { border-color: #a38bd8; box-shadow: 0 20px 55px #6845901c, 0 0 0 3px #a38bd812; }
+.prompt-composer textarea {
+  display: block; width: 100%; min-height: 90px; height: 90px; max-height: 260px;
+  resize: vertical; border: 0; border-radius: 5px; padding: 3px 5px 15px;
+  background: #fff; color: var(--ink); font-size: 1rem; line-height: 1.7;
+}
+.prompt-composer textarea::placeholder { color: #928898; opacity: 1; }
+.prompt-composer textarea:focus-visible { outline: 2px solid #d8c9f4; outline-offset: 3px; }
+.composer-footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 10px; }
+.composer-footer>span { display: flex; align-items: center; gap: 10px; color: #807386; font-size: .75rem; text-align: left; }
+.composer-footer img { flex-shrink: 0; }
+.composer-footer .button { min-height: 43px; padding: 10px 17px; border-radius: 9px; font-size: .8125rem; }
+.prompt-suggestions { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-top: 22px; }
+.prompt-suggestions button {
+  padding: 8px 15px; border: 1px solid #c9bbdc80; border-radius: 100px;
+  background: #ffffff65; font-size: .75rem; color: #6f5e7d; min-height: 38px;
+  transition: background .2s, border-color .2s;
+}
+.prompt-suggestions button:hover { background: #fff; border-color: #a991c8; }
+.prompt-launch-note { margin-top: 20px; max-width: 470px; font-size: .75rem; color: #7d6d89; line-height: 1.7; }
+
+/* Sample apps sit below the opening screen and lead into working demos. */
+.preview-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 25px; padding: 14px 0 64px; }
+.preview-tile { display: block; min-width: 0; }
+.preview-image { position: relative; height: 220px; overflow: hidden; border-radius: 12px; border: 1px solid #e1d9e7; padding: 27px 24px 0; background: #e8dff0; }
+.preview-image img { width: 100%; height: auto; border-radius: 6px 6px 0 0; box-shadow: 0 10px 24px #36233c16; transition: transform .3s; }
+.preview-shop .preview-image { background: #e5ebd9; border-color: #dce2d2; }
+.preview-portal .preview-image { background: #dee8ee; border-color: #d5e1e7; }
+.preview-tile:hover .preview-image img { transform: translateY(-5px); }
+.preview-tile>span { display: block; padding: 18px 2px 0; }
+.preview-tile strong { display: block; font-size: .9375rem; font-weight: 650; letter-spacing: -.025em; }
+.preview-tile small { display: block; margin-top: 4px; color: #8a7f91; font-size: .75rem; }
+.preview-tile:hover strong { color: var(--violet); }
+
+/* Give the workspace a composed studio setting, preserving the product image. */
+.builder-section { background: #f5f2f8; }
+.showcase-stage {
+  padding: 30px 42px 35px; border: 1px solid #473954; border-radius: 17px;
+  background: radial-gradient(ellipse at 76% 5%, #694e8a70, transparent 70%), #2a2038;
+  box-shadow: 0 26px 55px #2e1b4910;
+}
+.showcase-stage-label { display: flex; justify-content: space-between; gap: 25px; color: #c1adcf; font-size: .625rem; letter-spacing: .12em; font-weight: 700; margin-bottom: 24px; }
+.showcase-stage-label>span:last-child { color: #a18ab6; }
+.showcase-stage .product-figure { padding: 0; border: 1px solid #ad96c055; border-radius: 9px; background: #fff; overflow: hidden; box-shadow: 0 24px 60px #150a2755; }
+.product-window-bar { min-height: 44px; padding: 10px 17px; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: #f9f7fb; border-bottom: 1px solid #e6e0ed; font-size: .6875rem; color: #8c7d96; }
+.window-mark { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; color: #665271; }
+.showcase-stage .product-figure>img { border: 0; border-radius: 0; }
+.showcase-stage .product-figure figcaption { padding: 14px 19px; border-top: 1px solid #ece7f0; background: #fbfafc; font-size: .6875rem; color: #887991; }
+.showcase-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 30px; }
+.showcase-notes p { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; color: #b9a7c8; font-size: .75rem; line-height: 1.8; }
+.showcase-notes p>span { grid-row: span 2; padding-top: 2px; color: #9b7cbb; font-size: .6875rem; }
+.showcase-notes strong { display: block; color: #f3eafb; font-weight: 600; font-size: .8125rem; margin-bottom: 4px; }
+.foundation h2, .foundation h2>span { font-family: var(--heading); font-weight: 650; letter-spacing: -.035em; line-height: 1.15; }
+.section-heading h2, .faq-layout h2 { letter-spacing: -.035em; }
+
+@media (max-width: 950px) {
+  .prompt-hero h1 { font-size: clamp(3rem, 6.5vw, 4.5rem); }
+  .preview-strip { gap: 18px; }
+  .preview-image { height: 165px; padding: 20px 16px 0; }
+  .preview-tile strong { font-size: .8125rem; }
+  .showcase-stage { padding: 26px; }
+  .showcase-notes { gap: 20px; }
+  .showcase-notes p { display: block; }
+  .showcase-notes p>span { display: block; margin-bottom: 6px; }
+}
+@media (max-width: 700px) {
+  .header-row { height: 74px; }
+  .prompt-hero::before { height: max(670px, calc(100svh - 74px)); }
+  .prompt-opening { min-height: max(670px, calc(100svh - 74px)); padding-block: 44px 75px; }
+  .prompt-hero h1 { font-size: clamp(2.65rem, 9.8vw, 4rem); letter-spacing: -.045em; margin-block: 22px 19px; }
+  .prompt-hero h1 span { display: block; }
+  .prompt-intro { font-size: .9375rem; max-width: 360px; line-height: 1.8; }
+  .prompt-composer { margin-top: 27px; padding: 15px; border-radius: 14px; }
+  .prompt-composer textarea { min-height: 100px; height: 100px; padding-inline: 2px; }
+  .composer-footer { gap: 12px; }
+  .composer-footer>span { font-size: 0; gap: 0; }
+  .composer-footer img { width: 23px; height: 23px; }
+  .composer-footer .button { font-size: .8125rem; }
+  .prompt-suggestions { gap: 7px; margin-top: 19px; }
+  .prompt-suggestions button { padding: 7px 11px; min-height: 36px; font-size: .75rem; }
+  .prompt-launch-note { margin-top: 18px; max-width: 280px; font-size: .75rem; }
+  .preview-strip { grid-template-columns: 1fr; gap: 30px; max-width: 470px; padding-top: 10px; padding-bottom: 54px; }
+  .preview-image { height: auto; aspect-ratio: 1.85; padding: 24px 25px 0; }
+  .preview-tile>span { padding-top: 13px; }
+  .preview-tile strong { font-size: .9375rem; }
+  .showcase-stage { padding: 20px 12px 24px; border-radius: 12px; }
+  .showcase-stage-label { margin: 0 4px 16px; font-size: .5625rem; letter-spacing: .07em; }
+  .showcase-stage-label>span:last-child { display: none; }
+  .product-window-bar { min-height: 38px; padding: 8px 10px; font-size: .5625rem; gap: 10px; }
+  .window-mark { gap: 6px; }
+  .window-mark img { width: 14px; height: 14px; }
+  .showcase-stage .product-figure figcaption { padding: 11px; font-size: .625rem; }
+  .showcase-stage .product-figure figcaption>span:last-child { font-size: .625rem; }
+  .showcase-notes { grid-template-columns: 1fr; gap: 17px; margin: 23px 8px 0; }
+  .showcase-notes p { display: grid; grid-template-columns: 20px 1fr; font-size: .75rem; }
+  .showcase-notes p>span { margin: 0; }
+  .showcase-notes strong { margin-bottom: 0; }
+}
+@media (max-width: 360px) {
+  .prompt-opening { padding-block: 35px 65px; }
+  .prompt-hero h1 { font-size: 2.6rem; }
+  .prompt-suggestions { gap: 6px; }
+  .prompt-suggestions button { padding-inline: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .preview-image img, .prompt-composer, .prompt-suggestions button { transition: none; }
+}

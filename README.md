@@ -9,19 +9,20 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1 --directory dist`, then open h
 ## Page and interactions
 
 - `dist/index.html`: page copy, examples, metadata, and native email-draft dialog.
-- `dist/styles.css`: complete visual system and responsive layouts.
+- `dist/styles.css`: shared visual system and responsive layouts.
+- `dist/launch.css`: centered prompt opening, app preview cards, and framed product showcase.
 - `dist/app.js`: mobile navigation, product image switch, booking/shop/portal demos, and early-access email preparation.
 - `dist/assets/`: local brand mark, product images, fonts, and font licenses.
 
 The booking example supports requesting a session, reviewing it as the studio owner, confirming, updating, and resetting. The shop supports adding sample items and clearing the bag. The portal switches project milestones. All example state is in memory and resets on reload; nothing is booked, purchased, or sent to a server.
 
-The early-access form validates an idea and opens a review dialog. The visitor can open a prefilled email addressed to `info@absmach.eu`, or copy the draft. It does not collect a signup or send email automatically. The address was verified on https://www.absmach.eu/. Replace this workflow with the production signup URL or an approved signup service when available.
+The page opens with an idea composer. Suggested prompts fill the input, and the app preview cards open their matching interactive demos. Both the opening composer and closing early-access form validate an idea and open a review dialog. Ctrl+Enter or Command+Enter also submits the idea. The visitor can open a prefilled email addressed to `info@absmach.eu`, or copy the draft. This prepares an early-access inquiry; it does not generate an app, collect a signup, or send email automatically. The address was verified on https://www.absmach.eu/. Replace this workflow with the production signup URL or an approved signup service when available.
 
 ## Content boundaries
 
 Final pricing and launch date remain unannounced. Complete app packaging and deployment choice remain roadmap items. Source export does not include users, business data, or hosting; frontend rollback does not restore business data. Do not represent the interactive examples or supplied product images as live customer results.
 
-Product images and the Atomic mark come from `~/ideas/vc/atomic/pitch-deck`. Images are illustrative sample-app views and are labeled on the page. Font licenses are included under `dist/assets/fonts/`.
+Product images and the Atomic mark come from `~/ideas/vc/atomic/pitch-deck`. Images are illustrative sample-app views and are labeled on the page. The three `*-preview.png` thumbnails are browser captures of this page’s interactive examples. Typography consistently uses the locally hosted, preloaded Manrope variable font. Font licenses are included under `dist/assets/fonts/`.
 
 ## Hosting
 

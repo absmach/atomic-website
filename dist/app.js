@@ -27,6 +27,7 @@ document.querySelectorAll('[data-view]').forEach(button => button.addEventListen
   const view = views[button.dataset.view];
   const image = document.getElementById('product-image');
   image.src = view.src; image.alt = view.alt;
+  document.getElementById('window-view-label').textContent = button.dataset.view === 'builder' ? 'Builder preview' : 'Source explorer';
   document.getElementById('product-caption').textContent = view.caption;
   document.querySelectorAll('[data-view]').forEach(item => {
     item.classList.toggle('selected', item === button);
@@ -156,18 +157,16 @@ document.getElementById('reset-demo').addEventListener('click', () => {
   else setMilestone('design');
 });
 
-const ideaForm = document.getElementById('idea-form');
-const ideaInput = document.getElementById('idea');
 const emailDialog = document.getElementById('email-dialog');
 const emailDraft = document.getElementById('email-draft');
 const emailStatus = document.getElementById('email-status');
-ideaInput.addEventListener('input', () => ideaInput.setCustomValidity(''));
-ideaForm.addEventListener('submit', event => {
-  event.preventDefault();
-  const idea = ideaInput.value.trim();
+const heroIdea = document.getElementById('hero-idea');
+
+function prepareIdea(input) {
+  const idea = input.value.trim();
   if (!idea) {
-    ideaInput.setCustomValidity('Tell us a little about the app you want to build.');
-    ideaInput.reportValidity();
+    input.setCustomValidity('Tell us a little about the app you want to build.');
+    input.reportValidity();
     return;
   }
   const body = `Hi Atomic team,\n\nI’d like to ask about early access. Here’s what I want to build:\n\n${idea}\n\nPlease let me know when I can try Atomic.\n\nThank you!`;
@@ -175,7 +174,22 @@ ideaForm.addEventListener('submit', event => {
   document.getElementById('send-email').href = `mailto:info@absmach.eu?subject=${encodeURIComponent('Atomic early access')}&body=${encodeURIComponent(body)}`;
   emailStatus.textContent = 'Your message has not been sent.';
   emailDialog.showModal();
-});
+}
+for (const [formId, inputId] of [['hero-idea-form', 'hero-idea'], ['idea-form', 'idea']]) {
+  const form = document.getElementById(formId);
+  const input = document.getElementById(inputId);
+  input.addEventListener('input', () => input.setCustomValidity(''));
+  form.addEventListener('submit', event => { event.preventDefault(); prepareIdea(input); });
+  input.addEventListener('keydown', event => {
+    if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) { event.preventDefault(); form.requestSubmit(); }
+  });
+}
+document.querySelectorAll('[data-prompt]').forEach(button => button.addEventListener('click', () => {
+  heroIdea.value = button.dataset.prompt;
+  heroIdea.setCustomValidity('');
+  heroIdea.focus({preventScroll: true});
+  heroIdea.setSelectionRange(heroIdea.value.length, heroIdea.value.length);
+}));
 document.getElementById('close-dialog').addEventListener('click', () => emailDialog.close());
 emailDialog.addEventListener('click', event => {
   const box = emailDialog.getBoundingClientRect();
