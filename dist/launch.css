@@ -98,7 +98,9 @@ body { font-synthesis: none; }
 .window-mark i { width: 6px; height: 6px; border-radius: 50%; background: #ddd4e5; }
 .window-mark i:first-child { background: #c8b5dc; }
 .window-address { font-size: .5625rem; color: #a192ac; }
-.showcase-stage .product-figure>img { border: 0; border-radius: 0; }
+/* Both 2560 × 1640 product images have a redundant disclosure in the bottom 52px. */
+.product-image-viewport { aspect-ratio: 2560 / 1588; overflow: hidden; }
+.product-image-viewport>img { display: block; width: 100%; height: auto; border: 0; border-radius: 0; }
 .showcase-stage .product-figure figcaption { padding: 15px 19px; border-top: 1px solid #ece7f0; background: #fff; font-size: .6875rem; color: #887991; }
 .showcase-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 30px; }
 .showcase-notes p { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; color: #8a7699; font-size: .75rem; line-height: 1.8; }
