@@ -26,12 +26,12 @@ body { font-synthesis: none; }
 }
 .prompt-hero h1 {
   font-size: clamp(3rem, 5.25vw, 5rem); line-height: 1.12; letter-spacing: -.052em;
-  font-weight: 650; margin: 0 0 19px; text-wrap: balance;
+  font-weight: 650; margin: 0 0 28px; text-wrap: balance;
 }
 .prompt-hero h1 span { color: var(--violet); }
 .prompt-intro { max-width: 570px; font-size: 1.0625rem; line-height: 1.8; color: #716879; text-wrap: balance; }
 .prompt-composer {
-  width: min(100%, 860px); margin-top: 33px; padding: 22px 22px 17px;
+  width: min(100%, 860px); margin-top: 44px; padding: 22px 22px 17px;
   background: #fff; border: 1px solid #d8cfe8; border-radius: 18px;
   box-shadow: 0 20px 55px #68459014, 0 2px 7px #38254405;
   transition: border-color .2s, box-shadow .2s;
@@ -49,7 +49,7 @@ body { font-synthesis: none; }
 .composer-footer>span { display: flex; align-items: center; gap: 10px; color: #807386; font-size: .75rem; text-align: left; }
 .composer-footer img { flex-shrink: 0; }
 .composer-footer .button { min-height: 43px; padding: 10px 17px; border-radius: 9px; font-size: .8125rem; }
-.prompt-suggestions { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-top: 22px; }
+.prompt-suggestions { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-top: 28px; }
 .prompt-suggestions button {
   padding: 8px 15px; border: 1px solid #c9bbdc80; border-radius: 100px;
   background: #ffffff65; font-size: .75rem; color: #6f5e7d; min-height: 38px;
@@ -123,16 +123,16 @@ body { font-synthesis: none; }
   .header-row { height: 74px; }
   .prompt-hero::before { height: max(670px, calc(100svh - 74px)); }
   .prompt-opening { min-height: max(670px, calc(100svh - 74px)); padding-block: 44px 75px; }
-  .prompt-hero h1 { font-size: clamp(2.65rem, 9.8vw, 4rem); letter-spacing: -.045em; margin-block: 0 19px; }
+  .prompt-hero h1 { font-size: clamp(2.65rem, 9.8vw, 4rem); letter-spacing: -.045em; margin-block: 0 24px; }
   .prompt-hero h1 span { display: block; }
   .prompt-intro { font-size: .9375rem; max-width: 360px; line-height: 1.8; }
-  .prompt-composer { margin-top: 27px; padding: 15px; border-radius: 14px; }
+  .prompt-composer { margin-top: 32px; padding: 15px; border-radius: 14px; }
   .prompt-composer textarea { min-height: 100px; height: 100px; padding-inline: 2px; }
   .composer-footer { gap: 12px; }
   .composer-footer>span { font-size: 0; gap: 7px; }
   .composer-footer img { width: 23px; height: 23px; }
   .composer-footer .button { font-size: .8125rem; }
-  .prompt-suggestions { gap: 7px; margin-top: 19px; }
+  .prompt-suggestions { gap: 7px; margin-top: 22px; }
   .prompt-suggestions button { padding: 7px 11px; min-height: 36px; font-size: .75rem; }
   .prompt-launch-note { margin-top: 18px; max-width: 280px; font-size: .75rem; }
   .preview-strip { grid-template-columns: 1fr; gap: 30px; max-width: 470px; padding-top: 10px; padding-bottom: 54px; }
