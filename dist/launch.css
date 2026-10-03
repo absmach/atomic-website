@@ -163,10 +163,12 @@ body { font-synthesis: none; }
 
 /* Atom is the center of the app, with three readable service connections. */
 .foundation { padding-bottom: 104px; }
-.foundation-grid { align-items: center; gap: 90px; }
+.foundation .section-heading { margin-bottom: 0; }
+.foundation-grid { align-items: start; gap: 72px; margin-top: 32px; }
+.foundation-features { padding-top: 32px; }
 .atom-diagram {
   position: relative; display: block; height: 420px; padding: 0; border: 0;
-  border-radius: 0; margin-bottom: 30px; overflow: visible; isolation: isolate;
+  border-radius: 0; margin-bottom: 48px; overflow: visible; isolation: isolate;
   background: radial-gradient(ellipse at 50% 46%, #8252c33d, transparent 65%);
 }
 .atom-diagram::before { content: ''; position: absolute; z-index: -1; inset: 0; background-image: radial-gradient(#b5a0cb24 1px, transparent 1px); background-size: 18px 18px; mask-image: radial-gradient(ellipse, #000, transparent 72%); }
@@ -198,7 +200,9 @@ body { font-synthesis: none; }
 }
 @media (max-width: 700px) {
   .foundation { padding-bottom: 64px; }
-  .atom-diagram { height: 385px; margin-bottom: 32px; }
+  .foundation-grid { margin-top: 24px; gap: 40px; }
+  .foundation-features { padding-top: 0; }
+  .atom-diagram { height: 385px; margin-bottom: 48px; }
   .orbit-two { width: 280px; height: 280px; }
   .atom-diagram .diagram-core { width: 170px; height: 103px; }
   .atom-diagram .diagram-app { width: 260px; }
