@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#6254e8" />
+  <meta name="theme-color" content="#191329" />
   <title>Atomic — What if? Make it real.</title>
-  <meta name="description" content="Turn your idea into an app with Atomic. Describe it, shape it, and publish it—with a connected backend and source code you can keep. By Abstract Machines." />
+  <meta name="description" content="The AI app builder for founders and small businesses. Describe your idea, shape your app, and publish—with identity, data, and permissions powered by Atom." />
   <meta property="og:title" content="Atomic — What if? Make it real." />
-  <meta property="og:description" content="The AI app builder for your next big idea. Describe. Build. Publish." />
+  <meta property="og:description" content="Build the app your business needs. Describe it. Shape it. Publish it." />
   <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="assets/atomic.svg" />
   <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -16,76 +16,73 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="header wrap">
-    <a class="brand" href="#" aria-label="Atomic home"><img src="assets/atomic.svg" alt="" width="35" height="35" />atomic</a>
-    <nav class="desktop-nav" aria-label="Main navigation"><a href="#how-it-works">How it works</a><a href="#possibilities">What you can build</a><a href="#foundation">Why Atomic</a></nav>
-    <a class="button button-small button-dark" href="#early-access">Get early access</a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="#" aria-label="Atomic home"><img src="assets/atomic.svg" width="33" height="33" alt="" />atomic</a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="#examples">Explore</a><a href="#how-it-works">How it works</a><a href="#foundation">Why Atomic</a></nav>
+      <div class="header-actions"><a class="button button-small" href="#early-access">Get early access</a><button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button></div>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#examples">Explore</a><a href="#how-it-works">How it works</a><a href="#foundation">Why Atomic</a><a href="#early-access">Get early access</a></nav>
   </header>
-  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#how-it-works">How it works</a><a href="#possibilities">What you can build</a><a href="#foundation">Why Atomic</a><a href="#early-access">Get early access</a></nav>
   <main id="main">
-    <section class="hero wrap" aria-labelledby="hero-title">
-      <div class="eyebrow launch-label"><span class="spark">✳</span> YOUR NEXT CHAPTER STARTS HERE <span class="tag">Launching soon</span></div>
-      <h1 id="hero-title">What if?<br /><span>Make it real.</span></h1>
-      <p class="hero-copy">That idea you can’t stop thinking about?<br class="desktop-break" /> Turn it into an app. Just tell Atomic what you have in mind.</p>
-      <div class="hero-actions"><a class="button button-purple" href="#early-access">Let’s build something</a><a class="watch-link" href="#product"><span class="play-icon" aria-hidden="true">▶</span> Explore Atomic</a></div>
-      <p class="hero-note">For solo founders. Small businesses. Big what-ifs.</p>
-      <div class="hero-margin left-margin" aria-hidden="true">AN IDEA IS ALL IT TAKES.</div>
-      <div class="hero-margin right-margin" aria-hidden="true">DESCRIBE / BUILD / PUBLISH</div>
-    </section>
-
-    <section class="product-section" id="product" aria-label="Explore the Atomic builder">
-      <div class="product-glow" aria-hidden="true"></div>
-      <div class="product-shell wrap">
-        <div class="product-topline"><span><img src="assets/atomic.svg" alt="" width="22" height="22" /> YOUR IDEA, TAKING SHAPE.</span><div class="view-switch" role="group" aria-label="Product view"><button class="active" data-view="builder" aria-pressed="true">Build your app</button><button data-view="source" aria-pressed="false">See your code</button></div></div>
-        <div class="product-screen"><img id="product-image" src="assets/builder.png" width="2560" height="1640" fetchpriority="high" alt="Illustrative Atomic builder: a conversation creates a studio booking app with service selection and appointment times." /></div>
-        <div class="product-caption"><span id="product-caption">A conversation on the left. Your app coming to life on the right.</span><span>Illustrative product view · Sample app</span></div>
-      </div>
-    </section>
-
-    <div class="trust-strip wrap"><p>A big idea deserves a solid foundation.</p><span>Built by <a href="https://absmach.eu" target="_blank" rel="noopener noreferrer">Abstract Machines</a></span><span>Powered by <strong>Atom</strong>, our open-source backend</span></div>
-
-    <section class="section wrap" id="how-it-works">
-      <div class="section-heading"><div><p class="eyebrow">01 / FROM WHAT IF TO WHAT’S NEXT</p><h2>Less getting started.<br />More going places.</h2></div><p>You bring the idea. Atomic brings the pieces together, from the first prompt to the app you share.</p></div>
-      <div class="steps">
-        <article class="step"><span class="step-number">01</span><div class="step-mini prompt-mini"><span class="mini-label">YOU</span><p>“Build a booking app<br />for my studio.”</p><span class="prompt-cursor" aria-hidden="true"></span></div><h3>Say what you have in mind.</h3><p>Describe your idea in your own words. Start from a blank canvas or get a head start with a kit.</p></article>
-        <article class="step"><span class="step-number">02</span><div class="step-mini refine-mini"><div class="mini-lines"><i></i><i></i><i></i></div><span class="refine-bubble">“Make it a little more me.”</span></div><h3>Make it yours.</h3><p>Watch your app take shape. Try it in the preview, then ask for changes in the same conversation.</p></article>
-        <article class="step"><span class="step-number">03</span><div class="step-mini publish-mini"><span class="check-circle" aria-hidden="true">✓</span><div><strong>Ready for the world.</strong><span>Review. Publish. Share.</span></div></div><h3>Put it into the world.</h3><p>Review your build and publish a version. Keep improving your app as your business grows.</p></article>
-      </div>
-    </section>
-
-    <section class="possibilities section" id="possibilities">
-      <div class="wrap"><div class="section-heading"><div><p class="eyebrow">02 / START WITH SOMETHING THAT MATTERS</p><h2>Your business.<br />Your kind of app.</h2></div><p>A place to take bookings. A better way to serve customers. The first version of your next venture.</p></div>
-        <div class="idea-workspace">
-          <div class="idea-options" role="group" aria-label="Explore app ideas">
-            <button class="idea-option selected" data-idea="booking" aria-pressed="true"><span class="idea-icon" aria-hidden="true">▦</span><span><strong>Fill your calendar.</strong><small>Bookings & appointments</small></span><span class="idea-indicator" aria-hidden="true">+</span></button>
-            <button class="idea-option" data-idea="commerce" aria-pressed="false"><span class="idea-icon" aria-hidden="true">◇</span><span><strong>Open your own shop.</strong><small>Products & orders</small></span><span class="idea-indicator" aria-hidden="true">+</span></button>
-            <button class="idea-option" data-idea="portal" aria-pressed="false"><span class="idea-icon" aria-hidden="true">▤</span><span><strong>Bring clients closer.</strong><small>Portals & project spaces</small></span><span class="idea-indicator" aria-hidden="true">+</span></button>
-          </div>
-          <div class="idea-detail" aria-live="polite" aria-atomic="true"><span class="mini-label">IT COULD START WITH…</span><h3 id="idea-prompt">“Let my customers book a session, choose a service, and find a time that works.”</h3><div class="idea-features" id="idea-features"><span>Service selection</span><span>Appointment requests</span><span>Owner dashboard</span></div><div class="idea-bottom"><p id="idea-audience">For studios, coaches, and people who make time for others.</p><a id="idea-cta" href="#early-access" class="text-link">Make this your first app</a></div></div>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="launch-tag">Launching soon</span> BUILT FOR YOUR NEXT CHAPTER</p>
+          <h1 id="hero-title">What if?<br /><span>Make it real.</span></h1>
+          <p class="hero-description">The AI app builder for your business.<br />Describe your idea. Shape it into an app.<br />Make it something people use.</p>
+          <div class="hero-actions"><a class="button button-primary" href="#examples">Explore what’s possible</a><a class="understated-link" href="#early-access">Bring your own idea</a></div>
+          <div class="hero-signoff"><img src="assets/atomic.svg" width="22" height="22" alt="" /><span>From first-time founders<br />to the next big what-if.</span></div>
+        </div>
+        <div class="hero-product" aria-label="Example booking app overview">
+          <div class="mini-browser"><span class="mini-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>studio sessions / example app</span><span class="mini-browser-label">PREVIEW</span></div>
+          <div class="hero-app-header"><span class="studio-brand"><b>s.</b> studio sessions</span><span>Make time for a good idea.</span></div>
+          <div class="hero-app-content"><p class="app-eyebrow">YOUR NEXT CHAPTER, BOOKED.</p><h2>A little time.<br />A fresh perspective.</h2><div class="hero-appointment"><span class="appointment-number">01</span><div><strong>Design consultation</strong><span>45 minutes · Video call</span></div><span class="appointment-price">Let’s talk.</span></div><div class="hero-time-row"><span>MON <strong>10:00</strong></span><span class="chosen">TUE <strong>14:00</strong></span><span>THU <strong>11:00</strong></span></div><a href="#examples" class="hero-preview-button" data-open-demo="booking">Try this example</a><p class="hero-preview-note">Interactive demo below · Sample data</p></div>
+          <div class="hero-prompt"><img src="assets/atomic.svg" width="25" height="25" alt="" /><p>“Build a booking app for my studio.”<span>Every app starts with an idea like yours.</span></p></div>
         </div>
       </div>
+      <div class="container hero-footnote"><span>DESCRIBE / SHAPE / PUBLISH</span><span>By <a href="https://absmach.eu" target="_blank" rel="noopener noreferrer">Abstract Machines</a></span></div>
     </section>
 
-    <section class="foundation section" id="foundation"><div class="wrap">
-      <div class="section-heading"><div><p class="eyebrow">03 / MORE THAN A FIRST DRAFT</p><h2>Big ambitions.<br /><span>Solid foundations.</span></h2></div><p>An app needs more than a beautiful interface. Atomic connects the parts your business depends on.</p></div>
-      <div class="foundation-grid">
-        <article class="foundation-main"><div class="foundation-diagram" aria-label="Your app connects to Atom for identity, data, and permissions"><div class="diagram-app"><img src="assets/atomic.svg" width="24" height="24" alt="" /><span>Your app</span></div><div class="diagram-connector"></div><div class="diagram-atom">Atom <span>THE BACKEND</span></div><div class="diagram-branches"><span>Identity</span><span>Data</span><span>Permissions</span></div></div><div><h3>The foundation is already there.</h3><p>Login, business data, and access control come from Atom, our own open-source backend. A connected starting point for the app you want to build.</p></div></article>
-        <div class="foundation-side"><article><span class="feature-symbol" aria-hidden="true">✓</span><h3>Review before you release.</h3><p>Preview your app and review build checks before publishing. Go live with a version you’ve had a chance to try.</p></article><article><span class="feature-symbol code-symbol" aria-hidden="true">&lt;/&gt;</span><h3>Your code. In your hands.</h3><p>Browse your source, download it, and restore an earlier verified version. Keep a clear view of what you’re building.</p></article></div>
+    <section class="examples section" id="examples" aria-labelledby="examples-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">SMALL IDEA. REAL POSSIBILITIES.</p><h2 id="examples-title">Picture your business.<br />Now try the app.</h2></div><p>A booking, a shop, a place for your clients.<br />Explore a few ways your idea could take shape.</p></div>
+        <div class="example-tabs" role="group" aria-label="Choose an app example"><button data-demo="booking" aria-pressed="true" class="selected"><span>01</span> Studio bookings</button><button data-demo="shop" aria-pressed="false"><span>02</span> Independent shop</button><button data-demo="portal" aria-pressed="false"><span>03</span> Client portal</button></div>
+        <div class="demo-frame">
+          <div class="demo-toolbar"><span id="demo-title">STUDIO SESSIONS</span><span class="demo-label">Interactive example · Sample data</span><button id="reset-demo" type="button">Reset example</button></div>
+          <div class="demo-layout"><aside class="demo-brief"><p class="eyebrow">THE IDEA</p><h3 id="demo-prompt">“Let my clients pick a service and request a time that works for them.”</h3><div><p id="demo-description">Request a session as a customer. Switch to the studio owner to confirm it.</p><a href="#early-access" class="text-link">Make something like this</a></div></aside>
+          <div class="demo-stage">
+            <div id="booking-demo" class="demo-app">
+              <div class="sample-header"><span class="studio-brand"><b>s.</b> studio sessions</span><div class="sample-view" role="group" aria-label="Booking app role"><button data-role="customer" class="selected" aria-pressed="true">Customer</button><button data-role="owner" aria-pressed="false">Studio owner <span id="request-count">0</span></button></div></div>
+              <div id="customer-view" class="booking-body"><p class="app-eyebrow">A LITTLE TIME. A FRESH PERSPECTIVE.</p><h3>Make room for your next idea.</h3><p class="sample-intro">Choose a session and find your moment.</p><div class="booking-fields"><fieldset><legend>01 / Your session</legend><label class="service-choice"><input type="radio" name="service" value="Design consultation" checked /><span>Design consultation<small>45 minutes · Video call</small></span></label><label class="service-choice"><input type="radio" name="service" value="Portfolio review" /><span>Portfolio review<small>30 minutes · Video call</small></span></label></fieldset><fieldset><legend>02 / Your time <span>Sample availability</span></legend><div class="time-options"><button type="button" data-time="Monday, 10:00" class="selected" aria-pressed="true">Mon <strong>10:00</strong></button><button type="button" data-time="Tuesday, 14:00" aria-pressed="false">Tue <strong>14:00</strong></button><button type="button" data-time="Thursday, 11:00" aria-pressed="false">Thu <strong>11:00</strong></button></div><button class="sample-primary" id="request-booking">Request this session</button></fieldset></div></div>
+              <div id="owner-view" class="owner-body" hidden><p class="app-eyebrow">YOUR STUDIO, ORGANIZED.</p><h3>A little less admin.</h3><p class="sample-intro">Your appointment requests, in one place.</p><div id="owner-requests"><div class="empty-requests"><h4>Your next booking starts here.</h4><p>Switch to Customer and request a session to see it arrive.</p></div></div></div>
+              <div class="demo-feedback" id="booking-feedback" role="status">Try a request. No real appointment will be made.</div>
+            </div>
+            <div id="shop-demo" class="demo-app shop-app" hidden>
+              <div class="sample-header"><span class="shop-brand">FORM & FIELD<small>OBJECTS FOR EVERYDAY</small></span><span class="bag-label">Your bag <strong id="bag-count">0</strong></span></div>
+              <div class="shop-body"><p class="app-eyebrow">FEWER THINGS. BETTER CHOSEN.</p><h3>Everyday, a little more considered.</h3><p class="sample-intro">Explore the sample collection and build your bag.</p><div class="shop-products"><article><span class="product-index">01 / STATIONERY</span><h4>The daily notebook</h4><p>A fresh page for a good idea.</p><div><strong>€18</strong><button data-add="notebook">Add notebook</button></div></article><article><span class="product-index">02 / EVERYDAY</span><h4>The market tote</h4><p>For whatever the day brings.</p><div><strong>€24</strong><button data-add="tote">Add tote</button></div></article></div><div class="bag-summary"><div><span>Sample bag total</span><strong id="bag-total">€0</strong></div><button id="clear-bag" disabled>Clear bag</button></div></div><div class="demo-feedback" id="shop-feedback" role="status">Demo collection. No checkout or payment is connected.</div>
+            </div>
+            <div id="portal-demo" class="demo-app portal-app" hidden>
+              <div class="sample-header"><span class="portal-brand">common ground<small>YOUR PROJECT SPACE</small></span><span class="client-avatar" aria-label="Sample client Alex">A</span></div>
+              <div class="portal-body"><p class="app-eyebrow">GOOD WORK HAPPENS TOGETHER.</p><h3>A clear view of what comes next.</h3><div class="project-summary"><div><span>YOUR PROJECT</span><h4>A new identity for Juniper</h4></div><span class="project-status">In progress</span></div><div class="portal-columns"><div class="milestones" role="group" aria-label="Project milestones"><button data-milestone="discovery" aria-pressed="false"><span>✓</span>Discovery<small>Complete</small></button><button data-milestone="design" aria-pressed="true" class="selected"><span>02</span>Design direction<small>For review</small></button><button data-milestone="delivery" aria-pressed="false"><span>03</span>Final delivery<small>Up next</small></button></div><div class="milestone-detail" aria-live="polite"><span id="milestone-label">02 / DESIGN DIRECTION</span><h4 id="milestone-title">Your first look.</h4><p id="milestone-copy">The initial identity is ready for your feedback. Review the direction together before moving into the final details.</p></div></div></div><div class="demo-feedback">Sample client project. Select a milestone to explore.</div>
+            </div>
+          </div></div>
+        </div>
+        <noscript><p class="noscript-note">Enable JavaScript to try the examples. You can still explore the product below and email us about early access.</p></noscript>
       </div>
-      <div class="foundation-footer"><span>Built in Europe. By Abstract Machines.</span><p>Open foundations. An ambitious future.</p></div>
-    </div></section>
+    </section>
 
-    <section class="faq section wrap" id="questions"><div><p class="eyebrow">A FEW THINGS YOU MIGHT WONDER</p><h2>Good questions.<br />Straight answers.</h2></div><div class="faq-list">
-      <details><summary>Do I need to know how to code?<span aria-hidden="true">+</span></summary><p>You can start by describing your idea in plain language. Atomic generates the app, and you refine it through conversation. You can also inspect and download the source when you want to look under the hood.</p></details>
-      <details><summary>What can I build with Atomic?<span aria-hidden="true">+</span></summary><p>Atomic builds web applications. Start with something focused: a booking app for a studio, a product catalog, or a client portal. Describe the workflow you need and refine it in the preview.</p></details>
-      <details><summary>What’s included behind the interface?<span aria-hidden="true">+</span></summary><p>Atom supplies identity, business data, and permissions. Atomic brings generation, previews, source history, and frontend publishing together in the builder. The features your app needs still need to be configured and reviewed.</p></details>
-      <details><summary>Can I take my code with me?<span aria-hidden="true">+</span></summary><p>Yes. You can browse and download your generated source. Source downloads don’t include your app’s users, business data, or hosting infrastructure. Broader app packaging and deployment choices are part of our roadmap.</p></details>
-      <details><summary>When can I try it, and what will it cost?<span aria-hidden="true">+</span></summary><p>We’re preparing for launch. Get in touch about early access and tell us what you’d like to build. We’ll share availability and final plan details as the launch approaches.</p></details>
-    </div></section>
+    <section class="workflow section" id="how-it-works"><div class="container"><div class="section-heading"><div><p class="eyebrow">THE DISTANCE FROM IDEA TO APP? SMALLER.</p><h2>Say it. Shape it.<br />Send it into the world.</h2></div><p>One workspace for the whole journey.<br />Keep the conversation going as your idea grows.</p></div><ol class="workflow-steps"><li><span>01 / DESCRIBE</span><h3>Start with your words.</h3><p>Describe the app you need, or begin with a starter kit. Give Atomic something to work with.</p></li><li><span>02 / SHAPE</span><h3>Make it feel like you.</h3><p>Try the preview. Ask for changes. Review the build checks and refine the details.</p></li><li><span>03 / PUBLISH</span><h3>Give it to your customers.</h3><p>Publish a reviewed version and share it. Keep improving from the same workspace.</p></li></ol></div></section>
 
-    <section class="closing" id="early-access"><div class="wrap closing-inner"><div class="eyebrow"><span class="spark" aria-hidden="true">✳</span> EVERY BUSINESS STARTS WITH A WHAT IF.</div><h2>Yours could<br />start here.</h2><p>Bring the idea. Let’s make something real.</p><a class="button button-light" id="access-link" href="https://absmach.eu" target="_blank" rel="noopener noreferrer">Talk to us about early access</a><span class="closing-note" id="access-note">Connect with the team at Abstract Machines.</span><img class="closing-atom" src="assets/atomic.svg" alt="" width="500" height="500" loading="lazy" /></div></section>
+    <section class="builder-section section" id="product"><div class="container"><div class="section-heading"><div><p class="eyebrow">MEET YOUR NEW WORKSPACE</p><h2>Your vision, taking shape.</h2></div><div class="view-switch" role="group" aria-label="Product view"><button class="selected" data-view="builder" aria-pressed="true">The builder</button><button data-view="source" aria-pressed="false">Your source code</button></div></div><figure class="product-figure"><img id="product-image" src="assets/builder.png" width="2560" height="1640" loading="lazy" alt="Illustrative Atomic builder with a conversation and studio booking app preview." /><figcaption><span id="product-caption">A conversation on the left. Your app coming to life on the right.</span><span>Illustrative product view · Sample app</span></figcaption></figure></div></section>
+
+    <section class="foundation section" id="foundation"><div class="container"><div class="section-heading"><div><p class="eyebrow">AMBITION MEETS A FOUNDATION</p><h2>Built to be yours.<br /><span>From the ground up.</span></h2></div><p>Your app needs more than an interface.<br />Atomic connects it to identity, data, and permissions powered by Atom.</p></div><div class="foundation-grid"><article class="atom-card"><div class="atom-diagram" aria-label="Your app connects to Atom for identity, data, and permissions"><span class="diagram-app"><img src="assets/atomic.svg" width="22" height="22" alt="" />Your app</span><span class="diagram-wire"></span><span class="diagram-core">Atom<small>OPEN-SOURCE BACKEND</small></span><div class="diagram-leaves"><span>Identity</span><span>Data</span><span>Permissions</span></div></div><h3>Our backend. Open source.</h3><p>Atom is maintained by Abstract Machines, the team behind Atomic. Its source is open, so you can inspect the foundation your app depends on.</p></article><div class="foundation-features"><article><span class="feature-marker">01 / VISIBILITY</span><h3>Your code, in your hands.</h3><p>Browse and download the generated source. See what was built and keep a copy of your work.</p></article><article><span class="feature-marker">02 / CONTROL</span><h3>A version to come back to.</h3><p>Restore an earlier verified source version or roll back a published frontend release. Your app’s business data stays separate.</p></article></div></div><div class="foundation-note"><span>Built in Europe by Abstract Machines.</span><span>Open foundations. Room to grow.</span></div></div></section>
+
+    <section class="faq-section section" id="faq"><div class="container faq-layout"><div><p class="eyebrow">BEFORE YOUR FIRST WHAT IF</p><h2>Good questions.<br />Straight answers.</h2></div><div class="faq-list"><details><summary>Do I need to know how to code?</summary><p>No coding experience is needed to start describing your idea. Refine the generated app through conversation, then review and test it before publishing. You can inspect the source whenever you want.</p></details><details><summary>Are the examples on this page live apps?</summary><p>They are interactive demonstrations using sample data. Booking requests, shopping bags, and project views stay in this page and reset when you reload. They show possible workflows; they do not create an app or contact a real business.</p></details><details><summary>What makes Atomic different?</summary><p>Atomic uses Atom, the open-source backend maintained by the same team. It brings identity, data, and permissions together underneath generated apps, alongside verified source history, previews, and frontend publishing.</p></details><details><summary>Can I take my code with me?</summary><p>Yes. You can browse and download generated source. Downloads don’t include users, business data, or hosting infrastructure. Broader app packaging and deployment choices are on our roadmap.</p></details><details><summary>When can I try it, and what will it cost?</summary><p>We’re preparing for launch. Email us about your idea to ask about early access. We’ll share availability and final plan details as launch approaches.</p></details></div></div></section>
+
+    <section class="closing" id="early-access"><div class="container closing-layout"><div><p class="eyebrow">EVERY BUSINESS STARTS WITH A WHAT IF</p><h2>What’s yours?</h2><p>A useful little app. A whole new business.<br />Tell us what you want to make real.</p><a class="email-address" href="mailto:info@absmach.eu">info@absmach.eu</a></div><form id="idea-form" class="idea-form" action="mailto:info@absmach.eu?subject=Atomic%20early%20access" method="post" enctype="text/plain"><label for="idea">What would you like to build?</label><textarea id="idea" name="idea" rows="4" maxlength="1200" required placeholder="A booking app for my studio, where clients can choose a service and request a time…" aria-describedby="idea-note"></textarea><button class="button button-light" type="submit">Prepare my early-access email</button><p id="idea-note">We’ll prepare a draft for your email app. Nothing is sent automatically.</p><noscript><p><a href="mailto:info@absmach.eu?subject=Atomic%20early%20access">Email us directly about early access</a></p></noscript></form></div></section>
   </main>
-  <footer class="footer wrap"><div><a class="brand" href="#" aria-label="Atomic home"><img src="assets/atomic.svg" alt="" width="32" height="32" />atomic</a><p>Describe it. Build it. Make it real.</p></div><div class="footer-right"><a href="https://absmach.eu" target="_blank" rel="noopener noreferrer">An Abstract Machines product</a><span>© <span id="year">2026</span> Abstract Machines</span></div></footer>
+  <footer class="site-footer"><div class="container footer-row"><div><a class="brand" href="#" aria-label="Atomic home"><img src="assets/atomic.svg" width="29" height="29" alt="" />atomic</a><p>Describe it. Shape it. Make it real.</p></div><nav aria-label="Footer"><a href="#examples">Explore</a><a href="#faq">Questions</a><a href="https://absmach.eu" target="_blank" rel="noopener noreferrer">Abstract Machines</a></nav><span>© <span id="year">2026</span> Abstract Machines</span></div></footer>
+  <dialog id="email-dialog" aria-labelledby="email-dialog-title"><button id="close-dialog" class="dialog-close" type="button" aria-label="Close email draft">×</button><p class="eyebrow">YOUR NEXT CHAPTER</p><h2 id="email-dialog-title">Your idea is ready to share.</h2><p>Open your email app to send this to the Atomic team. You can review everything before sending.</p><div class="draft-address"><span>TO</span> info@absmach.eu</div><pre id="email-draft"></pre><div class="dialog-actions"><a id="send-email" class="button button-primary" href="mailto:info@absmach.eu">Open email app</a><button id="copy-email" class="button button-secondary" type="button">Copy message</button></div><p id="email-status" role="status">Your message has not been sent.</p></dialog>
 </body>
 </html>

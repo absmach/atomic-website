@@ -1,17 +1,28 @@
 # Atomic launch website
 
-A responsive, dependency-free marketing site based on the Atomic application and October 2026 launch deck. The site is in `dist/`; it can be served by any static host.
+A responsive, dependency-free marketing site built from the Atomic app and launch plans. The project lives at the repository root; static hosting serves `dist/`.
 
 ## Preview
 
-From this directory run `python3 -m http.server 4173 --directory dist`, then open http://localhost:4173.
+Run `python3 -m http.server 4173 --bind 127.0.0.1 --directory dist`, then open http://localhost:4173.
 
-## Content and launch configuration
+## Page and interactions
 
-- Edit `dist/index.html` for copy and the primary early-access destination (`#access-link`). The default destination is the existing Abstract Machines website; there is no signup service or email collection attached.
-- Edit `dist/styles.css` for the visual design, and `dist/app.js` for product-view and use-case switches.
-- Final pricing and launch date are intentionally not published. Planned app packaging and deployment choice are identified as roadmap items in the FAQ.
-- Product images are the illustrative sample-app assets from `~/ideas/vc/atomic/pitch-deck`, not customer screenshots. They are labeled on the site.
-- Local fonts and their licenses are included in `dist/assets/fonts/`. The Atomic mark comes from the same pitch deck.
+- `dist/index.html`: page copy, examples, metadata, and native email-draft dialog.
+- `dist/styles.css`: complete visual system and responsive layouts.
+- `dist/app.js`: mobile navigation, product image switch, booking/shop/portal demos, and early-access email preparation.
+- `dist/assets/`: local brand mark, product images, fonts, and font licenses.
 
-There are no tracking scripts, external font requests, forms, or runtime dependencies. `.openai/hosting.json`, when present, contains the Sites publishing identity.
+The booking example supports requesting a session, reviewing it as the studio owner, confirming, updating, and resetting. The shop supports adding sample items and clearing the bag. The portal switches project milestones. All example state is in memory and resets on reload; nothing is booked, purchased, or sent to a server.
+
+The early-access form validates an idea and opens a review dialog. The visitor can open a prefilled email addressed to `info@absmach.eu`, or copy the draft. It does not collect a signup or send email automatically. The address was verified on https://www.absmach.eu/. Replace this workflow with the production signup URL or an approved signup service when available.
+
+## Content boundaries
+
+Final pricing and launch date remain unannounced. Complete app packaging and deployment choice remain roadmap items. Source export does not include users, business data, or hosting; frontend rollback does not restore business data. Do not represent the interactive examples or supplied product images as live customer results.
+
+Product images and the Atomic mark come from `~/ideas/vc/atomic/pitch-deck`. Images are illustrative sample-app views and are labeled on the page. Font licenses are included under `dist/assets/fonts/`.
+
+## Hosting
+
+`.openai/hosting.json` retains the existing Sites identity and uses `dist` as the public directory. No build step or package installation is required. The site has no external fonts, analytics, or runtime dependencies.
