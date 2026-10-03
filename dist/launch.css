@@ -21,20 +21,14 @@ body { font-synthesis: none; }
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding-block: 68px 110px; text-align: center;
 }
-.launch-tag {
-  display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px;
-  border: 1px solid #dcd3e8; border-radius: 100px; background: #ffffff80;
-  color: #695580; font-size: .75rem; line-height: 1.7; font-weight: 650;
-}
-.launch-tag::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #8360d8; }
 .prompt-hero h1 {
   font-size: clamp(3rem, 5.25vw, 5rem); line-height: 1.12; letter-spacing: -.052em;
-  font-weight: 650; margin: 22px 0 19px; text-wrap: balance;
+  font-weight: 650; margin: 0 0 19px; text-wrap: balance;
 }
 .prompt-hero h1 span { color: var(--violet); }
 .prompt-intro { max-width: 570px; font-size: 1.0625rem; line-height: 1.8; color: #716879; text-wrap: balance; }
 .prompt-composer {
-  width: min(100%, 780px); margin-top: 33px; padding: 22px 22px 17px;
+  width: min(100%, 860px); margin-top: 33px; padding: 22px 22px 17px;
   background: #fff; border: 1px solid #d8cfe8; border-radius: 18px;
   box-shadow: 0 20px 55px #68459014, 0 2px 7px #38254405;
   transition: border-color .2s, box-shadow .2s;
@@ -124,7 +118,7 @@ body { font-synthesis: none; }
   .header-row { height: 74px; }
   .prompt-hero::before { height: max(670px, calc(100svh - 74px)); }
   .prompt-opening { min-height: max(670px, calc(100svh - 74px)); padding-block: 44px 75px; }
-  .prompt-hero h1 { font-size: clamp(2.65rem, 9.8vw, 4rem); letter-spacing: -.045em; margin-block: 22px 19px; }
+  .prompt-hero h1 { font-size: clamp(2.65rem, 9.8vw, 4rem); letter-spacing: -.045em; margin-block: 0 19px; }
   .prompt-hero h1 span { display: block; }
   .prompt-intro { font-size: .9375rem; max-width: 360px; line-height: 1.8; }
   .prompt-composer { margin-top: 27px; padding: 15px; border-radius: 14px; }
