@@ -1,5 +1,6 @@
 /* The launch starts with an idea. Keep the composer at the center. */
 body { font-synthesis: none; }
+.skip-link:not(:focus) { clip-path: inset(50%); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .site-header { border-bottom: 0; }
 .header-row { height: 80px; }
@@ -33,7 +34,7 @@ body { font-synthesis: none; }
 .prompt-hero h1 span { color: var(--violet); }
 .prompt-intro { max-width: 570px; font-size: 1.0625rem; line-height: 1.8; color: #716879; text-wrap: balance; }
 .prompt-composer {
-  width: min(100%, 680px); margin-top: 33px; padding: 19px 19px 15px;
+  width: min(100%, 780px); margin-top: 33px; padding: 22px 22px 17px;
   background: #fff; border: 1px solid #d8cfe8; border-radius: 18px;
   box-shadow: 0 20px 55px #68459014, 0 2px 7px #38254405;
   transition: border-color .2s, box-shadow .2s;
@@ -45,7 +46,8 @@ body { font-synthesis: none; }
   background: #fff; color: var(--ink); font-size: 1rem; line-height: 1.7;
 }
 .prompt-composer textarea::placeholder { color: #928898; opacity: 1; }
-.prompt-composer textarea:focus-visible { outline: 2px solid #d8c9f4; outline-offset: 3px; }
+.prompt-composer textarea:focus, .prompt-composer textarea:focus-visible { outline: none; box-shadow: none; }
+.prompt-composer:has(textarea:focus-visible) { border-color: #9475d2; box-shadow: 0 20px 55px #6845901c, 0 0 0 3px #a38bd826; }
 .composer-footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 10px; }
 .composer-footer>span { display: flex; align-items: center; gap: 10px; color: #807386; font-size: .75rem; text-align: left; }
 .composer-footer img { flex-shrink: 0; }
@@ -59,44 +61,59 @@ body { font-synthesis: none; }
 .prompt-suggestions button:hover { background: #fff; border-color: #a991c8; }
 .prompt-launch-note { margin-top: 20px; max-width: 470px; font-size: .75rem; color: #7d6d89; line-height: 1.7; }
 
-/* Sample apps sit below the opening screen and lead into working demos. */
-.preview-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 25px; padding: 14px 0 64px; }
+/* Each example is presented as a small, distinct product. */
+.idea-animation-toggle { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; padding: 6px; background: transparent; color: #9582a5; border-radius: 50%; }
+.idea-animation-toggle:hover { color: var(--violet); background: #f3edf9; }
+.idea-animation-toggle svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.idea-animation-toggle .play-icon, .idea-animation-toggle[data-paused=true] .pause-icon { display: none; }
+.idea-animation-toggle[data-paused=true] .play-icon { display: block; }
+.preview-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 25px; padding: 14px 0 72px; }
 .preview-tile { display: block; min-width: 0; }
-.preview-image { position: relative; height: 220px; overflow: hidden; border-radius: 12px; border: 1px solid #e1d9e7; padding: 27px 24px 0; background: #e8dff0; }
-.preview-image img { width: 100%; height: auto; border-radius: 6px 6px 0 0; box-shadow: 0 10px 24px #36233c16; transition: transform .3s; }
-.preview-shop .preview-image { background: #e5ebd9; border-color: #dce2d2; }
-.preview-portal .preview-image { background: #dee8ee; border-color: #d5e1e7; }
-.preview-tile:hover .preview-image img { transform: translateY(-5px); }
-.preview-tile>span { display: block; padding: 18px 2px 0; }
+.preview-image { position: relative; height: 320px; overflow: hidden; border-radius: 15px; border: 1px solid #d9cbe5; padding: 29px 27px 0; background: radial-gradient(ellipse at 100% 100%, #d3b7ed, transparent 75%), #eae0f3; }
+.preview-art-title { position: relative; z-index: 1; margin-bottom: 25px; }
+.preview-art-title>span { font-size: .625rem; font-weight: 750; letter-spacing: .13em; color: #836a93; }
+.preview-art-title h3 { font-size: clamp(1.3rem, 2vw, 1.7rem); margin-top: 9px; color: #44324e; letter-spacing: -.04em; }
+.preview-image img { width: 112%; max-width: none; height: auto; border: 5px solid #ffffffa6; border-radius: 10px; box-shadow: 0 18px 35px #36233c24; transform: rotate(-3deg) translate(1px, 4px); transform-origin: 50% 0; transition: transform .45s cubic-bezier(.2,.7,.3,1); }
+.preview-shop .preview-image { background: radial-gradient(ellipse at 0 100%, #a9c18f, transparent 75%), #e4ecd9; border-color: #d3dfc7; }
+.preview-shop .preview-art-title>span { color: #71825d; }
+.preview-shop .preview-art-title h3 { color: #354b35; }
+.preview-shop .preview-image img { transform: rotate(3deg) translate(-9px, 5px); }
+.preview-portal .preview-image { background: radial-gradient(ellipse at 100% 100%, #9dbecf, transparent 75%), #deebf1; border-color: #cbdfe8; }
+.preview-portal .preview-art-title>span { color: #66818f; }
+.preview-portal .preview-art-title h3 { color: #2f4b5a; }
+.preview-portal .preview-image img { transform: rotate(-3deg) translate(1px, 4px); }
+.preview-tile:hover .preview-image img, .preview-tile:focus-visible .preview-image img { transform: rotate(0) translate(-4px, -3px); }
+.preview-tile>span { display: block; padding: 19px 2px 0; }
 .preview-tile strong { display: block; font-size: .9375rem; font-weight: 650; letter-spacing: -.025em; }
 .preview-tile small { display: block; margin-top: 4px; color: #8a7f91; font-size: .75rem; }
 .preview-tile:hover strong { color: var(--violet); }
 
-/* Give the workspace a composed studio setting, preserving the product image. */
-.builder-section { background: #f5f2f8; }
-.showcase-stage {
-  padding: 30px 42px 35px; border: 1px solid #473954; border-radius: 17px;
-  background: radial-gradient(ellipse at 76% 5%, #694e8a70, transparent 70%), #2a2038;
-  box-shadow: 0 26px 55px #2e1b4910;
-}
-.showcase-stage-label { display: flex; justify-content: space-between; gap: 25px; color: #c1adcf; font-size: .625rem; letter-spacing: .12em; font-weight: 700; margin-bottom: 24px; }
-.showcase-stage-label>span:last-child { color: #a18ab6; }
-.showcase-stage .product-figure { padding: 0; border: 1px solid #ad96c055; border-radius: 9px; background: #fff; overflow: hidden; box-shadow: 0 24px 60px #150a2755; }
-.product-window-bar { min-height: 44px; padding: 10px 17px; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: #f9f7fb; border-bottom: 1px solid #e6e0ed; font-size: .6875rem; color: #8c7d96; }
-.window-mark { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; color: #665271; }
+/* A light, layered workspace scene with the actual product at its center. */
+.builder-section { background: #f8f6fb; }
+.showcase-stage { position: relative; isolation: isolate; padding: 34px 48px 30px; border: 1px solid #e6ddf0; border-radius: 20px; background: radial-gradient(ellipse at 5% 40%, #d9c7f2 0, transparent 60%), radial-gradient(ellipse at 100% 90%, #d6d1fb, transparent 60%), #eee7f7; }
+.showcase-stage::before { content: ''; position: absolute; z-index: -1; inset: 100px 43px 125px; border: 1px solid #ffffffc9; border-radius: 15px; background: #ffffff47; transform: rotate(-3deg); }
+.showcase-stage-label { display: flex; justify-content: space-between; gap: 25px; color: #9984af; font-size: .625rem; letter-spacing: .12em; font-weight: 700; margin-bottom: 30px; }
+.showcase-kicker { display: flex; align-items: center; gap: 8px; color: #765994; }
+.showcase-kicker i { width: 5px; height: 5px; border-radius: 50%; background: #9672c4; }
+.showcase-stage .product-figure { padding: 0; border: 1px solid #d8cde5; border-radius: 11px; background: #fff; overflow: hidden; box-shadow: 0 28px 50px -12px #59317e30, 0 2px 8px #5432670a; }
+.product-window-bar { min-height: 41px; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: #faf9fc; border-bottom: 1px solid #e6e0ed; font-size: .625rem; color: #92839e; }
+.window-mark { display: inline-flex; gap: 5px; }
+.window-mark i { width: 6px; height: 6px; border-radius: 50%; background: #ddd4e5; }
+.window-mark i:first-child { background: #c8b5dc; }
+.window-address { font-size: .5625rem; color: #a192ac; }
 .showcase-stage .product-figure>img { border: 0; border-radius: 0; }
-.showcase-stage .product-figure figcaption { padding: 14px 19px; border-top: 1px solid #ece7f0; background: #fbfafc; font-size: .6875rem; color: #887991; }
+.showcase-stage .product-figure figcaption { padding: 15px 19px; border-top: 1px solid #ece7f0; background: #fff; font-size: .6875rem; color: #887991; }
 .showcase-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 30px; }
-.showcase-notes p { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; color: #b9a7c8; font-size: .75rem; line-height: 1.8; }
-.showcase-notes p>span { grid-row: span 2; padding-top: 2px; color: #9b7cbb; font-size: .6875rem; }
-.showcase-notes strong { display: block; color: #f3eafb; font-weight: 600; font-size: .8125rem; margin-bottom: 4px; }
+.showcase-notes p { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; color: #8a7699; font-size: .75rem; line-height: 1.8; }
+.showcase-notes p>span { grid-row: span 2; padding-top: 2px; color: #ae95c1; font-size: .6875rem; }
+.showcase-notes strong { display: block; color: #624672; font-weight: 650; font-size: .8125rem; margin-bottom: 4px; }
 .foundation h2, .foundation h2>span { font-family: var(--heading); font-weight: 650; letter-spacing: -.035em; line-height: 1.15; }
 .section-heading h2, .faq-layout h2 { letter-spacing: -.035em; }
 
 @media (max-width: 950px) {
   .prompt-hero h1 { font-size: clamp(3rem, 6.5vw, 4.5rem); }
   .preview-strip { gap: 18px; }
-  .preview-image { height: 165px; padding: 20px 16px 0; }
+  .preview-image { height: 260px; padding: 22px 18px 0; }
   .preview-tile strong { font-size: .8125rem; }
   .showcase-stage { padding: 26px; }
   .showcase-notes { gap: 20px; }
@@ -113,14 +130,15 @@ body { font-synthesis: none; }
   .prompt-composer { margin-top: 27px; padding: 15px; border-radius: 14px; }
   .prompt-composer textarea { min-height: 100px; height: 100px; padding-inline: 2px; }
   .composer-footer { gap: 12px; }
-  .composer-footer>span { font-size: 0; gap: 0; }
+  .composer-footer>span { font-size: 0; gap: 7px; }
   .composer-footer img { width: 23px; height: 23px; }
   .composer-footer .button { font-size: .8125rem; }
   .prompt-suggestions { gap: 7px; margin-top: 19px; }
   .prompt-suggestions button { padding: 7px 11px; min-height: 36px; font-size: .75rem; }
   .prompt-launch-note { margin-top: 18px; max-width: 280px; font-size: .75rem; }
   .preview-strip { grid-template-columns: 1fr; gap: 30px; max-width: 470px; padding-top: 10px; padding-bottom: 54px; }
-  .preview-image { height: auto; aspect-ratio: 1.85; padding: 24px 25px 0; }
+  .preview-image { height: 310px; padding: 26px 25px 0; }
+  .preview-art-title h3 { font-size: 1.6rem; }
   .preview-tile>span { padding-top: 13px; }
   .preview-tile strong { font-size: .9375rem; }
   .showcase-stage { padding: 20px 12px 24px; border-radius: 12px; }
@@ -144,4 +162,51 @@ body { font-synthesis: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .preview-image img, .prompt-composer, .prompt-suggestions button { transition: none; }
+}
+
+/* Atom is the center of the app, with three readable service connections. */
+.foundation { padding-bottom: 104px; }
+.foundation-grid { align-items: center; gap: 90px; }
+.atom-diagram {
+  position: relative; display: block; height: 420px; padding: 0; border: 0;
+  border-radius: 0; margin-bottom: 30px; overflow: visible; isolation: isolate;
+  background: radial-gradient(ellipse at 50% 46%, #8252c33d, transparent 65%);
+}
+.atom-diagram::before { content: ''; position: absolute; z-index: -1; inset: 0; background-image: radial-gradient(#b5a0cb24 1px, transparent 1px); background-size: 18px 18px; mask-image: radial-gradient(ellipse, #000, transparent 72%); }
+.atom-orbit { position: absolute; z-index: -1; top: 46%; left: 50%; width: 248px; height: 248px; border: 1px solid #aa89db18; border-radius: 50%; transform: translate(-50%, -50%); }
+.orbit-two { width: 340px; height: 340px; border-color: #aa89db0d; }
+.atom-connections { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.atom-diagram .diagram-app { position: absolute; top: 8%; left: 50%; transform: translateX(-50%); width: 280px; max-width: 85%; min-width: 0; min-height: 65px; gap: 13px; padding: 13px 18px; border: 1px solid #79638b; border-radius: 11px; background: linear-gradient(130deg, #40334f, #30263d); box-shadow: 0 7px 25px #140c211c; color: #eee5f8; font-size: .875rem; }
+.diagram-app>span:last-child { text-align: left; font-weight: 600; line-height: 1.5; }
+.diagram-app small { display: block; font-size: .625rem; font-weight: 400; color: #ad97bf; margin-top: 3px; }
+.diagram-app-icon { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; padding: 7px; border: 1px solid #9e81bd5c; border-radius: 7px; width: 32px; height: 32px; flex-shrink: 0; background: #b590e518; }
+.diagram-app-icon i { background: #bda0dd; border-radius: 2px; }
+.diagram-app-icon i:last-child { opacity: .4; }
+.atom-diagram .diagram-core { position: absolute; top: 46%; left: 50%; transform: translate(-50%, -50%); width: 196px; height: 109px; display: flex; flex-direction: row; flex-wrap: wrap; gap: 0 10px; align-content: center; padding: 20px 14px; border: 1px solid #ba95ef99; border-radius: 18px; background: linear-gradient(135deg, #7552a1, #4c326e); box-shadow: 0 0 0 6px #a078d40c, 0 0 45px #a67bec28, inset 0 1px 0 #ffffff26; }
+.diagram-core img { filter: brightness(1.9) saturate(.35); }
+.diagram-core strong { font-size: 1.9rem; font-weight: 600; letter-spacing: -.035em; }
+.atom-diagram .diagram-core small { width: 100%; text-align: center; font-size: .5625rem; letter-spacing: .12em; color: #d5bfe8; margin-top: 12px; }
+.atom-diagram .diagram-leaves { position: absolute; top: 79%; left: 0; display: flex; justify-content: space-between; gap: 12px; padding: 0; }
+.atom-diagram .diagram-leaves::before, .atom-diagram .diagram-leaves::after, .atom-diagram .diagram-leaves span::before { display: none; }
+.atom-diagram .diagram-leaves span { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; width: 29%; max-width: none; min-height: 88px; padding: 12px 5px; border: 1px solid #7459878c; border-radius: 10px; background: linear-gradient(150deg, #382b45, #2b2137); box-shadow: 0 8px 20px #150b211a; }
+.diagram-leaves svg { width: 20px; height: 20px; margin-bottom: 3px; fill: none; stroke: #b594d5; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.diagram-leaves strong { color: #e4d4f0; font-size: .75rem; font-weight: 600; line-height: 1.5; }
+.diagram-leaves small { color: #a38bae; font-size: .625rem; line-height: 1.5; }
+@media (max-width: 950px) {
+  .foundation-grid { gap: 45px; }
+  .atom-diagram { height: 390px; }
+  .atom-diagram .diagram-app { padding-inline: 12px; }
+  .atom-diagram .diagram-leaves { gap: 7px; }
+  .diagram-leaves small { font-size: .5625rem; }
+}
+@media (max-width: 700px) {
+  .foundation { padding-bottom: 64px; }
+  .atom-diagram { height: 385px; margin-bottom: 32px; }
+  .orbit-two { width: 280px; height: 280px; }
+  .atom-diagram .diagram-core { width: 170px; height: 103px; }
+  .atom-diagram .diagram-app { width: 260px; }
+  .diagram-app small { font-size: .5625rem; }
+  .diagram-leaves small { font-size: .5625rem; }
+  .showcase-stage::before { inset: 70px 15px 250px; transform: rotate(-2deg); }
+  .window-address { display: none; }
 }

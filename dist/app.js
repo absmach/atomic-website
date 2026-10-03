@@ -162,6 +162,55 @@ const emailDraft = document.getElementById('email-draft');
 const emailStatus = document.getElementById('email-status');
 const heroIdea = document.getElementById('hero-idea');
 
+// Animate inspiration only in an empty, unfocused field. Never change an idea.
+const ideaMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const ideaToggle = document.getElementById('toggle-ideas');
+const defaultPlaceholder = heroIdea.placeholder;
+const exampleIdeas = [
+  'Build a booking app for my studio…',
+  'Build an online shop for my small brand…',
+  'Build a client portal for my next project…'
+];
+let ideaTimer;
+let ideaIndex = 0;
+let ideasPaused = false;
+function canAnimateIdeas() {
+  return !ideasPaused && !ideaMotion.matches && !document.hidden && !heroIdea.value && document.activeElement !== heroIdea;
+}
+function animateNextIdea() {
+  if (!canAnimateIdeas()) return;
+  const phrase = exampleIdeas[ideaIndex];
+  let length = 0;
+  function typeCharacter() {
+    if (!canAnimateIdeas()) return;
+    heroIdea.placeholder = phrase.slice(0, ++length);
+    if (length < phrase.length) ideaTimer = setTimeout(typeCharacter, 38);
+    else {
+      ideaIndex = (ideaIndex + 1) % exampleIdeas.length;
+      ideaTimer = setTimeout(animateNextIdea, 2700);
+    }
+  }
+  typeCharacter();
+}
+function syncIdeaAnimation() {
+  clearTimeout(ideaTimer);
+  heroIdea.placeholder = defaultPlaceholder;
+  ideaToggle.hidden = ideaMotion.matches;
+  if (canAnimateIdeas()) ideaTimer = setTimeout(animateNextIdea, 900);
+}
+ideaToggle.addEventListener('click', () => {
+  ideasPaused = !ideasPaused;
+  ideaToggle.dataset.paused = String(ideasPaused);
+  const label = ideasPaused ? 'Play example ideas' : 'Pause example ideas';
+  ideaToggle.setAttribute('aria-label', label);
+  ideaToggle.title = label;
+  syncIdeaAnimation();
+});
+['focus', 'blur', 'input'].forEach(event => heroIdea.addEventListener(event, syncIdeaAnimation));
+ideaMotion.addEventListener('change', syncIdeaAnimation);
+document.addEventListener('visibilitychange', syncIdeaAnimation);
+syncIdeaAnimation();
+
 function prepareIdea(input) {
   const idea = input.value.trim();
   if (!idea) {
