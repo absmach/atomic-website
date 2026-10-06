@@ -28,4 +28,15 @@ Product images and the Atomic mark come from `~/ideas/vc/atomic/pitch-deck`. Ima
 
 ## Hosting
 
-`.openai/hosting.json` retains the existing Sites identity and uses `dist` as the public directory. No build step or package installation is required. The site has no external fonts, analytics, or runtime dependencies.
+The site deploys to Cloudflare as a static-assets Worker on every push to `main`, through Cloudflare Workers Builds connected to this repository. `wrangler.jsonc` names the Worker (`atomic-website`) and serves `dist/`. No build step or package installation is required. The site has no external fonts, analytics, or runtime dependencies.
+
+Workers Builds settings (Cloudflare dashboard → Workers & Pages → `atomic-website` → Settings → Build):
+
+- Git repository: `absmach/atomic-website`, production branch `main`
+- Build command: empty
+- Deploy command: `npx wrangler deploy`
+- Root directory: `/`
+
+Manual deploy from the repository root: `npx wrangler deploy`.
+
+`.openai/hosting.json` retains the existing Sites identity and also uses `dist` as the public directory.
