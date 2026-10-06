@@ -37,6 +37,8 @@ Workers Builds settings (Cloudflare dashboard → Workers & Pages → `atomic-we
 - Deploy command: `npx wrangler deploy`
 - Root directory: `/`
 
+Custom domains `atomicapp.dev` and `www.atomicapp.dev` are declared in `wrangler.jsonc` routes; deploy creates their DNS records and certificates. The `atomicapp.dev` zone must be in the same Cloudflare account, with no other DNS records on those hostnames.
+
 Manual deploy from the repository root: `npx wrangler deploy`.
 
 `.openai/hosting.json` retains the existing Sites identity and also uses `dist` as the public directory.

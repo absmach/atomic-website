@@ -2,6 +2,10 @@
     "$schema": "https://unpkg.com/wrangler/config-schema.json",
     "name": "atomic-website",
     "compatibility_date": "2026-02-24",
+    "routes": [
+        { "pattern": "atomicapp.dev", "custom_domain": true },
+        { "pattern": "www.atomicapp.dev", "custom_domain": true }
+    ],
     "assets": {
         "directory": "./dist"
     }
