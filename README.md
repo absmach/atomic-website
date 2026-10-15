@@ -26,6 +26,19 @@ Final pricing and launch date remain unannounced. Complete app packaging and dep
 
 Product images and the Atomic mark come from `~/ideas/vc/atomic/pitch-deck`. Images are illustrative sample-app views and are labeled on the page. The three `*-preview.png` thumbnails are browser captures of this page’s interactive examples. Typography consistently uses the locally hosted, preloaded Manrope variable font. Font licenses are included under `dist/assets/fonts/`.
 
+## Social preview
+
+The page includes Open Graph and X large-image card metadata pointing to
+`https://atomicapp.dev/assets/atomic-social-v1.png`. The 1200 × 630 PNG uses the
+existing Atomic mark, palette, and bundled Manrope font. Regenerate it with
+`python3 scripts/render-social-card.py` (requires Pillow with FreeType/WOFF2
+support for authoring; the website still has no runtime dependencies).
+
+Deploy `dist/index.html` and the image together to the public domain. Verify
+that the image URL returns an actual PNG without authentication. When changing
+the artwork, use a new versioned filename and update both image meta tags to
+avoid stale image caches. Social platforms may retain previously fetched cards.
+
 ## Hosting
 
 The site deploys to Cloudflare as a static-assets Worker on every push to `main`, through Cloudflare Workers Builds connected to this repository. `wrangler.jsonc` names the Worker (`atomic-website`) and serves `dist/`. No build step or package installation is required. The site has no external fonts, analytics, or runtime dependencies.
