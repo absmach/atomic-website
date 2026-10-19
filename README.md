@@ -19,7 +19,7 @@ Run `python3 scripts/build_site.py` after changing content or shared markup. Run
 - `/legal/`: draft Privacy Notice, Terms of Service, Acceptable Use Policy, DPA, Subprocessor List, and Cookies & Storage Notice. Each draft is clearly marked not effective and excluded from indexing.
 - `dist/404.html`: branded fallback for hosts supporting a static 404 page.
 
-The header shows Product, Docs, About, and Pricing, followed by Get early access. Resources is a footer grouping for Documentation, Blog, Security & trust, About Atomic, and Contact; there is no separate Resources page.
+The header shows Product, Docs, Pricing, and About, followed by Get early access. Resources is a footer grouping for Documentation, Blog, Security & trust, About Atomic, and Contact; there is no separate Resources page.
 
 Every page includes shared responsive navigation, a skip link, an Atomic-led footer, and larger social placeholders with inline SVG logos and visible channel names, explicitly labeled coming soon. Social labels have no invented account URLs. Nested pages use root-relative links and work on a host serving `dist/` at its root.
 

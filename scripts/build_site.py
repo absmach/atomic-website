@@ -7,7 +7,7 @@ import re
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / 'dist'
 CONTACT = 'mailto:info@absmach.eu'
-NAV = [('Product', '/'), ('Docs', '/docs/'), ('About', '/about/'), ('Pricing', '/pricing/')]
+NAV = [('Product', '/'), ('Docs', '/docs/'), ('Pricing', '/pricing/'), ('About', '/about/')]
 
 def link(label, url, active=''):
     current = ' aria-current="page"' if url == active else ''
