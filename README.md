@@ -12,14 +12,16 @@ Run `python3 scripts/build_site.py` after changing content or shared markup. Run
 
 - `/`: product introduction, interactive examples, workspace views, and early-access inquiry.
 - `/pricing/`: proposed Free, $25/month Pro, and later $50/month Business plans in USD; no checkout or unverified credit allowance.
-- `/resources/`: documentation, blog, security, pricing, and legal hub.
 - `/docs/`: searchable library with getting-started, building, source/data, and publishing guides. These explain the early-access workflow, not unverified account or interface procedures.
 - `/blog/`: two original product-perspective articles. No fabricated launch announcements, customer stories, or release dates.
+- `/about/`: Atomic’s purpose and the team at Abstract Machines, with links to the company, Atom, and its public open-source work.
 - `/security/`: verified product boundaries and the existing team contact for reporting concerns; no invented certifications or SLA.
 - `/legal/`: draft Privacy Notice, Terms of Service, Acceptable Use Policy, DPA, Subprocessor List, and Cookies & Storage Notice. Each draft is clearly marked not effective and excluded from indexing.
 - `dist/404.html`: branded fallback for hosts supporting a static 404 page.
 
-Every page includes shared responsive navigation, a skip link, an Atomic-led footer, and visibly inactive social placeholders. Social labels have no invented account URLs. Nested pages use root-relative links and work on a host serving `dist/` at its root.
+The header shows Product, Docs, About, and Pricing, followed by Get early access. Resources is a footer grouping for Documentation, Blog, Security & trust, About Atomic, and Contact; there is no separate Resources page.
+
+Every page includes shared responsive navigation, a skip link, an Atomic-led footer, and larger social placeholders with inline SVG logos and visible channel names, explicitly labeled coming soon. Social labels have no invented account URLs. Nested pages use root-relative links and work on a host serving `dist/` at its root.
 
 ## Before public launch
 
@@ -47,7 +49,7 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1 --directory dist`, then open h
 - `dist/launch.css`: centered prompt opening, app preview cards, and framed product showcase.
 - `dist/app.js`: product image switch, booking/shop/portal demos, and early-access email preparation.
 - `dist/site.js`: shared mobile navigation, footer year, and documentation filtering.
-- `dist/pages.css`: multi-page shell, pricing, resource cards, articles, legal layouts, and footer.
+- `dist/pages.css`: shared brand and header styling for every page, multi-page shell, pricing, resource cards, articles, legal layouts, and footer.
 - `dist/assets/`: local brand mark, product images, fonts, and font licenses.
 
 The booking example supports requesting a session, reviewing it as the studio owner, confirming, updating, and resetting. The shop supports adding sample items and clearing the bag. The portal switches project milestones. All example state is in memory and resets on reload; nothing is booked, purchased, or sent to a server.
