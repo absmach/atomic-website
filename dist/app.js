@@ -1,24 +1,4 @@
-// UI state is local to this page. Demos never make booking or payment requests.
-const menuButton = document.querySelector('.menu-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-function closeMenu() {
-  mobileNav.hidden = true;
-  menuButton.setAttribute('aria-expanded', 'false');
-  menuButton.setAttribute('aria-label', 'Open navigation');
-}
-menuButton.addEventListener('click', () => {
-  const open = menuButton.getAttribute('aria-expanded') !== 'true';
-  mobileNav.hidden = !open;
-  menuButton.setAttribute('aria-expanded', String(open));
-  menuButton.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-});
-mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && !mobileNav.hidden) { closeMenu(); menuButton.focus(); }
-});
-window.matchMedia('(min-width: 801px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
-document.getElementById('year').textContent = new Date().getFullYear();
-
+// Homepage product demonstrations and email draft flow. Shared navigation is in site.js.
 const views = {
   builder: { src: 'assets/builder.png', alt: 'Illustrative Atomic builder with a conversation and studio booking app preview.', caption: 'A conversation on the left. Your app coming to life on the right.' },
   source: { src: 'assets/source.png', alt: 'Illustrative Atomic source browser showing the booking app source files and code.', caption: 'See what was built. Browse your files. Keep your source.' }
