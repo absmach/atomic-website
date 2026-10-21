@@ -57,23 +57,23 @@ def card(kicker, title, text, url, action='Read the guide', guide=False):
 def notice(title, text):
     return f'<div class="notice"><strong>{title}</strong>{text}</div>'
 
-def article(path, title, intro, sections, category='Documentation', active='/docs/', note='', meta='', related=''):
+def article(path, title, intro, sections, category='Documentation', active='/docs/', note='', meta='', related='', draft=None):
     home = '/legal/' if category == 'Legal' else '/blog/' if category == 'Field notes' else '/docs/'
     crumb = f'<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="{home}">{category}</a><span aria-hidden="true">/</span><span aria-current="page">{title}</span></nav>'
     heading = f'<section class="page-hero"><div class="container">{crumb}<p class="eyebrow">{category}</p><h1>{title}</h1><p class="lead">{intro}</p><p class="article-meta">{meta}</p></div></section>'
     toc = '<nav class="contents" aria-label="On this page"><strong>On this page</strong>' + ''.join(f'<a href="#{sid}">{name}</a>' for sid,name,_ in sections) + '</nav>'
     content = ''.join(f'<section id="{sid}"><h2>{name}</h2>{text}</section>' for sid,name,text in sections)
-    page(path,title,intro,heading+f'<div class="container reading-layout">{toc}<article class="prose">{note}{content}{related}</article></div>',active,draft=category=='Legal')
+    page(path,title,intro,heading+f'<div class="container reading-layout">{toc}<article class="prose">{note}{content}{related}</article></div>',active,draft=(category=='Legal') if draft is None else draft)
 
 # Homepage retains its original, interactive product presentation.
 home = (ROOT / 'content/home.html').read_text()
 home = re.sub(r'  <a class="skip-link".*?</header>', header('/'), home, count=1, flags=re.S)
 home = re.sub(r'<footer class="site-footer">.*?</footer>', footer(), home, count=1, flags=re.S)
 home = home.replace('<script src="app.js" defer></script>', '<link rel="stylesheet" href="/pages.css" />\n  <script src="/site.js" defer></script>\n  <script src="/app.js" defer></script>')
+home = home.replace('<script src="early-access.js" defer></script>', '<script src="/early-access.js" defer></script>').replace('__TURNSTILE_SITEKEY__', TURNSTILE_SITEKEY)
 home = home.replace('We’ll share availability and final plan details as launch approaches.', 'Explore our <a class="text-action" href="/pricing/">proposed launch plans</a>, starting with Free and Pro. Final allowances will be confirmed before subscriptions open.')
 home = home.replace('<section class="faq-section', '<section class="home-pricing"><div class="container"><div><p class="eyebrow">ROOM FOR YOUR NEXT IDEA</p><h2>Start small. Build from there.</h2><p>Explore Free and our proposed $25/month Pro plan.</p></div><a href="/pricing/" class="button button-secondary">Explore launch plans <span aria-hidden="true">↗</span></a></div></section>\n<section class="faq-section')
-home = home.replace('Nothing is sent automatically.</p><noscript>', 'Nothing is sent automatically. <a href="/legal/privacy/">Privacy notice (draft)</a>.</p><noscript>')
-home = home.replace('Early access opens soon. Share your idea with the Atomic team.</p>', 'Early access opens soon. Share your idea with the Atomic team. <a href="/legal/privacy/">Privacy notice (draft)</a>.</p>')
+home = home.replace('Early access opens soon. Share your idea to join the waitlist.</p>', 'Early access opens soon. Share your idea to join the waitlist. <a href="/legal/privacy/">Privacy policy</a>.</p>')
 (DIST / 'index.html').write_text(home)
 
 # Pricing: proposed prices, explicit availability, no invented entitlements.
@@ -90,7 +90,7 @@ pricing += f'<section class="page-section"><div class="container"><div class="pr
 pricing += '<section class="page-section"><div class="container"><div class="section-intro"><h2>Know what you’re paying for.</h2><p>Building an app and keeping it running use different resources. The final plans will make both clear.</p></div><div class="resource-grid">'+card('01 / BUILD','Shape your app.','AI generation, revisions, and build checks consume resources. Credit quantities and consumption rates will be published before billing opens.','/docs/building-with-atomic/','Understand the workflow')+card('02 / RUN','Give it a home.','Hosting, database usage, storage, and any AI inside your app need their own clear allowances. We are finalizing those limits.','/docs/publishing/','Prepare to publish')+card('03 / KEEP','Keep your source.','Source downloads are part of Atomic’s product direction. They do not include customer records or hosting infrastructure.','/docs/source-and-data/','Understand source & data')+'</div></div></section>'
 pricing += '<section class="page-section"><div class="container faq-layout"><div><p class="eyebrow">A FEW PRACTICAL DETAILS</p><h2>Before you choose.</h2></div><div class="faq-list">'
 for q,a in [
-    ('Can I subscribe today?','Not yet. These are proposed launch plans. The early-access links open an email to the Atomic team; they do not create an account, reserve a price, or start a subscription.'),
+    ('Can I subscribe today?','Not yet. These are proposed launch plans. The early-access form adds you to the waitlist; it does not create an account, reserve a price, or start a subscription.'),
     ('How many credits are included?','We are measuring generation, retries, and infrastructure costs before setting allowances. A credit is a usage unit, not a promise that every prompt has the same cost. Exact quantities, rates, expiry, and top-up rules will be published before purchase.'),
     ('Is hosting included?','The included hosting allowance and any additional usage rates are still being defined. Do not assume unlimited traffic, storage, database usage, or app AI is included in the proposed subscription price.'),
     ('Will there be annual billing?','Monthly pricing is the current proposal. Annual billing and discounts have not been announced.'),
