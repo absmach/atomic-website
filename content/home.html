@@ -26,7 +26,9 @@
   <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="launch.css" />
+  <link rel="stylesheet" href="early-access.css" />
   <script src="app.js" defer></script>
+  <script src="early-access.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -43,14 +45,14 @@
       <div class="container prompt-opening">
         <h1 id="hero-title">What if? <span>Make it real.</span></h1>
         <p class="prompt-intro">Build the app your business needs. Just tell Atomic what you have in mind.</p>
-        <form id="hero-idea-form" class="prompt-composer" action="mailto:info@absmach.eu?subject=Atomic%20early%20access" method="post" enctype="text/plain">
+        <form id="hero-idea-form" class="prompt-composer">
           <label class="sr-only" for="hero-idea">Describe the app you want to build</label>
           <textarea id="hero-idea" name="idea" rows="3" maxlength="1200" required placeholder="Describe the app you’ve been thinking about…" aria-describedby="hero-idea-note"></textarea>
           <div class="composer-footer"><span><img src="assets/atomic.svg" width="20" height="20" alt="" /> An idea is all it takes.<button id="toggle-ideas" class="idea-animation-toggle" type="button" aria-label="Pause example ideas" title="Pause example ideas" aria-controls="hero-idea" hidden><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path class="pause-icon" d="M5 4v8M11 4v8"/><path class="play-icon" d="m5 3 7 5-7 5Z"/></svg></button></span><button class="button button-primary" type="submit">Start with this idea</button></div>
         </form>
         <div class="prompt-suggestions" role="group" aria-label="Try an app idea"><button type="button" data-prompt="Build a booking app for my studio, where clients can choose a service and request a time.">Studio bookings</button><button type="button" data-prompt="Build an online shop for my small brand with a product catalog and shopping bag.">An online shop</button><button type="button" data-prompt="Build a client portal where clients can follow their projects and see what comes next.">A client portal</button></div>
-        <p id="hero-idea-note" class="prompt-launch-note">Early access opens soon. Share your idea with the Atomic team.</p>
-        <noscript><p><a href="mailto:info@absmach.eu?subject=Atomic%20early%20access">Email us your idea</a></p></noscript>
+        <p id="hero-idea-note" class="prompt-launch-note">Early access opens soon. Share your idea to join the waitlist.</p>
+        <noscript><p>Enable JavaScript to request early access.</p></noscript>
       </div>
       <div class="container preview-strip" aria-label="Explore sample apps">
         <a class="preview-tile preview-booking" href="#examples" data-open-demo="booking"><div class="preview-image"><div class="preview-art-title"><span>STUDIO SESSIONS</span><h3>A little less admin.</h3></div><img src="assets/booking-preview.png" width="1734" height="924" alt="Studio booking example with session selection and appointment times." /></div><span><strong>Make time for your customers.</strong><small>Studio bookings · Try the demo</small></span></a>
@@ -105,9 +107,57 @@
 
     <section class="faq-section section" id="faq"><div class="container faq-layout"><div><p class="eyebrow">BEFORE YOUR FIRST WHAT IF</p><h2>Good questions.<br />Straight answers.</h2></div><div class="faq-list"><details><summary>Do I need to know how to code?</summary><p>No coding experience is needed to start describing your idea. Refine the generated app through conversation, then review and test it before publishing. You can inspect the source whenever you want.</p></details><details><summary>Are the examples on this page live apps?</summary><p>They are interactive demonstrations using sample data. Booking requests, shopping bags, and project views stay in this page and reset when you reload. They show possible workflows; they do not create an app or contact a real business.</p></details><details><summary>What makes Atomic different?</summary><p>Atomic uses Atom, the open-source backend maintained by the same team. It brings identity, data, and permissions together underneath generated apps, alongside verified source history, previews, and frontend publishing.</p></details><details><summary>Can I take my code with me?</summary><p>Yes. You can browse and download generated source. Downloads don’t include users, business data, or hosting infrastructure. Broader app packaging and deployment choices are on our roadmap.</p></details><details><summary>When can I try it, and what will it cost?</summary><p>We’re preparing for launch. Email us about your idea to ask about early access. We’ll share availability and final plan details as launch approaches.</p></details></div></div></section>
 
-    <section class="closing" id="early-access"><div class="container closing-layout"><div><p class="eyebrow">EVERY BUSINESS STARTS WITH A WHAT IF</p><h2>What’s yours?</h2><p>A useful little app. A whole new business.<br />Tell us what you want to make real.</p><a class="email-address" href="mailto:info@absmach.eu">info@absmach.eu</a></div><form id="idea-form" class="idea-form" action="mailto:info@absmach.eu?subject=Atomic%20early%20access" method="post" enctype="text/plain"><label for="idea">What would you like to build?</label><textarea id="idea" name="idea" rows="4" maxlength="1200" required placeholder="A booking app for my studio, where clients can choose a service and request a time…" aria-describedby="idea-note"></textarea><button class="button button-light" type="submit">Prepare my early-access email</button><p id="idea-note">We’ll prepare a draft for your email app. Nothing is sent automatically.</p><noscript><p><a href="mailto:info@absmach.eu?subject=Atomic%20early%20access">Email us directly about early access</a></p></noscript></form></div></section>
+    <section class="closing" id="early-access"><div class="container closing-layout"><div><p class="eyebrow">EVERY BUSINESS STARTS WITH A WHAT IF</p><h2>What’s yours?</h2><p>A useful little app. A whole new business.<br />Tell us what you want to make real.</p></div><form id="idea-form" class="idea-form"><label for="idea">What would you like to build?</label><textarea id="idea" name="idea" rows="4" maxlength="1200" required placeholder="A booking app for my studio, where clients can choose a service and request a time…" aria-describedby="idea-note"></textarea><button class="button button-light" type="submit">Request early access</button><p id="idea-note">Four short steps. We contact shortlisted applicants for the free trial. <a href="/legal/privacy/">Privacy policy</a>.</p><noscript><p>Enable JavaScript to request early access.</p></noscript></form></div></section>
   </main>
   <footer class="site-footer"><div class="container footer-row"><div><a class="brand" href="#" aria-label="Atomic home"><img src="assets/atomic.svg" width="29" height="29" alt="" />atomic</a><p>Describe it. Shape it. Make it real.</p></div><nav aria-label="Footer"><a href="#examples">Explore</a><a href="#faq">Questions</a><a href="https://absmach.eu" target="_blank" rel="noopener noreferrer">Abstract Machines</a></nav><span>© <span id="year">2026</span> Abstract Machines</span></div></footer>
-  <dialog id="email-dialog" aria-labelledby="email-dialog-title"><button id="close-dialog" class="dialog-close" type="button" aria-label="Close email draft">×</button><p class="eyebrow">YOUR NEXT CHAPTER</p><h2 id="email-dialog-title">Your idea is ready to share.</h2><p>Open your email app to send this to the Atomic team. You can review everything before sending.</p><div class="draft-address"><span>TO</span> info@absmach.eu</div><pre id="email-draft"></pre><div class="dialog-actions"><a id="send-email" class="button button-primary" href="mailto:info@absmach.eu">Open email app</a><button id="copy-email" class="button button-secondary" type="button">Copy message</button></div><p id="email-status" role="status">Your message has not been sent.</p></dialog>
+  <dialog id="access-dialog" aria-labelledby="access-title">
+    <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
+    <form id="access-form" novalidate data-sitekey="__TURNSTILE_SITEKEY__">
+      <p class="eyebrow">EARLY ACCESS</p>
+      <progress id="access-progress" max="4" value="1" aria-label="Progress"></progress>
+      <p id="access-count" class="step-count"></p>
+      <fieldset data-step="1">
+        <legend><h2 id="access-title" tabindex="-1">What would you like to build?</h2></legend>
+        <label class="sr-only" for="access-idea">Describe your app idea</label>
+        <textarea id="access-idea" name="idea" rows="5" maxlength="1200" required placeholder="A booking app for my studio, where clients can choose a service and request a time…"></textarea>
+      </fieldset>
+      <fieldset data-step="2" hidden>
+        <legend><h2 tabindex="-1">Tell us about the project.</h2></legend>
+        <p class="field-label" id="app-type-label">It looks most like</p>
+        <div class="choices" role="group" aria-labelledby="app-type-label"><label class="choice"><input type="radio" name="appType" value="booking" required /><span>Bookings</span></label><label class="choice"><input type="radio" name="appType" value="shop" required /><span>An online shop</span></label><label class="choice"><input type="radio" name="appType" value="portal" required /><span>A client portal</span></label><label class="choice"><input type="radio" name="appType" value="internal" required /><span>An internal tool</span></label><label class="choice"><input type="radio" name="appType" value="other" required /><span>Something else</span></label></div><input class="other" id="appType-other" name="appTypeOther" type="text" maxlength="100" placeholder="Tell us more" aria-label="Describe the kind of app" hidden />
+        <p class="field-label" id="stage-label">Where are you today?</p>
+        <div class="choices" role="group" aria-labelledby="stage-label"><label class="choice"><input type="radio" name="stage" value="idea" required /><span>Just an idea</span></label><label class="choice"><input type="radio" name="stage" value="building" required /><span>Working on it</span></label><label class="choice"><input type="radio" name="stage" value="running" required /><span>Already running</span></label></div>
+      </fieldset>
+      <fieldset data-step="3" hidden>
+        <legend><h2 tabindex="-1">And who are you?</h2></legend>
+        <p class="field-label" id="role-label">I am a</p>
+        <div class="choices" role="group" aria-labelledby="role-label"><label class="choice"><input type="radio" name="role" value="founder" required /><span>Founder</span></label><label class="choice"><input type="radio" name="role" value="owner" required /><span>Small business owner</span></label><label class="choice"><input type="radio" name="role" value="freelancer" required /><span>Freelancer or agency</span></label><label class="choice"><input type="radio" name="role" value="developer" required /><span>Developer</span></label><label class="choice"><input type="radio" name="role" value="other" required /><span>Something else</span></label></div><input class="other" id="role-other" name="roleOther" type="text" maxlength="100" placeholder="Tell us more" aria-label="Describe your role" hidden />
+        <p class="field-label" id="heard-label">How did you hear about Atomic?</p><div class="choices" role="group" aria-labelledby="heard-label"><label class="choice"><input type="radio" name="heardFrom" value="search" required /><span>Search</span></label><label class="choice"><input type="radio" name="heardFrom" value="x" required /><span>X</span></label><label class="choice"><input type="radio" name="heardFrom" value="linkedin" required /><span>LinkedIn</span></label><label class="choice"><input type="radio" name="heardFrom" value="github" required /><span>GitHub</span></label><label class="choice"><input type="radio" name="heardFrom" value="youtube" required /><span>YouTube</span></label><label class="choice"><input type="radio" name="heardFrom" value="friend" required /><span>A friend or colleague</span></label><label class="choice"><input type="radio" name="heardFrom" value="event" required /><span>An event</span></label><label class="choice"><input type="radio" name="heardFrom" value="other" required /><span>Somewhere else</span></label></div><input class="other" id="heardFrom-other" name="heardFromOther" type="text" maxlength="100" placeholder="Tell us more" aria-label="Where did you hear about Atomic" hidden />
+      </fieldset>
+      <fieldset data-step="4" hidden>
+        <legend><h2 tabindex="-1">Where should we reach you?</h2></legend>
+        <label class="field-label" for="access-name">Name</label>
+        <input id="access-name" name="name" type="text" autocomplete="name" maxlength="100" required />
+        <label class="field-label" for="access-company">Company or project <small>(optional)</small></label>
+        <input id="access-company" name="company" type="text" autocomplete="organization" maxlength="100" />
+        <label class="field-label" for="access-email">Email</label>
+        <input id="access-email" name="email" type="email" autocomplete="email" maxlength="254" required />
+        <input class="trap" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <label class="consent"><input type="checkbox" name="consent" required /><span>I agree that Atomic may store these answers and email me about early access. <a href="/legal/privacy/" target="_blank" rel="noopener">Privacy policy</a></span></label>
+        <div id="access-turnstile"></div>
+      </fieldset>
+      <p id="access-error" class="form-error" role="alert"></p>
+      <div class="dialog-actions">
+        <button id="access-back" class="button button-secondary" type="button">Back</button>
+        <button id="access-next" class="button button-primary" type="submit">Continue</button>
+      </div>
+    </form>
+    <div id="access-done" tabindex="-1" hidden>
+      <p class="eyebrow">YOU’RE ON THE LIST</p>
+      <h2>Thanks, we’ve got your request.</h2>
+      <p>If you’re shortlisted for the free trial, we’ll email you at <strong id="access-done-email"></strong>.</p>
+      <div class="dialog-actions"><button class="button button-primary" type="button" data-close>Done</button></div>
+    </div>
+  </dialog>
 </body>
 </html>

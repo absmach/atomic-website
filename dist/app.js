@@ -137,9 +137,6 @@ document.getElementById('reset-demo').addEventListener('click', () => {
   else setMilestone('design');
 });
 
-const emailDialog = document.getElementById('email-dialog');
-const emailDraft = document.getElementById('email-draft');
-const emailStatus = document.getElementById('email-status');
 const heroIdea = document.getElementById('hero-idea');
 
 // Animate inspiration only in an empty, unfocused field. Never change an idea.
@@ -191,24 +188,11 @@ ideaMotion.addEventListener('change', syncIdeaAnimation);
 document.addEventListener('visibilitychange', syncIdeaAnimation);
 syncIdeaAnimation();
 
-function prepareIdea(input) {
-  const idea = input.value.trim();
-  if (!idea) {
-    input.setCustomValidity('Tell us a little about the app you want to build.');
-    input.reportValidity();
-    return;
-  }
-  const body = `Hi Atomic team,\n\nI’d like to ask about early access. Here’s what I want to build:\n\n${idea}\n\nPlease let me know when I can try Atomic.\n\nThank you!`;
-  emailDraft.textContent = body;
-  document.getElementById('send-email').href = `mailto:info@absmach.eu?subject=${encodeURIComponent('Atomic early access')}&body=${encodeURIComponent(body)}`;
-  emailStatus.textContent = 'Your message has not been sent.';
-  emailDialog.showModal();
-}
 for (const [formId, inputId] of [['hero-idea-form', 'hero-idea'], ['idea-form', 'idea']]) {
   const form = document.getElementById(formId);
   const input = document.getElementById(inputId);
   input.addEventListener('input', () => input.setCustomValidity(''));
-  form.addEventListener('submit', event => { event.preventDefault(); prepareIdea(input); });
+  form.addEventListener('submit', event => { event.preventDefault(); openEarlyAccess(input.value); });
   input.addEventListener('keydown', event => {
     if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) { event.preventDefault(); form.requestSubmit(); }
   });
@@ -219,28 +203,3 @@ document.querySelectorAll('[data-prompt]').forEach(button => button.addEventList
   heroIdea.focus({preventScroll: true});
   heroIdea.setSelectionRange(heroIdea.value.length, heroIdea.value.length);
 }));
-document.getElementById('close-dialog').addEventListener('click', () => emailDialog.close());
-emailDialog.addEventListener('click', event => {
-  const box = emailDialog.getBoundingClientRect();
-  if (event.target === emailDialog && (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)) emailDialog.close();
-});
-document.getElementById('copy-email').addEventListener('click', async () => {
-  try {
-    await navigator.clipboard.writeText(`To: info@absmach.eu\nSubject: Atomic early access\n\n${emailDraft.textContent}`);
-    emailStatus.textContent = 'Copied. Paste into your email app and send when you’re ready.';
-  } catch {
-    const selection = window.getSelection();
-    const range = document.createRange(); range.selectNodeContents(emailDraft);
-    selection.removeAllRanges(); selection.addRange(range);
-    emailStatus.textContent = 'Automatic copying is unavailable. The draft is selected so you can copy it manually.';
-  }
-});
-// Keep sequential keyboard navigation within the open email draft.
-emailDialog.addEventListener('keydown', event => {
-  if (event.key !== 'Tab') return;
-  const controls = [...emailDialog.querySelectorAll('button:not([disabled]), a[href], [tabindex="0"]')];
-  const first = controls[0];
-  const last = controls[controls.length - 1];
-  if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-  else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-});

@@ -4,7 +4,7 @@ A responsive, dependency-free, multi-page product site built from the Atomic app
 
 ## Generate and check
 
-Run `python3 scripts/build_site.py` after changing content or shared markup. Run `python3 scripts/check_site.py` to validate every local page link, fragment, asset, heading, title, ID, and image alt attribute. Check JavaScript syntax with `node --check dist/site.js` and `node --check dist/app.js`.
+Run `python3 scripts/build_site.py` after changing content or shared markup. Run `python3 scripts/check_site.py` to validate every local page link, fragment, asset, heading, title, ID, and image alt attribute. Check JavaScript syntax with `node --check dist/site.js`, `node --check dist/app.js`, and `node --check dist/early-access.js`. Run the Worker tests with `node --test src/worker.test.js`.
 
 `content/home.html` contains the original homepage presentation. `scripts/build_site.py` owns the shared navigation and footer, homepage additions, pricing copy, guides, articles, and legal drafts. Generated HTML is committed in `dist/`, so hosting still requires no build or installation. Edit those sources rather than generated HTML. Shared styles and JavaScript in `dist/` are maintained directly.
 
@@ -16,7 +16,7 @@ Run `python3 scripts/build_site.py` after changing content or shared markup. Run
 - `/blog/`: two original product-perspective articles. No fabricated launch announcements, customer stories, or release dates.
 - `/about/`: Atomic’s purpose and the team at Abstract Machines, with links to the company, Atom, and its public open-source work.
 - `/security/`: verified product boundaries and the existing team contact for reporting concerns; no invented certifications or SLA.
-- `/legal/`: draft Privacy Notice, Terms of Service, Acceptable Use Policy, DPA, Subprocessor List, and Cookies & Storage Notice. Each draft is clearly marked not effective and excluded from indexing.
+- `/legal/`: Privacy Policy (final, covering the website and early-access sign-up), draft Terms of Service, Acceptable Use Policy, DPA, Subprocessor List, and Cookies & Storage Notice. Each draft is clearly marked not effective and excluded from indexing; the Privacy Policy is indexable.
 - `dist/404.html`: branded fallback for hosts supporting a static 404 page.
 
 The header shows Product, Docs, Pricing, and About, followed by Get early access. Resources is a footer grouping for Documentation, Blog, Security & trust, About Atomic, and Contact; there is no separate Resources page.
@@ -33,7 +33,7 @@ The website structure and content are prepared; operational and commercial facts
 - Inventory actual vendors, their roles, processing/access locations, retention, and AI training settings. Publish an approved subprocessor register and change-notification process.
 - Verify inquiry, account, prompt, log, billing, and backup retention/deletion rules and the customer data export process.
 - Audit cookies, storage, and logging on the actual deployed host, including its access gate. The application itself sets no cookies or persistent browser storage; hosting behavior has not been certified. Add consent controls if the actual technologies require them.
-- Replace the email inquiry with the approved onboarding/payment flow when available, add final effective policies and acceptance records, and add verified social URLs.
+- Replace the early-access waitlist with the approved onboarding/payment flow when available, add final effective policies and acceptance records, and add verified social URLs.
 - The production domain is `atomicapp.dev`, with homepage canonical and social metadata configured. Complete canonical metadata for the remaining pages, submit a domain-specific sitemap, and review indexing before launch. Draft legal pages remain `noindex, nofollow` until finalized.
 
 Legal drafting references reviewed on 19 October 2026: [European Commission transparency and security guidance](https://commission.europa.eu/law/law-topic/data-protection/information-business-and-organisations/obligations_en), [EU cookie guidance](https://europa.eu/youreurope/business/growing/digitalising/online-privacy/index_en.htm), and [European Commission SCC guidance](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/new-standard-contractual-clauses-questions-and-answers-overview_en). Pricing is informed by [Lovable's pricing](https://lovable.dev/pricing); Atomic's draft allowances and commercial terms are not copied from it.
@@ -47,14 +47,16 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1 --directory dist`, then open h
 - `dist/index.html`: page copy, examples, metadata, and native email-draft dialog.
 - `dist/styles.css`: shared visual system and responsive layouts.
 - `dist/launch.css`: centered prompt opening, app preview cards, and framed product showcase.
-- `dist/app.js`: product image switch, booking/shop/portal demos, and early-access email preparation.
+- `dist/app.js`: product image switch, booking/shop/portal demos, and the idea composer.
+- `dist/early-access.js`, `dist/early-access.css`: early-access wizard.
+- `src/worker.js`: `/api/early-access` endpoint (Turnstile verification, Listmonk subscriber upsert).
 - `dist/site.js`: shared mobile navigation, footer year, and documentation filtering.
 - `dist/pages.css`: shared brand and header styling for every page, multi-page shell, pricing, resource cards, articles, legal layouts, and footer.
 - `dist/assets/`: local brand mark, product images, fonts, and font licenses.
 
 The booking example supports requesting a session, reviewing it as the studio owner, confirming, updating, and resetting. The shop supports adding sample items and clearing the bag. The portal switches project milestones. All example state is in memory and resets on reload; nothing is booked, purchased, or sent to a server.
 
-The page opens with an idea composer. Suggested prompts fill the input, and the app preview cards open their matching interactive demos. Both the opening composer and closing early-access form validate an idea and open a review dialog. Ctrl+Enter or Command+Enter also submits the idea. The visitor can open a prefilled email addressed to `info@absmach.eu`, or copy the draft. This prepares an early-access inquiry; it does not generate an app, collect a signup, or send email automatically. The address was verified on https://www.absmach.eu/. Replace this workflow with the production signup URL or an approved signup service when available.
+The page opens with an idea composer. Suggested prompts fill the input, and the app preview cards open their matching interactive demos. Submitting either the opening composer or the closing form opens the early-access wizard (`dist/early-access.js`, styles in `dist/early-access.css`): idea, project, role, then name and email with a Cloudflare Turnstile check. The answers are posted to `/api/early-access`, handled by `src/worker.js`, which verifies the Turnstile token and stores the subscriber and answers as attributes in Listmonk. See "Early access signup" below.
 
 ## Content boundaries
 
@@ -76,6 +78,18 @@ Deploy `dist/index.html` and the image together to the public domain. Verify
 that the image URL returns an actual PNG without authentication. When changing
 the artwork, use a new versioned filename and update both image meta tags to
 avoid stale image caches. Social platforms may retain previously fetched cards.
+
+## Early access signup
+
+`wrangler.jsonc` sets `main` to `src/worker.js` and runs the Worker first only for `/api/*`; everything else is served as static assets. Configuration:
+
+- Vars in `wrangler.jsonc`: `LISTMONK_URL`, `LISTMONK_LIST_ID`, `LISTMONK_API_USER`, `TURNSTILE_HOSTNAMES`.
+- Secrets: `LISTMONK_API_TOKEN`, `TURNSTILE_SECRET` (`wrangler secret put <name>`, or `.dev.vars` locally; copy `.dev.vars.example`).
+- Public Turnstile site key: `TURNSTILE_SITEKEY` in `scripts/build_site.py`, then rebuild.
+
+Subscriber attributes written to Listmonk: `idea`, `app_type`, `stage`, `role`, `heard_from`, `company`, `source`, `applied_at`, plus `app_type_other`, `role_other` and `heard_from_other` when "Something else" is chosen. Radio values in `content/home.html` must match `CHOICES` in `src/worker.js`.
+
+Local run: `npx wrangler dev` serves the site and the Worker together.
 
 ## Hosting
 
