@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    name: Check & Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check dist/site.js
+          node --check dist/app.js
+          node --check dist/early-access.js
+
+      - name: Test Worker
+        run: node --test src/worker.test.js
+
+      - name: Generate site
+        run: python3 scripts/build_site.py
+
+      - name: Check generated pages are committed
+        run: git diff --exit-code dist
+
+      - name: Check links and structure
+        run: python3 scripts/check_site.py
+
+      - name: Build Worker
+        run: npx --yes wrangler@4 deploy --dry-run
