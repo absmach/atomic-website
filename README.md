@@ -10,7 +10,7 @@ Run `python3 scripts/build_site.py` after changing content or shared markup. Run
 
 ## Site map
 
-- `/`: product introduction, interactive examples, workspace views, and early-access inquiry.
+- `/`: product introduction, interactive examples, workspace views, featured blog articles, and early-access inquiry.
 - `/pricing/`: proposed Free, $25/month Pro, and later $50/month Business plans in USD; no checkout or unverified credit allowance.
 - `/docs/`: searchable library with getting-started, building, source/data, and publishing guides. These explain the early-access workflow, not unverified account or interface procedures.
 - `/blog/`: two original product-perspective articles. No fabricated launch announcements, customer stories, or release dates.
@@ -19,7 +19,7 @@ Run `python3 scripts/build_site.py` after changing content or shared markup. Run
 - `/legal/`: Privacy Policy (final, covering the website and early-access sign-up), draft Terms of Service, Acceptable Use Policy, DPA, Subprocessor List, and Cookies & Storage Notice. Each draft is clearly marked not effective and excluded from indexing; the Privacy Policy is indexable.
 - `dist/404.html`: branded fallback for hosts supporting a static 404 page.
 
-The header shows Product, Docs, Pricing, and About, followed by Get early access. Resources is a footer grouping for Documentation, Blog, Security & trust, About Atomic, and Contact; there is no separate Resources page.
+The header shows Product, Docs, Blog, Pricing, and About, followed by Get early access. The homepage highlights the two existing articles and links to the blog index. Resources is a footer grouping for Documentation, Blog, Security & trust, About Atomic, and Contact; there is no separate Resources page.
 
 Every page includes shared responsive navigation, a skip link, an Atomic-led footer, and larger social placeholders with inline SVG logos and visible channel names, explicitly labeled coming soon. Social labels have no invented account URLs. Nested pages use root-relative links and work on a host serving `dist/` at its root.
 
