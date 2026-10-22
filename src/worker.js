@@ -64,7 +64,6 @@ function parseApplication(body) {
   if (!idea || idea.length > 1200) return null;
   if (!name || name.length > 100 || company.length > 100) return null;
   if (!EMAIL_RE.test(email) || email.length > 254) return null;
-  if (body.consent !== true) return null;
 
   const attribs = { idea, company, source: "website", applied_at: new Date().toISOString() };
   for (const [field, allowed] of Object.entries(CHOICES)) {

@@ -37,7 +37,7 @@ function validStep(step) {
       return false;
     }
     if (!field.checkValidity()) {
-      errorBox.textContent = field.type === 'checkbox' ? 'Please agree to continue.' : field.validationMessage;
+      errorBox.textContent = field.validationMessage;
       field.focus();
       return false;
     }
@@ -93,7 +93,7 @@ async function submit() {
   nextButton.textContent = 'Sending…';
   errorBox.textContent = '';
 
-  const payload = { ...Object.fromEntries(data), consent: data.get('consent') === 'on', turnstileToken: token };
+  const payload = { ...Object.fromEntries(data), turnstileToken: token };
   let message = '';
   try {
     const response = await fetch('/api/early-access', {
