@@ -63,10 +63,23 @@ def atom(cx, cy, size, color, stroke):
 
 atom(86, 87, 48, VIOLET, 3.4)
 label(123, 65, "atomic", 43, weight=750)
-label(64, 202, "What if?", 88, weight=750)
-label(64, 303, "Make it real.", 88, VIOLET, weight=750)
-label(68, 431, "Build the app your business needs.", 26, weight=500)
-label(68, 474, "Describe it. Shape it. Publish it.", 23, "#696471", weight=500)
+label(64, 202, "Imagine it.", 88, weight=750)
+label(64, 303, "Build it", 88, VIOLET, weight=750)
+
+DESCRIPTION = (
+    "Turn your ideas into powerful, functional applications with AI. "
+    "Just describe what you need, and let Atomic bring it to life"
+)
+body = font(24, 500)
+line, y = "", 431
+for word in DESCRIPTION.split():
+    trial = f"{line} {word}".strip()
+    if draw.textlength(trial, font=body) > 640 * SCALE:
+        label(68, y, line, 24, "#4a4358", weight=500)
+        line, y = word, y + 36
+    else:
+        line = trial
+label(68, y, line, 24, "#4a4358", weight=500)
 
 # An oversized brand tile stays recognizable when the card is reduced in a feed.
 draw.rounded_rectangle((778 * SCALE, 161 * SCALE, 1132 * SCALE, 515 * SCALE),
@@ -79,6 +92,6 @@ draw.line((68 * SCALE, 554 * SCALE, 1132 * SCALE, 554 * SCALE), fill="#ded6e9", 
 label(68, 577, "FROM IDEA TO APP", 14, "#696471", weight=750)
 label(965, 573, "atomicapp.dev", 21, weight=650)
 
-output = ROOT / "dist/assets/atomic-social-v1.png"
+output = ROOT / "dist/assets/atomic-social-v2.png"
 card.resize((WIDTH, HEIGHT), Image.Resampling.LANCZOS).save(output, optimize=True)
 print(f"Rendered {output.relative_to(ROOT)} ({output.stat().st_size:,} bytes)")
