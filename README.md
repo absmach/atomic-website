@@ -83,13 +83,17 @@ avoid stale image caches. Social platforms may retain previously fetched cards.
 
 `wrangler.jsonc` sets `main` to `src/worker.js` and runs the Worker first only for `/api/*`; everything else is served as static assets. Configuration:
 
-- Vars in `wrangler.jsonc`: `LISTMONK_URL`, `LISTMONK_LIST_ID`, `LISTMONK_API_USER`, `TURNSTILE_HOSTNAMES`.
+- Vars in `wrangler.jsonc`: `LISTMONK_URL`, `LISTMONK_LIST_ID`, `LISTMONK_API_USER`, `LISTMONK_WELCOME_TEMPLATE_ID`, `LISTMONK_FROM_EMAIL`, `TURNSTILE_HOSTNAMES`.
 - Secrets: `LISTMONK_API_TOKEN`, `TURNSTILE_SECRET` (`wrangler secret put <name>`, or `.dev.vars` locally; copy `.dev.vars.example`).
 - Public Turnstile site key: `TURNSTILE_SITEKEY` in `scripts/build_site.py`, then rebuild.
 
 Subscriber attributes written to Listmonk: `idea`, `app_type`, `stage`, `role`, `heard_from`, `company`, `source`, `applied_at`, plus `app_type_other`, `role_other` and `heard_from_other` when "Something else" is chosen. Radio values in `content/home.html` must match `CHOICES` in `src/worker.js`.
 
 Local run: `npx wrangler dev` serves the site and the Worker together.
+
+### Thank-you email
+
+New subscribers get a branded email through Listmonk's transactional API. The template lives in Listmonk, not in this repo: Campaigns, Templates, type Transactional, subject "Thanks for requesting early access to Atomic". Its ID is `LISTMONK_WELCOME_TEMPLATE_ID`, and the template loads the Atomic mark as a PNG from the Abstract Machines image CDN, because Gmail blocks SVG images. The API user needs the `tx:send` permission, and `LISTMONK_FROM_EMAIL` must be an address the Listmonk SMTP account may send from. Until the ID is set the Worker skips the email. People who are or were on the list, blocklisted addresses, and failed sends never block or repeat a sign-up.
 
 ## Hosting
 

@@ -2,4 +2,5 @@ LISTMONK_API_TOKEN=
 TURNSTILE_SECRET=
 # Local overrides of the values in wrangler.jsonc
 LISTMONK_LIST_ID=
+LISTMONK_WELCOME_TEMPLATE_ID=
 TURNSTILE_HOSTNAMES=localhost
