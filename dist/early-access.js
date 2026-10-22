@@ -86,6 +86,13 @@ function setToken(value) {
   if (current === steps.length - 1 && !submitting) nextButton.disabled = !token;
 }
 
+// Campaign tags from the link the visitor arrived on, if it had any.
+function campaignParams() {
+  const params = new URLSearchParams(location.search);
+  const tags = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  return Object.fromEntries(tags.filter(tag => params.get(tag)).map(tag => [tag, params.get(tag)]));
+}
+
 async function submit() {
   const data = new FormData(form);
   submitting = true;
@@ -93,7 +100,7 @@ async function submit() {
   nextButton.textContent = 'Sending…';
   errorBox.textContent = '';
 
-  const payload = { ...Object.fromEntries(data), turnstileToken: token };
+  const payload = { ...Object.fromEntries(data), ...campaignParams(), turnstileToken: token };
   let message = '';
   try {
     const response = await fetch('/api/early-access', {

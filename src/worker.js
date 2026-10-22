@@ -7,9 +7,9 @@ const CHOICES = {
   appType: ["booking", "shop", "portal", "internal", "other"],
   stage: ["idea", "building", "running"],
   role: ["founder", "owner", "freelancer", "developer", "other"],
-  heardFrom: ["search", "x", "linkedin", "github", "youtube", "friend", "event", "other"],
 };
-const ATTRIBUTE_NAMES = { appType: "app_type", stage: "stage", role: "role", heardFrom: "heard_from" };
+const ATTRIBUTE_NAMES = { appType: "app_type", stage: "stage", role: "role" };
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
 
 export default {
   async fetch(request, env, ctx) {
@@ -68,6 +68,10 @@ function parseApplication(body) {
   if (!EMAIL_RE.test(email) || email.length > 254) return null;
 
   const attribs = { idea, company, source: "website", applied_at: new Date().toISOString() };
+  for (const key of UTM_KEYS) {
+    const value = str(body[key]).slice(0, 100);
+    if (value) attribs[key] = value;
+  }
   for (const [field, allowed] of Object.entries(CHOICES)) {
     if (!allowed.includes(body[field])) return null;
     attribs[ATTRIBUTE_NAMES[field]] = body[field];

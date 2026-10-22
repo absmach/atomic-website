@@ -87,7 +87,7 @@ avoid stale image caches. Social platforms may retain previously fetched cards.
 - Secrets: `LISTMONK_API_TOKEN`, `TURNSTILE_SECRET` (`wrangler secret put <name>`, or `.dev.vars` locally; copy `.dev.vars.example`).
 - Public Turnstile site key: `TURNSTILE_SITEKEY` in `scripts/build_site.py`, then rebuild.
 
-Subscriber attributes written to Listmonk: `idea`, `app_type`, `stage`, `role`, `heard_from`, `company`, `source`, `applied_at`, plus `app_type_other`, `role_other` and `heard_from_other` when "Something else" is chosen. Radio values in `content/home.html` must match `CHOICES` in `src/worker.js`.
+Subscriber attributes written to Listmonk: `idea`, `app_type`, `stage`, `role`, `company`, `source`, `applied_at`, any `utm_source`, `utm_medium`, `utm_campaign`, `utm_term` and `utm_content` from the page URL, plus `app_type_other` and `role_other` when "Something else" is chosen. Radio values in `content/home.html` must match `CHOICES` in `src/worker.js`.
 
 Local run: `npx wrangler dev` serves the site and the Worker together.
 

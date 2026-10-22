@@ -18,7 +18,6 @@ const valid = {
   appType: "booking",
   stage: "idea",
   role: "owner",
-  heardFrom: "friend",
   company: "Clay & Co",
   name: "Ada Obi",
   email: "ada@example.com",
@@ -76,7 +75,6 @@ test("rejects incomplete or invalid answers before calling any service", async (
     { email: "not-an-email" },
     { role: "astronaut" },
     { role: "other" },
-    { heardFrom: "other", heardFromOther: " " },
     { company: "x".repeat(101) },
   ]) {
     const res = await submit({ ...valid, ...patch });
@@ -118,7 +116,6 @@ test("creates a subscriber with the answers as attributes", async () => {
   assert.equal(sent.attribs.idea, valid.idea);
   assert.equal(sent.attribs.app_type, "booking");
   assert.equal(sent.attribs.source, "website");
-  assert.equal(sent.attribs.heard_from, "friend");
   assert.equal(sent.attribs.company, "Clay & Co");
 });
 
@@ -156,7 +153,6 @@ test("stores the free-text detail when someone picks something else", async () =
   const { attribs } = JSON.parse(calls[1].init.body);
   assert.equal(attribs.role, "other");
   assert.equal(attribs.role_other, "Potter");
-  assert.equal(attribs.heard_from_other, undefined);
 });
 
 const existing = {
@@ -170,6 +166,23 @@ const existing = {
     { id: 4, subscription_status: "unsubscribed" },
   ],
 };
+
+test("stores campaign tags from the page URL and ignores other fields", async () => {
+  responders = [reply(turnstileOk), reply({ data: { id: 1 } }), reply({ data: true })];
+  const res = await submit({
+    ...valid,
+    utm_source: "x",
+    utm_campaign: "launch".repeat(40),
+    utm_medium: " ",
+    ref: "other",
+  });
+  assert.equal(res.status, 200);
+  const { attribs } = JSON.parse(calls[1].init.body);
+  assert.equal(attribs.utm_source, "x");
+  assert.equal(attribs.utm_campaign.length, 100);
+  assert.equal(attribs.utm_medium, undefined);
+  assert.equal(attribs.ref, undefined);
+});
 
 test("adds an existing subscriber to the list, keeps their other lists, and emails them", async () => {
   responders = [
