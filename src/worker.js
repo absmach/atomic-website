@@ -7,23 +7,23 @@ const CHOICES = {
   appType: ["booking", "shop", "portal", "internal", "other"],
   stage: ["idea", "building", "running"],
   role: ["founder", "owner", "freelancer", "developer", "other"],
-  heardFrom: ["search", "x", "linkedin", "github", "youtube", "friend", "event", "other"],
 };
-const ATTRIBUTE_NAMES = { appType: "app_type", stage: "stage", role: "role", heardFrom: "heard_from" };
+const ATTRIBUTE_NAMES = { appType: "app_type", stage: "stage", role: "role" };
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     if (new URL(request.url).pathname !== "/api/early-access") {
       return new Response("Not found", { status: 404 });
     }
     if (request.method !== "POST") {
       return json({ error: "Method not allowed." }, 405, { Allow: "POST" });
     }
-    return handleApplication(request, env);
+    return handleApplication(request, env, ctx);
   },
 };
 
-async function handleApplication(request, env) {
+async function handleApplication(request, env, ctx) {
   const listId = Number(env.LISTMONK_LIST_ID);
   if (!env.TURNSTILE_SECRET || !env.LISTMONK_API_TOKEN || !(listId > 0)) {
     console.error("early access is missing configuration");
@@ -50,9 +50,11 @@ async function handleApplication(request, env) {
   );
   if (!verified) return json({ error: "Verification failed. Please try again." }, 403);
 
-  if (!(await saveSubscriber(application, listId, env))) {
-    return json({ error: "Could not save your request. Please try again." }, 502);
-  }
+  const outcome = await saveSubscriber(application, listId, env);
+  if (!outcome) return json({ error: "Could not save your request. Please try again." }, 502);
+
+  // Repeat submissions from someone already on the list don't get another email.
+  if (outcome !== "already") ctx.waitUntil(sendThanksEmail(application.email, env));
   return json({ ok: true });
 }
 
@@ -64,9 +66,12 @@ function parseApplication(body) {
   if (!idea || idea.length > 1200) return null;
   if (!name || name.length > 100 || company.length > 100) return null;
   if (!EMAIL_RE.test(email) || email.length > 254) return null;
-  if (body.consent !== true) return null;
 
   const attribs = { idea, company, source: "website", applied_at: new Date().toISOString() };
+  for (const key of UTM_KEYS) {
+    const value = str(body[key]).slice(0, 100);
+    if (value) attribs[key] = value;
+  }
   for (const [field, allowed] of Object.entries(CHOICES)) {
     if (!allowed.includes(body[field])) return null;
     attribs[ATTRIBUTE_NAMES[field]] = body[field];
@@ -135,7 +140,7 @@ async function saveSubscriber({ email, name, attribs }, listId, env) {
     });
     if (res.status === 409) return await updateExisting(email, attribs, listId, env);
     if (!res.ok) console.error("listmonk create failed", res.status, await res.text());
-    return res.ok;
+    return res.ok && "created";
   } catch (err) {
     console.error("listmonk create error", err);
     return false;
@@ -144,6 +149,7 @@ async function saveSubscriber({ email, name, attribs }, listId, env) {
 
 // The address is already in listmonk (another list, or an earlier request).
 // Add it to ours and overwrite the answers, leaving its other lists alone.
+// Returns "added" if it joined our list now, "already" if it was on it, or false.
 async function updateExisting(email, attribs, listId, env) {
   const search = await listmonk(env, `/subscribers?search=${encodeURIComponent(email)}`);
   if (!search.ok) {
@@ -156,11 +162,13 @@ async function updateExisting(email, attribs, listId, env) {
     console.error("existing subscriber not visible to the API user");
     return false;
   }
-  if (existing.status === "blocklisted") return true;
+  if (existing.status === "blocklisted") return "already";
 
   const lists = new Set(
     existing.lists.filter((l) => l.subscription_status !== "unsubscribed").map((l) => l.id),
   );
+  // Someone who left our list earlier is put back without another email.
+  const wasOnList = existing.lists.some((l) => l.id === listId);
   lists.add(listId);
 
   const res = await listmonk(env, `/subscribers/${existing.id}`, {
@@ -175,7 +183,28 @@ async function updateExisting(email, attribs, listId, env) {
     }),
   });
   if (!res.ok) console.error("listmonk update failed", res.status, await res.text());
-  return res.ok;
+  return res.ok && (wasOnList ? "already" : "added");
+}
+
+// Best effort: a failed email should not fail the request. Skipped until a
+// template ID is configured.
+async function sendThanksEmail(email, env) {
+  const templateId = Number(env.LISTMONK_WELCOME_TEMPLATE_ID);
+  if (!(templateId > 0)) return;
+  try {
+    const res = await listmonk(env, "/tx", {
+      method: "POST",
+      body: JSON.stringify({
+        subscriber_email: email,
+        template_id: templateId,
+        from_email: env.LISTMONK_FROM_EMAIL,
+        content_type: "html",
+      }),
+    });
+    if (!res.ok) console.error("thank-you email failed", res.status, await res.text());
+  } catch (err) {
+    console.error("thank-you email error", err);
+  }
 }
 
 function str(value) {

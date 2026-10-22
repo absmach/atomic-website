@@ -9,6 +9,8 @@ const env = {
   LISTMONK_LIST_ID: "12",
   TURNSTILE_SECRET: "turnstile-secret",
   TURNSTILE_HOSTNAMES: "atomicapp.dev,www.atomicapp.dev",
+  LISTMONK_WELCOME_TEMPLATE_ID: "5",
+  LISTMONK_FROM_EMAIL: "Atomic <hello@example.com>",
 };
 
 const valid = {
@@ -16,11 +18,9 @@ const valid = {
   appType: "booking",
   stage: "idea",
   role: "owner",
-  heardFrom: "friend",
   company: "Clay & Co",
   name: "Ada Obi",
   email: "ada@example.com",
-  consent: true,
   website: "",
   turnstileToken: "token",
 };
@@ -30,11 +30,13 @@ const turnstileOk = { success: true, action: "early_access", hostname: "atomicap
 const realFetch = globalThis.fetch;
 let calls;
 let responders;
+let background;
 
 // Each responder handles one outbound request, in order.
 beforeEach(() => {
   calls = [];
   responders = [];
+  background = [];
   globalThis.fetch = async (url, init) => {
     calls.push({ url: String(url), init });
     const respond = responders.shift();
@@ -48,12 +50,17 @@ afterEach(() => {
 
 const reply = (body, status = 200) => () => Response.json(body, { status });
 
-function submit(body, method = "POST") {
+// Waits for work the Worker hands to ctx.waitUntil, such as the thank-you email.
+const ctx = { waitUntil: (promise) => background.push(promise) };
+
+async function submit(body, method = "POST", config = env) {
   const request = new Request("https://atomicapp.dev/api/early-access", {
     method,
     body: method === "POST" ? JSON.stringify(body) : undefined,
   });
-  return worker.fetch(request, env);
+  const res = await worker.fetch(request, config, ctx);
+  await Promise.all(background);
+  return res;
 }
 
 test("rejects methods other than POST", async () => {
@@ -68,9 +75,7 @@ test("rejects incomplete or invalid answers before calling any service", async (
     { email: "not-an-email" },
     { role: "astronaut" },
     { role: "other" },
-    { heardFrom: "other", heardFromOther: " " },
     { company: "x".repeat(101) },
-    { consent: false },
   ]) {
     const res = await submit({ ...valid, ...patch });
     assert.equal(res.status, 400, JSON.stringify(patch));
@@ -98,7 +103,7 @@ test("rejects a failed or mismatched Turnstile result", async () => {
 });
 
 test("creates a subscriber with the answers as attributes", async () => {
-  responders = [reply(turnstileOk), reply({ data: { id: 1 } })];
+  responders = [reply(turnstileOk), reply({ data: { id: 1 } }), reply({ data: true })];
   const res = await submit(valid);
   assert.equal(res.status, 200);
 
@@ -111,37 +116,81 @@ test("creates a subscriber with the answers as attributes", async () => {
   assert.equal(sent.attribs.idea, valid.idea);
   assert.equal(sent.attribs.app_type, "booking");
   assert.equal(sent.attribs.source, "website");
-  assert.equal(sent.attribs.heard_from, "friend");
   assert.equal(sent.attribs.company, "Clay & Co");
 });
 
-test("stores the free-text detail when someone picks something else", async () => {
+test("sends the thank-you email to a new subscriber", async () => {
+  responders = [reply(turnstileOk), reply({ data: { id: 1 } }), reply({ data: true })];
+  await submit(valid);
+
+  const email = calls[2];
+  assert.equal(email.url, "https://mail.example/api/tx");
+  assert.deepEqual(JSON.parse(email.init.body), {
+    subscriber_email: "ada@example.com",
+    template_id: 5,
+    from_email: "Atomic <hello@example.com>",
+    content_type: "html",
+  });
+});
+
+test("still succeeds when the thank-you email fails", async () => {
+  responders = [reply(turnstileOk), reply({ data: { id: 1 } }), reply({ message: "smtp down" }, 500)];
+  const res = await submit(valid);
+  assert.equal(res.status, 200);
+});
+
+test("skips the email until a template is configured", async () => {
   responders = [reply(turnstileOk), reply({ data: { id: 1 } })];
+  const res = await submit(valid, "POST", { ...env, LISTMONK_WELCOME_TEMPLATE_ID: "" });
+  assert.equal(res.status, 200);
+  assert.equal(calls.length, 2);
+});
+
+test("stores the free-text detail when someone picks something else", async () => {
+  responders = [reply(turnstileOk), reply({ data: { id: 1 } }), reply({ data: true })];
   const res = await submit({ ...valid, role: "other", roleOther: "Potter", roleIgnored: "x" });
   assert.equal(res.status, 200);
   const { attribs } = JSON.parse(calls[1].init.body);
   assert.equal(attribs.role, "other");
   assert.equal(attribs.role_other, "Potter");
-  assert.equal(attribs.heard_from_other, undefined);
 });
 
-test("adds an existing subscriber to the list and keeps their other lists", async () => {
-  const existing = {
-    id: 7,
-    email: "Ada@Example.com",
-    name: "Ada",
-    status: "enabled",
-    attribs: { city: "Nairobi" },
-    lists: [
-      { id: 3, subscription_status: "confirmed" },
-      { id: 4, subscription_status: "unsubscribed" },
-    ],
-  };
+const existing = {
+  id: 7,
+  email: "Ada@Example.com",
+  name: "Ada",
+  status: "enabled",
+  attribs: { city: "Nairobi" },
+  lists: [
+    { id: 3, subscription_status: "confirmed" },
+    { id: 4, subscription_status: "unsubscribed" },
+  ],
+};
+
+test("stores campaign tags from the page URL and ignores other fields", async () => {
+  responders = [reply(turnstileOk), reply({ data: { id: 1 } }), reply({ data: true })];
+  const res = await submit({
+    ...valid,
+    utm_source: "x",
+    utm_campaign: "launch".repeat(40),
+    utm_medium: " ",
+    ref: "other",
+  });
+  assert.equal(res.status, 200);
+  const { attribs } = JSON.parse(calls[1].init.body);
+  assert.equal(attribs.utm_source, "x");
+  assert.equal(attribs.utm_campaign.length, 100);
+  assert.equal(attribs.utm_medium, undefined);
+  assert.equal(attribs.ref, undefined);
+});
+
+test("adds an existing subscriber to the list, keeps their other lists, and emails them", async () => {
   responders = [
     reply(turnstileOk),
     reply({ message: "exists" }, 409),
     reply({ data: { results: [existing] } }),
     reply({ data: existing }),
+    reply({ data: true }),
   ];
   const res = await submit(valid);
   assert.equal(res.status, 200);
@@ -153,6 +202,25 @@ test("adds an existing subscriber to the list and keeps their other lists", asyn
   assert.deepEqual(sent.lists.sort((a, b) => a - b), [3, 12]);
   assert.equal(sent.attribs.city, "Nairobi");
   assert.equal(sent.attribs.role, "owner");
+  assert.equal(calls[4].url, "https://mail.example/api/tx");
+});
+
+test("does not email someone who is on the list, left it earlier, or is blocklisted", async () => {
+  const onList = { ...existing, lists: [{ id: 12, subscription_status: "confirmed" }] };
+  const left = { ...existing, lists: [{ id: 12, subscription_status: "unsubscribed" }] };
+  const blocked = { ...existing, status: "blocklisted" };
+  for (const found of [onList, left, blocked]) {
+    calls = [];
+    responders = [
+      reply(turnstileOk),
+      reply({ message: "exists" }, 409),
+      reply({ data: { results: [found] } }),
+      ...(found === blocked ? [] : [reply({ data: found })]),
+    ];
+    const res = await submit(valid);
+    assert.equal(res.status, 200);
+    assert.ok(calls.every((c) => !c.url.endsWith("/api/tx")));
+  }
 });
 
 test("reports a listmonk failure", async () => {

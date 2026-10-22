@@ -37,7 +37,7 @@ function validStep(step) {
       return false;
     }
     if (!field.checkValidity()) {
-      errorBox.textContent = field.type === 'checkbox' ? 'Please agree to continue.' : field.validationMessage;
+      errorBox.textContent = field.validationMessage;
       field.focus();
       return false;
     }
@@ -86,6 +86,13 @@ function setToken(value) {
   if (current === steps.length - 1 && !submitting) nextButton.disabled = !token;
 }
 
+// Campaign tags from the link the visitor arrived on, if it had any.
+function campaignParams() {
+  const params = new URLSearchParams(location.search);
+  const tags = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  return Object.fromEntries(tags.filter(tag => params.get(tag)).map(tag => [tag, params.get(tag)]));
+}
+
 async function submit() {
   const data = new FormData(form);
   submitting = true;
@@ -93,7 +100,7 @@ async function submit() {
   nextButton.textContent = 'Sending…';
   errorBox.textContent = '';
 
-  const payload = { ...Object.fromEntries(data), consent: data.get('consent') === 'on', turnstileToken: token };
+  const payload = { ...Object.fromEntries(data), ...campaignParams(), turnstileToken: token };
   let message = '';
   try {
     const response = await fetch('/api/early-access', {
@@ -149,5 +156,14 @@ function openEarlyAccess(idea = '') {
   const field = document.getElementById('access-idea');
   if (idea.trim()) field.value = idea.trim();
   dialog.showModal();
-  showStep(field.value ? 1 : 0);
+  // With an idea from the page, ask for the email next; otherwise start at the idea.
+  showStep(idea.trim() ? 1 : 0);
 }
+
+// Every "Get early access" link opens the wizard, including when a link from
+// another page lands here with the hash.
+document.querySelectorAll('a[href$="#early-access"]').forEach(link => link.addEventListener('click', event => {
+  event.preventDefault();
+  openEarlyAccess();
+}));
+if (location.hash === '#early-access') openEarlyAccess();
