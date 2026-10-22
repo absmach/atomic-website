@@ -16,8 +16,8 @@
         "LISTMONK_URL": "https://mailer.absmach.eu",
         "LISTMONK_LIST_ID": "8",
         "LISTMONK_API_USER": "atomic-website",
-        "LISTMONK_WELCOME_TEMPLATE_ID": "",
-        "LISTMONK_FROM_EMAIL": "Atomic <info@absmach.eu>",
+        "LISTMONK_WELCOME_TEMPLATE_ID": "7",
+        "LISTMONK_FROM_EMAIL": "Atomic <atomic@absmach.eu>",
         "TURNSTILE_HOSTNAMES": "atomicapp.dev,www.atomicapp.dev"
     },
     // Branch previews (`wrangler preview`) serve the site without early-access
