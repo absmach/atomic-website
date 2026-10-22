@@ -93,7 +93,7 @@ Local run: `npx wrangler dev` serves the site and the Worker together.
 
 ### Thank-you email
 
-New subscribers get a branded email through Listmonk's transactional API. The template is `emails/early-access-thanks.html`; its logo is `dist/assets/atomic-mark-email.png`, rendered from `dist/assets/atomic.svg` because Gmail blocks SVG images. To use it, create a template in Listmonk (Campaigns, Templates, New) of type Transactional, subject "Thanks for requesting early access to Atomic", paste the file as the body, save, and put its numeric ID in `LISTMONK_WELCOME_TEMPLATE_ID`. The API user needs the `tx:send` permission, and `LISTMONK_FROM_EMAIL` must be an address the Listmonk SMTP account may send from. Until the ID is set the Worker skips the email. People who are or were on the list, blocklisted addresses, and failed sends never block or repeat a sign-up.
+New subscribers get a branded email through Listmonk's transactional API. The template lives in Listmonk, not in this repo: Campaigns, Templates, type Transactional, subject "Thanks for requesting early access to Atomic". Its ID is `LISTMONK_WELCOME_TEMPLATE_ID`, and the template loads the Atomic mark as a PNG from the Abstract Machines image CDN, because Gmail blocks SVG images. The API user needs the `tx:send` permission, and `LISTMONK_FROM_EMAIL` must be an address the Listmonk SMTP account may send from. Until the ID is set the Worker skips the email. People who are or were on the list, blocklisted addresses, and failed sends never block or repeat a sign-up.
 
 ## Hosting
 
