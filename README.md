@@ -106,4 +106,6 @@ Custom domains `atomicapp.dev` and `www.atomicapp.dev` are declared in `wrangler
 
 Manual deploy from the repository root: `npx wrangler deploy`.
 
+Other branches deploy a Preview with `npx wrangler preview`, which reads the `previews` block of `wrangler.jsonc`. Its variables set list `0`, so `/api/early-access` answers 503 in a Preview and never writes to the production Listmonk list.
+
 `.openai/hosting.json` retains the existing Sites identity and also uses `dist` as the public directory.

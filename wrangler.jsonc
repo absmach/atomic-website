@@ -17,6 +17,17 @@
         "LISTMONK_LIST_ID": "8",
         "LISTMONK_API_USER": "atomic-website",
         "TURNSTILE_HOSTNAMES": "atomicapp.dev,www.atomicapp.dev"
+    },
+    // Branch previews (`wrangler preview`) serve the site without early-access
+    // signup: list 0 makes /api/early-access answer 503, so a preview never
+    // writes to the production list, whatever secrets it is given.
+    "previews": {
+        "vars": {
+            "LISTMONK_URL": "https://mailer.absmach.eu",
+            "LISTMONK_LIST_ID": "0",
+            "LISTMONK_API_USER": "atomic-website",
+            "TURNSTILE_HOSTNAMES": ""
+        }
     }
     // Secrets, set with `wrangler secret put` (production) or .dev.vars (local):
     // LISTMONK_API_TOKEN, TURNSTILE_SECRET
