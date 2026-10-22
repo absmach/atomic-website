@@ -51,11 +51,8 @@ def hero(kicker, title, intro, center=False, extra=''):
 def cta():
     return '<section class="mini-cta"><div class="container"><div><h2>Your next idea starts here.</h2><p>Tell us what you want to build with Atomic.</p></div><a class="button button-primary" href="/#early-access">Get early access <span aria-hidden="true">↗</span></a></div></section>'
 
-def card(kicker, title, text, url, action='Read the guide', guide=False):
-    return f'<a class="resource-card" href="{url}"{" data-guide" if guide else ""}><p class="eyebrow">{kicker}</p><h2>{title}</h2><p>{text}</p><span class="card-link">{action} <span aria-hidden="true">↗</span></span></a>'
-
-def screenshot(name, width, height, alt, caption):
-    return f'<figure class="doc-shot"><img src="/assets/docs/{name}.jpg" width="{width}" height="{height}" loading="lazy" alt="{escape(alt, quote=True)}" /><figcaption>{caption}</figcaption></figure>'
+def card(kicker, title, text, url, action='Read the guide', guide=False, level=2):
+    return f'<a class="resource-card" href="{url}"{" data-guide" if guide else ""}><p class="eyebrow">{kicker}</p><h{level}>{title}</h{level}><p>{text}</p><span class="card-link">{action} <span aria-hidden="true">↗</span></span></a>'
 
 def notice(title, text):
     return f'<div class="notice"><strong>{title}</strong>{text}</div>'
@@ -103,52 +100,66 @@ for q,a in [
 pricing += '</div></div></section>'+cta()
 page('pricing','Pricing','Explore Atomic’s proposed Free, Pro, and Business plans. Clear launch pricing and room to grow.',pricing,'/pricing/')
 
-GUIDES = [
-    ('START HERE','From idea to first app','Turn a business need into a useful, testable first brief.','/docs/getting-started/'),
-    ('TEMPLATES','Start from a template','Try a complete app on sample data, then make it yours.','/docs/templates/'),
-    ('BUILD & REFINE','Building with Atomic','Work in small steps, review the preview, and check the result.','/docs/building-with-atomic/'),
-    ('SOURCE & DATA','What you can take with you','Understand generated source, app data, and hosting.','/docs/source-and-data/'),
-    ('PUBLISHING','Before your app goes live','A practical guide to reviewing a customer-facing app.','/docs/publishing/')
+# Documentation: each guide's body is content/docs/<section>/<slug>.html, a run
+# of <section id="..."><h2>...</h2>...</section> blocks; the contents list is
+# read from those headings. DOCS orders the sections and their guides; the docs
+# index, the docs menu and the previous/next links all follow it. A guide's
+# address is /docs/<slug>/ whichever section holds it.
+DOCS = [
+    ('get-started', 'Get started', 'Decide what your first app should do, or begin from a complete one.', [
+        dict(slug='getting-started', kicker='START HERE', title='From idea to first app', summary='Turn a business need into a useful, testable first brief.',
+             intro='Give Atomic a clear starting point: who the app helps, what they need to do, and what a successful result looks like.', meta='Getting started · 4 min read'),
+        dict(slug='templates', kicker='TEMPLATES', title='Start from a template', summary='Try a complete app on sample data, then make it yours.',
+             intro='A template is a complete Atomic app — screens, backend and believable sample data — that you can try first and then make your own.', meta='Templates · 4 min read'),
+    ]),
+    ('build', 'Build', 'Describe a change, review the result and move forward in small steps.', [
+        dict(slug='building-with-atomic', kicker='BUILD & REFINE', title='Building with Atomic', summary='Work in small steps, review the preview, and check the result.',
+             intro='Describe a change, inspect the result, and move forward with a version you understand.', meta='Build & refine · 4 min read'),
+    ]),
+    ('publish-and-run', 'Publish and run', 'Check the real experience before people rely on your app.', [
+        dict(slug='publishing', kicker='PUBLISHING', title='Before your app goes live', summary='A practical guide to reviewing a customer-facing app.',
+             intro='A working preview is a starting point. Review the real customer experience before sharing a published version.', meta='Publishing · 4 min read'),
+    ]),
+    ('versions-and-source', 'Versions and source', 'What your source, your versions and your app’s data each cover.', [
+        dict(slug='source-and-data', kicker='SOURCE & DATA', title='What you can take with you', summary='Understand generated source, app data, and hosting.',
+             intro='Generated source, business data, and hosting are separate parts of your app. Understand each one before you plan a move.', meta='Source & data · 3 min read', note=False),
+    ]),
 ]
-docs = hero('ATOMIC DOCUMENTATION','A good idea.<br /><em>A clear next step.</em>','Practical guides to describing, shaping, and reviewing your app. Start with the essentials.')
-docs += '<section class="page-section"><div class="container">'+notice('Early-access guides','These guides explain Atomic’s workflow and product boundaries. Account setup, exact interface steps, and plan limits will be documented as access opens.')+'<div class="search-field"><label for="guide-search">Find a guide</label><input id="guide-search" type="search" placeholder="Try “source” or “publish”" aria-describedby="search-status" /></div><p id="search-status" class="search-status" role="status" aria-live="polite">'+f'{len(GUIDES)} guides available</p><div class="resource-grid two-cols">'+''.join(card(*g,guide=True) for g in GUIDES)+'</div></div></section>'+cta()
-page('docs','Documentation','Learn how to describe, shape, review, and prepare an app with Atomic.',docs,'/docs/')
-
+GUIDES = [dict(guide, section=key, section_title=name) for key, name, _, guides in DOCS for guide in guides]
 guide_note = notice('Before you start','Atomic is preparing for early access. The examples on this website are local demonstrations using sample data; they do not generate or host an app.')
-article('docs/getting-started','From idea to first app','Give Atomic a clear starting point: who the app helps, what they need to do, and what a successful result looks like.',[
-    ('choose','Choose one useful job','<p>Start with a task you can describe in a sentence. A booking request, a small product catalog, or a client project view gives you a focused first version. Save the larger wish list for later.</p><p>For example: “Help my clients request a design consultation without a long email exchange.” That is specific enough to test with someone who might use it.</p>'),
-    ('brief','Write a practical brief','<p>Include the people using the app, the information they provide, and what each person should be allowed to see or change.</p><blockquote>Build a booking app for my studio. Clients choose a service and request an available time. I review requests and confirm them. A client should only see their own booking. Start with sample services and sample clients.</blockquote><p>Add your preferred tone and appearance after the workflow is clear. Say whether the app should feel calm, playful, minimal, or editorial, and describe any existing brand assets you want to use.</p>'),
-    ('test','Define a test before you build','<ul><li>Can a client understand the available services?</li><li>Does submitting a request produce a clear confirmation?</li><li>Can the owner review and change a request?</li><li>Can one client access another client’s information?</li><li>What happens when a time is unavailable or a field is empty?</li></ul><p>A useful brief includes the difficult cases as well as the happy path.</p>'),
-    ('next','Try the workflow','<p>Explore the <a href="/#examples">interactive examples</a> on the homepage to see the customer and owner perspectives. Then <a href="/#early-access">share your idea with the team</a> to ask about access.</p><p>If your idea is close to a booking site, a CRM, a shop, a help desk, a club or a studio website, you can also <a href="/docs/templates/">start from a template</a> and shape it from there.</p>')
-],note=guide_note,meta='Getting started · 4 min read',related='<div class="related"><a href="/docs/building-with-atomic/">Next: Building with Atomic →</a></div>')
-article('docs/templates','Start from a template','A template is a complete Atomic app — screens, backend and believable sample data — that you can try first and then make your own.',[
-    ('what','What a template gives you','<p>Instead of describing an app from scratch, you can start from one that already works. Each template brings three things together:</p><ul><li><strong>Screens</strong>: the pages, forms and dialogs of the app, styled with its own theme.</li><li><strong>Backend configuration</strong>: the kinds of records the app keeps, the roles people can have, and what each role may see and change. Atomic sets this up on Atom, the backend underneath every app.</li><li><strong>Sample data</strong>: a small set of realistic records and a sample account for each role, so the app has something to show from the first minute.</li></ul><p>Setting up a template calls no AI model and uses no building credits. Atomic installs it, builds it and runs the same checks it runs on every app, so the first version is ready to preview, edit and publish like any other.</p>'),
-    ('gallery','The templates','<p>Open <strong>Templates</strong> in the sidebar, or <strong>Or start from a template</strong> on the dashboard. You can search the gallery or narrow it by category.</p>'+screenshot('templates-gallery',1440,900,'The Templates gallery in the Atomic Builder, with a search field, category filters and the featured Salon Booking template.','The gallery: search, filter by category, or open a template to try it.')+'<div class="table-wrap"><table><thead><tr><th scope="col">Template</th><th scope="col">What it does</th><th scope="col">Who uses it</th></tr></thead><tbody><tr><th scope="row">Salon Booking</th><td>Services, stylists and opening hours, online booking, a day view for staff and an owner dashboard.</td><td>Customers sign up; owner and staff accounts</td></tr><tr><th scope="row">Pipeline CRM</th><td>Companies, contacts and deals on a stage board, with an activity log and a sales dashboard.</td><td>Invited team; admin and sales roles</td></tr><tr><th scope="row">Storefront</th><td>A product catalogue with categories, a cart and checkout, order history and a shop manager.</td><td>Customers sign up; admin account</td></tr><tr><th scope="row">Help Desk</th><td>Requests with an agent queue, internal notes and a knowledge base.</td><td>Invited requesters; admin and agent roles</td></tr><tr><th scope="row">Club &amp; Events</th><td>Events with RSVPs, announcements, and an organiser’s roster and check-in.</td><td>Members sign up; organiser role</td></tr><tr><th scope="row">Studio Portfolio</th><td>A design studio’s public site: selected work, case studies, services and a contact page.</td><td>Public visitors; no accounts</td></tr></tbody></table></div><p>Templates that ask people to sign in come with Atomic’s sign-in and account screens for that kind of access: open sign-up, or invitation only. A public template, such as the portfolio, has none.</p>'),
-    ('try','Try it before you use it','<p>A template’s page runs the app itself, on its sample data, right in your browser. It is the same preview you get on the canvas when you press <strong>Play</strong>:</p>'+screenshot('template-preview',1440,1060,'The Salon Booking template page playing the owner dashboard, with requests to confirm, the View as switch set to Owner, and the strip of screens below.','Salon Booking, viewed as the owner. The strip below the preview jumps to any screen or state.')+'<ul><li>Click through it, open its dialogs and fill in its forms.</li><li>Switch <strong>View as</strong> to see the app as each role, signed in as that role’s sample account, with that account’s own records.</li><li>Pick a screen, or a state such as an open dialog, from the strip below the preview to jump straight to it.</li><li>Use the reset button to start again, or open the preview full size in a new tab.</li></ul><p>Nothing you do there is kept. The page also lists the sample records the template brings and the record kinds its backend holds, so you know what you are starting with.</p>'+screenshot('template-data',1440,900,'The Data tab of a template page listing sample services, beside a summary of the screens, backend configuration and sample data the template brings.','The sample data a template brings, and a summary of what you get.')+'<p>The first time a template is opened, the preview may take a few moments to prepare; the page says so and starts playing once it is ready.</p>'),
-    ('use','Use this template','<p>Choose <strong>Use this template</strong>, give the app a name, and Atomic creates it in your current workspace. You can choose whether to <strong>include sample data in the backend</strong>:</p>'+screenshot('use-template',1440,900,'The Use Salon Booking dialog with an app name field, the current workspace, and the option to include sample data in the backend.','Name the app and choose whether its backend starts with the sample data.')+'<ul><li><strong>On</strong>: the app’s backend starts with the sample records, which is the quickest way to try every role.</li><li><strong>Off</strong>: the backend starts empty, apart from the sample accounts used to try each role in the preview. The canvas still shows the sample records while you work.</li></ul><p>The app records which template and version it started from. After that it is an ordinary Atomic app, with its own source, versions and preview.</p>'),
-    ('yours','Make it yours','<p>A template is a starting point, not a constraint. Describe changes the way you would for any app: rename it, restyle it, add a screen, or change who may do what. Atomic’s assistant is told which template the app came from and how its data is organised, so it can work with what is already there.</p><blockquote>Rename the salon to Northside Hair, use a warm terracotta accent, and let staff mark an appointment as no-show.</blockquote><p>Before you share the app, replace what the template only stands in for:</p><ul><li>Text in brackets, such as <em>[Your street address]</em>, is a placeholder to fill in.</li><li>Pictures are labelled placeholders that describe the image they are waiting for.</li><li>Sample records are there to try the app. Remove them, or start without sample data, before real people use it. In the backend every sample record starts out shared, so some that are meant for staff only can be read by other signed-in users until you remove them.</li></ul><p>Sample accounts exist so you can try each role; they are never published with your app. Then work through the <a href="/docs/publishing/">publishing guide</a> as you would for any app.</p>')
-],note=guide_note,meta='Templates · 4 min read',related='<div class="related"><a href="/docs/building-with-atomic/">Next: Building with Atomic →</a></div>')
-article('docs/building-with-atomic','Building with Atomic','Describe a change, inspect the result, and move forward with a version you understand.',[
-    ('describe','Describe the behavior','<p>Explain what a person should be able to do and what should happen next. “Let the owner confirm a booking” gives a clearer target than “make it more professional.” Separate functional requests from visual refinements when possible.</p>'),
-    ('refine','Refine in small steps','<p>After a first version, ask for a focused improvement. Adjust a form, simplify a navigation path, or clarify a confirmation message. Review the changed area before combining it with the next request.</p><blockquote>When a client submits a booking request, show the selected service and time in the confirmation. Make clear that the owner still needs to approve it.</blockquote>'),
-    ('review','Review the preview and checks','<p>Try the app as each kind of user. Check empty states, invalid input, repeated submissions, and narrow screens. Review available build checks, but remember that a successful build does not establish that permissions, business rules, or security are correct.</p><p>Use sample data during development. Avoid including passwords, payment details, or unnecessary personal information in your prompts.</p>'),
-    ('history','Understand version history','<p>Atomic’s workflow includes verified source history and frontend release rollback. Returning to an earlier source version or frontend release does not restore your app’s business data. Database changes and data recovery need their own plan.</p>'),
-    ('ready','Prepare a version to share','<p>When the core workflow is useful, work through the <a href="/docs/publishing/">publishing guide</a>. Keep a record of what you tested and the known limitations of the version you are sharing.</p>')
-],note=guide_note,meta='Build & refine · 4 min read')
-article('docs/source-and-data','What you can take with you','Generated source, business data, and hosting are separate parts of your app. Understand each one before you plan a move.',[
-    ('source','Your generated source','<p>Atomic lets you browse and download generated source files. The source describes the application, but downloading it is not the same as making a complete backup of a running business.</p><p>Generated projects can include dependencies and other materials governed by third-party licenses. Review those licenses before distributing or reusing the project.</p>'),
-    ('data','Your app’s business data','<p>Customer accounts, bookings, orders, uploaded files, and other live records are separate from generated source. Source downloads do not include those records. Data export and retention procedures need to be confirmed for your deployment.</p>'),
-    ('hosting','The environment that runs it','<p>A live app also depends on configuration, secrets, infrastructure, and services. Source export does not transfer that environment. Keep credentials private, and do not place production secrets in downloaded projects you share publicly.</p>'),
-    ('atom','Where Atom fits','<p>Atom is the open-source backend underneath Atomic’s identity, data, and permissions. Its permissive license allows inspection and use in your own deployments. That foundation does not mean an Atomic app can automatically be moved with every account and record intact.</p>'),
-    ('roadmap','Packaging and portability','<p>Broader app packaging and deployment choices remain roadmap items. Before relying on a migration path, ask the Atomic team about the supported process for your app, its data, and its services.</p>')
-],meta='Source & data · 3 min read')
-article('docs/publishing','Before your app goes live','A working preview is a starting point. Review the real customer experience before sharing a published version.',[
-    ('workflow','Try the complete workflow','<p>Start with a new user and follow the main task to its conclusion. Check confirmation messages, error recovery, and what an administrator sees afterward. Remove sample records and clearly identify any functionality that is still a demonstration.</p>'),
-    ('permissions','Check identity and permissions','<p>Test with separate accounts for customers and administrators. Verify that users can access only the records and actions intended for them. Hiding a button is not a substitute for enforcing permissions on the backend.</p>'),
-    ('content','Review content and accessibility','<p>Replace placeholder text, images, prices, and contact details. Test keyboard navigation, form labels, readable contrast, and small screens. Ensure the purpose of each button and the result of each action are clear.</p>'),
-    ('data','Prepare for real data','<p>Decide what data you actually need, who can access it, and how long you will keep it. Provide the notices and terms appropriate to your app. Atomic’s policies cover Atomic’s service; they do not automatically cover the relationship between your business and its customers.</p><p>Confirm the supported backup, deletion, and export processes before collecting important records. Avoid sensitive or regulated data unless your agreement and deployment explicitly support it.</p>'),
-    ('operate','Know how you will operate it','<p>Confirm hosting limits, any external service charges, your support contact, and the process for responding to problems. Review the published release after deployment. Frontend rollback changes the release served to visitors; it does not rewind business data.</p><p>Exact publishing steps, domain setup, and plan-specific limits will be added as early access opens.</p>')
-],note=guide_note,meta='Publishing · 4 min read')
+
+def docs_menu(current):
+    def item(guide):
+        here = ' aria-current="page"' if guide['slug'] == current else ''
+        return f'<li><a href="/docs/{guide["slug"]}/"{here}>{guide["title"]}</a></li>'
+    groups = ''.join(f'<div class="docs-nav-group"><p class="docs-nav-title">{name}</p><ul>' + ''.join(item(g) for g in guides) + '</ul></div>' for _, name, _, guides in DOCS)
+    return f'<nav class="docs-nav" aria-label="Documentation"><a class="docs-nav-home" href="/docs/">All documentation</a>{groups}</nav>'
+
+def pager(index):
+    def side(guide, rel, label):
+        return f'<a class="pager-{rel}" href="/docs/{guide["slug"]}/" rel="{rel}"><span>{label}</span>{guide["title"]}</a>' if guide else '<span></span>'
+    previous = GUIDES[index - 1] if index > 0 else None
+    following = GUIDES[index + 1] if index + 1 < len(GUIDES) else None
+    return f'<nav class="pager" aria-label="Previous and next guides">{side(previous, "prev", "Previous")}{side(following, "next", "Next")}</nav>'
+
+def guide_page(index):
+    guide = GUIDES[index]
+    body = (ROOT / 'content/docs' / guide['section'] / f'{guide["slug"]}.html').read_text().strip()
+    headings = re.findall(r'<section id="([^"]+)"><h2>(.*?)</h2>', body)
+    crumb = f'<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/docs/">Documentation</a><span aria-hidden="true">/</span><a href="/docs/#{guide["section"]}">{guide["section_title"]}</a><span aria-hidden="true">/</span><span aria-current="page">{guide["title"]}</span></nav>'
+    heading = f'<section class="page-hero"><div class="container">{crumb}<p class="eyebrow">{guide["section_title"].upper()}</p><h1>{guide["title"]}</h1><p class="lead">{guide["intro"]}</p><p class="article-meta">{guide["meta"]}</p></div></section>'
+    toc = '<nav class="contents" aria-label="On this page"><strong>On this page</strong>' + ''.join(f'<a href="#{sid}">{name}</a>' for sid, name in headings) + '</nav>'
+    note = guide_note if guide.get('note', True) else ''
+    page('docs/' + guide['slug'], guide['title'], guide['intro'], heading + f'<div class="container docs-layout">{docs_menu(guide["slug"])}{toc}<article class="prose">{note}{body}{pager(index)}</article></div>', '/docs/')
+
+docs = hero('ATOMIC DOCUMENTATION','A good idea.<br /><em>A clear next step.</em>','Practical guides to describing, shaping, and reviewing your app. Start with the essentials.')
+docs += '<section class="page-section"><div class="container">'+notice('Early-access guides','These guides explain Atomic’s workflow and product boundaries. Account setup, exact interface steps, and plan limits will be documented as access opens.')+'<div class="search-field"><label for="guide-search">Find a guide</label><input id="guide-search" type="search" placeholder="Try “source” or “publish”" aria-describedby="search-status" /></div><p id="search-status" class="search-status" role="status" aria-live="polite">'+f'{len(GUIDES)} guides available</p>'
+for key, name, blurb, guides in DOCS:
+    docs += f'<section class="docs-group" id="{key}" data-guide-group aria-labelledby="{key}-title"><div class="docs-group-intro"><h2 id="{key}-title">{name}</h2><p>{blurb}</p></div><div class="resource-grid two-cols">' + ''.join(card(g['kicker'], g['title'], g['summary'], f'/docs/{g["slug"]}/', guide=True, level=3) for g in guides) + '</div></section>'
+docs += '</div></section>'+cta()
+page('docs','Documentation','Learn how to describe, shape, review, and prepare an app with Atomic.',docs,'/docs/')
+for index in range(len(GUIDES)):
+    guide_page(index)
 
 POSTS = [
     ('BUILDING USEFUL SOFTWARE','Start with one useful thing','A smaller first version makes it easier to discover what your business actually needs.','/blog/start-with-one-useful-thing/','One task.<br />Done well.'),
