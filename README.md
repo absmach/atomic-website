@@ -69,7 +69,7 @@ Product images and the Atomic mark come from `~/ideas/vc/atomic/pitch-deck`. Ima
 ## Social preview
 
 The page includes Open Graph and X large-image card metadata pointing to
-`https://atomicapp.dev/assets/atomic-social-v1.png`. The 1200 × 630 PNG uses the
+`https://atomicapp.dev/assets/atomic-social-v2.png`. The 1200 × 630 PNG uses the
 existing Atomic mark, palette, and bundled Manrope font. Regenerate it with
 `python3 scripts/render-social-card.py` (requires Pillow with FreeType/WOFF2
 support for authoring; the website still has no runtime dependencies).
