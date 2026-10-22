@@ -139,7 +139,6 @@
         <label class="field-label" for="access-email">Email</label>
         <input id="access-email" name="email" type="email" autocomplete="email" maxlength="254" required />
         <input class="trap" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <label class="consent"><input type="checkbox" name="consent" required /><span>I agree that Atomic may store these answers and email me about early access. <a href="/legal/privacy/" target="_blank" rel="noopener">Privacy policy</a></span></label>
         <div id="access-turnstile"></div>
       </fieldset>
       <p id="access-error" class="form-error" role="alert"></p>
@@ -147,6 +146,7 @@
         <button id="access-back" class="button button-secondary" type="button">Back</button>
         <button id="access-next" class="button button-primary" type="submit">Continue</button>
       </div>
+      <p class="consent-note">By submitting this form, you agree that Atomic may store your answers and email you about early access. <a href="/legal/privacy/" target="_blank" rel="noopener">Privacy policy</a></p>
     </form>
     <div id="access-done" tabindex="-1" hidden>
       <p class="eyebrow">YOU’RE ON THE LIST</p>

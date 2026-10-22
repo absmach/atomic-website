@@ -20,7 +20,6 @@ const valid = {
   company: "Clay & Co",
   name: "Ada Obi",
   email: "ada@example.com",
-  consent: true,
   website: "",
   turnstileToken: "token",
 };
@@ -70,7 +69,6 @@ test("rejects incomplete or invalid answers before calling any service", async (
     { role: "other" },
     { heardFrom: "other", heardFromOther: " " },
     { company: "x".repeat(101) },
-    { consent: false },
   ]) {
     const res = await submit({ ...valid, ...patch });
     assert.equal(res.status, 400, JSON.stringify(patch));
