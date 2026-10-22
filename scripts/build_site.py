@@ -9,7 +9,17 @@ DIST = ROOT / 'dist'
 CONTACT = 'mailto:info@absmach.eu'
 # Public Cloudflare Turnstile site key for the early-access form (not a secret).
 TURNSTILE_SITEKEY = '0x4AAAAAAFfPJS0NJjFeyiuj'
-NAV = [('Product', '/'), ('Docs', '/docs/'), ('Pricing', '/pricing/'), ('About', '/about/')]
+NAV = [('Product', '/'), ('Docs', '/docs/'), ('Blog', '/blog/'), ('Pricing', '/pricing/'), ('About', '/about/')]
+POSTS = [
+    ('BUILDING USEFUL SOFTWARE','Start with one useful thing','A smaller first version makes it easier to discover what your business actually needs.','/blog/start-with-one-useful-thing/','One task.<br />Done well.'),
+    ('THE ATOMIC APPROACH','Your app is more than its interface','Why identity, data, permissions, and source access belong in the conversation from the beginning.','/blog/more-than-an-interface/','Beyond<br />the screen.')
+]
+
+def blog_cards():
+    return ''.join(
+        f'<a class="resource-card article-card" href="{url}"><div class="article-cover" aria-hidden="true">{cover}</div><div class="article-copy"><p class="eyebrow">{tag}</p><h2>{title}</h2><p>{desc}</p><span class="card-link">Read the story <span aria-hidden="true">↗</span></span></div></a>'
+        for tag,title,desc,url,cover in POSTS
+    )
 
 def link(label, url, active=''):
     current = ' aria-current="page"' if url == active else ''
@@ -76,6 +86,7 @@ home = home.replace('<script src="app.js" defer></script>', '<link rel="styleshe
 home = home.replace('<script src="early-access.js" defer></script>', '<script src="/early-access.js" defer></script>').replace('__TURNSTILE_SITEKEY__', TURNSTILE_SITEKEY)
 home = home.replace('We’ll share availability and final plan details as launch approaches.', 'Explore our <a class="text-action" href="/pricing/">proposed launch plans</a>, starting with Free and Pro. Final allowances will be confirmed before subscriptions open.')
 home = home.replace('<section class="faq-section', '<section class="home-pricing"><div class="container"><div><p class="eyebrow">ROOM FOR YOUR NEXT IDEA</p><h2>Start small. Build from there.</h2><p>Explore Free and our proposed $25/month Pro plan.</p></div><a href="/pricing/" class="button button-secondary">Explore launch plans <span aria-hidden="true">↗</span></a></div></section>\n<section class="faq-section')
+home = home.replace('<section class="faq-section', '<section class="page-section home-blog" aria-labelledby="home-blog-heading"><div class="container"><div class="section-intro"><div><p class="eyebrow">FROM THE ATOMIC BLOG</p><h2 id="home-blog-heading">Ideas worth building on.</h2></div><a class="text-action" href="/blog/">Explore the blog <span aria-hidden="true">↗</span></a></div><div class="resource-grid two-cols">'+blog_cards()+'</div></div></section>\n<section class="faq-section')
 home = home.replace('Early access opens soon. Share your idea to join the waitlist.</p>', 'Early access opens soon. Share your idea to join the waitlist. <a href="/legal/privacy/">Privacy policy</a>.</p>')
 (DIST / 'index.html').write_text(home)
 
@@ -150,14 +161,9 @@ article('docs/publishing','Before your app goes live','A working preview is a st
     ('operate','Know how you will operate it','<p>Confirm hosting limits, any external service charges, your support contact, and the process for responding to problems. Review the published release after deployment. Frontend rollback changes the release served to visitors; it does not rewind business data.</p><p>Exact publishing steps, domain setup, and plan-specific limits will be added as early access opens.</p>')
 ],note=guide_note,meta='Publishing · 4 min read')
 
-POSTS = [
-    ('BUILDING USEFUL SOFTWARE','Start with one useful thing','A smaller first version makes it easier to discover what your business actually needs.','/blog/start-with-one-useful-thing/','One task.<br />Done well.'),
-    ('THE ATOMIC APPROACH','Your app is more than its interface','Why identity, data, permissions, and source access belong in the conversation from the beginning.','/blog/more-than-an-interface/','Beyond<br />the screen.')
-]
 blog = hero('THE ATOMIC BLOG','Notes on making<br /><em>ideas real.</em>','Thoughts on useful software, small beginnings, and building with a foundation you can understand.')
 blog += '<section class="page-section"><div class="container"><div class="resource-grid two-cols">'
-for tag,title,desc,url,cover in POSTS:
-    blog += f'<a class="resource-card article-card" href="{url}"><div class="article-cover" aria-hidden="true">{cover}</div><div class="article-copy"><p class="eyebrow">{tag}</p><h2>{title}</h2><p>{desc}</p><span class="card-link">Read the story <span aria-hidden="true">↗</span></span></div></a>'
+blog += blog_cards()
 blog += '</div></div></section>'+cta()
 page('blog','Blog','Field notes from Atomic on useful software, building apps, and turning ideas into something real.',blog,'/blog/')
 article('blog/start-with-one-useful-thing','Start with one useful thing','Your first app does not have to run your whole business. It needs to make one part of it easier.',[
