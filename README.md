@@ -25,7 +25,7 @@ Documentation screenshots in `dist/assets/docs/` are 1440 px wide captures of a 
 
 The header shows Product, Docs, Blog, Pricing, and About, followed by Get early access. The homepage links to the empty blog index. Resources is a footer grouping for Documentation, Blog, Security & trust, About Atomic, and Contact; there is no separate Resources page.
 
-Every page includes shared responsive navigation, a skip link, an Atomic-led footer, and links to Abstract Machines’ confirmed GitHub and LinkedIn profiles. Atomic-specific social profiles can be added once their URLs are confirmed. Nested pages use root-relative links and work on a host serving `dist/` at its root.
+Every page includes shared responsive navigation, a skip link, and an Atomic-led footer. The footer links to Atomic's X and Instagram profiles and Abstract Machines' GitHub and LinkedIn profiles. Nested pages use root-relative links and work on a host serving `dist/` at its root.
 
 ## Before public launch
 
@@ -37,7 +37,7 @@ The website structure and content are prepared; operational and commercial facts
 - Inventory actual vendors, their roles, processing/access locations, retention, and AI training settings. Publish an approved subprocessor register and change-notification process.
 - Verify inquiry, account, prompt, log, billing, and backup retention/deletion rules and the customer data export process.
 - Audit cookies, storage, and logging on the actual deployed host, including its access gate. The application itself sets no cookies or persistent browser storage; hosting behavior has not been certified. Add consent controls if the actual technologies require them.
-- Replace the early-access waitlist with the approved onboarding/payment flow when available, add final effective policies and acceptance records, and add Atomic-specific social URLs when confirmed.
+- Replace the early-access waitlist with the approved onboarding/payment flow when available, add final effective policies and acceptance records, and add any remaining social channels when their official URLs are confirmed.
 - The production domain is `atomicapp.dev`, with homepage canonical and social metadata configured. Complete canonical metadata for the remaining pages, submit a domain-specific sitemap, and review indexing before launch. Draft legal pages remain `noindex, nofollow` until finalized.
 
 Legal drafting references reviewed on 19 October 2026: [European Commission transparency and security guidance](https://commission.europa.eu/law/law-topic/data-protection/information-business-and-organisations/obligations_en), [EU cookie guidance](https://europa.eu/youreurope/business/growing/digitalising/online-privacy/index_en.htm), and [European Commission SCC guidance](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/new-standard-contractual-clauses-questions-and-answers-overview_en). Pricing is informed by [Lovable's pricing](https://lovable.dev/pricing); Atomic's draft allowances and commercial terms are not copied from it.
