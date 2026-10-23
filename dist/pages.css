@@ -57,3 +57,4 @@ body { font-synthesis: none; }
 
 /* Keep the launch-plan comparison readable and keyboard-scrollable on narrow screens. */
 .pricing-comparison table{min-width:680px}.pricing-comparison th,.pricing-comparison td{vertical-align:top}.pricing-comparison:focus-visible{outline:3px solid var(--violet);outline-offset:4px}
+.social-link{cursor:pointer;text-decoration:none}.social-link:hover .social-icon,.social-link:focus-visible .social-icon{border-color:var(--violet);background:#e6ddfb;color:var(--violet-dark)}.social-link:focus-visible{outline:2px solid var(--violet);outline-offset:4px;border-radius:8px}

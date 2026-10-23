@@ -9,7 +9,7 @@ DIST = ROOT / 'dist'
 CONTACT = 'mailto:info@absmach.eu'
 # Public Cloudflare Turnstile site key for the early-access form (not a secret).
 TURNSTILE_SITEKEY = '0x4AAAAAAFfPJS0NJjFeyiuj'
-NAV = [('Product', '/'), ('Docs', '/docs/'), ('Pricing', '/pricing/'), ('About', '/about/')]
+NAV = [('Product', '/'), ('Docs', '/docs/'), ('Blog', '/blog/'), ('Pricing', '/pricing/'), ('About', '/about/')]
 
 def link(label, url, active=''):
     current = ' aria-current="page"' if url == active else ''
@@ -20,14 +20,20 @@ def header(active):
     return f'''<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><div class="container header-row"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic.svg" width="33" height="33" alt="" />atomic</a><nav class="desktop-nav" aria-label="Main navigation">{links}</nav><div class="header-actions"><a class="button button-small" href="/#early-access">Get early access</a><button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button></div></div><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>{links}<a href="/#early-access">Get early access</a></nav></header>'''
 
-def social_placeholders():
+def social_links():
     icons = {
         'GitHub': '<path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 1.72 2.62 1.22 3.26.93.1-.73.39-1.22.71-1.5-2.49-.29-5.11-1.25-5.11-5.54 0-1.23.44-2.23 1.15-3.02-.12-.28-.5-1.43.11-2.98 0 0 .94-.3 3.08 1.15a10.76 10.76 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.55.23 2.7.11 2.98.71.79 1.15 1.79 1.15 3.02 0 4.3-2.62 5.25-5.12 5.53.4.35.76 1.03.76 2.08v3.11c0 .3.21.65.77.54A11.2 11.2 0 0 0 12 .8Z"/>',
         'LinkedIn': '<path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2ZM8 19H5V9h3ZM6.5 7.7a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4ZM19 19h-3v-5.2c0-1.2-.1-2.7-1.7-2.7s-2 1.3-2 2.6V19h-3V9h2.9v1.4h.1c.4-.8 1.4-1.7 2.9-1.7 3.1 0 3.8 2 3.8 4.5Z"/>',
         'X': '<path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l8.2-9.4L.8 2h6.5l5.9 7.9L18.9 2ZM17.8 20h1.8L6.3 3.9H4.4L17.8 20Z"/>',
-        'YouTube': '<path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31.8 31.8 0 0 0 .5 12a31.8 31.8 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31.8 31.8 0 0 0 .5-4.8 31.8 31.8 0 0 0-.5-4.8ZM9.7 15.5v-7l6.1 3.5-6.1 3.5Z"/>'
+        'Instagram': '<path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-2.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>'
     }
-    return ''.join(f'<span class="social-placeholder" role="img" aria-label="{name} — coming soon" title="{name} — coming soon"><span class="social-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">{icon}</svg></span><span class="social-name" aria-hidden="true">{name}</span></span>' for name,icon in icons.items())
+    profiles = [
+        ('X', 'Atomic', 'https://x.com/atomicappdev'),
+        ('Instagram', 'Atomic', 'https://www.instagram.com/atomicapp.dev/'),
+        ('GitHub', 'Abstract Machines', 'https://github.com/absmach'),
+        ('LinkedIn', 'Abstract Machines', 'https://www.linkedin.com/company/abstract-machines/'),
+    ]
+    return ''.join(f'<a class="social-placeholder social-link" href="{url}" target="_blank" rel="noopener noreferrer" aria-label="{brand} on {name}"><span class="social-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">{icons[name]}</svg></span></a>' for name,brand,url in profiles)
 
 def footer():
     columns = [
@@ -36,7 +42,7 @@ def footer():
         ('Legal', [('Legal overview', '/legal/'), ('Privacy', '/legal/privacy/'), ('Terms of Service', '/legal/terms/'), ('Acceptable Use', '/legal/acceptable-use/'), ('Data Processing', '/legal/dpa/'), ('Subprocessors', '/legal/subprocessors/'), ('Cookies & storage', '/legal/cookies/')])
     ]
     menus = ''.join(f'<nav class="footer-column" aria-label="{title}"><h2>{title}</h2>{"".join(link(label,url) for label,url in items)}</nav>' for title, items in columns)
-    return f'''<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic.svg" width="29" height="29" alt="" />atomic</a><p>Small idea. Real possibilities.<br />Build what comes next.</p><div class="social-placeholders" role="group" aria-label="Atomic social channels coming soon">{social_placeholders()}</div><p class="social-note">Atomic social channels · Coming soon</p></div>{menus}</div><div class="footer-bottom"><span>© <span id="year">2026</span> Atomic. A product by <a href="https://absmach.eu" target="_blank" rel="noopener noreferrer">Abstract Machines</a>.</span><span>Describe it. Shape it. Make it real.</span></div></div></footer>'''
+    return f'''<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic.svg" width="29" height="29" alt="" />atomic</a><p>Small idea. Real possibilities.<br />Build what comes next.</p><div class="social-placeholders" role="group" aria-label="Atomic and Abstract Machines social channels">{social_links()}</div><p class="social-note">Follow Atomic and Abstract Machines</p></div>{menus}</div><div class="footer-bottom"><span>© <span id="year">2026</span> Atomic. A product by <a href="https://absmach.eu" target="_blank" rel="noopener noreferrer">Abstract Machines</a>.</span><span>Describe it. Shape it. Make it real.</span></div></div></footer>'''
 
 def page(path, title, description, body, active='', draft=False):
     folder = DIST / path
