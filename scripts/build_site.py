@@ -103,7 +103,7 @@ plans = [
         'description': 'Keep several apps moving with a bigger team and more room to build, refine, and publish.',
         'credits': '5,000', 'credit_label': 'credits each month', 'apps': '10', 'app_label': 'published apps',
         'groups': [
-            ('Everything in Builder', ['Backend, database, and user authentication', 'Custom domains for your published apps', 'Version restore and frontend rollback', 'Build checks and searchable preview logs', 'Source downloads for every app']),
+            ('Everything in Builder, plus', ['Backend, database, and user authentication', 'Custom domains for your published apps', 'Version restore and frontend rollback', 'Build checks and searchable preview logs', 'Source downloads for every app']),
             ('More room for your team', ['10 invited collaborators per app', 'Shared workspaces with Editor and Admin roles', '2× Builder’s monthly credit allowance', 'Per-app build and credit usage history', 'On-demand credit top-ups'])
         ],
         'boundary': 'All Builder tools, with more credits, apps, and collaborators. Top-ups keep the same rate on both paid plans.'
