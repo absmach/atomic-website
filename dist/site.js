@@ -32,3 +32,25 @@ if (search) {
     document.getElementById('search-status').textContent = count ? `${count} guide${count === 1 ? '' : 's'} available` : 'No matching guides. Try “source”, “publish”, or “idea”.';
   });
 }
+
+// The docs menu scrolls on its own on wide screens. Keep it where the reader
+// left it when they follow one of its links, and otherwise bring the current
+// guide into view, so the next guide is a click away rather than a scroll.
+const docsNav = document.querySelector('.docs-nav');
+if (docsNav) {
+  const key = 'atomic-docs-nav-scroll';
+  docsNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    try { sessionStorage.setItem(key, String(docsNav.scrollTop)); } catch {}
+  }));
+  if (docsNav.scrollHeight > docsNav.clientHeight) {
+    let saved = null;
+    try { saved = sessionStorage.getItem(key); sessionStorage.removeItem(key); } catch {}
+    const current = docsNav.querySelector('[aria-current="page"]');
+    if (saved !== null) docsNav.scrollTop = Number(saved);
+    if (current) {
+      const top = current.offsetTop, bottom = top + current.offsetHeight;
+      if (saved === null || top < docsNav.scrollTop || bottom > docsNav.scrollTop + docsNav.clientHeight)
+        docsNav.scrollTop = top - (docsNav.clientHeight - current.offsetHeight) / 2;
+    }
+  }
+}
