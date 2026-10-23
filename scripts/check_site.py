@@ -3,9 +3,20 @@
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
+import struct
 
 ROOT = Path(__file__).resolve().parent.parent / 'dist'
 CONTENT = ROOT.parent / 'content' / 'docs'
+
+def pixel_size(path):
+    """A PNG's or JPEG's width and height, read from its header."""
+    data = path.read_bytes()
+    if data[:8] == b'\x89PNG\r\n\x1a\n': return struct.unpack('>II', data[16:24])
+    i = 2
+    while i + 9 < len(data):
+        marker, length = data[i + 1], struct.unpack('>H', data[i + 2:i + 4])[0]
+        if marker in (0xC0, 0xC1, 0xC2): return struct.unpack('>HH', data[i + 5:i + 9])[::-1]
+        i += 2 + length
 
 class Page(HTMLParser):
     def __init__(self, path):
@@ -24,6 +35,10 @@ class Page(HTMLParser):
             if attribute in a: self.links.append(a[attribute])
         if tag == 'img' and 'alt' not in a: self.errors.append('image missing alt attribute')
         if tag == 'img' and not ('width' in a and 'height' in a): self.errors.append(f'image missing width/height: {a.get("src")}')
+        elif tag == 'img' and a.get('src', '').startswith('/') and a['src'].endswith(('.jpg', '.png')):
+            source = ROOT / a['src'].lstrip('/')
+            if source.exists() and pixel_size(source) != (int(a['width']), int(a['height'])):
+                self.errors.append(f'image size {a["width"]}x{a["height"]} is not the file\'s {pixel_size(source)}: {a["src"]}')
 
 pages = {p.resolve(): Page(p) for p in ROOT.rglob('*.html')}
 errors = []

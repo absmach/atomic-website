@@ -105,24 +105,79 @@ page('pricing','Pricing','Explore Atomic’s proposed Free, Pro, and Business pl
 # read from those headings. DOCS orders the sections and their guides; the docs
 # index, the docs menu and the previous/next links all follow it. A guide's
 # address is /docs/<slug>/ whichever section holds it.
+def guide(slug, kicker, label, title, summary, intro, note=False):
+    return dict(slug=slug, kicker=kicker, label=label, title=title, summary=summary, intro=intro, note=note)
+
 DOCS = [
-    ('get-started', 'Get started', 'Decide what your first app should do, or begin from a complete one.', [
-        dict(slug='getting-started', kicker='START HERE', title='From idea to first app', summary='Turn a business need into a useful, testable first brief.',
-             intro='Give Atomic a clear starting point: who the app helps, what they need to do, and what a successful result looks like.', meta='Getting started · 4 min read'),
-        dict(slug='templates', kicker='TEMPLATES', title='Start from a template', summary='Try a complete app on sample data, then make it yours.',
-             intro='A template is a complete Atomic app — screens, backend and believable sample data — that you can try first and then make your own.', meta='Templates · 4 min read'),
+    ('get-started', 'Get started', 'What Atomic is, your account and workspace, and your first app.', [
+        guide('what-is-atomic', 'OVERVIEW', 'Overview', 'What is Atomic', 'How an idea becomes a running app, and the words you will meet on the way.',
+              'Atomic builds web apps from a description. Here is how the pieces fit together, from your first message to a published app.'),
+        guide('account', 'ACCOUNT', 'Account', 'Create an account and sign in', 'Sign up, verify your email, and manage your settings.',
+              'Create your Atomic account, verify your email address, and find your way around your settings.'),
+        guide('workspaces', 'WORKSPACES', 'Workspaces', 'Workspaces and teammates', 'Group apps and invite the people who build them with you.',
+              'A workspace holds your apps and the teammates who build them. Choose where new apps go and invite people to help.'),
+        guide('getting-started', 'START HERE', 'Getting started', 'From idea to first app', 'Turn a business need into a useful, testable first brief.',
+              'Give Atomic a clear starting point: who the app helps, what they need to do, and what a successful result looks like.', note=True),
+        guide('templates', 'TEMPLATES', 'Templates', 'Start from a template', 'Try a complete app on sample data, then make it yours.',
+              'A template is a complete Atomic app — screens, backend and believable sample data — that you can try first and then make your own.', note=True),
     ]),
-    ('build', 'Build', 'Describe a change, review the result and move forward in small steps.', [
-        dict(slug='building-with-atomic', kicker='BUILD & REFINE', title='Building with Atomic', summary='Work in small steps, review the preview, and check the result.',
-             intro='Describe a change, inspect the result, and move forward with a version you understand.', meta='Build & refine · 4 min read'),
+    ('build', 'Build', 'Describe your app, make the first design choices and follow each build.', [
+        guide('describe-your-app', 'DESCRIBE', 'Build', 'Describe your app', 'Start an app, borrow a look, and attach images or Figma designs.',
+              'Start a new app with a description. Borrow a look from a website, a screenshot or a Figma design, and choose how Atomic should respond.'),
+        guide('design-choices', 'DESIGN', 'Build', 'Design choices before the first build', 'Pick colors, type and layout, or skip straight to building.',
+              'Before the first build, Atomic offers a few optional choices about how your app should look.'),
+        guide('builds-and-checks', 'BUILDS', 'Build', 'Builds and checks', 'Follow a build, read its result, and find every build in one place.',
+              'Every request starts a build that Atomic checks before you use it. Here is what happens and how to follow it.'),
+        guide('building-with-atomic', 'BUILD & REFINE', 'Build & refine', 'Building with Atomic', 'Work in small steps, review the preview, and check the result.',
+              'Describe a change, inspect the result, and move forward with a version you understand.', note=True),
     ]),
-    ('publish-and-run', 'Publish and run', 'Check the real experience before people rely on your app.', [
-        dict(slug='publishing', kicker='PUBLISHING', title='Before your app goes live', summary='A practical guide to reviewing a customer-facing app.',
-             intro='A working preview is a starting point. Review the real customer experience before sharing a published version.', meta='Publishing · 4 min read'),
+    ('canvas', 'Canvas', 'See every screen at once, edit it directly and ask for changes in place.', [
+        guide('canvas', 'CANVAS', 'Canvas', 'The canvas', 'Every screen on one board, running on sample data.',
+              'The canvas shows every screen of your app at once, running on sample data, so you can try it as each kind of user and edit it in place.'),
+        guide('editing', 'EDIT', 'Canvas', 'Editing on the canvas', 'Select an element and change its text, layout and style.',
+              'Select any element on a screen to change its text, position, size and style, or the theme of the whole app, then apply your changes.'),
+        guide('screens-and-roles', 'SCREENS', 'Canvas', 'Screens, states and roles', 'How an app’s screens, states and roles fit together.',
+              'Every app keeps a list of its screens, the states you can open them in, and the roles that decide who can see each one.'),
+        guide('comments', 'ANNOTATE', 'Canvas', 'Annotations', 'Comment on an element and ask Atomic for a change there.',
+              'Describe a change right beside the element it is about, and follow Atomic’s work in a thread.'),
+    ]),
+    ('data-and-users', 'Data and users', 'Where your app keeps its data, and who can use and build it.', [
+        guide('app-data', 'DATA', 'Data', 'How your app’s data works', 'Sample data, preview data and real data, and who sees which records.',
+              'Every app has its own backend for accounts and records. Know which data is sample, which is temporary, and which belongs to your users.'),
+        guide('app-access', 'ACCESS', 'Access', 'Who can use your app', 'Access modes, app users and your first admin.',
+              'Choose how people get into your finished app, invite them, and give them the right roles.'),
+        guide('collaborators', 'COLLABORATORS', 'Collaborators', 'Collaborators', 'Invite people to build one app with you.',
+              'Invite people to build a single app with you in Atomic, and decide what each of them can do.'),
+    ]),
+    ('publish-and-run', 'Publish and run', 'Check the real experience, publish it, and look after it once it is live.', [
+        guide('publishing', 'PUBLISHING', 'Publishing', 'Before your app goes live', 'A practical guide to reviewing a customer-facing app.',
+              'A working preview is a starting point. Review the real customer experience before sharing a published version.', note=True),
+        guide('publish-your-app', 'PUBLISH', 'Publishing', 'Publish your app', 'Put a verified version live at its own address.',
+              'Publishing serves a verified version of your app at its own address, with its own users and data.'),
+        guide('custom-domains', 'DOMAINS', 'Publishing', 'Custom domains', 'Serve your app at a subdomain you own, with HTTPS.',
+              'Connect a subdomain you own to a published app. Atomic sets up HTTPS and keeps checking the connection.'),
+        guide('deployments', 'DEPLOYMENTS', 'Publishing', 'Deployments and rollback', 'See what is live and serve an earlier release again.',
+              'Every publication is kept. See what is live, and serve an earlier release again if something goes wrong.'),
+        guide('logs', 'LOGS', 'Debugging', 'Logs', 'What the app said while you tried it.',
+              'Logs show what your app did in its preview: its console, its requests and its server, side by side.'),
     ]),
     ('versions-and-source', 'Versions and source', 'What your source, your versions and your app’s data each cover.', [
-        dict(slug='source-and-data', kicker='SOURCE & DATA', title='What you can take with you', summary='Understand generated source, app data, and hosting.',
-             intro='Generated source, business data, and hosting are separate parts of your app. Understand each one before you plan a move.', meta='Source & data · 3 min read', note=False),
+        guide('versions', 'VERSIONS', 'Versions', 'Version history', 'Every verified checkpoint, and how to go back to one.',
+              'Each verified build becomes a version. Look back through them and restore an earlier one.'),
+        guide('code', 'CODE', 'Source', 'Browse and download code', 'Read your app’s source and download it.',
+              'Read your app’s source from any verified version and download it as an archive.'),
+        guide('source-and-data', 'SOURCE & DATA', 'Source & data', 'What you can take with you', 'Understand generated source, app data, and hosting.',
+              'Generated source, business data, and hosting are separate parts of your app. Understand each one before you plan a move.'),
+    ]),
+    ('help', 'Usage and help', 'Credits and usage, fixing common problems, and the words and limits to know.', [
+        guide('usage-and-credits', 'USAGE', 'Usage', 'Usage and credits', 'What credits measure and where they went.',
+              'Building uses credits. See what they measure, what happens when they run out, and where they went.'),
+        guide('troubleshooting', 'HELP', 'Help', 'Troubleshooting', 'What to do when something does not work.',
+              'Common problems while building, publishing and inviting people, and what to do about each.'),
+        guide('glossary', 'REFERENCE', 'Reference', 'Glossary', 'Every term used in these guides.',
+              'The words used across Atomic and these guides, in one place.'),
+        guide('limits', 'REFERENCE', 'Reference', 'Current limits', 'What Atomic does not do yet, in one list.',
+              'What to know before you rely on Atomic: the current limits that affect building, data, access and publishing.'),
     ]),
 ]
 GUIDES = [dict(guide, section=key, section_title=name) for key, name, _, guides in DOCS for guide in guides]
@@ -146,14 +201,17 @@ def guide_page(index):
     guide = GUIDES[index]
     body = (ROOT / 'content/docs' / guide['section'] / f'{guide["slug"]}.html').read_text().strip()
     headings = re.findall(r'<section id="([^"]+)"><h2>(.*?)</h2>', body)
+    # Reading time from the guide's own words (figures aside), at 200 a minute.
+    words = len(re.sub(r'<[^>]+>', ' ', re.sub(r'<figure.*?</figure>', '', body, flags=re.S)).split())
+    meta = f'{guide["label"]} · {max(1, -(-words // 200))} min read'
     crumb = f'<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/docs/">Documentation</a><span aria-hidden="true">/</span><a href="/docs/#{guide["section"]}">{guide["section_title"]}</a><span aria-hidden="true">/</span><span aria-current="page">{guide["title"]}</span></nav>'
-    heading = f'<section class="page-hero"><div class="container">{crumb}<p class="eyebrow">{guide["section_title"].upper()}</p><h1>{guide["title"]}</h1><p class="lead">{guide["intro"]}</p><p class="article-meta">{guide["meta"]}</p></div></section>'
+    heading = f'<section class="page-hero"><div class="container">{crumb}<p class="eyebrow">{guide["section_title"].upper()}</p><h1>{guide["title"]}</h1><p class="lead">{guide["intro"]}</p><p class="article-meta">{meta}</p></div></section>'
     toc = '<nav class="contents" aria-label="On this page"><strong>On this page</strong>' + ''.join(f'<a href="#{sid}">{name}</a>' for sid, name in headings) + '</nav>'
-    note = guide_note if guide.get('note', True) else ''
+    note = guide_note if guide['note'] else ''
     page('docs/' + guide['slug'], guide['title'], guide['intro'], heading + f'<div class="container docs-layout">{docs_menu(guide["slug"])}{toc}<article class="prose">{note}{body}{pager(index)}</article></div>', '/docs/')
 
 docs = hero('ATOMIC DOCUMENTATION','A good idea.<br /><em>A clear next step.</em>','Practical guides to describing, shaping, and reviewing your app. Start with the essentials.')
-docs += '<section class="page-section"><div class="container">'+notice('Early-access guides','These guides explain Atomic’s workflow and product boundaries. Account setup, exact interface steps, and plan limits will be documented as access opens.')+'<div class="search-field"><label for="guide-search">Find a guide</label><input id="guide-search" type="search" placeholder="Try “source” or “publish”" aria-describedby="search-status" /></div><p id="search-status" class="search-status" role="status" aria-live="polite">'+f'{len(GUIDES)} guides available</p>'
+docs += '<section class="page-section"><div class="container">'+notice('Early-access guides','These guides describe Atomic as it works in early access. Screens and steps may change as the product develops, and plan limits are not final.')+'<div class="search-field"><label for="guide-search">Find a guide</label><input id="guide-search" type="search" placeholder="Try “source” or “publish”" aria-describedby="search-status" /></div><p id="search-status" class="search-status" role="status" aria-live="polite">'+f'{len(GUIDES)} guides available</p>'
 for key, name, blurb, guides in DOCS:
     docs += f'<section class="docs-group" id="{key}" data-guide-group aria-labelledby="{key}-title"><div class="docs-group-intro"><h2 id="{key}-title">{name}</h2><p>{blurb}</p></div><div class="resource-grid two-cols">' + ''.join(card(g['kicker'], g['title'], g['summary'], f'/docs/{g["slug"]}/', guide=True, level=3) for g in guides) + '</div></section>'
 docs += '</div></section>'+cta()

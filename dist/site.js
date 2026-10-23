@@ -29,6 +29,6 @@ if (search) {
     // A section whose guides all miss hides with its heading.
     groups.forEach(group => { group.hidden = !group.querySelector('[data-guide]:not([hidden])'); });
     const count = cards.filter(card => !card.hidden).length;
-    document.getElementById('search-status').textContent = count ? `${count} guides available` : 'No matching guides. Try “source”, “publish”, or “idea”.';
+    document.getElementById('search-status').textContent = count ? `${count} guide${count === 1 ? '' : 's'} available` : 'No matching guides. Try “source”, “publish”, or “idea”.';
   });
 }
