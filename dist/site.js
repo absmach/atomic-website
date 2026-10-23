@@ -22,10 +22,13 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const search = document.getElementById('guide-search');
 if (search) {
   const cards = [...document.querySelectorAll('[data-guide]')];
+  const groups = [...document.querySelectorAll('[data-guide-group]')];
   search.addEventListener('input', () => {
     const query = search.value.trim().toLowerCase();
     cards.forEach(card => { card.hidden = !card.textContent.toLowerCase().includes(query); });
+    // A section whose guides all miss hides with its heading.
+    groups.forEach(group => { group.hidden = !group.querySelector('[data-guide]:not([hidden])'); });
     const count = cards.filter(card => !card.hidden).length;
-    document.getElementById('search-status').textContent = count ? `${count} guides available` : 'No matching guides. Try “source”, “publish”, or “idea”.';
+    document.getElementById('search-status').textContent = count ? `${count} guide${count === 1 ? '' : 's'} available` : 'No matching guides. Try “source”, “publish”, or “idea”.';
   });
 }

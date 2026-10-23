@@ -6,13 +6,17 @@ A responsive, dependency-free, multi-page product site built from the Atomic app
 
 Run `python3 scripts/build_site.py` after changing content or shared markup. Run `python3 scripts/check_site.py` to validate every local page link, fragment, asset, heading, title, ID, and image alt attribute. Check JavaScript syntax with `node --check dist/site.js`, `node --check dist/app.js`, and `node --check dist/early-access.js`. Run the Worker tests with `node --test src/worker.test.js`.
 
-`content/home.html` contains the original homepage presentation. `scripts/build_site.py` owns the shared navigation and footer, homepage additions, pricing copy, guides, articles, and legal drafts. Generated HTML is committed in `dist/`, so hosting still requires no build or installation. Edit those sources rather than generated HTML. Shared styles and JavaScript in `dist/` are maintained directly.
+`content/home.html` contains the original homepage presentation. `scripts/build_site.py` owns the shared navigation and footer, homepage additions, pricing copy, articles, and legal drafts.
+
+Each documentation guide's body is `content/docs/<section>/<slug>.html`: a run of `<section id="…"><h2>…</h2>…</section>` blocks, from which the page's contents list is read. `DOCS` in `scripts/build_site.py` lists the sections and, in order, each guide's slug, title, card summary, introduction and reading time. The docs index, the docs menu on every guide and the previous/next links follow that order. A guide is served at `/docs/<slug>/` whichever section holds it, so moving it between sections keeps its address. To add a guide, write its content file and add it to `DOCS`. Reading times are computed from each guide's words.
+
+Documentation screenshots in `dist/assets/docs/` are 1440 px wide captures of a local Atomic Builder (cropped to one section where a guide is about that section), using an app created from the Salon Booking template so no model was called. Retake them when the screens they show change. Every `<img>` needs `width` and `height` that match the file; `check_site.py` compares them. `check_site.py` fails when a content file and its generated page do not match one to one, or when a guide is missing from the index or a menu. Generated HTML is committed in `dist/`, so hosting still requires no build or installation. Edit those sources rather than generated HTML. Shared styles and JavaScript in `dist/` are maintained directly.
 
 ## Site map
 
 - `/`: product introduction, interactive examples, workspace views, and early-access inquiry.
 - `/pricing/`: proposed Free, $25/month Pro, and later $50/month Business plans in USD; no checkout or unverified credit allowance.
-- `/docs/`: searchable library with getting-started, building, source/data, and publishing guides. These explain the early-access workflow, not unverified account or interface procedures.
+- `/docs/`: searchable product documentation, 28 guides in seven sections (Get started, Build, Canvas, Data and users, Publish and run, Versions and source, Usage and help), each guide with the docs menu, an on-page contents list and previous/next links. Guides describe the product as it works in the Atomic repository's `main`; plan amounts are left to `/pricing/`. These explain the early-access workflow, not unverified account or interface procedures.
 - `/blog/`: two original product-perspective articles. No fabricated launch announcements, customer stories, or release dates.
 - `/about/`: Atomic’s purpose and the team at Abstract Machines, with links to the company, Atom, and its public open-source work.
 - `/security/`: verified product boundaries and the existing team contact for reporting concerns; no invented certifications or SLA.
