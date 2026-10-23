@@ -33,7 +33,7 @@ def social_links():
         ('GitHub', 'Abstract Machines', 'https://github.com/absmach'),
         ('LinkedIn', 'Abstract Machines', 'https://www.linkedin.com/company/abstract-machines/'),
     ]
-    return ''.join(f'<a class="social-placeholder social-link" href="{url}" target="_blank" rel="noopener noreferrer" aria-label="{brand} on {name}"><span class="social-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">{icons[name]}</svg></span><span class="social-name" aria-hidden="true">{name}</span></a>' for name,brand,url in profiles)
+    return ''.join(f'<a class="social-placeholder social-link" href="{url}" target="_blank" rel="noopener noreferrer" aria-label="{brand} on {name}"><span class="social-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">{icons[name]}</svg></span></a>' for name,brand,url in profiles)
 
 def footer():
     columns = [
