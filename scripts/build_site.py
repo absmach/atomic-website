@@ -10,16 +10,6 @@ CONTACT = 'mailto:info@absmach.eu'
 # Public Cloudflare Turnstile site key for the early-access form (not a secret).
 TURNSTILE_SITEKEY = '0x4AAAAAAFfPJS0NJjFeyiuj'
 NAV = [('Product', '/'), ('Docs', '/docs/'), ('Blog', '/blog/'), ('Pricing', '/pricing/'), ('About', '/about/')]
-POSTS = [
-    ('BUILDING USEFUL SOFTWARE','Start with one useful thing','A smaller first version makes it easier to discover what your business actually needs.','/blog/start-with-one-useful-thing/','One task.<br />Done well.'),
-    ('THE ATOMIC APPROACH','Your app is more than its interface','Why identity, data, permissions, and source access belong in the conversation from the beginning.','/blog/more-than-an-interface/','Beyond<br />the screen.')
-]
-
-def blog_cards():
-    return ''.join(
-        f'<a class="resource-card article-card" href="{url}"><div class="article-cover" aria-hidden="true">{cover}</div><div class="article-copy"><p class="eyebrow">{tag}</p><h2>{title}</h2><p>{desc}</p><span class="card-link">Read the story <span aria-hidden="true">↗</span></span></div></a>'
-        for tag,title,desc,url,cover in POSTS
-    )
 
 def link(label, url, active=''):
     current = ' aria-current="page"' if url == active else ''
@@ -30,14 +20,18 @@ def header(active):
     return f'''<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><div class="container header-row"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic.svg" width="33" height="33" alt="" />atomic</a><nav class="desktop-nav" aria-label="Main navigation">{links}</nav><div class="header-actions"><a class="button button-small" href="/#early-access">Get early access</a><button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button></div></div><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>{links}<a href="/#early-access">Get early access</a></nav></header>'''
 
-def social_placeholders():
+def social_links():
     icons = {
         'GitHub': '<path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 1.72 2.62 1.22 3.26.93.1-.73.39-1.22.71-1.5-2.49-.29-5.11-1.25-5.11-5.54 0-1.23.44-2.23 1.15-3.02-.12-.28-.5-1.43.11-2.98 0 0 .94-.3 3.08 1.15a10.76 10.76 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.55.23 2.7.11 2.98.71.79 1.15 1.79 1.15 3.02 0 4.3-2.62 5.25-5.12 5.53.4.35.76 1.03.76 2.08v3.11c0 .3.21.65.77.54A11.2 11.2 0 0 0 12 .8Z"/>',
         'LinkedIn': '<path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2ZM8 19H5V9h3ZM6.5 7.7a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4ZM19 19h-3v-5.2c0-1.2-.1-2.7-1.7-2.7s-2 1.3-2 2.6V19h-3V9h2.9v1.4h.1c.4-.8 1.4-1.7 2.9-1.7 3.1 0 3.8 2 3.8 4.5Z"/>',
         'X': '<path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l8.2-9.4L.8 2h6.5l5.9 7.9L18.9 2ZM17.8 20h1.8L6.3 3.9H4.4L17.8 20Z"/>',
         'YouTube': '<path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31.8 31.8 0 0 0 .5 12a31.8 31.8 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31.8 31.8 0 0 0 .5-4.8 31.8 31.8 0 0 0-.5-4.8ZM9.7 15.5v-7l6.1 3.5-6.1 3.5Z"/>'
     }
-    return ''.join(f'<span class="social-placeholder" role="img" aria-label="{name} — coming soon" title="{name} — coming soon"><span class="social-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">{icon}</svg></span><span class="social-name" aria-hidden="true">{name}</span></span>' for name,icon in icons.items())
+    urls = {
+        'GitHub': 'https://github.com/absmach',
+        'LinkedIn': 'https://www.linkedin.com/company/abstract-machines/',
+    }
+    return ''.join(f'<a class="social-placeholder social-link" href="{url}" target="_blank" rel="noopener noreferrer" aria-label="Abstract Machines on {name}"><span class="social-icon"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">{icons[name]}</svg></span><span class="social-name" aria-hidden="true">{name}</span></a>' for name,url in urls.items())
 
 def footer():
     columns = [
@@ -46,7 +40,7 @@ def footer():
         ('Legal', [('Legal overview', '/legal/'), ('Privacy', '/legal/privacy/'), ('Terms of Service', '/legal/terms/'), ('Acceptable Use', '/legal/acceptable-use/'), ('Data Processing', '/legal/dpa/'), ('Subprocessors', '/legal/subprocessors/'), ('Cookies & storage', '/legal/cookies/')])
     ]
     menus = ''.join(f'<nav class="footer-column" aria-label="{title}"><h2>{title}</h2>{"".join(link(label,url) for label,url in items)}</nav>' for title, items in columns)
-    return f'''<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic.svg" width="29" height="29" alt="" />atomic</a><p>Small idea. Real possibilities.<br />Build what comes next.</p><div class="social-placeholders" role="group" aria-label="Atomic social channels coming soon">{social_placeholders()}</div><p class="social-note">Atomic social channels · Coming soon</p></div>{menus}</div><div class="footer-bottom"><span>© <span id="year">2026</span> Atomic. A product by <a href="https://absmach.eu" target="_blank" rel="noopener noreferrer">Abstract Machines</a>.</span><span>Describe it. Shape it. Make it real.</span></div></div></footer>'''
+    return f'''<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic.svg" width="29" height="29" alt="" />atomic</a><p>Small idea. Real possibilities.<br />Build what comes next.</p><div class="social-placeholders" role="group" aria-label="Abstract Machines social channels">{social_links()}</div><p class="social-note">Follow Abstract Machines</p></div>{menus}</div><div class="footer-bottom"><span>© <span id="year">2026</span> Atomic. A product by <a href="https://absmach.eu" target="_blank" rel="noopener noreferrer">Abstract Machines</a>.</span><span>Describe it. Shape it. Make it real.</span></div></div></footer>'''
 
 def page(path, title, description, body, active='', draft=False):
     folder = DIST / path
@@ -61,11 +55,8 @@ def hero(kicker, title, intro, center=False, extra=''):
 def cta():
     return '<section class="mini-cta"><div class="container"><div><h2>Your next idea starts here.</h2><p>Tell us what you want to build with Atomic.</p></div><a class="button button-primary" href="/#early-access">Get early access <span aria-hidden="true">↗</span></a></div></section>'
 
-def card(kicker, title, text, url, action='Read the guide', guide=False):
-    return f'<a class="resource-card" href="{url}"{" data-guide" if guide else ""}><p class="eyebrow">{kicker}</p><h2>{title}</h2><p>{text}</p><span class="card-link">{action} <span aria-hidden="true">↗</span></span></a>'
-
-def screenshot(name, width, height, alt, caption):
-    return f'<figure class="doc-shot"><img src="/assets/docs/{name}.jpg" width="{width}" height="{height}" loading="lazy" alt="{escape(alt, quote=True)}" /><figcaption>{caption}</figcaption></figure>'
+def card(kicker, title, text, url, action='Read the guide', guide=False, level=2):
+    return f'<a class="resource-card" href="{url}"{" data-guide" if guide else ""}><p class="eyebrow">{kicker}</p><h{level}>{title}</h{level}><p>{text}</p><span class="card-link">{action} <span aria-hidden="true">↗</span></span></a>'
 
 def notice(title, text):
     return f'<div class="notice"><strong>{title}</strong>{text}</div>'
@@ -84,100 +75,215 @@ home = re.sub(r'  <a class="skip-link".*?</header>', header('/'), home, count=1,
 home = re.sub(r'<footer class="site-footer">.*?</footer>', footer(), home, count=1, flags=re.S)
 home = home.replace('<script src="app.js" defer></script>', '<link rel="stylesheet" href="/pages.css" />\n  <script src="/site.js" defer></script>\n  <script src="/app.js" defer></script>')
 home = home.replace('<script src="early-access.js" defer></script>', '<script src="/early-access.js" defer></script>').replace('__TURNSTILE_SITEKEY__', TURNSTILE_SITEKEY)
-home = home.replace('We’ll share availability and final plan details as launch approaches.', 'Explore our <a class="text-action" href="/pricing/">proposed launch plans</a>, starting with Free and Pro. Final allowances will be confirmed before subscriptions open.')
-home = home.replace('<section class="faq-section', '<section class="home-pricing"><div class="container"><div><p class="eyebrow">ROOM FOR YOUR NEXT IDEA</p><h2>Start small. Build from there.</h2><p>Explore Free and our proposed $25/month Pro plan.</p></div><a href="/pricing/" class="button button-secondary">Explore launch plans <span aria-hidden="true">↗</span></a></div></section>\n<section class="faq-section')
-home = home.replace('<section class="faq-section', '<section class="page-section home-blog" aria-labelledby="home-blog-heading"><div class="container"><div class="section-intro"><div><p class="eyebrow">FROM THE ATOMIC BLOG</p><h2 id="home-blog-heading">Ideas worth building on.</h2></div><a class="text-action" href="/blog/">Explore the blog <span aria-hidden="true">↗</span></a></div><div class="resource-grid two-cols">'+blog_cards()+'</div></div></section>\n<section class="faq-section')
+home = home.replace('We’ll share availability and final plan details as launch approaches.', 'Explore our <a class="text-action" href="/pricing/">proposed launch plans</a>, with Free, Builder, and Pro. Subscriptions are not open yet.')
+home = home.replace('<section class="faq-section', '<section class="home-pricing"><div class="container"><div><p class="eyebrow">ROOM FOR YOUR NEXT IDEA</p><h2>Start small. Build from there.</h2><p>Start with Free, build with Builder at $25/month, or grow with Pro at $50/month.</p></div><a href="/pricing/" class="button button-secondary">Explore launch plans <span aria-hidden="true">↗</span></a></div></section>\n<section class="faq-section')
+home = home.replace('<section class="faq-section', '<section class="page-section home-blog" aria-labelledby="home-blog-heading"><div class="container"><div class="section-intro"><div><p class="eyebrow">THE ATOMIC BLOG</p><h2 id="home-blog-heading">Stories are on their way.</h2><p>Product updates and ideas from the team behind Atomic will appear here soon.</p></div><a class="text-action" href="/blog/">Visit the blog <span aria-hidden="true">↗</span></a></div></div></section>\n<section class="faq-section')
 home = home.replace('Early access opens soon. Share your idea to join the waitlist.</p>', 'Early access opens soon. Share your idea to join the waitlist. <a href="/legal/privacy/">Privacy policy</a>.</p>')
 (DIST / 'index.html').write_text(home)
 
-# Pricing: proposed prices, explicit availability, no invented entitlements.
+# Pricing: agreed launch proposal; subscriptions remain closed.
 plans = [
-    ('Free', '$0', 'For your first what if.', 'Explore the idea', ['Explore Atomic’s app-building workflow', 'Start with a focused idea', 'Browse and download generated source'], 'Free plan proposed for launch', False),
-    ('Pro', '$25', 'For the app you want to make real.', 'The next step', ['Everything proposed for Free', 'A larger building allowance', 'More room to refine and publish'], 'Proposed USD / month', True),
-    ('Business', '$50', 'For teams building what comes next.', 'On the roadmap', ['Team workflows under development', 'Shared usage controls planned', 'Support options to be confirmed'], 'Proposed USD / month · Later release', False)
+    {
+        'name': 'Free', 'price': '$0', 'badge': 'Explore the idea', 'featured': False,
+        'description': 'Design your first frontend. Build on your own, see it working, and keep the source.',
+        'credits': '250', 'credit_label': 'credits at signup', 'apps': '1', 'app_label': 'published frontend app',
+        'groups': [
+            ('Create and refine', ['AI frontend generation and revisions', 'Visual canvas and in-place text editing', 'Theme, typography, and layout controls', 'Screen previews and visual annotations', 'Image and design-reference uploads']),
+            ('Keep and share your work', ['Private projects', 'Browse and download generated source', 'Version history and source restore', 'Publish on an Atomic subdomain'])
+        ],
+        'boundary': 'Frontend only · Solo building. Backend, database, authentication, and collaboration start with Builder.'
+    },
+    {
+        'name': 'Builder', 'price': '$25', 'badge': 'Start building', 'featured': True,
+        'description': 'Turn your idea into a working app, with accounts, real data, and people building beside you.',
+        'credits': '2,500', 'credit_label': 'credits each month', 'apps': '3', 'app_label': 'published apps',
+        'groups': [
+            ('Everything in Free, plus', ['App backend and persistent database', 'User sign-in and app access controls', 'Connect your own custom domain', 'Deployment history and frontend rollback', 'Build checks and searchable preview logs']),
+            ('Build together', ['Shared team workspaces', '5 invited collaborators per app', 'Editor and Admin collaborator roles', 'Per-app build and credit usage history', 'On-demand credit top-ups'])
+        ],
+        'boundary': 'Building and metered hosting use your credits. Top-ups: $10 for 1,000 credits, with no expiry.'
+    },
+    {
+        'name': 'Pro', 'price': '$50', 'badge': 'Keep growing', 'featured': False,
+        'description': 'Keep several apps moving with a bigger team and more room to build, refine, and publish.',
+        'credits': '5,000', 'credit_label': 'credits each month', 'apps': '10', 'app_label': 'published apps',
+        'groups': [
+            ('Everything in Builder, plus', ['Backend, database, and user authentication', 'Custom domains for your published apps', 'Version restore and frontend rollback', 'Build checks and searchable preview logs', 'Source downloads for every app']),
+            ('More room for your team', ['10 invited collaborators per app', 'Shared workspaces with Editor and Admin roles', '2× Builder’s monthly credit allowance', 'Per-app build and credit usage history', 'On-demand credit top-ups'])
+        ],
+        'boundary': 'All Builder tools, with more credits, apps, and collaborators. Top-ups keep the same rate on both paid plans.'
+    }
 ]
 pricecards = ''
-for name,price,desc,badge,features,note,featured in plans:
-    pricecards += f'<article class="price-card{" featured" if featured else ""}"><span class="pill">{badge}</span><h2>{name}</h2><p class="plan-description">{desc}</p><p class="price">{price}<small> / month</small></p><p class="price-note">{note}</p><a class="button {"button-primary" if featured else "button-secondary"}" href="{CONTACT}?subject=Atomic%20{name}%20early%20access">{"Ask about Business" if name=="Business" else "Ask about early access"}</a><ul class="plan-features planned">'+''.join(f'<li>{feature}</li>' for feature in features)+'</ul></article>'
-pricing = hero('PLANS FOR WHAT COMES NEXT','A little idea.<br /><em>Room to grow.</em>','Start exploring. Find your rhythm. Choose the space you need to build something useful.',True,'<span class="pill">Launch preview · Subscriptions are not open yet</span>')
-pricing += f'<section class="page-section"><div class="container"><div class="price-grid">{pricecards}</div><p class="pricing-footnote">Proposed launch pricing in USD. Features and usage allowances are not final. Applicable taxes and the total payable will be shown before purchase. No payment is collected here.</p><div class="enterprise-strip"><div><h3>Something bigger in mind?</h3><p>Tell us about your organization, deployment needs, and support requirements.</p></div><a class="text-action" href="{CONTACT}?subject=Atomic%20organization%20inquiry">Talk to the Atomic team ↗</a></div></div></section>'
-pricing += '<section class="page-section"><div class="container"><div class="section-intro"><h2>Know what you’re paying for.</h2><p>Building an app and keeping it running use different resources. The final plans will make both clear.</p></div><div class="resource-grid">'+card('01 / BUILD','Shape your app.','AI generation, revisions, and build checks consume resources. Credit quantities and consumption rates will be published before billing opens.','/docs/building-with-atomic/','Understand the workflow')+card('02 / RUN','Give it a home.','Hosting, database usage, storage, and any AI inside your app need their own clear allowances. We are finalizing those limits.','/docs/publishing/','Prepare to publish')+card('03 / KEEP','Keep your source.','Source downloads are part of Atomic’s product direction. They do not include customer records or hosting infrastructure.','/docs/source-and-data/','Understand source & data')+'</div></div></section>'
-pricing += '<section class="page-section"><div class="container faq-layout"><div><p class="eyebrow">A FEW PRACTICAL DETAILS</p><h2>Before you choose.</h2></div><div class="faq-list">'
+for plan in plans:
+    name = plan['name']
+    groups = ''.join('<section class="plan-feature-group"><h3>'+escape(title)+'</h3><ul class="plan-features">'+''.join('<li>'+escape(feature)+'</li>' for feature in features)+'</ul></section>' for title,features in plan['groups'])
+    pricecards += f'''<article class="price-card{' featured' if plan['featured'] else ''}" aria-labelledby="plan-{name.lower()}">
+<div class="plan-overview"><span class="pill">{plan['badge']}</span><h2 id="plan-{name.lower()}">{name}</h2><p class="plan-description">{plan['description']}</p><p class="price">{plan['price']}<small> / month</small></p><a class="button {'button-primary' if plan['featured'] else 'button-secondary'}" href="{CONTACT}?subject=Atomic%20{name}%20early%20access">Ask about early access</a></div>
+<dl class="plan-allowances"><div><dt>{plan['credit_label']}</dt><dd>{plan['credits']}</dd></div><div><dt>{plan['app_label']}</dt><dd>{plan['apps']}</dd></div></dl>
+<div class="plan-details">{groups}<p class="plan-boundary">{plan['boundary']}</p></div></article>'''
+pricing = hero('PLANS FOR WHAT COMES NEXT','A little idea.<br /><em>Room to grow.</em>','Start for free. Choose more room to build and run your apps when you need it.',True,'<span class="pill">Launch preview · Subscriptions are not open yet</span>')
+pricing += f'<section class="page-section"><div class="container"><div class="price-grid">{pricecards}</div><p class="pricing-footnote">Proposed launch plans in USD, billed monthly. Applicable taxes are extra and will be shown before purchase. Free allowances and collaboration limits are subject to launch validation. Storage, bandwidth, and concurrency limits will be published before subscriptions open. No payment is collected here.</p><div class="enterprise-strip"><div><h3>Something bigger in mind?</h3><p>Tell us about your organization, deployment needs, and support requirements.</p></div><a class="text-action" href="{CONTACT}?subject=Atomic%20organization%20inquiry">Talk to the Atomic team ↗</a></div></div></section>'
+comparison_rows = [
+    ('Best for', 'Explore a frontend idea on your own', 'Launch and refine your apps', 'Build several apps with a team'),
+    ('Published apps at once', '1 frontend app within the trial allowance', '3', '10'),
+    ('Invited collaborators per app', 'Not included', '5', '10'),
+    ('Editor and Admin collaborator roles', 'Not included', 'Included', 'Included'),
+    ('Shared workspaces and team collaboration', 'Not included', 'Included', 'Included'),
+    ('Custom domains', 'Atomic subdomain only', 'Connect your own domain', 'Connect your own domains'),
+    ('AI generation and revisions', 'Frontend only', 'Full app', 'Full app'),
+    ('Visual canvas, text edits, and theme controls', 'Included', 'Included', 'Included'),
+    ('Screen previews and visual annotations', 'Included', 'Included', 'Included'),
+    ('Image and design-reference uploads', 'Included', 'Included', 'Included'),
+    ('App backend, database, and user authentication', 'Not included', 'Included', 'Included'),
+    ('App-user access controls', 'Not included', 'Included', 'Included'),
+    ('Deployment history and frontend rollback', 'Not included in the Free proposal', 'Included', 'Included'),
+    ('Searchable preview logs', 'Not included in the Free proposal', 'Included', 'Included'),
+    ('Private projects and source downloads', 'Included', 'Included', 'Included'),
+    ('Version history and source restore', 'Included', 'Included', 'Included'),
+    ('Per-app build and usage history', 'Included', 'Included', 'Included'),
+    ('Hosting and persistent storage', 'Frontend hosting uses trial credits; no backend storage', 'Uses available credits', 'Uses available credits'),
+    ('Buy additional credits', 'Upgrade to a paid plan', '$10 for 1,000 credits', '$10 for 1,000 credits')
+]
+comparison = ''.join('<tr><th scope="row">'+label+'</th>'+''.join('<td>'+value+'</td>' for value in values)+'</tr>' for label,*values in comparison_rows)
+pricing += '<section class="page-section"><div class="container"><div class="section-intro"><p class="eyebrow">WHAT YOUR PLAN MAKES POSSIBLE</p><h2>Start with the frontend. Grow into a full app.</h2><p>Free gives you visual editing, version history, and source downloads to explore a frontend idea on your own. Builder adds a backend, database, user authentication, team collaboration, custom domains, and room for several live apps. Pro gives a larger team more credits and publishing capacity.</p></div><div class="table-wrap pricing-comparison" role="region" aria-label="Compare launch plan features" tabindex="0"><table><caption>Proposed launch features. On small screens, scroll horizontally to compare plans.</caption><thead><tr><th scope="col">What you get</th><th scope="col">Free · $0/month</th><th scope="col">Builder · $25/month</th><th scope="col">Pro · $50/month</th></tr></thead><tbody>'+comparison+'</tbody></table></div><p class="pricing-footnote">Collaborator limits are proposed and count people invited to an app, excluding its owner. They are not limits on the people using your finished app. Shared workspaces and collaboration require a paid plan; workspace membership is separate from the per-app collaborator limit. Building by collaborators uses the app owner’s credits. A source download includes code, not app users or business data; version restore changes code, not data. Custom-domain registration is purchased separately.</p></div></section>'
+pricing += '<section class="page-section"><div class="container"><div class="section-intro"><h2>One credit value. Every plan.</h2><p><strong>100 credits = $1 of Atomic usage.</strong> Credits pay for building and running your apps at Atomic’s usage rates. The same work uses the same credits on every plan; charges can be fractional, based on the resources used. For example, 15 credits means $0.15 of Atomic usage. A credit is not a message or a completed app.</p></div><div class="resource-grid">'+card('01 / BUILD','Shape your app.','AI generation, revisions, suggestions, dictation, and the build environment draw from your credits. A small change can use less than a complex build.','/docs/usage-and-credits/','Understand your usage')+card('02 / RUN','Give it a home.','Metered app hosting and persistent storage use credits too. Published-app slots are capacity limits, not unlimited hosting. A protected hosting budget is planned so building cannot spend the credits you set aside to run your apps.','/docs/publishing/','Prepare to publish')+card('03 / TOP UP','More room when you need it.','On Builder and Pro, add 1,000 credits for $10. Purchased credits do not expire and are used after your monthly allowance. No automatic overage charges.','/pricing/#credit-rules','Read the credit rules')+'</div></div></section>'
+pricing += '<section id="credit-rules" class="page-section"><div class="container faq-layout"><div><p class="eyebrow">A FEW PRACTICAL DETAILS</p><h2>Before you choose.</h2></div><div class="faq-list">'
 for q,a in [
     ('Can I subscribe today?','Not yet. These are proposed launch plans. The early-access form adds you to the waitlist; it does not create an account, reserve a price, or start a subscription.'),
-    ('How many credits are included?','We are measuring generation, retries, and infrastructure costs before setting allowances. A credit is a usage unit, not a promise that every prompt has the same cost. Exact quantities, rates, expiry, and top-up rules will be published before purchase.'),
-    ('Is hosting included?','The included hosting allowance and any additional usage rates are still being defined. Do not assume unlimited traffic, storage, database usage, or app AI is included in the proposed subscription price.'),
-    ('Will there be annual billing?','Monthly pricing is the current proposal. Annual billing and discounts have not been announced.'),
-    ('What happens if I cancel?','Cancellation, credit expiry, data retention, export access, and the behavior of published apps will be specified in the final subscription terms before checkout becomes available.'),
-    ('Is Business available at launch?','Business is a planned later release. Team controls, support commitments, and its final feature set are not available for purchase on this website.')]:
+    ('What is included in the subscription?','Builder includes 2,500 monthly credits and up to 3 published apps for $25/month. Pro includes 5,000 monthly credits and up to 10 published apps for $50/month. Both include a backend, database, user authentication, team collaboration, custom domains, private projects, and source downloads. Builder proposes 5 invited collaborators per app; Pro proposes 10. Collaborators can work together with Editor and Admin roles, using the app owner’s credits. Your subscription pays for the platform as well as the included usage.'),
+    ('How does Free work?','The proposed Free plan includes 250 credits once at signup, with no monthly refill. Build on your own and publish one frontend-only app on an Atomic subdomain within your available trial allowance. Free does not include a backend, database, user authentication, or collaboration. Those features, custom domains, and credit purchases require Builder or Pro. When the signup credits are used, upgrade to Builder or Pro to continue building.'),
+    ('Do unused credits expire?','Monthly subscription credits reset at renewal and do not roll over. Purchased top-up credits do not expire. Monthly credits are used before purchased credits. Free receives only its one-time signup grant, with no monthly refill; its expiry terms will be confirmed before launch.'),
+    ('Is hosting included?','Your included credits can pay for metered hosting and persistent storage. Hosting is not unlimited, and storage can still cost credits when an app is stopped. We plan to let you protect part of your balance for hosting. Storage, bandwidth, concurrency limits, and hosting exhaustion and retention rules will be published before billing opens.'),
+    ('What happens when my credits run out?','There are no automatic overage charges. New builds require enough available credits. Free users can upgrade when their signup credits run out. On Builder and Pro, you can buy 1,000 more credits for $10 or wait for your monthly allowance to renew. Running apps also need available hosting funds. The planned hosting-budget control will let you set aside credits that building cannot spend.'),
+    ('Will there be annual billing?','The launch proposal is monthly billing only. Annual plans and discounts have not been announced.'),
+    ('What happens if I cancel?','Cancellation, data retention, export access, and the behavior of published apps will be specified in the final subscription terms before checkout becomes available.')]:
     pricing += f'<details><summary>{q}</summary><p>{a}</p></details>'
 pricing += '</div></div></section>'+cta()
-page('pricing','Pricing','Explore Atomic’s proposed Free, Pro, and Business plans. Clear launch pricing and room to grow.',pricing,'/pricing/')
+page('pricing','Pricing','Explore Atomic’s launch plans: Free, Builder at $25/month with 2,500 credits, and Pro at $50/month with 5,000 credits. Paid-plan top-ups: $10 for 1,000 credits.',pricing,'/pricing/')
 
-GUIDES = [
-    ('START HERE','From idea to first app','Turn a business need into a useful, testable first brief.','/docs/getting-started/'),
-    ('TEMPLATES','Start from a template','Try a complete app on sample data, then make it yours.','/docs/templates/'),
-    ('BUILD & REFINE','Building with Atomic','Work in small steps, review the preview, and check the result.','/docs/building-with-atomic/'),
-    ('SOURCE & DATA','What you can take with you','Understand generated source, app data, and hosting.','/docs/source-and-data/'),
-    ('PUBLISHING','Before your app goes live','A practical guide to reviewing a customer-facing app.','/docs/publishing/')
+# Documentation: each guide's body is content/docs/<section>/<slug>.html, a run
+# of <section id="..."><h2>...</h2>...</section> blocks; the contents list is
+# read from those headings. DOCS orders the sections and their guides; the docs
+# index, the docs menu and the previous/next links all follow it. A guide's
+# address is /docs/<slug>/ whichever section holds it.
+def guide(slug, kicker, label, title, summary, intro, note=False):
+    return dict(slug=slug, kicker=kicker, label=label, title=title, summary=summary, intro=intro, note=note)
+
+DOCS = [
+    ('get-started', 'Get started', 'What Atomic is, your account and workspace, and your first app.', [
+        guide('what-is-atomic', 'OVERVIEW', 'Overview', 'What is Atomic', 'How an idea becomes a running app, and the words you will meet on the way.',
+              'Atomic builds web apps from a description. Here is how the pieces fit together, from your first message to a published app.'),
+        guide('account', 'ACCOUNT', 'Account', 'Create an account and sign in', 'Sign up, verify your email, and manage your settings.',
+              'Create your Atomic account, verify your email address, and find your way around your settings.'),
+        guide('workspaces', 'WORKSPACES', 'Workspaces', 'Workspaces and teammates', 'Group apps and invite the people who build them with you.',
+              'A workspace holds your apps and the teammates who build them. Choose where new apps go and invite people to help.'),
+        guide('getting-started', 'START HERE', 'Getting started', 'From idea to first app', 'Turn a business need into a useful, testable first brief.',
+              'Give Atomic a clear starting point: who the app helps, what they need to do, and what a successful result looks like.', note=True),
+        guide('templates', 'TEMPLATES', 'Templates', 'Start from a template', 'Try a complete app on sample data, then make it yours.',
+              'A template is a complete Atomic app — screens, backend and believable sample data — that you can try first and then make your own.', note=True),
+    ]),
+    ('build', 'Build', 'Describe your app, make the first design choices and follow each build.', [
+        guide('describe-your-app', 'DESCRIBE', 'Build', 'Describe your app', 'Start an app, borrow a look, and attach images or Figma designs.',
+              'Start a new app with a description. Borrow a look from a website, a screenshot or a Figma design, and choose how Atomic should respond.'),
+        guide('design-choices', 'DESIGN', 'Build', 'Design choices before the first build', 'Pick colors, type and layout, or skip straight to building.',
+              'Before the first build, Atomic offers a few optional choices about how your app should look.'),
+        guide('builds-and-checks', 'BUILDS', 'Build', 'Builds and checks', 'Follow a build, read its result, and find every build in one place.',
+              'Every request starts a build that Atomic checks before you use it. Here is what happens and how to follow it.'),
+        guide('building-with-atomic', 'BUILD & REFINE', 'Build & refine', 'Building with Atomic', 'Work in small steps, review the preview, and check the result.',
+              'Describe a change, inspect the result, and move forward with a version you understand.', note=True),
+    ]),
+    ('canvas', 'Canvas', 'See every screen at once, edit it directly and ask for changes in place.', [
+        guide('canvas', 'CANVAS', 'Canvas', 'The canvas', 'Every screen on one board, running on sample data.',
+              'The canvas shows every screen of your app at once, running on sample data, so you can try it as each kind of user and edit it in place.'),
+        guide('editing', 'EDIT', 'Canvas', 'Editing on the canvas', 'Select an element and change its text, layout and style.',
+              'Select any element on a screen to change its text, position, size and style, or the theme of the whole app, then apply your changes.'),
+        guide('screens-and-roles', 'SCREENS', 'Canvas', 'Screens, states and roles', 'How an app’s screens, states and roles fit together.',
+              'Every app keeps a list of its screens, the states you can open them in, and the roles that decide who can see each one.'),
+        guide('comments', 'ANNOTATE', 'Canvas', 'Annotations', 'Comment on an element and ask Atomic for a change there.',
+              'Describe a change right beside the element it is about, and follow Atomic’s work in a thread.'),
+    ]),
+    ('data-and-users', 'Data and users', 'Where your app keeps its data, and who can use and build it.', [
+        guide('app-data', 'DATA', 'Data', 'How your app’s data works', 'Sample data, preview data and real data, and who sees which records.',
+              'Every app has its own backend for accounts and records. Know which data is sample, which is temporary, and which belongs to your users.'),
+        guide('app-access', 'ACCESS', 'Access', 'Who can use your app', 'Access modes, app users and your first admin.',
+              'Choose how people get into your finished app, invite them, and give them the right roles.'),
+        guide('collaborators', 'COLLABORATORS', 'Collaborators', 'Collaborators', 'Invite people to build one app with you.',
+              'Invite people to build a single app with you in Atomic, and decide what each of them can do.'),
+    ]),
+    ('publish-and-run', 'Publish and run', 'Check the real experience, publish it, and look after it once it is live.', [
+        guide('publishing', 'PUBLISHING', 'Publishing', 'Before your app goes live', 'A practical guide to reviewing a customer-facing app.',
+              'A working preview is a starting point. Review the real customer experience before sharing a published version.', note=True),
+        guide('publish-your-app', 'PUBLISH', 'Publishing', 'Publish your app', 'Put a verified version live at its own address.',
+              'Publishing serves a verified version of your app at its own address, with its own users and data.'),
+        guide('custom-domains', 'DOMAINS', 'Publishing', 'Custom domains', 'Serve your app at a subdomain you own, with HTTPS.',
+              'Connect a subdomain you own to a published app. Atomic sets up HTTPS and keeps checking the connection.'),
+        guide('deployments', 'DEPLOYMENTS', 'Publishing', 'Deployments and rollback', 'See what is live and serve an earlier release again.',
+              'Every publication is kept. See what is live, and serve an earlier release again if something goes wrong.'),
+        guide('logs', 'LOGS', 'Debugging', 'Logs', 'What the app said while you tried it.',
+              'Logs show what your app did in its preview: its console, its requests and its server, side by side.'),
+    ]),
+    ('versions-and-source', 'Versions and source', 'What your source, your versions and your app’s data each cover.', [
+        guide('versions', 'VERSIONS', 'Versions', 'Version history', 'Every verified checkpoint, and how to go back to one.',
+              'Each verified build becomes a version. Look back through them and restore an earlier one.'),
+        guide('code', 'CODE', 'Source', 'Browse and download code', 'Read your app’s source and download it.',
+              'Read your app’s source from any verified version and download it as an archive.'),
+        guide('source-and-data', 'SOURCE & DATA', 'Source & data', 'What you can take with you', 'Understand generated source, app data, and hosting.',
+              'Generated source, business data, and hosting are separate parts of your app. Understand each one before you plan a move.'),
+    ]),
+    ('help', 'Usage and help', 'Credits and usage, fixing common problems, and the words and limits to know.', [
+        guide('usage-and-credits', 'USAGE', 'Usage', 'Usage and credits', 'What credits measure and where they went.',
+              'Building uses credits. See what they measure, what happens when they run out, and where they went.'),
+        guide('troubleshooting', 'HELP', 'Help', 'Troubleshooting', 'What to do when something does not work.',
+              'Common problems while building, publishing and inviting people, and what to do about each.'),
+        guide('glossary', 'REFERENCE', 'Reference', 'Glossary', 'Every term used in these guides.',
+              'The words used across Atomic and these guides, in one place.'),
+        guide('limits', 'REFERENCE', 'Reference', 'Current limits', 'What Atomic does not do yet, in one list.',
+              'What to know before you rely on Atomic: the current limits that affect building, data, access and publishing.'),
+    ]),
 ]
-docs = hero('ATOMIC DOCUMENTATION','A good idea.<br /><em>A clear next step.</em>','Practical guides to describing, shaping, and reviewing your app. Start with the essentials.')
-docs += '<section class="page-section"><div class="container">'+notice('Early-access guides','These guides explain Atomic’s workflow and product boundaries. Account setup, exact interface steps, and plan limits will be documented as access opens.')+'<div class="search-field"><label for="guide-search">Find a guide</label><input id="guide-search" type="search" placeholder="Try “source” or “publish”" aria-describedby="search-status" /></div><p id="search-status" class="search-status" role="status" aria-live="polite">'+f'{len(GUIDES)} guides available</p><div class="resource-grid two-cols">'+''.join(card(*g,guide=True) for g in GUIDES)+'</div></div></section>'+cta()
-page('docs','Documentation','Learn how to describe, shape, review, and prepare an app with Atomic.',docs,'/docs/')
-
+GUIDES = [dict(guide, section=key, section_title=name) for key, name, _, guides in DOCS for guide in guides]
 guide_note = notice('Before you start','Atomic is preparing for early access. The examples on this website are local demonstrations using sample data; they do not generate or host an app.')
-article('docs/getting-started','From idea to first app','Give Atomic a clear starting point: who the app helps, what they need to do, and what a successful result looks like.',[
-    ('choose','Choose one useful job','<p>Start with a task you can describe in a sentence. A booking request, a small product catalog, or a client project view gives you a focused first version. Save the larger wish list for later.</p><p>For example: “Help my clients request a design consultation without a long email exchange.” That is specific enough to test with someone who might use it.</p>'),
-    ('brief','Write a practical brief','<p>Include the people using the app, the information they provide, and what each person should be allowed to see or change.</p><blockquote>Build a booking app for my studio. Clients choose a service and request an available time. I review requests and confirm them. A client should only see their own booking. Start with sample services and sample clients.</blockquote><p>Add your preferred tone and appearance after the workflow is clear. Say whether the app should feel calm, playful, minimal, or editorial, and describe any existing brand assets you want to use.</p>'),
-    ('test','Define a test before you build','<ul><li>Can a client understand the available services?</li><li>Does submitting a request produce a clear confirmation?</li><li>Can the owner review and change a request?</li><li>Can one client access another client’s information?</li><li>What happens when a time is unavailable or a field is empty?</li></ul><p>A useful brief includes the difficult cases as well as the happy path.</p>'),
-    ('next','Try the workflow','<p>Explore the <a href="/#examples">interactive examples</a> on the homepage to see the customer and owner perspectives. Then <a href="/#early-access">share your idea with the team</a> to ask about access.</p><p>If your idea is close to a booking site, a CRM, a shop, a help desk, a club or a studio website, you can also <a href="/docs/templates/">start from a template</a> and shape it from there.</p>')
-],note=guide_note,meta='Getting started · 4 min read',related='<div class="related"><a href="/docs/building-with-atomic/">Next: Building with Atomic →</a></div>')
-article('docs/templates','Start from a template','A template is a complete Atomic app — screens, backend and believable sample data — that you can try first and then make your own.',[
-    ('what','What a template gives you','<p>Instead of describing an app from scratch, you can start from one that already works. Each template brings three things together:</p><ul><li><strong>Screens</strong>: the pages, forms and dialogs of the app, styled with its own theme.</li><li><strong>Backend configuration</strong>: the kinds of records the app keeps, the roles people can have, and what each role may see and change. Atomic sets this up on Atom, the backend underneath every app.</li><li><strong>Sample data</strong>: a small set of realistic records and a sample account for each role, so the app has something to show from the first minute.</li></ul><p>Setting up a template calls no AI model and uses no building credits. Atomic installs it, builds it and runs the same checks it runs on every app, so the first version is ready to preview, edit and publish like any other.</p>'),
-    ('gallery','The templates','<p>Open <strong>Templates</strong> in the sidebar, or <strong>Or start from a template</strong> on the dashboard. You can search the gallery or narrow it by category.</p>'+screenshot('templates-gallery',1440,900,'The Templates gallery in the Atomic Builder, with a search field, category filters and the featured Salon Booking template.','The gallery: search, filter by category, or open a template to try it.')+'<div class="table-wrap"><table><thead><tr><th scope="col">Template</th><th scope="col">What it does</th><th scope="col">Who uses it</th></tr></thead><tbody><tr><th scope="row">Salon Booking</th><td>Services, stylists and opening hours, online booking, a day view for staff and an owner dashboard.</td><td>Customers sign up; owner and staff accounts</td></tr><tr><th scope="row">Pipeline CRM</th><td>Companies, contacts and deals on a stage board, with an activity log and a sales dashboard.</td><td>Invited team; admin and sales roles</td></tr><tr><th scope="row">Storefront</th><td>A product catalogue with categories, a cart and checkout, order history and a shop manager.</td><td>Customers sign up; admin account</td></tr><tr><th scope="row">Help Desk</th><td>Requests with an agent queue, internal notes and a knowledge base.</td><td>Invited requesters; admin and agent roles</td></tr><tr><th scope="row">Club &amp; Events</th><td>Events with RSVPs, announcements, and an organiser’s roster and check-in.</td><td>Members sign up; organiser role</td></tr><tr><th scope="row">Studio Portfolio</th><td>A design studio’s public site: selected work, case studies, services and a contact page.</td><td>Public visitors; no accounts</td></tr></tbody></table></div><p>Templates that ask people to sign in come with Atomic’s sign-in and account screens for that kind of access: open sign-up, or invitation only. A public template, such as the portfolio, has none.</p>'),
-    ('try','Try it before you use it','<p>A template’s page runs the app itself, on its sample data, right in your browser. It is the same preview you get on the canvas when you press <strong>Play</strong>:</p>'+screenshot('template-preview',1440,1060,'The Salon Booking template page playing the owner dashboard, with requests to confirm, the View as switch set to Owner, and the strip of screens below.','Salon Booking, viewed as the owner. The strip below the preview jumps to any screen or state.')+'<ul><li>Click through it, open its dialogs and fill in its forms.</li><li>Switch <strong>View as</strong> to see the app as each role, signed in as that role’s sample account, with that account’s own records.</li><li>Pick a screen, or a state such as an open dialog, from the strip below the preview to jump straight to it.</li><li>Use the reset button to start again, or open the preview full size in a new tab.</li></ul><p>Nothing you do there is kept. The page also lists the sample records the template brings and the record kinds its backend holds, so you know what you are starting with.</p>'+screenshot('template-data',1440,900,'The Data tab of a template page listing sample services, beside a summary of the screens, backend configuration and sample data the template brings.','The sample data a template brings, and a summary of what you get.')+'<p>The first time a template is opened, the preview may take a few moments to prepare; the page says so and starts playing once it is ready.</p>'),
-    ('use','Use this template','<p>Choose <strong>Use this template</strong>, give the app a name, and Atomic creates it in your current workspace. You can choose whether to <strong>include sample data in the backend</strong>:</p>'+screenshot('use-template',1440,900,'The Use Salon Booking dialog with an app name field, the current workspace, and the option to include sample data in the backend.','Name the app and choose whether its backend starts with the sample data.')+'<ul><li><strong>On</strong>: the app’s backend starts with the sample records, which is the quickest way to try every role.</li><li><strong>Off</strong>: the backend starts empty, apart from the sample accounts used to try each role in the preview. The canvas still shows the sample records while you work.</li></ul><p>The app records which template and version it started from. After that it is an ordinary Atomic app, with its own source, versions and preview.</p>'),
-    ('yours','Make it yours','<p>A template is a starting point, not a constraint. Describe changes the way you would for any app: rename it, restyle it, add a screen, or change who may do what. Atomic’s assistant is told which template the app came from and how its data is organised, so it can work with what is already there.</p><blockquote>Rename the salon to Northside Hair, use a warm terracotta accent, and let staff mark an appointment as no-show.</blockquote><p>Before you share the app, replace what the template only stands in for:</p><ul><li>Text in brackets, such as <em>[Your street address]</em>, is a placeholder to fill in.</li><li>Pictures are labelled placeholders that describe the image they are waiting for.</li><li>Sample records are there to try the app. Remove them, or start without sample data, before real people use it. In the backend every sample record starts out shared, so some that are meant for staff only can be read by other signed-in users until you remove them.</li></ul><p>Sample accounts exist so you can try each role; they are never published with your app. Then work through the <a href="/docs/publishing/">publishing guide</a> as you would for any app.</p>')
-],note=guide_note,meta='Templates · 4 min read',related='<div class="related"><a href="/docs/building-with-atomic/">Next: Building with Atomic →</a></div>')
-article('docs/building-with-atomic','Building with Atomic','Describe a change, inspect the result, and move forward with a version you understand.',[
-    ('describe','Describe the behavior','<p>Explain what a person should be able to do and what should happen next. “Let the owner confirm a booking” gives a clearer target than “make it more professional.” Separate functional requests from visual refinements when possible.</p>'),
-    ('refine','Refine in small steps','<p>After a first version, ask for a focused improvement. Adjust a form, simplify a navigation path, or clarify a confirmation message. Review the changed area before combining it with the next request.</p><blockquote>When a client submits a booking request, show the selected service and time in the confirmation. Make clear that the owner still needs to approve it.</blockquote>'),
-    ('review','Review the preview and checks','<p>Try the app as each kind of user. Check empty states, invalid input, repeated submissions, and narrow screens. Review available build checks, but remember that a successful build does not establish that permissions, business rules, or security are correct.</p><p>Use sample data during development. Avoid including passwords, payment details, or unnecessary personal information in your prompts.</p>'),
-    ('history','Understand version history','<p>Atomic’s workflow includes verified source history and frontend release rollback. Returning to an earlier source version or frontend release does not restore your app’s business data. Database changes and data recovery need their own plan.</p>'),
-    ('ready','Prepare a version to share','<p>When the core workflow is useful, work through the <a href="/docs/publishing/">publishing guide</a>. Keep a record of what you tested and the known limitations of the version you are sharing.</p>')
-],note=guide_note,meta='Build & refine · 4 min read')
-article('docs/source-and-data','What you can take with you','Generated source, business data, and hosting are separate parts of your app. Understand each one before you plan a move.',[
-    ('source','Your generated source','<p>Atomic lets you browse and download generated source files. The source describes the application, but downloading it is not the same as making a complete backup of a running business.</p><p>Generated projects can include dependencies and other materials governed by third-party licenses. Review those licenses before distributing or reusing the project.</p>'),
-    ('data','Your app’s business data','<p>Customer accounts, bookings, orders, uploaded files, and other live records are separate from generated source. Source downloads do not include those records. Data export and retention procedures need to be confirmed for your deployment.</p>'),
-    ('hosting','The environment that runs it','<p>A live app also depends on configuration, secrets, infrastructure, and services. Source export does not transfer that environment. Keep credentials private, and do not place production secrets in downloaded projects you share publicly.</p>'),
-    ('atom','Where Atom fits','<p>Atom is the open-source backend underneath Atomic’s identity, data, and permissions. Its permissive license allows inspection and use in your own deployments. That foundation does not mean an Atomic app can automatically be moved with every account and record intact.</p>'),
-    ('roadmap','Packaging and portability','<p>Broader app packaging and deployment choices remain roadmap items. Before relying on a migration path, ask the Atomic team about the supported process for your app, its data, and its services.</p>')
-],meta='Source & data · 3 min read')
-article('docs/publishing','Before your app goes live','A working preview is a starting point. Review the real customer experience before sharing a published version.',[
-    ('workflow','Try the complete workflow','<p>Start with a new user and follow the main task to its conclusion. Check confirmation messages, error recovery, and what an administrator sees afterward. Remove sample records and clearly identify any functionality that is still a demonstration.</p>'),
-    ('permissions','Check identity and permissions','<p>Test with separate accounts for customers and administrators. Verify that users can access only the records and actions intended for them. Hiding a button is not a substitute for enforcing permissions on the backend.</p>'),
-    ('content','Review content and accessibility','<p>Replace placeholder text, images, prices, and contact details. Test keyboard navigation, form labels, readable contrast, and small screens. Ensure the purpose of each button and the result of each action are clear.</p>'),
-    ('data','Prepare for real data','<p>Decide what data you actually need, who can access it, and how long you will keep it. Provide the notices and terms appropriate to your app. Atomic’s policies cover Atomic’s service; they do not automatically cover the relationship between your business and its customers.</p><p>Confirm the supported backup, deletion, and export processes before collecting important records. Avoid sensitive or regulated data unless your agreement and deployment explicitly support it.</p>'),
-    ('operate','Know how you will operate it','<p>Confirm hosting limits, any external service charges, your support contact, and the process for responding to problems. Review the published release after deployment. Frontend rollback changes the release served to visitors; it does not rewind business data.</p><p>Exact publishing steps, domain setup, and plan-specific limits will be added as early access opens.</p>')
-],note=guide_note,meta='Publishing · 4 min read')
 
-blog = hero('THE ATOMIC BLOG','Notes on making<br /><em>ideas real.</em>','Thoughts on useful software, small beginnings, and building with a foundation you can understand.')
-blog += '<section class="page-section"><div class="container"><div class="resource-grid two-cols">'
-blog += blog_cards()
-blog += '</div></div></section>'+cta()
-page('blog','Blog','Field notes from Atomic on useful software, building apps, and turning ideas into something real.',blog,'/blog/')
-article('blog/start-with-one-useful-thing','Start with one useful thing','Your first app does not have to run your whole business. It needs to make one part of it easier.',[
-    ('friction','Start where the friction is','<p>A studio owner answers the same scheduling questions every week. A small shop shares product details across a string of messages. A freelancer sends another email explaining where a project stands.</p><p>Each is a modest problem with a recognizable cost: time, attention, or uncertainty. Each is also a useful starting point for an app.</p>'),
-    ('small','Make the first version small','<p>It is tempting to add a dashboard, notifications, payments, and a loyalty program before anyone has tried the main workflow. But each addition introduces another decision and another way for the experience to become confusing.</p><p>For a booking app, the first useful version might let someone choose a service and request a time, then let the owner confirm it. That is enough to ask whether the app makes the exchange clearer.</p>'),
-    ('learn','Use the app to learn','<p>Show the first version to someone who would use it. Ask them to complete the task without explaining every screen. Notice where they hesitate and which information they look for.</p><p>The next improvement may be a better label or a clearer confirmation, not a new feature. A narrow first version makes those observations easier to act on.</p>'),
-    ('atomic','Bring that focus to Atomic','<p>Atomic starts with a description of what you want to build. The more clearly you can explain the person, the task, and the result, the better a starting point you have for reviewing the app.</p><p>Think of your first brief as a hypothesis: this small piece of software will make this particular job easier. Build enough to try it, then decide what comes next.</p><p><a href="/docs/getting-started/">Write your first app brief →</a></p>')
-],category='Field notes',active='/blog/',meta='Atomic · Product perspective · 3 min read')
-article('blog/more-than-an-interface','Your app is more than its interface','The screen is what people see. The foundation determines what they can safely do.',[
-    ('screen','A good screen is the beginning','<p>A booking form can look finished before it answers the most important questions. Where does the request go? Who can change it? Can another customer see it? What happens when the owner confirms?</p><p>These questions turn a collection of screens into an application. They are part of the product experience, even when users never see the machinery underneath.</p>'),
-    ('foundation','Identity, data, and permissions','<p>Atomic uses Atom as its open-source backend foundation. Identity establishes who is using an app. Data holds the records that make it useful. Permissions determine who can read and change them.</p><p>Those pieces still need careful configuration and testing. An open-source foundation gives you code you can inspect; it is not a substitute for checking the behavior of your particular application.</p>'),
-    ('control','Keep the boundaries visible','<p>Source access is another part of that foundation. Being able to browse and download generated code helps you understand what was built and keep a copy of your work.</p><p>But source is not customer data, and neither is hosting. Atomic treats those as distinct concerns. Broader packaging and deployment options remain on the roadmap; we want the current boundaries to be clear while that work develops.</p>'),
-    ('build','Build with the whole app in mind','<p>When you describe an app, include who uses it, which records they work with, and what each person may do. When you review it, test those relationships as carefully as the layout.</p><p>The ambition is simple: useful software that looks good, behaves clearly, and gives you a foundation you can understand.</p><p><a href="/docs/source-and-data/">Read about source, data, and hosting →</a></p>')
-],category='Field notes',active='/blog/',meta='Atomic · Product perspective · 3 min read')
+def docs_menu(current):
+    def item(guide):
+        here = ' aria-current="page"' if guide['slug'] == current else ''
+        return f'<li><a href="/docs/{guide["slug"]}/"{here}>{guide["title"]}</a></li>'
+    groups = ''.join(f'<div class="docs-nav-group"><p class="docs-nav-title">{name}</p><ul>' + ''.join(item(g) for g in guides) + '</ul></div>' for _, name, _, guides in DOCS)
+    return f'<nav class="docs-nav" aria-label="Documentation"><a class="docs-nav-home" href="/docs/">All documentation</a>{groups}</nav>'
+
+def pager(index):
+    def side(guide, rel, label):
+        return f'<a class="pager-{rel}" href="/docs/{guide["slug"]}/" rel="{rel}"><span>{label}</span>{guide["title"]}</a>' if guide else '<span></span>'
+    previous = GUIDES[index - 1] if index > 0 else None
+    following = GUIDES[index + 1] if index + 1 < len(GUIDES) else None
+    return f'<nav class="pager" aria-label="Previous and next guides">{side(previous, "prev", "Previous")}{side(following, "next", "Next")}</nav>'
+
+def guide_page(index):
+    guide = GUIDES[index]
+    body = (ROOT / 'content/docs' / guide['section'] / f'{guide["slug"]}.html').read_text().strip()
+    headings = re.findall(r'<section id="([^"]+)"><h2>(.*?)</h2>', body)
+    # Reading time from the guide's own words (figures aside), at 200 a minute.
+    words = len(re.sub(r'<[^>]+>', ' ', re.sub(r'<figure.*?</figure>', '', body, flags=re.S)).split())
+    meta = f'{guide["label"]} · {max(1, -(-words // 200))} min read'
+    crumb = f'<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/docs/">Documentation</a><span aria-hidden="true">/</span><a href="/docs/#{guide["section"]}">{guide["section_title"]}</a><span aria-hidden="true">/</span><span aria-current="page">{guide["title"]}</span></nav>'
+    heading = f'<section class="page-hero"><div class="container">{crumb}<p class="eyebrow">{guide["section_title"].upper()}</p><h1>{guide["title"]}</h1><p class="lead">{guide["intro"]}</p><p class="article-meta">{meta}</p></div></section>'
+    toc = '<nav class="contents" aria-label="On this page"><strong>On this page</strong>' + ''.join(f'<a href="#{sid}">{name}</a>' for sid, name in headings) + '</nav>'
+    note = guide_note if guide['note'] else ''
+    page('docs/' + guide['slug'], guide['title'], guide['intro'], heading + f'<div class="container docs-layout">{docs_menu(guide["slug"])}{toc}<article class="prose">{note}{body}{pager(index)}</article></div>', '/docs/')
+
+docs = hero('ATOMIC DOCUMENTATION','A good idea.<br /><em>A clear next step.</em>','Practical guides to describing, shaping, and reviewing your app. Start with the essentials.')
+docs += '<section class="page-section"><div class="container">'+notice('Early-access guides','These guides describe Atomic as it works in early access. Screens and steps may change as the product develops, and plan limits are not final.')+'<div class="search-field"><label for="guide-search">Find a guide</label><input id="guide-search" type="search" placeholder="Try “source” or “publish”" aria-describedby="search-status" /></div><p id="search-status" class="search-status" role="status" aria-live="polite">'+f'{len(GUIDES)} guides available</p>'
+for key, name, blurb, guides in DOCS:
+    docs += f'<section class="docs-group" id="{key}" data-guide-group aria-labelledby="{key}-title"><div class="docs-group-intro"><h2 id="{key}-title">{name}</h2><p>{blurb}</p></div><div class="resource-grid two-cols">' + ''.join(card(g['kicker'], g['title'], g['summary'], f'/docs/{g["slug"]}/', guide=True, level=3) for g in guides) + '</div></section>'
+docs += '</div></section>'+cta()
+page('docs','Documentation','Learn how to describe, shape, review, and prepare an app with Atomic.',docs,'/docs/')
+for index in range(len(GUIDES)):
+    guide_page(index)
+
+blog = hero('THE ATOMIC BLOG','Stories are<br /><em>on their way.</em>','We’re preparing product news and practical stories from the team behind Atomic.')
+blog += '<section class="page-section"><div class="container"><div class="notice"><strong>First post coming soon</strong>Our blog is ready. We’ll share the first story here when it’s published.</div></div></section>' + cta()
+page('blog','Blog','Product news and stories from the Atomic team. Our first post is coming soon.',blog,'/blog/')
 
 security = hero('SECURITY & TRUST','Build with<br /><em>your eyes open.</em>','Understand the foundation, know the boundaries, and bring the right checks to every app you publish.')
 security += '<section class="page-section"><div class="container"><div class="resource-grid">'+card('FOUNDATION','Identity & permissions','Atom provides the backend foundation. Each generated app still needs its access rules reviewed and tested.','/docs/publishing/','Review before publishing')+card('VISIBILITY','Source you can inspect','Browse and download generated source. Data records, infrastructure, and source history remain separate concerns.','/docs/source-and-data/','Understand the boundaries')+card('DATA','Clear responsibilities','The draft privacy notice and DPA describe the intended split between Atomic’s service and your own app.','/legal/','Review the legal drafts')+'</div></div></section>'

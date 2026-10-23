@@ -20,6 +20,7 @@ legend+.field-label,legend+label.field-label{margin-top:0}
 .consent-note{margin-top:14px;font-size:.75rem;line-height:1.6;color:var(--muted)}
 .consent-note a{text-decoration:underline}
 .trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+#access-turnstile{margin-top:20px}
 .form-error{min-height:1.4em;margin-top:16px;font-size:.8125rem;color:#b3261e}
 #access-dialog .dialog-actions{margin-top:8px}
 #access-dialog .dialog-actions .button{flex:1;font-size:.875rem}

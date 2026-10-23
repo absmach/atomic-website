@@ -1,0 +1,9 @@
+<section id="live"><h2>What is live</h2><p>Each publication is a deployment. The app’s <strong>Dashboard</strong> shows the <strong>Live deployment</strong>: which version is being served, and what it was built and verified with.</p></section>
+
+<section id="history"><h2>Deployment history</h2><p><strong>Deployment history</strong> lists what the app has served, newest first, including rollbacks and the reason given for each.</p></section>
+
+<section id="rollback"><h2>Serve an earlier deployment again</h2><p>If something breaks after a publish, select <strong>Serve this again</strong> beside an earlier deployment, say why you are rolling back, and confirm. Atomic checks the stored release and serves it in place of the current one. Nothing is generated or rebuilt, and it carries on if you close the page.</p><ul><li>Your source does not change, and the deployment you replaced stays in the history.</li><li>Your app’s data is untouched: the people, records and files it has collected stay exactly as they are.</li><li>An earlier deployment can be served only if it works with the app’s data as it is now. A published change to how data is stored is not undone.</li><li>Only the owner or an admin can roll back.</li></ul></section>
+
+<section id="versions"><h2>Rolling back is not restoring a version</h2><p>Rolling back changes what visitors get, straight away, from releases already built. <a href="/docs/versions/">Restoring a version</a> changes the source you are building on, and reaches visitors only when you publish again.</p></section>
+
+<section id="activity"><h2>Activity</h2><p>The app’s settings also keep a record of who did what to the app, newest first, including actions that were refused. It is kept for a fixed period and outlives the app.</p></section>
