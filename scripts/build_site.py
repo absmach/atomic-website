@@ -93,7 +93,7 @@ plans = [
         'description': 'Turn your idea into a working app, with accounts, real data, and people building beside you.',
         'credits': '2,500', 'credit_label': 'credits each month', 'apps': '3', 'app_label': 'published apps',
         'groups': [
-            ('All Free building tools, plus', ['App backend and persistent database', 'User sign-in and app access controls', 'Connect your own custom domain', 'Deployment history and frontend rollback', 'Build checks and searchable preview logs']),
+            ('Everything in Free, plus', ['App backend and persistent database', 'User sign-in and app access controls', 'Connect your own custom domain', 'Deployment history and frontend rollback', 'Build checks and searchable preview logs']),
             ('Build together', ['Shared team workspaces', '5 invited collaborators per app', 'Editor and Admin collaborator roles', 'Per-app build and credit usage history', 'On-demand credit top-ups'])
         ],
         'boundary': 'Building and metered hosting use your credits. Top-ups: $10 for 1,000 credits, with no expiry.'
