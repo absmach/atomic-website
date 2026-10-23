@@ -14,16 +14,16 @@ Documentation screenshots in `dist/assets/docs/` are 1440 px wide captures of a 
 
 ## Site map
 
-- `/`: product introduction, interactive examples, workspace views, blog link, and early-access inquiry.
+- `/`: product introduction, interactive examples, workspace views, and early-access inquiry.
 - `/pricing/`: proposed Free, $25/month Builder (2,500 credits), and $50/month Pro (5,000 credits) plans in USD. Free includes 250 credits once at signup, with no recurring allowance. Paid-plan top-ups are $10 for 1,000 credits. One credit is $0.01 of Atomic usage; charges can be fractional, monthly credits reset, and purchased credits do not expire. The feature comparison retains 1 / 3 / 10 published apps and proposes 0 / 5 / 10 invited collaborators per app, excluding the owner. Free is a solo, frontend-only plan with no backend, database, user authentication, or collaboration; Builder and Pro include those features. Cards group concrete building, publishing, and collaboration tools below a price/CTA panel and credit/app capacity strip, inspired by Lovable’s feature hierarchy. The comparison also covers canvas/theme controls, annotations, design references, app access, frontend rollback, preview logs, source downloads, and usage history. No SSO, SCIM, priority support, or other unqualified enterprise feature is promised. No checkout is open.
 - `/docs/`: searchable product documentation, 28 guides in seven sections (Get started, Build, Canvas, Data and users, Publish and run, Versions and source, Usage and help), each guide with the docs menu, an on-page contents list and previous/next links. Guides describe the product as it works in the Atomic repository's `main`; plan amounts are left to `/pricing/`. These explain the early-access workflow, not unverified account or interface procedures.
-- `/blog/`: empty blog index ready for the approved launch article and later posts.
+- `/blog/`: two existing product-perspective articles; launch and later posts can be added separately.
 - `/about/`: Atomic’s purpose and the team at Abstract Machines, with links to the company, Atom, and its public open-source work.
 - `/security/`: verified product boundaries and the existing team contact for reporting concerns; no invented certifications or SLA.
 - `/legal/`: Privacy Policy (final, covering the website and early-access sign-up), draft Terms of Service, Acceptable Use Policy, DPA, Subprocessor List, and Cookies & Storage Notice. Each draft is clearly marked not effective and excluded from indexing; the Privacy Policy is indexable.
 - `dist/404.html`: branded fallback for hosts supporting a static 404 page.
 
-The header shows Product, Docs, Blog, Pricing, and About, followed by Get early access. The homepage links to the empty blog index. Resources is a footer grouping for Documentation, Blog, Security & trust, About Atomic, and Contact; there is no separate Resources page.
+The header shows Product, Docs, Blog, Pricing, and About, followed by Get early access. Resources is a footer grouping for Documentation, Blog, Security & trust, About Atomic, and Contact; there is no separate Resources page.
 
 Every page includes shared responsive navigation, a skip link, and an Atomic-led footer. The footer links to Atomic's X and Instagram profiles and Abstract Machines' GitHub and LinkedIn profiles. Nested pages use root-relative links and work on a host serving `dist/` at its root.
 
