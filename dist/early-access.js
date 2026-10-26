@@ -166,4 +166,15 @@ document.querySelectorAll('a[href$="#early-access"]').forEach(link => link.addEv
   event.preventDefault();
   openEarlyAccess();
 }));
-if (location.hash === '#early-access') openEarlyAccess();
+if (location.hash === '#early-access') {
+  // Solutions links and forms pass a starter brief into the existing wizard.
+  const params = new URLSearchParams(location.search);
+  const idea = (params.get('idea') || '').trim().slice(0, 1200);
+  openEarlyAccess(idea);
+  // Keep the brief out of subsequent copied URLs and campaign submissions.
+  if (params.has('idea')) {
+    params.delete('idea');
+    const query = params.toString();
+    history.replaceState(null, '', location.pathname + (query ? `?${query}` : '') + location.hash);
+  }
+}
