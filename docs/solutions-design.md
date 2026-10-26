@@ -33,3 +33,11 @@ Source of truth: repository documentation, particularly templates, canvas/editin
 ## Delivery and validation
 
 Build in the isolated `feat/solutions-pages` worktree. Commit research, implementation, then validation/polish. Run the existing generator and site checker, JavaScript syntax checks, Worker regression tests and desktop/mobile browser checks. Check prompt handoff, filters, FAQ keyboard access, navigation, page metadata, image loading and overflow. Push the branch and open a PR; do not deploy.
+
+### Validation results
+
+- Generator: 51 pages. Site checker: 28 guides and six solution routes; links, fragments, assets, image dimensions, headings, catalogue cards and canonical URLs pass.
+- Chrome: all seven solutions pages checked at 1440, 1024, 768, 390 and 320 px. Images loaded, one H1 per page, no horizontal overflow.
+- Interaction checks: all audience filters and the live status; mobile menu open/Escape/focus return; native FAQ keyboard activation; exact starter-brief handoff to step 2 of early access; native idea-form handoff with literal special characters; generic early-access links still start at step 1 and preserve campaign parameters. No JavaScript exceptions.
+- Visual review: hub, detail heroes, solution cards, starter prompts, FAQs, closing form and mobile app illustrations. Adjusted photography crop and card composition so real imagery is visible.
+- JavaScript syntax checks and existing Worker tests pass. No form was submitted to the live signup endpoint, and no deployment was performed.

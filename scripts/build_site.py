@@ -3,6 +3,7 @@
 from pathlib import Path
 from html import escape
 import re
+from solutions import render_solutions
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / 'dist'
@@ -408,6 +409,5 @@ page('_not-found','Page not found','Find your way back to Atomic.',hero('404 / A
 (DIST / '404.html').write_text((DIST / '_not-found/index.html').read_text())
 (DIST / '_not-found/index.html').unlink()
 (DIST / '_not-found').rmdir()
-from solutions import render_solutions
 render_solutions(page)
 print(f'Generated {len(list(DIST.rglob("*.html")))} HTML pages.')

@@ -4,6 +4,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 import struct
+import json
 
 ROOT = Path(__file__).resolve().parent.parent / 'dist'
 CONTENT = ROOT.parent / 'content' / 'docs'
@@ -22,10 +23,14 @@ class Page(HTMLParser):
     def __init__(self, path):
         super().__init__()
         self.path, self.ids, self.links, self.h1, self.title, self.errors = path, set(), [], 0, 0, []
+        self.solution_cards = []
+        self.canonical = ''
         self.feed(path.read_text())
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if 'data-solution-category' in a: self.solution_cards.append(a.get('href'))
+        if tag == 'link' and a.get('rel') == 'canonical': self.canonical = a.get('href', '')
         if tag == 'h1': self.h1 += 1
         if tag == 'title': self.title += 1
         if 'id' in a:
@@ -77,6 +82,22 @@ for slug in sorted(guides):
         if f'/docs/{slug}/' not in pages[(ROOT / 'docs' / other / 'index.html').resolve()].links:
             errors.append(f'docs/{other}/index.html: menu does not link {slug}')
 
+# Keep the solutions catalogue and its generated routes in sync, and ensure
+# every use case is reachable from the actual hub cards (not only the footer).
+solutions = json.loads((ROOT.parent / 'content/solutions.json').read_text())
+slugs = [item['slug'] for item in solutions]
+if len(slugs) != len(set(slugs)): errors.append('content/solutions.json: duplicate solution slug')
+solution_routes = {p.parent.name for p in (ROOT / 'solutions').glob('*/index.html')}
+if solution_routes != set(slugs): errors.append('solutions: generated routes do not match the content catalogue')
+hub = pages.get((ROOT / 'solutions/index.html').resolve())
+if not hub or sorted(hub.solution_cards) != sorted(f'/solutions/{slug}/' for slug in slugs):
+    errors.append('solutions/index.html: expected one hub card for every solution')
+for slug in ['', *slugs]:
+    route = '/solutions/' + (slug + '/' if slug else '')
+    solution_page = pages.get((ROOT / route.lstrip('/') / 'index.html').resolve())
+    if not solution_page or solution_page.canonical != 'https://atomicapp.dev' + route:
+        errors.append(f'{route}: missing page or incorrect canonical URL')
+
 if errors:
     raise SystemExit('\n'.join(errors))
-print(f'PASS: {len(pages)} pages, {len(guides)} guides; local links, fragments, assets, titles, headings, IDs, image alt text and sizes, and the docs index and menus.')
+print(f'PASS: {len(pages)} pages, {len(guides)} guides, {len(slugs)} solutions; local links, fragments, assets, titles, headings, IDs, image alt text and sizes, docs index and menus, solution routes, cards and canonicals.')
