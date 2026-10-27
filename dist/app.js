@@ -141,7 +141,6 @@ const heroIdea = document.getElementById('hero-idea');
 
 // Animate inspiration only in an empty, unfocused field. Never change an idea.
 const ideaMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-const ideaToggle = document.getElementById('toggle-ideas');
 const defaultPlaceholder = heroIdea.placeholder;
 const exampleIdeas = [
   'Build a booking app for my studio…',
@@ -150,9 +149,8 @@ const exampleIdeas = [
 ];
 let ideaTimer;
 let ideaIndex = 0;
-let ideasPaused = false;
 function canAnimateIdeas() {
-  return !ideasPaused && !ideaMotion.matches && !document.hidden && !heroIdea.value && document.activeElement !== heroIdea;
+  return !ideaMotion.matches && !document.hidden && !heroIdea.value && document.activeElement !== heroIdea;
 }
 function animateNextIdea() {
   if (!canAnimateIdeas()) return;
@@ -172,17 +170,8 @@ function animateNextIdea() {
 function syncIdeaAnimation() {
   clearTimeout(ideaTimer);
   heroIdea.placeholder = defaultPlaceholder;
-  ideaToggle.hidden = ideaMotion.matches;
   if (canAnimateIdeas()) ideaTimer = setTimeout(animateNextIdea, 900);
 }
-ideaToggle.addEventListener('click', () => {
-  ideasPaused = !ideasPaused;
-  ideaToggle.dataset.paused = String(ideasPaused);
-  const label = ideasPaused ? 'Play example ideas' : 'Pause example ideas';
-  ideaToggle.setAttribute('aria-label', label);
-  ideaToggle.title = label;
-  syncIdeaAnimation();
-});
 ['focus', 'blur', 'input'].forEach(event => heroIdea.addEventListener(event, syncIdeaAnimation));
 ideaMotion.addEventListener('change', syncIdeaAnimation);
 document.addEventListener('visibilitychange', syncIdeaAnimation);

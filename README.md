@@ -64,7 +64,7 @@ The page opens with an idea composer. Suggested prompts fill the input, and the 
 
 ## Content boundaries
 
-The composer cycles through example ideas only while empty and unfocused. It preserves typed text, includes a pause control, and respects reduced-motion preferences. Keyboard focus is shown on the outer composer rather than the inner textarea. App thumbnails use colored compositions; the workspace uses a layered frame, and the Atom diagram is responsive HTML/SVG.
+The composer cycles through example ideas only while empty and unfocused. It preserves typed text and respects reduced-motion preferences. Keyboard focus is shown on the outer composer rather than the inner textarea. App thumbnails use colored compositions; the workspace uses a layered frame, and the Atom diagram is responsive HTML/SVG.
 
 Pricing shows the agreed launch proposal with credit quantities and top-up rules. The launch date, operational limits, and protected hosting controls remain to be confirmed. The internal 3× direct-cost multiplier is a commercial modeling assumption, not public pricing copy or a backend change in this repository. Complete app packaging and deployment choice remain roadmap items. Source export does not include users, business data, or hosting; frontend rollback does not restore business data. Do not represent the interactive examples or supplied product images as live customer results.
 

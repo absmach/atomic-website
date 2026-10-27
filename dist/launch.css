@@ -52,11 +52,6 @@
 .prompt-launch-note a, #idea-note a { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Each example is presented as a small, distinct product. */
-.idea-animation-toggle { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; padding: 6px; background: transparent; color: #9582a5; border-radius: 50%; }
-.idea-animation-toggle:hover { color: var(--violet); background: #f3edf9; }
-.idea-animation-toggle svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.idea-animation-toggle .play-icon, .idea-animation-toggle[data-paused=true] .pause-icon { display: none; }
-.idea-animation-toggle[data-paused=true] .play-icon { display: block; }
 .preview-strip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 25px; padding: 14px 0 72px; }
 .preview-tile { display: block; min-width: 0; }
 .preview-image { position: relative; height: 320px; overflow: hidden; border-radius: 15px; border: 1px solid #d9cbe5; padding: 29px 27px 0; background: radial-gradient(ellipse at 100% 100%, #d3b7ed, transparent 75%), #eae0f3; }
