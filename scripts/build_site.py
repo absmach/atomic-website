@@ -91,20 +91,20 @@ home = home.replace('Early access opens soon. Share your idea to join the waitli
 plans = [
     {
         'name': 'Free', 'price': '$0', 'badge': 'Explore the idea', 'featured': False,
-        'description': 'Design your first frontend. Build on your own, see it working, and keep the source.',
-        'credits': '250', 'credit_label': 'credits at signup', 'apps': '1', 'app_label': 'published frontend app',
+        'description': 'Build your first app on your own, see it working, and keep the source.',
+        'credits': '250', 'credit_label': 'credits each month', 'apps': '1', 'app_label': 'published app',
         'groups': [
             ('Create and refine', ['AI frontend generation and revisions', 'Visual canvas and in-place text editing', 'Theme, typography, and layout controls', 'Screen previews and visual annotations', 'Image and design-reference uploads']),
-            ('Keep and share your work', ['Private projects', 'Browse and download generated source', 'Version history and source restore', 'Publish on an Atomic subdomain'])
+            ('Keep and share your work', ['A backend, database, and user sign-in for one app', 'Private projects', 'Browse and download generated source', 'Version history and source restore', 'Publish on an Atomic subdomain'])
         ],
-        'boundary': 'Frontend only · Solo building. Backend, database, authentication, and collaboration start with Builder.'
+        'boundary': 'Solo building · Backend for one app. More backends, collaboration, custom domains, and top-ups start with Builder.'
     },
     {
         'name': 'Builder', 'price': '$25', 'badge': 'Start building', 'featured': True,
         'description': 'Turn your idea into a working app, with accounts, real data, and people building beside you.',
         'credits': '2,500', 'credit_label': 'credits each month', 'apps': '3', 'app_label': 'published apps',
         'groups': [
-            ('Everything in Free, plus', ['App backend and persistent database', 'User sign-in and app access controls', 'Connect your own custom domain', 'Deployment history and frontend rollback', 'Build checks and searchable preview logs']),
+            ('Everything in Free, plus', ['A backend and database for every app', 'User sign-in and app access controls', 'Connect your own custom domain', 'Deployment history and frontend rollback', 'Build checks and searchable preview logs']),
             ('Build together', ['Shared team workspaces', '5 invited collaborators per app', 'Editor and Admin collaborator roles', 'Per-app build and credit usage history', 'On-demand credit top-ups'])
         ],
         'boundary': 'Building and metered hosting use your credits. Top-ups: $10 for 1,000 credits, with no expiry.'
@@ -131,37 +131,37 @@ for plan in plans:
 pricing = hero('PLANS FOR WHAT COMES NEXT','A little idea.<br /><em>Room to grow.</em>','Start for free. Choose more room to build and run your apps when you need it.',True,'<span class="pill">Launch preview · Subscriptions are not open yet</span>')
 pricing += f'<section class="page-section"><div class="container"><div class="price-grid">{pricecards}</div><p class="pricing-footnote">Proposed launch plans in USD, billed monthly. Applicable taxes are extra and will be shown before purchase. Free allowances and collaboration limits are subject to launch validation. Storage, bandwidth, and concurrency limits will be published before subscriptions open. No payment is collected here.</p><div class="enterprise-strip"><div><h3>Something bigger in mind?</h3><p>Tell us about your organization, deployment needs, and support requirements.</p></div><a class="text-action" href="{CONTACT}?subject=Atomic%20organization%20inquiry">Talk to the Atomic team ↗</a></div></div></section>'
 comparison_rows = [
-    ('Best for', 'Explore a frontend idea on your own', 'Launch and refine your apps', 'Build several apps with a team'),
-    ('Published apps at once', '1 frontend app within the trial allowance', '3', '10'),
+    ('Best for', 'Explore an idea on your own', 'Launch and refine your apps', 'Build several apps with a team'),
+    ('Published apps at once', '1', '3', '10'),
     ('Invited collaborators per app', 'Not included', '5', '10'),
     ('Editor and Admin collaborator roles', 'Not included', 'Included', 'Included'),
     ('Shared workspaces and team collaboration', 'Not included', 'Included', 'Included'),
     ('Custom domains', 'Atomic subdomain only', 'Connect your own domain', 'Connect your own domains'),
-    ('AI generation and revisions', 'Frontend only', 'Full app', 'Full app'),
+    ('AI generation and revisions', 'Full app', 'Full app', 'Full app'),
     ('Visual canvas, text edits, and theme controls', 'Included', 'Included', 'Included'),
     ('Screen previews and visual annotations', 'Included', 'Included', 'Included'),
     ('Image and design-reference uploads', 'Included', 'Included', 'Included'),
-    ('App backend, database, and user authentication', 'Not included', 'Included', 'Included'),
-    ('App-user access controls', 'Not included', 'Included', 'Included'),
+    ('App backend, database, and user authentication', 'One app', 'Every app', 'Every app'),
+    ('App-user access controls', 'One app', 'Every app', 'Every app'),
     ('Deployment history and frontend rollback', 'Not included in the Free proposal', 'Included', 'Included'),
     ('Searchable preview logs', 'Not included in the Free proposal', 'Included', 'Included'),
     ('Private projects and source downloads', 'Included', 'Included', 'Included'),
     ('Version history and source restore', 'Included', 'Included', 'Included'),
     ('Per-app build and usage history', 'Included', 'Included', 'Included'),
-    ('Hosting and persistent storage', 'Frontend hosting uses trial credits; no backend storage', 'Uses available credits', 'Uses available credits'),
+    ('Hosting and persistent storage', 'Uses available credits', 'Uses available credits', 'Uses available credits'),
     ('Buy additional credits', 'Upgrade to a paid plan', '$10 for 1,000 credits', '$10 for 1,000 credits')
 ]
 comparison = ''.join('<tr><th scope="row">'+label+'</th>'+''.join('<td>'+value+'</td>' for value in values)+'</tr>' for label,*values in comparison_rows)
-pricing += '<section class="page-section"><div class="container"><div class="section-intro"><p class="eyebrow">WHAT YOUR PLAN MAKES POSSIBLE</p><h2>Start with the frontend. Grow into a full app.</h2><p>Free gives you visual editing, version history, and source downloads to explore a frontend idea on your own. Builder adds a backend, database, user authentication, team collaboration, custom domains, and room for several live apps. Pro gives a larger team more credits and publishing capacity.</p></div><div class="table-wrap pricing-comparison" role="region" aria-label="Compare launch plan features" tabindex="0"><table><caption>Proposed launch features. On small screens, scroll horizontally to compare plans.</caption><thead><tr><th scope="col">What you get</th><th scope="col">Free · $0/month</th><th scope="col">Builder · $25/month</th><th scope="col">Pro · $50/month</th></tr></thead><tbody>'+comparison+'</tbody></table></div><p class="pricing-footnote">Collaborator limits are proposed and count people invited to an app, excluding its owner. They are not limits on the people using your finished app. Shared workspaces and collaboration require a paid plan; workspace membership is separate from the per-app collaborator limit. Building by collaborators uses the app owner’s credits. A source download includes code, not app users or business data; version restore changes code, not data. Custom-domain registration is purchased separately.</p></div></section>'
+pricing += '<section class="page-section"><div class="container"><div class="section-intro"><p class="eyebrow">WHAT YOUR PLAN MAKES POSSIBLE</p><h2>Start with one app. Grow into many.</h2><p>Free gives you visual editing, version history, source downloads, and a backend with user sign-in for one app, to build on your own. Builder adds backends for every app, team collaboration, custom domains, and room for several live apps. Pro gives a larger team more credits and publishing capacity.</p></div><div class="table-wrap pricing-comparison" role="region" aria-label="Compare launch plan features" tabindex="0"><table><caption>Proposed launch features. On small screens, scroll horizontally to compare plans.</caption><thead><tr><th scope="col">What you get</th><th scope="col">Free · $0/month</th><th scope="col">Builder · $25/month</th><th scope="col">Pro · $50/month</th></tr></thead><tbody>'+comparison+'</tbody></table></div><p class="pricing-footnote">Collaborator limits are proposed and count people invited to an app, excluding its owner. They are not limits on the people using your finished app. Shared workspaces and collaboration require a paid plan; workspace membership is separate from the per-app collaborator limit. Building by collaborators uses the app owner’s credits. A source download includes code, not app users or business data; version restore changes code, not data. Custom-domain registration is purchased separately.</p></div></section>'
 pricing += '<section class="page-section"><div class="container"><div class="section-intro"><h2>One credit value. Every plan.</h2><p><strong>100 credits = $1 of Atomic usage.</strong> Credits pay for building and running your apps at Atomic’s usage rates. The same work uses the same credits on every plan; charges can be fractional, based on the resources used. For example, 15 credits means $0.15 of Atomic usage. A credit is not a message or a completed app.</p></div><div class="resource-grid">'+card('01 / BUILD','Shape your app.','AI generation, revisions, suggestions, dictation, and the build environment draw from your credits. A small change can use less than a complex build.','/docs/usage-and-credits/','Understand your usage')+card('02 / RUN','Give it a home.','Metered app hosting and persistent storage use credits too. Published-app slots are capacity limits, not unlimited hosting. A protected hosting budget is planned so building cannot spend the credits you set aside to run your apps.','/docs/publishing/','Prepare to publish')+card('03 / TOP UP','More room when you need it.','On Builder and Pro, add 1,000 credits for $10. Purchased credits do not expire and are used after your monthly allowance. No automatic overage charges.','/pricing/#credit-rules','Read the credit rules')+'</div></div></section>'
 pricing += '<section id="credit-rules" class="page-section"><div class="container faq-layout"><div><p class="eyebrow">A FEW PRACTICAL DETAILS</p><h2>Before you choose.</h2></div><div class="faq-list">'
 for q,a in [
     ('Can I subscribe today?','Not yet. These are proposed launch plans. The early-access form adds you to the waitlist; it does not create an account, reserve a price, or start a subscription.'),
     ('What is included in the subscription?','Builder includes 2,500 monthly credits and up to 3 published apps for $25/month. Pro includes 5,000 monthly credits and up to 10 published apps for $50/month. Both include a backend, database, user authentication, team collaboration, custom domains, private projects, and source downloads. Builder proposes 5 invited collaborators per app; Pro proposes 10. Collaborators can work together with Editor and Admin roles, using the app owner’s credits. Your subscription pays for the platform as well as the included usage.'),
-    ('How does Free work?','The proposed Free plan includes 250 credits once at signup, with no monthly refill. Build on your own and publish one frontend-only app on an Atomic subdomain within your available trial allowance. Free does not include a backend, database, user authentication, or collaboration. Those features, custom domains, and credit purchases require Builder or Pro. When the signup credits are used, upgrade to Builder or Pro to continue building.'),
-    ('Do unused credits expire?','Monthly subscription credits reset at renewal and do not roll over. Purchased top-up credits do not expire. Monthly credits are used before purchased credits. Free receives only its one-time signup grant, with no monthly refill; its expiry terms will be confirmed before launch.'),
+    ('How does Free work?','The proposed Free plan includes 250 credits each month. Build on your own and publish one app on an Atomic subdomain. One of your apps can have a backend, database, and user sign-in; your other apps keep their screens on sample data. Collaboration, custom domains, credit purchases, and backends for more apps require Builder or Pro. When the month’s credits are used, wait for them to renew or upgrade to keep building.'),
+    ('Do unused credits expire?','Monthly subscription credits reset at renewal and do not roll over. Purchased top-up credits do not expire. Monthly credits are used before purchased credits. Free’s monthly credits reset the same way.'),
     ('Is hosting included?','Your included credits can pay for metered hosting and persistent storage. Hosting is not unlimited, and storage can still cost credits when an app is stopped. We plan to let you protect part of your balance for hosting. Storage, bandwidth, concurrency limits, and hosting exhaustion and retention rules will be published before billing opens.'),
-    ('What happens when my credits run out?','There are no automatic overage charges. New builds require enough available credits. Free users can upgrade when their signup credits run out. On Builder and Pro, you can buy 1,000 more credits for $10 or wait for your monthly allowance to renew. Running apps also need available hosting funds. The planned hosting-budget control will let you set aside credits that building cannot spend.'),
+    ('What happens when my credits run out?','There are no automatic overage charges. New builds require enough available credits. On Free, wait for your monthly credits to renew or upgrade. On Builder and Pro, you can buy 1,000 more credits for $10 or wait for your monthly allowance to renew. Running apps also need available hosting funds. The planned hosting-budget control will let you set aside credits that building cannot spend.'),
     ('Will there be annual billing?','The launch proposal is monthly billing only. Annual plans and discounts have not been announced.'),
     ('What happens if I cancel?','Cancellation, data retention, export access, and the behavior of published apps will be specified in the final subscription terms before checkout becomes available.')]:
     pricing += f'<details><summary>{q}</summary><p>{a}</p></details>'
