@@ -160,10 +160,22 @@ function openEarlyAccess(idea = '') {
   showStep(idea.trim() ? 1 : 0);
 }
 
-// Every "Get early access" link opens the wizard, including when a link from
-// another page lands here with the hash.
-document.querySelectorAll('a[href$="#early-access"]').forEach(link => link.addEventListener('click', event => {
-  event.preventDefault();
-  openEarlyAccess();
-}));
-if (location.hash === '#early-access') openEarlyAccess();
+// Early-access links navigate to the homepage hero using its native anchor.
+// Only submitting an idea form opens the wizard (see app.js). Keep this flow
+// until launch, when signup CTAs and their destinations can be updated together.
+if (location.hash === '#early-access') {
+  // Starter briefs land in the hero composer for review before requesting access.
+  const params = new URLSearchParams(location.search);
+  const idea = (params.get('idea') || '').trim().slice(0, 1200);
+  if (idea) {
+    const heroInput = document.getElementById('hero-idea');
+    heroInput.value = idea;
+    heroInput.dispatchEvent(new Event('input'));
+  }
+  // Keep the brief out of subsequent copied URLs and campaign submissions.
+  if (params.has('idea')) {
+    params.delete('idea');
+    const query = params.toString();
+    history.replaceState(null, '', location.pathname + (query ? `?${query}` : '') + location.hash);
+  }
+}

@@ -3,16 +3,17 @@
 from pathlib import Path
 from html import escape
 import re
+from solutions import render_solutions
 
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / 'dist'
 CONTACT = 'mailto:info@absmach.eu'
 # Public Cloudflare Turnstile site key for the early-access form (not a secret).
 TURNSTILE_SITEKEY = '0x4AAAAAAFfPJS0NJjFeyiuj'
-NAV = [('Product', '/'), ('Docs', '/docs/'), ('Blog', '/blog/'), ('Pricing', '/pricing/'), ('About', '/about/')]
+NAV = [('Product', '/'), ('Solutions', '/solutions/'), ('Docs', '/docs/'), ('Blog', '/blog/'), ('Pricing', '/pricing/'), ('About', '/about/')]
 
 def link(label, url, active=''):
-    current = ' aria-current="page"' if url == active else ''
+    current = ' aria-current="page"' if url == active else (' aria-current="true"' if url == '/solutions/' and active.startswith('/solutions/') else '')
     return f'<a href="{url}"{current}>{label}</a>'
 
 def header(active):
@@ -38,16 +39,20 @@ def social_links():
 def footer():
     columns = [
         ('Product', [('Explore examples', '/#examples'), ('How it works', '/#how-it-works'), ('Why Atomic', '/#foundation'), ('Pricing', '/pricing/'), ('Early access', '/#early-access')]),
+        ('Solutions', [('All solutions', '/solutions/'), ('Websites', '/solutions/websites/'), ('Online stores', '/solutions/online-stores/'), ('Booking apps', '/solutions/booking-apps/'), ('Client portals', '/solutions/client-portals/'), ('Internal tools', '/solutions/internal-tools/'), ('Prototypes', '/solutions/prototypes/')]),
         ('Resources', [('Documentation', '/docs/'), ('Blog', '/blog/'), ('Security & trust', '/security/'), ('About Atomic', '/about/'), ('Contact the team', CONTACT)]),
         ('Legal', [('Legal overview', '/legal/'), ('Privacy', '/legal/privacy/'), ('Terms of Service', '/legal/terms/'), ('Acceptable Use', '/legal/acceptable-use/'), ('Data Processing', '/legal/dpa/'), ('Subprocessors', '/legal/subprocessors/'), ('Cookies & storage', '/legal/cookies/')])
     ]
     menus = ''.join(f'<nav class="footer-column" aria-label="{title}"><h2>{title}</h2>{"".join(link(label,url) for label,url in items)}</nav>' for title, items in columns)
     return f'''<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic.svg" width="29" height="29" alt="" />atomic</a><p>Small idea. Real possibilities.<br />Build what comes next.</p><div class="social-placeholders" role="group" aria-label="Atomic and Abstract Machines social channels">{social_links()}</div><p class="social-note">Follow Atomic and Abstract Machines</p></div>{menus}</div><div class="footer-bottom"><span>© <span id="year">2026</span> Atomic. A product by <a href="https://absmach.eu" target="_blank" rel="noopener noreferrer">Abstract Machines</a>.</span><span>Describe it. Shape it. Make it real.</span></div></div></footer>'''
 
-def page(path, title, description, body, active='', draft=False):
+def page(path, title, description, body, active='', draft=False, extra_head='', canonical=''):
     folder = DIST / path
     folder.mkdir(parents=True, exist_ok=True)
     robots = '<meta name="robots" content="noindex, nofollow" />' if draft else ''
+    if canonical:
+        extra_head += f'<link rel="canonical" href="https://atomicapp.dev{canonical}" /><meta property="og:url" content="https://atomicapp.dev{canonical}" /><meta property="og:image" content="https://atomicapp.dev/assets/atomic-social-v2.png" /><meta name="twitter:card" content="summary_large_image" />'
+    robots += extra_head
     html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#191329" /><title>{escape(title)} — Atomic</title><meta name="description" content="{escape(description, quote=True)}" /><meta property="og:title" content="{escape(title, quote=True)} — Atomic" /><meta property="og:description" content="{escape(description, quote=True)}" /><meta property="og:type" content="website" />{robots}<link rel="icon" type="image/svg+xml" href="/assets/atomic.svg" /><link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin /><link rel="stylesheet" href="/styles.css" /><link rel="stylesheet" href="/pages.css" /><script src="/site.js" defer></script></head><body>{header(active)}<main id="main">{body}</main>{footer()}</body></html>'''
     (folder / 'index.html').write_text(html)
 
@@ -404,4 +409,5 @@ page('_not-found','Page not found','Find your way back to Atomic.',hero('404 / A
 (DIST / '404.html').write_text((DIST / '_not-found/index.html').read_text())
 (DIST / '_not-found/index.html').unlink()
 (DIST / '_not-found').rmdir()
+render_solutions(page)
 print(f'Generated {len(list(DIST.rglob("*.html")))} HTML pages.')
