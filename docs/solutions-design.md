@@ -38,6 +38,14 @@ Build in the isolated `feat/solutions-pages` worktree. Commit research, implemen
 
 - Generator: 51 pages. Site checker: 28 guides and six solution routes; links, fragments, assets, image dimensions, headings, catalogue cards and canonical URLs pass.
 - Chrome: all seven solutions pages checked at 1440, 1024, 768, 390 and 320 px. Images loaded, one H1 per page, no horizontal overflow.
-- Interaction checks: all audience filters and the live status; mobile menu open/Escape/focus return; native FAQ keyboard activation; exact starter-brief handoff to step 2 of early access; native idea-form handoff with literal special characters; generic early-access links still start at step 1 and preserve campaign parameters. No JavaScript exceptions.
+- Interaction checks: all audience filters and the live status; mobile menu open/Escape/focus return; native FAQ keyboard activation; starter briefs and native idea forms prefill the homepage hero with literal special characters; submitting the hero composer opens step 2 of early access. Generic early-access links land on the hero without opening a dialog and preserve campaign parameters. No JavaScript exceptions.
 - Visual review: hub, detail heroes, solution cards, starter prompts, FAQs, closing form and mobile app illustrations. Adjusted photography crop and card composition so real imagery is visible.
 - JavaScript syntax checks and existing Worker tests pass. No form was submitted to the live signup endpoint, and no deployment was performed.
+
+### Early-access CTA policy (27 October 2026)
+
+The hub and individual solution heroes use **Request Early Access** until launch. The hub’s secondary CTA, **Find your starting point**, links to its solution catalogue. All `#early-access` links target the homepage hero, not the closing “What’s yours?” section, and do not open a dialog by themselves. Starter briefs prefill the hero composer; the visitor reviews and submits the idea to open the existing wizard. Both homepage idea forms still open the wizard on submit.
+
+After early access ends, update the primary CTA label and destination together. Preserve the original per-solution `cta` values in `content/solutions.json` until then; comments in `scripts/solutions.py` and `dist/early-access.js` explain the temporary flow.
+
+Follow-up Chrome checks at 390 and 1440 px pass: primary/secondary CTA order and labels, all six detail-page CTA destinations, no horizontal overflow, hero navigation without automatic dialogs, exact starter-brief preservation and URL cleanup, both homepage form submissions, literal special characters, campaign parameters, and native hero anchors with JavaScript disabled. No browser exceptions or live signup submissions.
