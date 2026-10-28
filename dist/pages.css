@@ -65,3 +65,113 @@ body { font-synthesis: none; }
 @media(max-width:1100px){.desktop-nav{gap:19px}.header-row{gap:22px}}
 @media(max-width:960px){.footer-grid{grid-template-columns:1.3fr 1fr;gap:38px}}
 @media(max-width:700px){.footer-grid{grid-template-columns:1fr 1fr;gap:35px 20px}}
+
+
+/* Consent controls extend Atomic's existing Manrope, violet and button styles. */
+.cookie-preferences-link{border:0;background:none;padding:0;color:var(--muted);font:inherit;font-size:.75rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.cookie-preferences-link:hover{color:var(--violet)}
+.cookie-panel[hidden],.cookie-panel [hidden]{display:none!important}
+
+.cookie-panel{position:fixed;z-index:2000;bottom:14px;left:14px;right:14px;max-width:1040px;margin:auto;border:1px solid #e9e4f1;border-radius:12px;background:#fcfbfe;box-shadow:0 8px 25px #251d351a;color:var(--ink);font-family:inherit}
+.cookie-panel-inner{padding:13px 17px;display:flex;align-items:center;gap:20px}
+.cookie-intro{flex:1;min-width:0}
+.cookie-intro h2{font-size:.98rem;letter-spacing:-.02em;line-height:1.3;margin:0 0 3px}
+.cookie-intro p{font-size:.75rem;color:var(--muted);line-height:1.5;max-width:590px;margin:0}
+.cookie-intro a{color:var(--violet-dark);text-decoration:underline;text-underline-offset:3px}
+.cookie-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex:none}
+.cookie-actions .button{cursor:pointer;font-size:.75rem;line-height:1.2;padding:10px 12px;border-radius:8px;white-space:nowrap;box-shadow:none;transform:none}
+.cookie-actions .button:hover{transform:none}
+.cookie-options{display:grid;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.cookie-options label{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px 16px;background:#fff}
+.cookie-options label+label{border-top:1px solid var(--line)}
+.cookie-options strong{display:block;font-size:.875rem}
+.cookie-options small{display:block;color:var(--muted);margin-top:3px;line-height:1.45}
+.cookie-options input{accent-color:var(--violet);width:20px;height:20px;flex:none}
+.cookie-panel.is-customizing{max-width:740px;background:#fff}
+.cookie-panel.is-customizing .cookie-panel-inner{display:grid;gap:15px;padding:20px 22px}
+.cookie-panel.is-customizing .cookie-intro h2{font-size:1.15rem}
+.cookie-panel.is-customizing .cookie-intro p{max-width:none;font-size:.8125rem}
+.cookie-panel.is-customizing .cookie-actions{flex-wrap:wrap}
+@media(max-width:900px){.cookie-panel-inner{display:grid;gap:12px}.cookie-actions{justify-content:flex-start;flex-wrap:wrap}}
+@media(max-width:600px){.cookie-panel{left:7px;right:7px;bottom:7px;max-height:calc(100dvh - 14px);overflow-y:auto;box-shadow:0 4px 14px #251d3512}.cookie-panel-inner{padding:10px 12px;gap:7px}.cookie-intro h2{font-size:.85rem;line-height:1.25;margin:0 0 2px}.cookie-intro p{font-size:.72rem;line-height:1.35}.cookie-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.cookie-actions .button{font-size:.69rem;line-height:1.2;min-height:34px;min-width:0;padding:8px 2px;white-space:nowrap}.cookie-actions [data-cookie="accept"]{grid-column:auto}.cookie-panel.is-customizing .cookie-panel-inner{padding:15px;gap:12px}.cookie-panel.is-customizing .cookie-intro h2{font-size:1rem}.cookie-panel.is-customizing .cookie-intro p{font-size:.78rem;line-height:1.5}.cookie-panel.is-customizing .cookie-actions{display:flex;flex-direction:column;align-items:stretch}.cookie-panel.is-customizing .cookie-actions .button{width:100%;min-height:38px}}
+
+/* Cloudflare-style adjacent privacy controls, in Atomic's own footer palette. */
+.footer-privacy{display:flex;align-items:center;justify-content:flex-end;gap:16px;flex-wrap:wrap}
+.footer-privacy a,.footer-privacy .cookie-preferences-link{font-size:.75rem;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.footer-privacy a:hover,.footer-privacy .cookie-preferences-link:hover{color:var(--violet)}
+.footer-privacy .cookie-preferences-link{display:inline-flex;align-items:center;gap:7px}
+.cookie-choice-icon{display:inline-flex;align-items:center;border-radius:999px;background:var(--violet);color:#fff;padding:1px 5px;font-size:.65rem;font-weight:750;line-height:1.45;letter-spacing:.02em;text-decoration:none}
+@media(max-width:700px){.footer-privacy{justify-content:flex-start;gap:16px}}
+
+/* On the homepage, mobile consent sits below the builder instead of covering it. */
+@media(max-width:700px){
+  .prompt-opening .cookie-panel-home{
+    position:static;left:auto;right:auto;bottom:auto;z-index:auto;
+    align-self:stretch;width:100%;max-width:860px;max-height:none;overflow:visible;
+    margin:16px auto 0;
+  }
+  .prompt-opening .cookie-panel-home .cookie-intro{text-align:left}
+  .prompt-opening .cookie-panel-home.is-customizing{margin-top:16px}
+}
+
+/* Fit the mobile builder and consent choices together in the first viewport. */
+@media(max-width:700px){
+  .prompt-opening{min-height:0;justify-content:flex-start;padding-block:20px 28px}
+  .prompt-hero h1{font-size:clamp(2.3rem,8vw,3.2rem);line-height:1.09;margin:0 0 14px}
+  .prompt-intro{max-width:360px;font-size:.88rem;line-height:1.52}
+  .prompt-composer{margin-top:18px;padding:12px 14px 11px;border-radius:14px}
+  .prompt-composer textarea{min-height:65px;height:65px;padding-bottom:5px;font-size:.9rem;line-height:1.5}
+  .composer-footer{margin-top:5px}
+  .composer-footer .button{min-height:38px;padding:8px 12px;font-size:.76rem}
+  .prompt-opening .cookie-panel-home{margin-top:12px}
+  .prompt-suggestions{margin-top:14px}
+  .prompt-launch-note{margin-top:12px}
+}
+@media(max-width:390px){
+  .prompt-opening{padding-top:16px}
+  .prompt-hero h1{font-size:2.25rem;margin-bottom:12px}
+  .prompt-intro{font-size:.82rem;line-height:1.48}
+  .prompt-composer{margin-top:14px}
+}
+
+/* Mobile reading order: builder, one-row suggestions, then cookie choices. */
+@media(max-width:700px){
+  .prompt-suggestions{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+    align-items:center;width:100%;gap:6px;margin-top:11px;
+  }
+  .prompt-suggestions button{
+    min-width:0;min-height:31px;padding:6px 3px;font-size:.7rem;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .prompt-opening .cookie-panel-home{margin-top:10px}
+}
+@media(max-width:390px){
+  .prompt-opening{padding-top:11px}
+  .prompt-hero h1{margin-bottom:10px}
+  .prompt-composer{margin-top:10px}
+  .prompt-composer textarea{min-height:55px;height:55px}
+  .prompt-suggestions{margin-top:9px}
+  .prompt-opening .cookie-panel-home{margin-top:8px}
+}
+
+/* Keep the early-access note above a discreet, low-profile mobile consent card. */
+@media(max-width:700px){
+  .prompt-launch-note{margin-top:8px;max-width:100%;font-size:.7rem;line-height:1.4}
+  .prompt-opening .cookie-panel-home:not(.is-customizing){margin-top:8px}
+  .prompt-opening .cookie-panel-home:not(.is-customizing) .cookie-panel-inner{
+    padding:7px 10px;gap:5px;
+  }
+  .prompt-opening .cookie-panel-home:not(.is-customizing) .cookie-intro{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;
+  }
+  .prompt-opening .cookie-panel-home:not(.is-customizing) .cookie-intro h2{
+    flex:none;margin:0;font-size:.78rem;line-height:1.2;
+  }
+  .prompt-opening .cookie-panel-home:not(.is-customizing) .cookie-intro p{
+    flex:1;min-width:165px;font-size:.72rem;line-height:1.3;
+  }
+  .prompt-opening .cookie-panel-home:not(.is-customizing) .cookie-actions .button{
+    min-height:30px;padding:6px 2px;font-size:.69rem;
+  }
+}

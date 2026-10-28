@@ -126,6 +126,11 @@ async function submit() {
     errorBox.textContent = message;
     return;
   }
+  // Notify GTM only when the server confirms success; never include PII.
+  if (window.atomicConsentAllows?.('analytics')) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'atomic_early_access_success' });
+  }
   document.getElementById('access-done-email').textContent = payload.email;
   form.reset();
   form.querySelectorAll('.other').forEach(input => { input.hidden = true; input.required = false; });
