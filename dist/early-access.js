@@ -1,3 +1,55 @@
+// Public Cloudflare Turnstile site key for the early-access form (not a secret).
+const sitekey = '0x4AAAAAAFfPJS0NJjFeyiuj';
+
+// The wizard is added to every page from here, so any early-access link can open it.
+document.body.insertAdjacentHTML('beforeend', `
+  <dialog id="access-dialog" aria-labelledby="access-title">
+    <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
+    <form id="access-form" novalidate>
+      <p class="eyebrow">EARLY ACCESS</p>
+      <progress id="access-progress" max="3" value="1" aria-label="Progress"></progress>
+      <p id="access-count" class="step-count"></p>
+      <fieldset data-step="1">
+        <legend><h2 id="access-title" tabindex="-1">What would you like to build?</h2></legend>
+        <label class="sr-only" for="access-idea">Describe your app idea</label>
+        <textarea id="access-idea" name="idea" rows="5" maxlength="1200" required placeholder="A booking app for my studio, where clients can choose a service and request a time…"></textarea>
+      </fieldset>
+      <fieldset data-step="2" hidden>
+        <legend><h2 tabindex="-1">Tell us about you and the project.</h2></legend>
+        <p class="field-label" id="app-type-label">It looks most like</p>
+        <div class="choices" role="group" aria-labelledby="app-type-label"><label class="choice"><input type="radio" name="appType" value="booking" required /><span>Bookings</span></label><label class="choice"><input type="radio" name="appType" value="shop" required /><span>An online shop</span></label><label class="choice"><input type="radio" name="appType" value="portal" required /><span>A client portal</span></label><label class="choice"><input type="radio" name="appType" value="internal" required /><span>An internal tool</span></label><label class="choice"><input type="radio" name="appType" value="other" required /><span>Something else</span></label></div><input class="other" id="appType-other" name="appTypeOther" type="text" maxlength="100" placeholder="Tell us more" aria-label="Describe the kind of app" hidden />
+        <p class="field-label" id="stage-label">Where are you today?</p>
+        <div class="choices" role="group" aria-labelledby="stage-label"><label class="choice"><input type="radio" name="stage" value="idea" required /><span>Just an idea</span></label><label class="choice"><input type="radio" name="stage" value="building" required /><span>Working on it</span></label><label class="choice"><input type="radio" name="stage" value="running" required /><span>Already running</span></label></div>
+        <p class="field-label" id="role-label">I am a</p>
+        <div class="choices" role="group" aria-labelledby="role-label"><label class="choice"><input type="radio" name="role" value="founder" required /><span>Founder</span></label><label class="choice"><input type="radio" name="role" value="owner" required /><span>Small business owner</span></label><label class="choice"><input type="radio" name="role" value="freelancer" required /><span>Freelancer or agency</span></label><label class="choice"><input type="radio" name="role" value="developer" required /><span>Developer</span></label><label class="choice"><input type="radio" name="role" value="other" required /><span>Something else</span></label></div><input class="other" id="role-other" name="roleOther" type="text" maxlength="100" placeholder="Tell us more" aria-label="Describe your role" hidden />
+      </fieldset>
+      <fieldset data-step="3" hidden>
+        <legend><h2 tabindex="-1">Where should we reach you?</h2></legend>
+        <label class="field-label" for="access-name">Name</label>
+        <input id="access-name" name="name" type="text" autocomplete="name" maxlength="100" required />
+        <label class="field-label" for="access-company">Company or project <small>(optional)</small></label>
+        <input id="access-company" name="company" type="text" autocomplete="organization" maxlength="100" />
+        <label class="field-label" for="access-email">Email</label>
+        <input id="access-email" name="email" type="email" autocomplete="email" maxlength="254" required />
+        <input class="trap" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div id="access-turnstile"></div>
+      </fieldset>
+      <p id="access-error" class="form-error" role="alert"></p>
+      <div class="dialog-actions">
+        <button id="access-back" class="button button-secondary" type="button">Back</button>
+        <button id="access-next" class="button button-primary" type="submit">Continue</button>
+      </div>
+      <p class="consent-note">By submitting this form, you agree that Atomic may store your answers and email you about early access. <a href="/legal/privacy/" target="_blank" rel="noopener">Privacy policy</a></p>
+    </form>
+    <div id="access-done" tabindex="-1" hidden>
+      <p class="eyebrow">YOU’RE ON THE LIST</p>
+      <h2>Thanks, we’ve got your request.</h2>
+      <p>If you’re shortlisted for the free trial, we’ll email you at <strong id="access-done-email"></strong>.</p>
+      <div class="dialog-actions"><button class="button button-primary" type="button" data-close>Done</button></div>
+    </div>
+  </dialog>
+`);
+
 const dialog = document.getElementById('access-dialog');
 const form = document.getElementById('access-form');
 const done = document.getElementById('access-done');
@@ -8,7 +60,6 @@ const errorBox = document.getElementById('access-error');
 const backButton = document.getElementById('access-back');
 const nextButton = document.getElementById('access-next');
 const turnstileBox = document.getElementById('access-turnstile');
-const sitekey = form.dataset.sitekey;
 
 let current = 0;
 let widgetId;
@@ -165,15 +216,24 @@ function openEarlyAccess(idea = '') {
   showStep(idea.trim() ? 1 : 0);
 }
 
-// Early-access links navigate to the homepage hero using its native anchor.
-// Only submitting an idea form opens the wizard (see app.js). Keep this flow
-// until launch, when signup CTAs and their destinations can be updated together.
-if (location.hash === '#early-access') {
+// Every early-access link opens the wizard where the visitor is. Without
+// JavaScript, or opened in a new tab, it still lands on the homepage hero.
+// Starter-brief links carry an idea and go to the hero composer instead.
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[href]');
+  if (!link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  const url = new URL(link.href);
+  if (url.origin !== location.origin || url.pathname !== '/' || url.hash !== '#early-access' || url.searchParams.has('idea')) return;
+  event.preventDefault();
+  openEarlyAccess();
+});
+
+const heroInput = document.getElementById('hero-idea');
+if (heroInput && location.hash === '#early-access') {
   // Starter briefs land in the hero composer for review before requesting access.
   const params = new URLSearchParams(location.search);
   const idea = (params.get('idea') || '').trim().slice(0, 1200);
   if (idea) {
-    const heroInput = document.getElementById('hero-idea');
     heroInput.value = idea;
     heroInput.dispatchEvent(new Event('input'));
   }

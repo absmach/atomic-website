@@ -111,50 +111,5 @@
     <section class="closing" id="share-your-idea"><div class="container closing-layout"><div><p class="eyebrow">EVERY BUSINESS STARTS WITH A WHAT IF</p><h2>What’s yours?</h2><p>A useful little app. A whole new business.<br />Tell us what you want to make real.</p></div><form id="idea-form" class="idea-form"><label for="idea">What would you like to build?</label><textarea id="idea" name="idea" rows="4" maxlength="1200" placeholder="A booking app for my studio, where clients can choose a service and request a time…" aria-describedby="idea-note"></textarea><button class="button button-light" type="submit">Request early access</button><p id="idea-note">Three short steps. We contact shortlisted applicants for the free trial. <a href="/legal/privacy/">Privacy policy</a>.</p><noscript><p>Enable JavaScript to request early access.</p></noscript></form></div></section>
   </main>
   <footer class="site-footer"><div class="container footer-row"><div><a class="brand" href="#" aria-label="Atomic home"><img src="assets/atomic.svg" width="29" height="29" alt="" />atomic</a><p>Describe it. Shape it. Make it real.</p></div><nav aria-label="Footer"><a href="#examples">Explore</a><a href="#faq">Questions</a><a href="https://absmach.eu" target="_blank" rel="noopener noreferrer">Abstract Machines</a></nav><span>© <span id="year">2026</span> Abstract Machines</span></div></footer>
-  <dialog id="access-dialog" aria-labelledby="access-title">
-    <button class="dialog-close" type="button" data-close aria-label="Close">×</button>
-    <form id="access-form" novalidate data-sitekey="__TURNSTILE_SITEKEY__">
-      <p class="eyebrow">EARLY ACCESS</p>
-      <progress id="access-progress" max="3" value="1" aria-label="Progress"></progress>
-      <p id="access-count" class="step-count"></p>
-      <fieldset data-step="1">
-        <legend><h2 id="access-title" tabindex="-1">What would you like to build?</h2></legend>
-        <label class="sr-only" for="access-idea">Describe your app idea</label>
-        <textarea id="access-idea" name="idea" rows="5" maxlength="1200" required placeholder="A booking app for my studio, where clients can choose a service and request a time…"></textarea>
-      </fieldset>
-      <fieldset data-step="2" hidden>
-        <legend><h2 tabindex="-1">Tell us about you and the project.</h2></legend>
-        <p class="field-label" id="app-type-label">It looks most like</p>
-        <div class="choices" role="group" aria-labelledby="app-type-label"><label class="choice"><input type="radio" name="appType" value="booking" required /><span>Bookings</span></label><label class="choice"><input type="radio" name="appType" value="shop" required /><span>An online shop</span></label><label class="choice"><input type="radio" name="appType" value="portal" required /><span>A client portal</span></label><label class="choice"><input type="radio" name="appType" value="internal" required /><span>An internal tool</span></label><label class="choice"><input type="radio" name="appType" value="other" required /><span>Something else</span></label></div><input class="other" id="appType-other" name="appTypeOther" type="text" maxlength="100" placeholder="Tell us more" aria-label="Describe the kind of app" hidden />
-        <p class="field-label" id="stage-label">Where are you today?</p>
-        <div class="choices" role="group" aria-labelledby="stage-label"><label class="choice"><input type="radio" name="stage" value="idea" required /><span>Just an idea</span></label><label class="choice"><input type="radio" name="stage" value="building" required /><span>Working on it</span></label><label class="choice"><input type="radio" name="stage" value="running" required /><span>Already running</span></label></div>
-        <p class="field-label" id="role-label">I am a</p>
-        <div class="choices" role="group" aria-labelledby="role-label"><label class="choice"><input type="radio" name="role" value="founder" required /><span>Founder</span></label><label class="choice"><input type="radio" name="role" value="owner" required /><span>Small business owner</span></label><label class="choice"><input type="radio" name="role" value="freelancer" required /><span>Freelancer or agency</span></label><label class="choice"><input type="radio" name="role" value="developer" required /><span>Developer</span></label><label class="choice"><input type="radio" name="role" value="other" required /><span>Something else</span></label></div><input class="other" id="role-other" name="roleOther" type="text" maxlength="100" placeholder="Tell us more" aria-label="Describe your role" hidden />
-      </fieldset>
-      <fieldset data-step="3" hidden>
-        <legend><h2 tabindex="-1">Where should we reach you?</h2></legend>
-        <label class="field-label" for="access-name">Name</label>
-        <input id="access-name" name="name" type="text" autocomplete="name" maxlength="100" required />
-        <label class="field-label" for="access-company">Company or project <small>(optional)</small></label>
-        <input id="access-company" name="company" type="text" autocomplete="organization" maxlength="100" />
-        <label class="field-label" for="access-email">Email</label>
-        <input id="access-email" name="email" type="email" autocomplete="email" maxlength="254" required />
-        <input class="trap" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <div id="access-turnstile"></div>
-      </fieldset>
-      <p id="access-error" class="form-error" role="alert"></p>
-      <div class="dialog-actions">
-        <button id="access-back" class="button button-secondary" type="button">Back</button>
-        <button id="access-next" class="button button-primary" type="submit">Continue</button>
-      </div>
-      <p class="consent-note">By submitting this form, you agree that Atomic may store your answers and email you about early access. <a href="/legal/privacy/" target="_blank" rel="noopener">Privacy policy</a></p>
-    </form>
-    <div id="access-done" tabindex="-1" hidden>
-      <p class="eyebrow">YOU’RE ON THE LIST</p>
-      <h2>Thanks, we’ve got your request.</h2>
-      <p>If you’re shortlisted for the free trial, we’ll email you at <strong id="access-done-email"></strong>.</p>
-      <div class="dialog-actions"><button class="button button-primary" type="button" data-close>Done</button></div>
-    </div>
-  </dialog>
 </body>
 </html>
