@@ -71,20 +71,29 @@ body { font-synthesis: none; }
 .cookie-preferences-link{border:0;background:none;padding:0;color:var(--muted);font:inherit;font-size:.75rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .cookie-preferences-link:hover{color:var(--violet)}
 .cookie-panel[hidden],.cookie-panel [hidden]{display:none!important}
-.cookie-panel{position:fixed;z-index:2000;bottom:20px;left:20px;right:20px;max-width:920px;margin:auto;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 22px 75px #251d3540;color:var(--ink);font-family:inherit}
-.cookie-panel-inner{padding:27px 30px;display:grid;gap:22px}
-.cookie-intro h2{font-size:1.5rem;letter-spacing:-.035em;margin:12px 0 8px}
-.cookie-intro p{font-size:.875rem;color:var(--muted);line-height:1.7;max-width:780px}
+
+.cookie-panel{position:fixed;z-index:2000;bottom:14px;left:14px;right:14px;max-width:1040px;margin:auto;border:1px solid #e9e4f1;border-radius:12px;background:#fcfbfe;box-shadow:0 8px 25px #251d351a;color:var(--ink);font-family:inherit}
+.cookie-panel-inner{padding:13px 17px;display:flex;align-items:center;gap:20px}
+.cookie-intro{flex:1;min-width:0}
+.cookie-intro h2{font-size:.98rem;letter-spacing:-.02em;line-height:1.3;margin:0 0 3px}
+.cookie-intro p{font-size:.75rem;color:var(--muted);line-height:1.5;max-width:590px;margin:0}
 .cookie-intro a{color:var(--violet-dark);text-decoration:underline;text-underline-offset:3px}
-.cookie-options{display:grid;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.cookie-options label{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 18px;background:#fcfbfe}
+.cookie-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex:none}
+.cookie-actions .button{cursor:pointer;font-size:.75rem;line-height:1.2;padding:10px 12px;border-radius:8px;white-space:nowrap;box-shadow:none;transform:none}
+.cookie-actions .button:hover{transform:none}
+.cookie-options{display:grid;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.cookie-options label{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px 16px;background:#fff}
 .cookie-options label+label{border-top:1px solid var(--line)}
 .cookie-options strong{display:block;font-size:.875rem}
-.cookie-options small{display:block;color:var(--muted);margin-top:3px;line-height:1.5}
+.cookie-options small{display:block;color:var(--muted);margin-top:3px;line-height:1.45}
 .cookie-options input{accent-color:var(--violet);width:20px;height:20px;flex:none}
-.cookie-actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
-.cookie-actions .button{cursor:pointer}
-@media(max-width:700px){.cookie-panel{left:10px;right:10px;bottom:10px;max-height:calc(100dvh - 20px);overflow-y:auto}.cookie-panel-inner{padding:20px;gap:17px}.cookie-intro h2{font-size:1.25rem}.cookie-actions{display:grid;grid-template-columns:1fr 1fr}.cookie-actions .button{font-size:.75rem;min-width:0;padding:12px 8px}.cookie-actions [data-cookie="accept"]{grid-column:1/-1}}
+.cookie-panel.is-customizing{max-width:740px;background:#fff}
+.cookie-panel.is-customizing .cookie-panel-inner{display:grid;gap:15px;padding:20px 22px}
+.cookie-panel.is-customizing .cookie-intro h2{font-size:1.15rem}
+.cookie-panel.is-customizing .cookie-intro p{max-width:none;font-size:.8125rem}
+.cookie-panel.is-customizing .cookie-actions{flex-wrap:wrap}
+@media(max-width:900px){.cookie-panel-inner{display:grid;gap:12px}.cookie-actions{justify-content:flex-start;flex-wrap:wrap}}
+@media(max-width:600px){.cookie-panel{left:8px;right:8px;bottom:8px;max-height:calc(100dvh - 16px);overflow-y:auto}.cookie-panel-inner{padding:13px 14px;gap:11px}.cookie-intro h2{font-size:.94rem}.cookie-intro p{font-size:.74rem}.cookie-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}.cookie-actions .button{font-size:.75rem;min-width:0;padding:10px 8px}.cookie-actions [data-cookie="accept"]{grid-column:1/-1}.cookie-panel.is-customizing .cookie-panel-inner{padding:15px}.cookie-panel.is-customizing .cookie-actions{display:flex;flex-direction:column;align-items:stretch}.cookie-panel.is-customizing .cookie-actions .button{width:100%}}
 
 /* Cloudflare-style adjacent privacy controls, in Atomic's own footer palette. */
 .footer-privacy{display:flex;align-items:center;justify-content:flex-end;gap:16px;flex-wrap:wrap}
