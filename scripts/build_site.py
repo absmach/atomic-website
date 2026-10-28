@@ -123,7 +123,7 @@ for plan in plans:
     name = plan['name']
     groups = ''.join('<section class="plan-feature-group"><h3>'+escape(title)+'</h3><ul class="plan-features">'+''.join('<li>'+escape(feature)+'</li>' for feature in features)+'</ul></section>' for title,features in plan['groups'])
     pricecards += f'''<article class="price-card{' featured' if plan['featured'] else ''}" aria-labelledby="plan-{name.lower()}">
-<div class="plan-overview"><span class="pill">{plan['badge']}</span><h2 id="plan-{name.lower()}">{name}</h2><p class="plan-description">{plan['description']}</p><p class="price">{plan['price']}<small> / month</small></p><a class="button {'button-primary' if plan['featured'] else 'button-secondary'}" href="{CONTACT}?subject=Atomic%20{name}%20early%20access">Ask about early access</a></div>
+<div class="plan-overview"><span class="pill">{plan['badge']}</span><h2 id="plan-{name.lower()}">{name}</h2><p class="plan-description">{plan['description']}</p><p class="price">{plan['price']}<small> / month</small></p><a class="button {'button-primary' if plan['featured'] else 'button-secondary'}" href="/#early-access">Ask about early access</a></div>
 <dl class="plan-allowances"><div><dt>{plan['credit_label']}</dt><dd>{plan['credits']}</dd></div><div><dt>{plan['app_label']}</dt><dd>{plan['apps']}</dd></div></dl>
 <div class="plan-details">{groups}<p class="plan-boundary">{plan['boundary']}</p></div></article>'''
 pricing = hero('PLANS FOR WHAT COMES NEXT','A little idea.<br /><em>Room to grow.</em>','Start for free. Choose more room to build and run your apps when you need it.',True,'<span class="pill">Launch preview · Subscriptions are not open yet</span>')
