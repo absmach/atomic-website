@@ -180,7 +180,6 @@ syncIdeaAnimation();
 for (const [formId, inputId] of [['hero-idea-form', 'hero-idea'], ['idea-form', 'idea']]) {
   const form = document.getElementById(formId);
   const input = document.getElementById(inputId);
-  input.addEventListener('input', () => input.setCustomValidity(''));
   form.addEventListener('submit', event => { event.preventDefault(); openEarlyAccess(input.value); });
   input.addEventListener('keydown', event => {
     if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) { event.preventDefault(); form.requestSubmit(); }
@@ -188,7 +187,6 @@ for (const [formId, inputId] of [['hero-idea-form', 'hero-idea'], ['idea-form', 
 }
 document.querySelectorAll('[data-prompt]').forEach(button => button.addEventListener('click', () => {
   heroIdea.value = button.dataset.prompt;
-  heroIdea.setCustomValidity('');
   heroIdea.focus({preventScroll: true});
   heroIdea.setSelectionRange(heroIdea.value.length, heroIdea.value.length);
 }));

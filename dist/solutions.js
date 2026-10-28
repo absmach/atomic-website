@@ -15,3 +15,9 @@ if (filters) {
     status.textContent = `${count} solutions shown for ${button.textContent.toLowerCase()}.`;
   }));
 }
+
+// The closing idea form opens the early-access wizard in place, carrying any idea over.
+document.querySelectorAll('.solution-idea-form').forEach(form => form.addEventListener('submit', event => {
+  event.preventDefault();
+  openEarlyAccess(form.elements.idea.value);
+}));
