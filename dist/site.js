@@ -109,7 +109,14 @@ if (docsNav) {
   link.type = 'button';
   link.className = 'cookie-preferences-link';
   link.innerHTML = '<span class="cookie-choice-icon" aria-hidden="true">✓ ×</span><span>Cookie Preferences</span>';
-  link.addEventListener('click', () => show(true));
+  link.addEventListener('click', () => {
+    show(true);
+    // Reopening from the footer should take mobile visitors to the
+    // in-flow controls, even when they are scrolled far down the page.
+    if (wrap.classList.contains('cookie-panel-home')) {
+      wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
   privacyLinks.append(privacyLink, link);
   footer?.append(privacyLinks);
 
@@ -117,7 +124,21 @@ if (docsNav) {
   wrap.className = 'cookie-panel';
   wrap.setAttribute('aria-label', 'Cookie preferences');
   wrap.innerHTML = '<div class="cookie-panel-inner"><div class="cookie-intro"><h2>Cookie choices</h2><p>Essential storage only by default. Analytics and marketing need your permission. <a href="/legal/privacy/">Privacy</a> · <a href="/legal/cookies/">Cookies</a>.</p></div><div class="cookie-options" hidden><label><span><strong>Necessary</strong><small>Essential site functionality and your consent choice</small></span><input type="checkbox" checked disabled /></label><label><span><strong>Analytics</strong><small>Understand visits and early-access requests</small></span><input id="cookie-analytics" type="checkbox" /></label><label><span><strong>Marketing</strong><small>Measure advertising campaigns</small></span><input id="cookie-marketing" type="checkbox" /></label></div><div class="cookie-actions"><button type="button" class="button button-secondary" data-cookie="reject">Reject optional</button><button type="button" class="button button-secondary" data-cookie="customize">Customize</button><button type="button" class="button button-secondary" data-cookie="accept">Accept all</button><button type="button" class="button button-primary" data-cookie="save" hidden>Save choices</button></div></div>';
-  document.body.append(wrap);
+  // Keep the homepage composer unobstructed on phones. On larger screens
+  // and inner pages, the compact cookie panel stays in the viewport.
+  const composer = document.querySelector('.prompt-opening .prompt-composer');
+  const mobileLayout = window.matchMedia('(max-width: 700px)');
+  function placePanel() {
+    if (composer && mobileLayout.matches) {
+      composer.insertAdjacentElement('afterend', wrap);
+      wrap.classList.add('cookie-panel-home');
+    } else {
+      document.body.append(wrap);
+      wrap.classList.remove('cookie-panel-home');
+    }
+  }
+  placePanel();
+  mobileLayout.addEventListener('change', placePanel);
   const options = wrap.querySelector('.cookie-options');
   const customize = wrap.querySelector('[data-cookie="customize"]');
   const saveButton = wrap.querySelector('[data-cookie="save"]');
