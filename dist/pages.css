@@ -113,3 +113,23 @@ body { font-synthesis: none; }
   .prompt-opening .cookie-panel-home .cookie-intro{text-align:left}
   .prompt-opening .cookie-panel-home.is-customizing{margin-top:16px}
 }
+
+/* Fit the mobile builder and consent choices together in the first viewport. */
+@media(max-width:700px){
+  .prompt-opening{min-height:0;justify-content:flex-start;padding-block:20px 28px}
+  .prompt-hero h1{font-size:clamp(2.3rem,8vw,3.2rem);line-height:1.09;margin:0 0 14px}
+  .prompt-intro{max-width:360px;font-size:.88rem;line-height:1.52}
+  .prompt-composer{margin-top:18px;padding:12px 14px 11px;border-radius:14px}
+  .prompt-composer textarea{min-height:65px;height:65px;padding-bottom:5px;font-size:.9rem;line-height:1.5}
+  .composer-footer{margin-top:5px}
+  .composer-footer .button{min-height:38px;padding:8px 12px;font-size:.76rem}
+  .prompt-opening .cookie-panel-home{margin-top:12px}
+  .prompt-suggestions{margin-top:14px}
+  .prompt-launch-note{margin-top:12px}
+}
+@media(max-width:390px){
+  .prompt-opening{padding-top:16px}
+  .prompt-hero h1{font-size:2.25rem;margin-bottom:12px}
+  .prompt-intro{font-size:.82rem;line-height:1.48}
+  .prompt-composer{margin-top:14px}
+}
