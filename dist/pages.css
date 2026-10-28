@@ -85,3 +85,11 @@ body { font-synthesis: none; }
 .cookie-actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
 .cookie-actions .button{cursor:pointer}
 @media(max-width:700px){.cookie-panel{left:10px;right:10px;bottom:10px;max-height:calc(100dvh - 20px);overflow-y:auto}.cookie-panel-inner{padding:20px;gap:17px}.cookie-intro h2{font-size:1.25rem}.cookie-actions{display:grid;grid-template-columns:1fr 1fr}.cookie-actions .button{font-size:.75rem;min-width:0;padding:12px 8px}.cookie-actions [data-cookie="accept"]{grid-column:1/-1}}
+
+/* Cloudflare-style adjacent privacy controls, in Atomic's own footer palette. */
+.footer-privacy{display:flex;align-items:center;justify-content:flex-end;gap:16px;flex-wrap:wrap}
+.footer-privacy a,.footer-privacy .cookie-preferences-link{font-size:.75rem;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.footer-privacy a:hover,.footer-privacy .cookie-preferences-link:hover{color:var(--violet)}
+.footer-privacy .cookie-preferences-link{display:inline-flex;align-items:center;gap:7px}
+.cookie-choice-icon{display:inline-flex;align-items:center;border-radius:999px;background:var(--violet);color:#fff;padding:1px 5px;font-size:.65rem;font-weight:750;line-height:1.45;letter-spacing:.02em;text-decoration:none}
+@media(max-width:700px){.footer-privacy{justify-content:flex-start;gap:16px}}
