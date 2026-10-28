@@ -19,7 +19,7 @@ def link(label, url, active=''):
 def header(active):
     links = ''.join(link(label, url, active) for label, url in NAV)
     return f'''<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="container header-row"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic.svg" width="33" height="33" alt="" />atomic</a><nav class="desktop-nav" aria-label="Main navigation">{links}</nav><div class="header-actions"><a class="button button-small" href="/#early-access">Get early access</a><button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button></div></div><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>{links}<a href="/#early-access">Get early access</a></nav></header>'''
+<header class="site-header"><div class="container header-row"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic.svg" width="33" height="33" alt="" />atomic</a><nav class="desktop-nav" aria-label="Main navigation">{links}</nav><div class="header-actions"><button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button></div></div><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>{links}</nav></header>'''
 
 def social_links():
     icons = {
