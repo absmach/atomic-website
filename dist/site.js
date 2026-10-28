@@ -99,12 +99,19 @@ if (docsNav) {
   if (choice) { updateGoogle(); loadGtm(); }
 
   const footer = document.querySelector('.site-footer .footer-bottom');
+  const privacyLinks = document.createElement('nav');
+  privacyLinks.className = 'footer-privacy';
+  privacyLinks.setAttribute('aria-label', 'Privacy and cookie controls');
+  const privacyLink = document.createElement('a');
+  privacyLink.href = '/legal/privacy/';
+  privacyLink.textContent = 'Privacy Policy';
   const link = document.createElement('button');
   link.type = 'button';
   link.className = 'cookie-preferences-link';
-  link.textContent = 'Cookie Preferences';
+  link.innerHTML = '<span class="cookie-choice-icon" aria-hidden="true">✓ ×</span><span>Cookie Preferences</span>';
   link.addEventListener('click', () => show(true));
-  footer?.append(link);
+  privacyLinks.append(privacyLink, link);
+  footer?.append(privacyLinks);
 
   const wrap = document.createElement('section');
   wrap.className = 'cookie-panel';
