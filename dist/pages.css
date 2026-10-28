@@ -65,3 +65,23 @@ body { font-synthesis: none; }
 @media(max-width:1100px){.desktop-nav{gap:19px}.header-row{gap:22px}}
 @media(max-width:960px){.footer-grid{grid-template-columns:1.3fr 1fr;gap:38px}}
 @media(max-width:700px){.footer-grid{grid-template-columns:1fr 1fr;gap:35px 20px}}
+
+
+/* Consent controls extend Atomic's existing Manrope, violet and button styles. */
+.cookie-preferences-link{border:0;background:none;padding:0;color:var(--muted);font:inherit;font-size:.75rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.cookie-preferences-link:hover{color:var(--violet)}
+.cookie-panel[hidden],.cookie-panel [hidden]{display:none!important}
+.cookie-panel{position:fixed;z-index:2000;bottom:20px;left:20px;right:20px;max-width:920px;margin:auto;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 22px 75px #251d3540;color:var(--ink);font-family:inherit}
+.cookie-panel-inner{padding:27px 30px;display:grid;gap:22px}
+.cookie-intro h2{font-size:1.5rem;letter-spacing:-.035em;margin:12px 0 8px}
+.cookie-intro p{font-size:.875rem;color:var(--muted);line-height:1.7;max-width:780px}
+.cookie-intro a{color:var(--violet-dark);text-decoration:underline;text-underline-offset:3px}
+.cookie-options{display:grid;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cookie-options label{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 18px;background:#fcfbfe}
+.cookie-options label+label{border-top:1px solid var(--line)}
+.cookie-options strong{display:block;font-size:.875rem}
+.cookie-options small{display:block;color:var(--muted);margin-top:3px;line-height:1.5}
+.cookie-options input{accent-color:var(--violet);width:20px;height:20px;flex:none}
+.cookie-actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.cookie-actions .button{cursor:pointer}
+@media(max-width:700px){.cookie-panel{left:10px;right:10px;bottom:10px;max-height:calc(100dvh - 20px);overflow-y:auto}.cookie-panel-inner{padding:20px;gap:17px}.cookie-intro h2{font-size:1.25rem}.cookie-actions{display:grid;grid-template-columns:1fr 1fr}.cookie-actions .button{font-size:.75rem;min-width:0;padding:12px 8px}.cookie-actions [data-cookie="accept"]{grid-column:1/-1}}
