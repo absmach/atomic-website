@@ -95,7 +95,7 @@ plans = [
         'credits': '250', 'credit_label': 'credits each month', 'apps': '1', 'app_label': 'published app',
         'groups': [
             ('Create and refine', ['AI generation and revisions', 'Visual canvas and in-place text editing', 'Theme, typography, and layout controls', 'Screen previews and visual annotations', 'Image and design-reference uploads']),
-            ('Keep and share your work', ['A backend, database, and user sign-in for one app', 'Private projects', 'Browse and download generated source', 'The last 20 versions of each app', 'Publish on an Atomic subdomain, with a “Made with Atomic” badge'])
+            ('Keep and share your work', ['A backend, database, and user sign-in for one app', 'Private projects', 'Browse and download generated source', 'The latest version of each app, and one to go back to', 'Publish on an Atomic subdomain, with a “Made with Atomic” badge'])
         ],
         'boundary': 'Solo building · Backend for one app. More backends, your own domain, no badge, collaboration, and top-ups start with Builder.'
     },
@@ -150,7 +150,7 @@ comparison_rows = [
     ('Deployment history and frontend rollback', 'Included', 'Included', 'Included'),
     ('Searchable preview logs', 'Included', 'Included', 'Included'),
     ('Private projects and source downloads', 'Included', 'Included', 'Included'),
-    ('Version history and source restore', 'Last 20 versions', 'Last 100 versions', 'Every version'),
+    ('Version history and source restore', 'Latest version and one to go back to', 'Last 100 versions', 'Every version'),
     ('Per-app build and usage history', 'Included', 'Included', 'Included'),
     ('Hosting and persistent storage', 'Uses available credits', 'Uses available credits', 'Uses available credits'),
     ('Buy additional credits', 'Upgrade to a paid plan', '$10 for 1,000 credits', '$10 for 1,000 credits')
