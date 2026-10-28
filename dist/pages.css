@@ -102,3 +102,14 @@ body { font-synthesis: none; }
 .footer-privacy .cookie-preferences-link{display:inline-flex;align-items:center;gap:7px}
 .cookie-choice-icon{display:inline-flex;align-items:center;border-radius:999px;background:var(--violet);color:#fff;padding:1px 5px;font-size:.65rem;font-weight:750;line-height:1.45;letter-spacing:.02em;text-decoration:none}
 @media(max-width:700px){.footer-privacy{justify-content:flex-start;gap:16px}}
+
+/* On the homepage, mobile consent sits below the builder instead of covering it. */
+@media(max-width:700px){
+  .prompt-opening .cookie-panel-home{
+    position:static;left:auto;right:auto;bottom:auto;z-index:auto;
+    align-self:stretch;width:100%;max-width:860px;max-height:none;overflow:visible;
+    margin:16px auto 0;
+  }
+  .prompt-opening .cookie-panel-home .cookie-intro{text-align:left}
+  .prompt-opening .cookie-panel-home.is-customizing{margin-top:16px}
+}
