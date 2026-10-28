@@ -119,3 +119,12 @@ Manual deploy from the repository root: `npx wrangler deploy`.
 Other branches deploy a Preview with `npx wrangler preview`, which reads the `previews` block of `wrangler.jsonc`. Its variables set list `0`, so `/api/early-access` answers 503 in a Preview and never writes to the production Listmonk list.
 
 `.openai/hosting.json` retains the existing Sites identity and also uses `dist` as the public directory.
+
+
+## Marketing analytics and consent (October 2026)
+
+The shared `dist/site.js` adds an Atomic-styled consent banner, footer Cookie Preferences control, and Google Consent Mode v2 default-denied behavior. It injects GTM `GTM-NDHNWJMJ` dynamically only after analytics or marketing is accepted; intentionally no unconditional GTM noscript iframe is installed, because that would bypass consent. Preferences are stored as `atomic-cookie-consent-v1` in localStorage. Withdrawing a previously granted category reloads the page to stop already loaded third-party scripts. The `atomic_early_access_success` dataLayer event fires only after a successful API response and only when analytics consent is granted; it contains no personal details.
+
+In GTM, configure GA4 Measurement ID `G-0516MSWR7R` with analytics consent checks and avoid duplicate pageviews. Add Meta Pixel and LinkedIn Insight Tag only after their IDs are supplied and configure marketing-consent requirements. Test with Tag Assistant and a clean browser session; don't publish tags until consent behavior is verified. Campaign UTM values are already stored with early-access subscriber attributes in Listmonk by the Worker regardless of optional analytics choice.
+
+Legal review is required before launch to finalize processor/provider details, actual tracker/cookie lifetimes and cross-border transfer disclosures. The cookie notice currently remains a draft pending that review.
