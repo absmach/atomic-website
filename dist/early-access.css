@@ -1,10 +1,10 @@
-#access-dialog fieldset{border:0;margin:0;padding:0;min-width:0}
-#access-dialog legend{padding:0;margin-bottom:22px}
-#access-dialog h2{font-size:2rem;line-height:1.15;max-width:440px;outline:0}
-#access-dialog .eyebrow{color:var(--violet);font-size:.75rem;margin-bottom:15px}
-#access-dialog textarea,#access-dialog input[type=text],#access-dialog input[type=email]{display:block;width:100%;padding:13px 15px;font:inherit;font-size:.875rem;color:var(--ink);background:#fdfcff;border:1px solid #d7caff;border-radius:5px}
-#access-dialog textarea{resize:vertical;min-height:140px;max-height:320px;line-height:1.7}
-#access-dialog input:focus-visible,#access-dialog textarea:focus-visible{outline:2px solid var(--violet);outline-offset:1px}
+.access-wizard fieldset{border:0;margin:0;padding:0;min-width:0}
+.access-wizard legend{padding:0;margin-bottom:22px}
+.access-wizard h2{font-size:2rem;line-height:1.15;max-width:440px;outline:0}
+.access-wizard .eyebrow{color:var(--violet);font-size:.75rem;margin-bottom:15px}
+.access-wizard textarea,.access-wizard input[type=text],.access-wizard input[type=email]{display:block;width:100%;padding:13px 15px;font:inherit;font-size:.875rem;color:var(--ink);background:#fdfcff;border:1px solid #d7caff;border-radius:5px}
+.access-wizard textarea{resize:vertical;min-height:140px;max-height:320px;line-height:1.7}
+.access-wizard input:focus-visible,.access-wizard textarea:focus-visible{outline:2px solid var(--violet);outline-offset:1px}
 #access-progress{display:block;width:100%;height:4px;appearance:none;border:0;border-radius:2px;background:var(--soft);overflow:hidden}
 #access-progress::-webkit-progress-bar{background:var(--soft)}
 #access-progress::-webkit-progress-value{background:var(--violet);transition:width .2s}
@@ -22,12 +22,28 @@ legend+.field-label,legend+label.field-label{margin-top:0}
 .trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 #access-turnstile{margin-top:20px}
 .form-error{min-height:1.4em;margin-top:16px;font-size:.8125rem;color:#b3261e}
-#access-dialog .dialog-actions{margin-top:8px}
-#access-dialog .dialog-actions .button{flex:1;font-size:.875rem}
+.access-wizard .dialog-actions{margin-top:8px}
+.access-wizard .dialog-actions .button{flex:1;font-size:.875rem}
 #access-done:focus{outline:0}
 #access-done h2{margin-bottom:16px}
 #access-done p:not(.eyebrow){font-size:.9375rem;line-height:1.7;color:var(--muted);margin-bottom:24px}
 #access-done strong{color:var(--ink);overflow-wrap:anywhere}
-@media(max-width:700px){#access-dialog h2{font-size:1.6rem}}
+@media(max-width:700px){.access-wizard h2{font-size:1.6rem}}
 .other{margin-top:10px}
 .field-label small{font-weight:400;color:var(--muted)}
+.access-page{padding:80px 0 96px}
+.access-page-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,580px);grid-template-areas:'intro card' 'next card';grid-template-rows:auto 1fr;column-gap:72px;align-items:start}
+.access-page-intro{grid-area:intro;padding-top:12px}
+.access-page-intro .eyebrow{color:var(--violet);margin-bottom:20px}
+.access-page-intro h1{font-size:clamp(2.6rem,4.6vw,4.25rem);letter-spacing:-.055em;line-height:1.06}
+.access-page-intro h1 em{font-style:normal;color:var(--violet)}
+.access-page-intro .lead{font-size:1.0625rem;color:var(--muted);max-width:460px;margin-top:22px;line-height:1.8}
+.access-next{grid-area:next;list-style:none;margin:36px 0 0;padding:0;display:grid;gap:18px;max-width:440px;counter-reset:next}
+.access-next li{counter-increment:next;display:grid;grid-template-columns:30px 1fr;gap:14px;font-size:.9375rem;line-height:1.6;color:var(--muted)}
+.access-next li::before{content:counter(next);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--soft);color:var(--violet-dark);font-size:.8125rem;font-weight:750}
+.access-next strong{display:block;color:var(--ink);font-weight:750}
+.access-card #access-form>.eyebrow{display:none}
+.access-card{grid-area:card;scroll-margin-top:24px;border:1px solid #d1c6df;border-radius:12px;background:#fcfafc;box-shadow:0 24px 70px #150c3d14;padding:39px;color:var(--ink)}
+.access-card h2{font-size:2rem;line-height:1.15}
+@media(max-width:960px){.access-page-layout{grid-template-columns:1fr;grid-template-areas:'intro' 'card' 'next';grid-template-rows:none;row-gap:40px}.access-page-intro{padding-top:0}.access-next{margin-top:0}}
+@media(max-width:700px){.access-page{padding:44px 0 64px}.access-page-intro h1{font-size:2.6rem}.access-page-intro .lead{font-size:1rem}.access-card{padding:31px 24px}.access-card h2{font-size:1.6rem}}

@@ -51,7 +51,7 @@ def page(path, title, description, body, active='', draft=False, extra_head='', 
     if canonical:
         extra_head += f'<link rel="canonical" href="https://atomicapp.dev{canonical}" /><meta property="og:url" content="https://atomicapp.dev{canonical}" /><meta property="og:image" content="https://atomicapp.dev/assets/atomic-social-v2.png" /><meta name="twitter:card" content="summary_large_image" />'
     robots += extra_head
-    html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#191329" /><title>{escape(title)} — Atomic</title><meta name="description" content="{escape(description, quote=True)}" /><meta property="og:title" content="{escape(title, quote=True)} — Atomic" /><meta property="og:description" content="{escape(description, quote=True)}" /><meta property="og:type" content="website" />{robots}<link rel="icon" type="image/svg+xml" href="/assets/atomic.svg" /><link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin /><link rel="stylesheet" href="/styles.css" /><link rel="stylesheet" href="/pages.css?v=20261029-header-cta" /><link rel="stylesheet" href="/early-access.css" /><script src="/site.js?v=20261029-header-cta" defer></script><script src="/early-access.js" defer></script></head><body>{header(active)}<main id="main">{body}</main>{footer()}</body></html>'''
+    html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#191329" /><title>{escape(title)} — Atomic</title><meta name="description" content="{escape(description, quote=True)}" /><meta property="og:title" content="{escape(title, quote=True)} — Atomic" /><meta property="og:description" content="{escape(description, quote=True)}" /><meta property="og:type" content="website" />{robots}<link rel="icon" type="image/svg+xml" href="/assets/atomic.svg" /><link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin /><link rel="stylesheet" href="/styles.css" /><link rel="stylesheet" href="/pages.css?v=20261029-header-cta" /><link rel="stylesheet" href="/early-access.css?v=20261029-early-access-page" /><script src="/site.js?v=20261029-header-cta" defer></script><script src="/early-access.js?v=20261029-early-access-page" defer></script></head><body>{header(active)}<main id="main">{body}</main>{footer()}</body></html>'''
     (folder / 'index.html').write_text(html)
 
 def hero(kicker, title, intro, center=False, extra=''):
@@ -79,7 +79,7 @@ home = (ROOT / 'content/home.html').read_text()
 home = re.sub(r'  <a class="skip-link".*?</header>', header('/'), home, count=1, flags=re.S)
 home = re.sub(r'<footer class="site-footer">.*?</footer>', footer(), home, count=1, flags=re.S)
 home = home.replace('<script src="app.js" defer></script>', '<link rel="stylesheet" href="/pages.css?v=20261029-header-cta" />\n  <script src="/site.js?v=20261029-header-cta" defer></script>\n  <script src="/app.js" defer></script>')
-home = home.replace('<script src="early-access.js" defer></script>', '<script src="/early-access.js" defer></script>')
+home = home.replace('<script src="early-access.js" defer></script>', '<script src="/early-access.js?v=20261029-early-access-page" defer></script>')
 home = home.replace('We’ll share availability and final plan details as launch approaches.', 'Explore our <a class="text-action" href="/pricing/">proposed launch plans</a>, with Free, Builder, and Pro. Subscriptions are not open yet.')
 home = home.replace('<section class="faq-section', '<section class="home-pricing"><div class="container"><div><p class="eyebrow">ROOM FOR YOUR NEXT IDEA</p><h2>Start small. Build from there.</h2><p>Start with Free, build with Builder at $25/month, or grow with Pro at $50/month.</p></div><a href="/pricing/" class="button button-secondary">Explore launch plans <span aria-hidden="true">↗</span></a></div></section>\n<section class="faq-section')
 home = home.replace('Early access opens soon. Share your idea to join the waitlist.</p>', 'Early access opens soon. Share your idea to join the waitlist. <a href="/legal/privacy/">Privacy policy</a>.</p>')
@@ -169,6 +169,12 @@ for q,a in [
     pricing += f'<details><summary>{q}</summary><p>{a}</p></details>'
 pricing += '</div></div></section>'+cta()
 page('pricing','Pricing','Explore Atomic’s launch plans: Free, Builder at $25/month with 2,500 credits, and Pro at $50/month with 5,000 credits. Paid-plan top-ups: $10 for 1,000 credits.',pricing,'/pricing/')
+
+# Early access: a page of its own for sharing; early-access.js puts the wizard in the card.
+access = '<section class="access-page"><div class="container access-page-layout"><div class="access-page-intro"><p class="eyebrow">EARLY ACCESS</p><h1>Your idea,<br /><em>first in line.</em></h1><p class="lead">Atomic is preparing for early access. Tell us what you want to build, and we’ll invite shortlisted applicants to the free trial.</p></div>'
+access += '<div id="access-page" class="access-wizard access-card"><noscript><p>Enable JavaScript to request early access, or email <a href="mailto:info@absmach.eu?subject=Atomic%20early%20access">info@absmach.eu</a>.</p></noscript></div>'
+access += '<ol class="access-next" aria-label="What happens next"><li><span><strong>Share your idea.</strong>Three short steps: your idea, a little about you, and where to reach you.</span></li><li><span><strong>We review requests.</strong>We look at what people want to build and who it’s for.</span></li><li><span><strong>Shortlisted applicants hear from us.</strong>We email an invitation to the free trial.</span></li></ol></div></section>'
+page('early-access','Request early access','Tell us what you want to build with Atomic and request a place in the early-access free trial.',access,canonical='/early-access/')
 
 # Documentation: each guide's body is content/docs/<section>/<slug>.html, a run
 # of <section id="..."><h2>...</h2>...</section> blocks; the contents list is
