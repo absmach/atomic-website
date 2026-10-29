@@ -30,14 +30,10 @@ background = Image.new("RGB", (WIDTH, HEIGHT))
 pixels = background.load()
 for y in range(HEIGHT):
     for x in range(WIDTH):
-        glow = 0.72 * exp(-(((x - 1090) / 530) ** 2 + ((y - 570) / 380) ** 2))
+        glow = 0.6 * exp(-(((x - 600) / 640) ** 2 + ((y - 700) / 330) ** 2))
         pixels[x, y] = tuple(round(a + (b - a) * glow) for a, b in zip(PAPER, (217, 202, 250)))
 card = background.resize((WIDTH * SCALE, HEIGHT * SCALE), Image.Resampling.BICUBIC)
 draw = ImageDraw.Draw(card)
-
-
-def label(x, y, text, size, color=INK, weight=650):
-    draw.text((x * SCALE, y * SCALE), text, font=font(size, weight), fill=color, anchor="lt")
 
 
 def atom(cx, cy, size, color, stroke):
@@ -61,37 +57,36 @@ def atom(cx, cy, size, color, stroke):
                   (cx + r) * SCALE, (cy + r) * SCALE), fill=color)
 
 
-atom(86, 87, 48, VIOLET, 3.4)
-label(123, 65, "atomic", 43, weight=750)
-label(64, 202, "Imagine it.", 88, weight=750)
-label(64, 303, "Build it", 88, VIOLET, weight=750)
+def width(text, face, tracking=0.0):
+    """Advance of the text in card pixels, with CSS-style letter-spacing in em."""
+    return draw.textlength(text, font=face) / SCALE + tracking * face.size / SCALE * len(text)
 
-DESCRIPTION = (
-    "Turn your ideas into powerful, functional applications with AI. "
-    "Just describe what you need, and let Atomic bring it to life"
-)
-body = font(24, 500)
-line, y = "", 431
-for word in DESCRIPTION.split():
-    trial = f"{line} {word}".strip()
-    if draw.textlength(trial, font=body) > 640 * SCALE:
-        label(68, y, line, 24, "#4a4358", weight=500)
-        line, y = word, y + 36
-    else:
-        line = trial
-label(68, y, line, 24, "#4a4358", weight=500)
 
-# An oversized brand tile stays recognizable when the card is reduced in a feed.
-draw.rounded_rectangle((778 * SCALE, 161 * SCALE, 1132 * SCALE, 515 * SCALE),
-                       radius=66 * SCALE, fill="#dfd4f6")
-draw.rounded_rectangle((770 * SCALE, 149 * SCALE, 1124 * SCALE, 503 * SCALE),
-                       radius=66 * SCALE, fill=VIOLET)
-atom(947, 326, 306, "#ffffff", 13)
+def tracked(x, y, text, face, color, tracking):
+    """Draw text left-aligned at its vertical middle, keeping kerning and adding tracking."""
+    for i, char in enumerate(text):
+        offset = draw.textlength(text[:i], font=face) / SCALE + tracking * face.size / SCALE * i
+        draw.text(((x + offset) * SCALE, y * SCALE), char, font=face, fill=color, anchor="lm")
 
-draw.line((68 * SCALE, 554 * SCALE, 1132 * SCALE, 554 * SCALE), fill="#ded6e9", width=SCALE)
-label(68, 577, "FROM IDEA TO APP", 14, "#696471", weight=750)
-label(965, 573, "atomicapp.dev", 21, weight=650)
 
-output = ROOT / "dist/assets/atomic-social-v2.png"
+# Just the brand, as in the site header (weight 600, -0.075em, mark about
+# 1.1x the type), with the hero's tagline (weight 650, -0.052em) beneath.
+NAME, NAME_SIZE, NAME_TRACK = "atomic", 120, -0.075
+name = font(NAME_SIZE, 600)
+MARK, STROKE, GAP = NAME_SIZE * 1.1, 7, NAME_SIZE * 0.24
+mark_width = MARK * 22.4 / 28 + STROKE
+row = mark_width + GAP + width(NAME, name, NAME_TRACK)
+left = (WIDTH - row) / 2
+atom(left + mark_width / 2, 248, MARK, VIOLET, STROKE)
+tracked(left + mark_width + GAP, 242, NAME, name, INK, NAME_TRACK)
+
+TAG_TRACK = -0.052
+tagline = font(64, 650)
+first, second = "Imagine it. ", "Build it."
+x = (WIDTH - width(first + second, tagline, TAG_TRACK)) / 2
+tracked(x, 394, first, tagline, INK, TAG_TRACK)
+tracked(x + width(first, tagline, TAG_TRACK), 394, second, tagline, VIOLET, TAG_TRACK)
+
+output = ROOT / "dist/assets/atomic-social-v3.png"
 card.resize((WIDTH, HEIGHT), Image.Resampling.LANCZOS).save(output, optimize=True)
 print(f"Rendered {output.relative_to(ROOT)} ({output.stat().st_size:,} bytes)")
