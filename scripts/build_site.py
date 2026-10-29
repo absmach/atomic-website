@@ -17,7 +17,7 @@ def link(label, url, active=''):
 def header(active):
     links = ''.join(link(label, url, active) for label, url in NAV)
     return f'''<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="container header-row"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic.svg" width="33" height="33" alt="" />atomic</a><nav class="desktop-nav" aria-label="Main navigation">{links}</nav><div class="header-actions"><a class="button button-small" href="/#early-access"><span class="cta-full">Request early access</span><span class="cta-short">Early access</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button></div></div><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>{links}<a href="/#early-access">Request early access</a></nav></header>'''
+<header class="site-header"><div class="container header-row"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic.svg" width="33" height="33" alt="" />atomic</a><nav class="desktop-nav" aria-label="Main navigation">{links}</nav><div class="header-actions"><a class="button button-small" href="/early-access/"><span class="cta-full">Request early access</span><span class="cta-short">Early access</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button></div></div><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>{links}<a href="/early-access/">Request early access</a></nav></header>'''
 
 def social_links():
     icons = {
@@ -36,7 +36,7 @@ def social_links():
 
 def footer():
     columns = [
-        ('Product', [('Explore examples', '/#examples'), ('How it works', '/#how-it-works'), ('Why Atomic', '/#foundation'), ('Pricing', '/pricing/'), ('Early access', '/#early-access')]),
+        ('Product', [('Explore examples', '/#examples'), ('How it works', '/#how-it-works'), ('Why Atomic', '/#foundation'), ('Pricing', '/pricing/'), ('Early access', '/early-access/')]),
         ('Solutions', [('All solutions', '/solutions/'), ('Websites', '/solutions/websites/'), ('Online stores', '/solutions/online-stores/'), ('Booking apps', '/solutions/booking-apps/'), ('Client portals', '/solutions/client-portals/'), ('Internal tools', '/solutions/internal-tools/'), ('Prototypes', '/solutions/prototypes/')]),
         ('Resources', [('Documentation', '/docs/'), ('Blog', '/blog/'), ('Security & trust', '/security/'), ('About Atomic', '/about/'), ('Contact the team', CONTACT)]),
         ('Legal', [('Legal overview', '/legal/'), ('Privacy', '/legal/privacy/'), ('Terms of Service', '/legal/terms/'), ('Acceptable Use', '/legal/acceptable-use/'), ('Data Processing', '/legal/dpa/'), ('Subprocessors', '/legal/subprocessors/'), ('Cookies & storage', '/legal/cookies/')])
@@ -51,14 +51,14 @@ def page(path, title, description, body, active='', draft=False, extra_head='', 
     if canonical:
         extra_head += f'<link rel="canonical" href="https://atomicapp.dev{canonical}" /><meta property="og:url" content="https://atomicapp.dev{canonical}" /><meta property="og:image" content="https://atomicapp.dev/assets/atomic-social-v2.png" /><meta name="twitter:card" content="summary_large_image" />'
     robots += extra_head
-    html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#191329" /><title>{escape(title)} — Atomic</title><meta name="description" content="{escape(description, quote=True)}" /><meta property="og:title" content="{escape(title, quote=True)} — Atomic" /><meta property="og:description" content="{escape(description, quote=True)}" /><meta property="og:type" content="website" />{robots}<link rel="icon" type="image/svg+xml" href="/assets/atomic.svg" /><link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin /><link rel="stylesheet" href="/styles.css" /><link rel="stylesheet" href="/pages.css?v=20261029-header-cta" /><link rel="stylesheet" href="/early-access.css" /><script src="/site.js?v=20261029-header-cta" defer></script><script src="/early-access.js" defer></script></head><body>{header(active)}<main id="main">{body}</main>{footer()}</body></html>'''
+    html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#191329" /><title>{escape(title)} — Atomic</title><meta name="description" content="{escape(description, quote=True)}" /><meta property="og:title" content="{escape(title, quote=True)} — Atomic" /><meta property="og:description" content="{escape(description, quote=True)}" /><meta property="og:type" content="website" />{robots}<link rel="icon" type="image/svg+xml" href="/assets/atomic.svg" /><link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin /><link rel="stylesheet" href="/styles.css" /><link rel="stylesheet" href="/pages.css?v=20261029-header-cta" /><link rel="stylesheet" href="/early-access.css?v=20261029-early-access-page" /><script src="/site.js?v=20261029-header-cta" defer></script><script src="/early-access.js?v=20261029-early-access-page" defer></script></head><body>{header(active)}<main id="main">{body}</main>{footer()}</body></html>'''
     (folder / 'index.html').write_text(html)
 
 def hero(kicker, title, intro, center=False, extra=''):
     return f'<section class="page-hero{" center" if center else ""}"><div class="container"><p class="eyebrow">{kicker}</p><h1>{title}</h1><p class="lead">{intro}</p>{extra}</div></section>'
 
 def cta():
-    return '<section class="mini-cta"><div class="container"><div><h2>Your next idea starts here.</h2><p>Tell us what you want to build with Atomic.</p></div><a class="button button-primary" href="/#early-access">Get early access <span aria-hidden="true">↗</span></a></div></section>'
+    return '<section class="mini-cta"><div class="container"><div><h2>Your next idea starts here.</h2><p>Tell us what you want to build with Atomic.</p></div><a class="button button-primary" href="/early-access/">Get early access <span aria-hidden="true">↗</span></a></div></section>'
 
 def card(kicker, title, text, url, action='Read the guide', guide=False, level=2):
     return f'<a class="resource-card" href="{url}"{" data-guide" if guide else ""}><p class="eyebrow">{kicker}</p><h{level}>{title}</h{level}><p>{text}</p><span class="card-link">{action} <span aria-hidden="true">↗</span></span></a>'
@@ -79,7 +79,7 @@ home = (ROOT / 'content/home.html').read_text()
 home = re.sub(r'  <a class="skip-link".*?</header>', header('/'), home, count=1, flags=re.S)
 home = re.sub(r'<footer class="site-footer">.*?</footer>', footer(), home, count=1, flags=re.S)
 home = home.replace('<script src="app.js" defer></script>', '<link rel="stylesheet" href="/pages.css?v=20261029-header-cta" />\n  <script src="/site.js?v=20261029-header-cta" defer></script>\n  <script src="/app.js" defer></script>')
-home = home.replace('<script src="early-access.js" defer></script>', '<script src="/early-access.js" defer></script>')
+home = home.replace('<script src="early-access.js" defer></script>', '<script src="/early-access.js?v=20261029-early-access-page" defer></script>')
 home = home.replace('We’ll share availability and final plan details as launch approaches.', 'Explore our <a class="text-action" href="/pricing/">proposed launch plans</a>, with Free, Builder, and Pro. Subscriptions are not open yet.')
 home = home.replace('<section class="faq-section', '<section class="home-pricing"><div class="container"><div><p class="eyebrow">ROOM FOR YOUR NEXT IDEA</p><h2>Start small. Build from there.</h2><p>Start with Free, build with Builder at $25/month, or grow with Pro at $50/month.</p></div><a href="/pricing/" class="button button-secondary">Explore launch plans <span aria-hidden="true">↗</span></a></div></section>\n<section class="faq-section')
 home = home.replace('Early access opens soon. Share your idea to join the waitlist.</p>', 'Early access opens soon. Share your idea to join the waitlist. <a href="/legal/privacy/">Privacy policy</a>.</p>')
@@ -123,7 +123,7 @@ for plan in plans:
     name = plan['name']
     groups = ''.join('<section class="plan-feature-group"><h3>'+escape(title)+'</h3><ul class="plan-features">'+''.join('<li>'+escape(feature)+'</li>' for feature in features)+'</ul></section>' for title,features in plan['groups'])
     pricecards += f'''<article class="price-card{' featured' if plan['featured'] else ''}" aria-labelledby="plan-{name.lower()}">
-<div class="plan-overview"><span class="pill">{plan['badge']}</span><h2 id="plan-{name.lower()}">{name}</h2><p class="plan-description">{plan['description']}</p><p class="price">{plan['price']}<small> / month</small></p><a class="button {'button-primary' if plan['featured'] else 'button-secondary'}" href="/#early-access">Ask about early access</a></div>
+<div class="plan-overview"><span class="pill">{plan['badge']}</span><h2 id="plan-{name.lower()}">{name}</h2><p class="plan-description">{plan['description']}</p><p class="price">{plan['price']}<small> / month</small></p><a class="button {'button-primary' if plan['featured'] else 'button-secondary'}" href="/early-access/">Ask about early access</a></div>
 <dl class="plan-allowances"><div><dt>{plan['credit_label']}</dt><dd>{plan['credits']}</dd></div><div><dt>{plan['app_label']}</dt><dd>{plan['apps']}</dd></div></dl>
 <div class="plan-details">{groups}<p class="plan-boundary">{plan['boundary']}</p></div></article>'''
 pricing = hero('PLANS FOR WHAT COMES NEXT','A little idea.<br /><em>Room to grow.</em>','Start for free. Choose more room to build and run your apps when you need it.',True,'<span class="pill">Launch preview · Subscriptions are not open yet</span>')
@@ -169,6 +169,12 @@ for q,a in [
     pricing += f'<details><summary>{q}</summary><p>{a}</p></details>'
 pricing += '</div></div></section>'+cta()
 page('pricing','Pricing','Explore Atomic’s launch plans: Free, Builder at $25/month with 2,500 credits, and Pro at $50/month with 5,000 credits. Paid-plan top-ups: $10 for 1,000 credits.',pricing,'/pricing/')
+
+# Early access: a page of its own for sharing; early-access.js puts the wizard in the card.
+access = '<section class="access-page"><div class="container access-page-layout"><div class="access-page-intro"><p class="eyebrow">EARLY ACCESS</p><h1>Your idea,<br /><em>first in line.</em></h1><p class="lead">Atomic is preparing for early access. Tell us what you want to build, and we’ll invite shortlisted applicants to the free trial.</p></div>'
+access += '<div id="access-page" class="access-wizard access-card"><noscript><p>Enable JavaScript to request early access, or email <a href="mailto:info@absmach.eu?subject=Atomic%20early%20access">info@absmach.eu</a>.</p></noscript></div>'
+access += '<ol class="access-next" aria-label="What happens next"><li><span><strong>Share your idea.</strong>Three short steps: your idea, a little about you, and where to reach you.</span></li><li><span><strong>We review requests.</strong>We look at what people want to build and who it’s for.</span></li><li><span><strong>Shortlisted applicants hear from us.</strong>We email an invitation to the free trial.</span></li></ol></div></section>'
+page('early-access','Request early access','Tell us what you want to build with Atomic and request a place in the early-access free trial.',access,canonical='/early-access/')
 
 # Documentation: each guide's body is content/docs/<section>/<slug>.html, a run
 # of <section id="..."><h2>...</h2>...</section> blocks; the contents list is
