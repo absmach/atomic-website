@@ -123,7 +123,8 @@ if (docsNav) {
   const wrap = document.createElement('section');
   wrap.className = 'cookie-panel';
   wrap.setAttribute('aria-label', 'Cookie preferences');
-  wrap.innerHTML = '<div class="cookie-panel-inner"><div class="cookie-intro"><h2>Cookie choices</h2><p>Analytics and marketing are off until you opt in. <a href="/legal/privacy/">Privacy</a> · <a href="/legal/cookies/">Cookies</a>.</p></div><div class="cookie-options" hidden><label><span><strong>Necessary</strong><small>Essential site functionality and your consent choice</small></span><input type="checkbox" checked disabled /></label><label><span><strong>Analytics</strong><small>Understand visits and early-access requests</small></span><input id="cookie-analytics" type="checkbox" /></label><label><span><strong>Marketing</strong><small>Measure advertising campaigns</small></span><input id="cookie-marketing" type="checkbox" /></label></div><div class="cookie-actions"><button type="button" class="button button-secondary" data-cookie="reject">Reject optional</button><button type="button" class="button button-secondary" data-cookie="customize">Customize</button><button type="button" class="button button-secondary" data-cookie="accept">Accept all</button><button type="button" class="button button-primary" data-cookie="save" hidden>Save choices</button></div></div>';
+  // A short first layer with equal Reject and Accept; categories live under Settings.
+  wrap.innerHTML = '<div class="cookie-panel-inner"><div class="cookie-intro"><h2 hidden>Cookie settings</h2><p>We use cookies to improve your experience. <a href="/legal/cookies/">Cookie policy</a></p></div><div class="cookie-options" hidden><label><span><strong>Necessary</strong><small>Essential site functionality and your consent choice</small></span><input type="checkbox" checked disabled /></label><label><span><strong>Analytics</strong><small>Understand visits and early-access requests</small></span><input id="cookie-analytics" type="checkbox" /></label><label><span><strong>Marketing</strong><small>Measure advertising campaigns</small></span><input id="cookie-marketing" type="checkbox" /></label></div><div class="cookie-actions"><button type="button" class="cookie-settings" data-cookie="customize">Settings</button><button type="button" class="button button-secondary" data-cookie="reject">Reject</button><button type="button" class="button button-secondary" data-cookie="accept">Accept</button><button type="button" class="button button-primary" data-cookie="save" hidden>Save choices</button></div></div>';
   // On phones, the cookie panel follows both the suggested prompts and early-access note.
   // Desktop and inner pages keep the compact viewport-anchored panel.
   const composer = document.querySelector('.prompt-opening .prompt-composer');
@@ -144,10 +145,12 @@ if (docsNav) {
   const options = wrap.querySelector('.cookie-options');
   const customize = wrap.querySelector('[data-cookie="customize"]');
   const saveButton = wrap.querySelector('[data-cookie="save"]');
+  const title = wrap.querySelector('.cookie-intro h2');
   function show(custom) {
     wrap.hidden = false;
     wrap.classList.toggle("is-customizing", custom);
     options.hidden = !custom;
+    title.hidden = !custom;
     customize.hidden = custom;
     saveButton.hidden = !custom;
     wrap.querySelector('#cookie-analytics').checked = allowed('analytics');
