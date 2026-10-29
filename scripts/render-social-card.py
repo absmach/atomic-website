@@ -71,21 +71,44 @@ def tracked(x, y, text, face, color, tracking):
 
 # Just the brand, as in the site header (weight 600, -0.075em, mark about
 # 1.1x the type), with the hero's tagline (weight 650, -0.052em) beneath.
-NAME, NAME_SIZE, NAME_TRACK = "atomic", 120, -0.075
-name = font(NAME_SIZE, 600)
-MARK, STROKE, GAP = NAME_SIZE * 1.1, 7, NAME_SIZE * 0.24
+# Compact previews such as Slack's show a square thumbnail cropped from the
+# centre, so the lockup is sized to fill the middle 630 x 630 with a margin.
+SAFE_WIDTH = 560
+NAME, NAME_TRACK, TAG_TRACK = "atomic", -0.075, -0.052
+first, second = "Imagine it. ", "Build it."
+
+
+def lockup_width(name_size):
+    name = font(name_size, 600)
+    mark_width = name_size * 1.1 * 22.4 / 28 + name_size * 0.06
+    row = mark_width + name_size * 0.24 + width(NAME, name, NAME_TRACK)
+    tag = width(first + second, font(round(name_size * 0.53), 650), TAG_TRACK)
+    return max(row, tag)
+
+
+NAME_SIZE = 100
+while lockup_width(NAME_SIZE + 1) <= SAFE_WIDTH:
+    NAME_SIZE += 1
+TAG_SIZE = round(NAME_SIZE * 0.53)
+name, tagline = font(NAME_SIZE, 600), font(TAG_SIZE, 650)
+MARK, STROKE, GAP = NAME_SIZE * 1.1, NAME_SIZE * 0.06, NAME_SIZE * 0.24
 mark_width = MARK * 22.4 / 28 + STROKE
+
+# Centre the two lines as one block: name row, a gap, then the tagline.
+ROW_HEIGHT, LINE_GAP = MARK * 0.85, NAME_SIZE * 0.42
+block = ROW_HEIGHT + LINE_GAP + TAG_SIZE
+row_y = (HEIGHT - block) / 2 + ROW_HEIGHT / 2
+tag_y = row_y + ROW_HEIGHT / 2 + LINE_GAP + TAG_SIZE / 2
+
 row = mark_width + GAP + width(NAME, name, NAME_TRACK)
 left = (WIDTH - row) / 2
-atom(left + mark_width / 2, 248, MARK, VIOLET, STROKE)
-tracked(left + mark_width + GAP, 242, NAME, name, INK, NAME_TRACK)
+atom(left + mark_width / 2, row_y, MARK, VIOLET, STROKE)
+tracked(left + mark_width + GAP, row_y - NAME_SIZE * 0.05, NAME, name, INK, NAME_TRACK)
 
-TAG_TRACK = -0.052
-tagline = font(64, 650)
-first, second = "Imagine it. ", "Build it."
 x = (WIDTH - width(first + second, tagline, TAG_TRACK)) / 2
-tracked(x, 394, first, tagline, INK, TAG_TRACK)
-tracked(x + width(first, tagline, TAG_TRACK), 394, second, tagline, VIOLET, TAG_TRACK)
+tracked(x, tag_y, first, tagline, INK, TAG_TRACK)
+tracked(x + width(first, tagline, TAG_TRACK), tag_y, second, tagline, VIOLET, TAG_TRACK)
+print(f"Name {NAME_SIZE}px, tagline {TAG_SIZE}px, lockup {lockup_width(NAME_SIZE):.0f}px wide")
 
 output = ROOT / "dist/assets/atomic-social-v3.png"
 card.resize((WIDTH, HEIGHT), Image.Resampling.LANCZOS).save(output, optimize=True)
