@@ -30,14 +30,10 @@ background = Image.new("RGB", (WIDTH, HEIGHT))
 pixels = background.load()
 for y in range(HEIGHT):
     for x in range(WIDTH):
-        glow = 0.72 * exp(-(((x - 1090) / 530) ** 2 + ((y - 570) / 380) ** 2))
+        glow = 0.6 * exp(-(((x - 600) / 640) ** 2 + ((y - 700) / 330) ** 2))
         pixels[x, y] = tuple(round(a + (b - a) * glow) for a, b in zip(PAPER, (217, 202, 250)))
 card = background.resize((WIDTH * SCALE, HEIGHT * SCALE), Image.Resampling.BICUBIC)
 draw = ImageDraw.Draw(card)
-
-
-def label(x, y, text, size, color=INK, weight=650):
-    draw.text((x * SCALE, y * SCALE), text, font=font(size, weight), fill=color, anchor="lt")
 
 
 def atom(cx, cy, size, color, stroke):
@@ -61,37 +57,59 @@ def atom(cx, cy, size, color, stroke):
                   (cx + r) * SCALE, (cy + r) * SCALE), fill=color)
 
 
-atom(86, 87, 48, VIOLET, 3.4)
-label(123, 65, "atomic", 43, weight=750)
-label(64, 202, "Imagine it.", 88, weight=750)
-label(64, 303, "Build it", 88, VIOLET, weight=750)
+def width(text, face, tracking=0.0):
+    """Advance of the text in card pixels, with CSS-style letter-spacing in em."""
+    return draw.textlength(text, font=face) / SCALE + tracking * face.size / SCALE * len(text)
 
-DESCRIPTION = (
-    "Turn your ideas into powerful, functional applications with AI. "
-    "Just describe what you need, and let Atomic bring it to life"
-)
-body = font(24, 500)
-line, y = "", 431
-for word in DESCRIPTION.split():
-    trial = f"{line} {word}".strip()
-    if draw.textlength(trial, font=body) > 640 * SCALE:
-        label(68, y, line, 24, "#4a4358", weight=500)
-        line, y = word, y + 36
-    else:
-        line = trial
-label(68, y, line, 24, "#4a4358", weight=500)
 
-# An oversized brand tile stays recognizable when the card is reduced in a feed.
-draw.rounded_rectangle((778 * SCALE, 161 * SCALE, 1132 * SCALE, 515 * SCALE),
-                       radius=66 * SCALE, fill="#dfd4f6")
-draw.rounded_rectangle((770 * SCALE, 149 * SCALE, 1124 * SCALE, 503 * SCALE),
-                       radius=66 * SCALE, fill=VIOLET)
-atom(947, 326, 306, "#ffffff", 13)
+def tracked(x, y, text, face, color, tracking):
+    """Draw text left-aligned at its vertical middle, keeping kerning and adding tracking."""
+    for i, char in enumerate(text):
+        offset = draw.textlength(text[:i], font=face) / SCALE + tracking * face.size / SCALE * i
+        draw.text(((x + offset) * SCALE, y * SCALE), char, font=face, fill=color, anchor="lm")
 
-draw.line((68 * SCALE, 554 * SCALE, 1132 * SCALE, 554 * SCALE), fill="#ded6e9", width=SCALE)
-label(68, 577, "FROM IDEA TO APP", 14, "#696471", weight=750)
-label(965, 573, "atomicapp.dev", 21, weight=650)
 
-output = ROOT / "dist/assets/atomic-social-v2.png"
+# Just the brand, as in the site header (weight 600, -0.075em, mark about
+# 1.1x the type), with the hero's tagline (weight 650, -0.052em) beneath.
+# Compact previews such as Slack's show a square thumbnail cropped from the
+# centre, so the lockup is sized to fill the middle 630 x 630 with a margin.
+SAFE_WIDTH = 560
+NAME, NAME_TRACK, TAG_TRACK = "atomic", -0.075, -0.052
+first, second = "Imagine it. ", "Build it."
+
+
+def lockup_width(name_size):
+    name = font(name_size, 600)
+    mark_width = name_size * 1.1 * 22.4 / 28 + name_size * 0.06
+    row = mark_width + name_size * 0.24 + width(NAME, name, NAME_TRACK)
+    tag = width(first + second, font(round(name_size * 0.53), 650), TAG_TRACK)
+    return max(row, tag)
+
+
+NAME_SIZE = 100
+while lockup_width(NAME_SIZE + 1) <= SAFE_WIDTH:
+    NAME_SIZE += 1
+TAG_SIZE = round(NAME_SIZE * 0.53)
+name, tagline = font(NAME_SIZE, 600), font(TAG_SIZE, 650)
+MARK, STROKE, GAP = NAME_SIZE * 1.1, NAME_SIZE * 0.06, NAME_SIZE * 0.24
+mark_width = MARK * 22.4 / 28 + STROKE
+
+# Centre the two lines as one block: name row, a gap, then the tagline.
+ROW_HEIGHT, LINE_GAP = MARK * 0.85, NAME_SIZE * 0.42
+block = ROW_HEIGHT + LINE_GAP + TAG_SIZE
+row_y = (HEIGHT - block) / 2 + ROW_HEIGHT / 2
+tag_y = row_y + ROW_HEIGHT / 2 + LINE_GAP + TAG_SIZE / 2
+
+row = mark_width + GAP + width(NAME, name, NAME_TRACK)
+left = (WIDTH - row) / 2
+atom(left + mark_width / 2, row_y, MARK, VIOLET, STROKE)
+tracked(left + mark_width + GAP, row_y - NAME_SIZE * 0.05, NAME, name, INK, NAME_TRACK)
+
+x = (WIDTH - width(first + second, tagline, TAG_TRACK)) / 2
+tracked(x, tag_y, first, tagline, INK, TAG_TRACK)
+tracked(x + width(first, tagline, TAG_TRACK), tag_y, second, tagline, VIOLET, TAG_TRACK)
+print(f"Name {NAME_SIZE}px, tagline {TAG_SIZE}px, lockup {lockup_width(NAME_SIZE):.0f}px wide")
+
+output = ROOT / "dist/assets/atomic-social-v3.png"
 card.resize((WIDTH, HEIGHT), Image.Resampling.LANCZOS).save(output, optimize=True)
 print(f"Rendered {output.relative_to(ROOT)} ({output.stat().st_size:,} bytes)")

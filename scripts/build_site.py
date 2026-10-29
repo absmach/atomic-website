@@ -8,6 +8,9 @@ from solutions import render_solutions
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / 'dist'
 CONTACT = 'mailto:info@absmach.eu'
+# Social preview card for every page; regenerate with scripts/render-social-card.py.
+SOCIAL_IMAGE = 'https://atomicapp.dev/assets/atomic-social-v3.png'
+SOCIAL_ALT = 'Atomic — Imagine it. Build it.'
 NAV = [('Product', '/'), ('Solutions', '/solutions/'), ('Docs', '/docs/'), ('Blog', '/blog/'), ('Pricing', '/pricing/'), ('About', '/about/')]
 
 def link(label, url, active=''):
@@ -48,8 +51,12 @@ def page(path, title, description, body, active='', draft=False, extra_head='', 
     folder = DIST / path
     folder.mkdir(parents=True, exist_ok=True)
     robots = '<meta name="robots" content="noindex, nofollow" />' if draft else ''
+    # Every page shares the social card; published pages also name their own URL.
+    if not canonical and not draft and path != '_not-found':
+        canonical = f'/{path}/'
     if canonical:
-        extra_head += f'<link rel="canonical" href="https://atomicapp.dev{canonical}" /><meta property="og:url" content="https://atomicapp.dev{canonical}" /><meta property="og:image" content="https://atomicapp.dev/assets/atomic-social-v2.png" /><meta name="twitter:card" content="summary_large_image" />'
+        extra_head += f'<link rel="canonical" href="https://atomicapp.dev{canonical}" /><meta property="og:url" content="https://atomicapp.dev{canonical}" />'
+    extra_head += f'<meta property="og:image" content="{SOCIAL_IMAGE}" /><meta property="og:image:type" content="image/png" /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content="{SOCIAL_ALT}" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:image:alt" content="{SOCIAL_ALT}" />'
     robots += extra_head
     html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#191329" /><title>{escape(title)} — Atomic</title><meta name="description" content="{escape(description, quote=True)}" /><meta property="og:title" content="{escape(title, quote=True)} — Atomic" /><meta property="og:description" content="{escape(description, quote=True)}" /><meta property="og:type" content="website" />{robots}<link rel="icon" type="image/svg+xml" href="/assets/atomic.svg" /><link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin /><link rel="stylesheet" href="/styles.css" /><link rel="stylesheet" href="/pages.css?v=20261029-cookie-banner" /><link rel="stylesheet" href="/early-access.css?v=20261029-early-access-page" /><script src="/site.js?v=20261029-cookie-banner" defer></script><script src="/early-access.js?v=20261029-early-access-page" defer></script></head><body>{header(active)}<main id="main">{body}</main>{footer()}</body></html>'''
     (folder / 'index.html').write_text(html)
