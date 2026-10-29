@@ -10,9 +10,21 @@ ROOT = Path(__file__).resolve().parent.parent / 'dist'
 CONTENT = ROOT.parent / 'content' / 'docs'
 
 def pixel_size(path):
-    """A PNG's or JPEG's width and height, read from its header."""
+    """PNG, JPEG or WebP dimensions, read without external dependencies."""
     data = path.read_bytes()
     if data[:8] == b'\x89PNG\r\n\x1a\n': return struct.unpack('>II', data[16:24])
+    if data[:4] == b'RIFF' and data[8:12] == b'WEBP':
+        pos = 12
+        while pos + 8 <= len(data):
+            kind, length = data[pos:pos+4], int.from_bytes(data[pos+4:pos+8], 'little')
+            block = data[pos+8:pos+8+length]
+            if kind == b'VP8X': return 1+int.from_bytes(block[4:7],'little'), 1+int.from_bytes(block[7:10],'little')
+            if kind == b'VP8 ': return int.from_bytes(block[6:8],'little') & 0x3fff, int.from_bytes(block[8:10],'little') & 0x3fff
+            if kind == b'VP8L':
+                bits=int.from_bytes(block[1:5],'little')
+                return (bits & 0x3fff)+1, ((bits >> 14) & 0x3fff)+1
+            pos += 8 + length + (length % 2)
+        return None
     i = 2
     while i + 9 < len(data):
         marker, length = data[i + 1], struct.unpack('>H', data[i + 2:i + 4])[0]
@@ -40,7 +52,7 @@ class Page(HTMLParser):
             if attribute in a: self.links.append(a[attribute])
         if tag == 'img' and 'alt' not in a: self.errors.append('image missing alt attribute')
         if tag == 'img' and not ('width' in a and 'height' in a): self.errors.append(f'image missing width/height: {a.get("src")}')
-        elif tag == 'img' and a.get('src', '').startswith('/') and a['src'].endswith(('.jpg', '.png')):
+        elif tag == 'img' and a.get('src', '').startswith('/') and a['src'].endswith(('.jpg', '.png', '.webp')):
             source = ROOT / a['src'].lstrip('/')
             if source.exists() and pixel_size(source) != (int(a['width']), int(a['height'])):
                 self.errors.append(f'image size {a["width"]}x{a["height"]} is not the file\'s {pixel_size(source)}: {a["src"]}')

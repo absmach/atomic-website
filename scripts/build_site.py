@@ -41,7 +41,7 @@ def footer():
     columns = [
         ('Product', [('Explore examples', '/#examples'), ('How it works', '/#how-it-works'), ('Why Atomic', '/#foundation'), ('Pricing', '/pricing/'), ('Early access', '/early-access/')]),
         ('Solutions', [('All solutions', '/solutions/'), ('Websites', '/solutions/websites/'), ('Online stores', '/solutions/online-stores/'), ('Booking apps', '/solutions/booking-apps/'), ('Client portals', '/solutions/client-portals/'), ('Internal tools', '/solutions/internal-tools/'), ('Prototypes', '/solutions/prototypes/')]),
-        ('Resources', [('Documentation', '/docs/'), ('Blog', '/blog/'), ('Security & trust', '/security/'), ('About Atomic', '/about/'), ('Contact the team', CONTACT)]),
+        ('Resources', [('Documentation', '/docs/'), ('Blog', '/blog/'), ('Press kit', '/press/'), ('Security & trust', '/security/'), ('About Atomic', '/about/'), ('Contact the team', CONTACT)]),
         ('Legal', [('Legal overview', '/legal/'), ('Privacy', '/legal/privacy/'), ('Terms of Service', '/legal/terms/'), ('Acceptable Use', '/legal/acceptable-use/'), ('Data Processing', '/legal/dpa/'), ('Subprocessors', '/legal/subprocessors/'), ('Cookies & storage', '/legal/cookies/')])
     ]
     menus = ''.join(f'<nav class="footer-column" aria-label="{title}"><h2>{title}</h2>{"".join(link(label,url) for label,url in items)}</nav>' for title, items in columns)
@@ -425,4 +425,6 @@ page('_not-found','Page not found','Find your way back to Atomic.',hero('404 / A
 (DIST / '_not-found/index.html').unlink()
 (DIST / '_not-found').rmdir()
 render_solutions(page)
+# The approved press index is maintained as content, with compact local previews.
+page('press','Press kit','Atomic product information, launch documents, logos, screenshots, videos and media contacts. Download the complete press kit.',(ROOT/'content/press.html').read_text(),extra_head='<link rel="stylesheet" href="/press.css?v=20261029-v3" />')
 print(f'Generated {len(list(DIST.rglob("*.html")))} HTML pages.')

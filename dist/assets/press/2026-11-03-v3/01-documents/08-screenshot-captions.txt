@@ -1,0 +1,92 @@
+Screenshot captions
+Product views, with context.
+
+Start with an idea.
+01-home.png
+The Atomic home screen with a drafted salon-booking prompt. The prompt has not been submitted.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/01-home.png · 2880 × 1800 pixels.
+
+Find your head start.
+02-templates.png
+The template catalogue, including a photo-based salon booking template and other starting points.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/02-templates.png · 2880 × 1800 pixels.
+
+Explore before you build.
+03-template-preview.png
+The salon booking template detail page, with its interactive preview and screen navigation.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/03-template-preview.png · 2880 × 1800 pixels.
+
+Shape it in conversation.
+04-builder.png
+The builder pairs a sample salon application with a staged demonstration conversation.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/04-builder.png · 2880 × 1800 pixels.
+
+Every screen, in view.
+05-canvas.png
+The Canvas shows the booking flow, confirmation dialog and appointment screens together at a readable zoom level.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/05-canvas.png · 2880 × 1800 pixels.
+
+Make it feel like you.
+06-theme.png
+Whole-app theme controls are open beside the sample app on the Canvas.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/06-theme.png · 2880 × 1800 pixels.
+
+Get the details right.
+07-element.png
+A headline is selected on the Canvas, with the Properties inspector open.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/07-element.png · 2880 × 1800 pixels.
+
+Keep feedback in context.
+08-collaboration.png
+An element-linked comment composer is open on the Canvas. This is an unsent draft; no AI change has been requested.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/08-collaboration.png · 2880 × 1800 pixels.
+
+Your apps, together.
+09-applications.png
+The applications list shows three local sample projects: Fern & Fringe, Hearth & Field and Northstar CRM.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/09-applications.png · 2880 × 1800 pixels.
+
+Know where you stand.
+10-billing.png
+The account billing panel shows plan, credits, storage and upgrade controls. This is a local demo account; usage and allowances are illustrative, not confirmed launch entitlements.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/10-billing.png · 1424 × 764 pixels.
+
+See what is being built.
+11-source.png
+The source browser displays the sample app’s home-page component, file tree and version selector. Source downloads exclude users, business data and hosting infrastructure.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/11-source.png · 2880 × 1800 pixels.
+
+A version to return to.
+12-versions.png
+Version history shows locally prepared sample revisions. These are compiled demonstration checkpoints; the capture does not show a restore being performed.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/12-versions.png · 2880 × 1800 pixels.
+
+Put your app in order.
+13-dashboard.png
+The app dashboard shows publication, access and app-user settings for the local salon demo. The app has not been publicly deployed.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/13-dashboard.png · 2880 × 1800 pixels.
+
+From idea to experience.
+14-salon-app.png
+Fern & Fringe, a photo-based sample salon application, shown as a standalone preview with local demonstration data.
+Real local sample-app preview with external branded framing. Business names, photographs and content illustrate the template; they are not customer claims. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/14-salon-app.png · 2880 × 1800 pixels.
+
+Made for smaller screens.
+15-responsive.png
+The sample salon application at a 390-pixel mobile viewport. This is a responsive web-app preview, not a native mobile-app export.
+Real local sample-app preview with external branded framing. Business names, photographs and content illustrate the template; they are not customer claims. Presentation: 2560 × 1920 pixels.
+Clean capture: raw/15-responsive.png · 780 × 1688 pixels.
