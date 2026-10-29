@@ -75,7 +75,8 @@ Product images and the Atomic mark come from `~/ideas/vc/atomic/pitch-deck`. Ima
 
 ## Social preview
 
-The page includes Open Graph and X large-image card metadata pointing to
+Every page includes Open Graph and X large-image card metadata (`SOCIAL_IMAGE` in
+`scripts/build_site.py`; the homepage's tags are in `content/home.html`) pointing to
 `https://atomicapp.dev/assets/atomic-social-v3.png`. The 1200 × 630 PNG shows only
 the Atomic mark and name with the tagline “Imagine it. Build it.”, centred on the
 site’s paper background with a soft lavender glow, using the brand palette and the
@@ -85,8 +86,8 @@ support for authoring; the website still has no runtime dependencies).
 
 Deploy `dist/index.html` and the image together to the public domain. Verify
 that the image URL returns an actual PNG without authentication. When changing
-the artwork, use a new versioned filename and update both image meta tags to
-avoid stale image caches. Social platforms may retain previously fetched cards.
+the artwork, use a new versioned filename, then update `SOCIAL_IMAGE` and the two
+image meta tags in `content/home.html` to avoid stale image caches. Social platforms may retain previously fetched cards.
 
 ## Early access signup
 
