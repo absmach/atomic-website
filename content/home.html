@@ -25,7 +25,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/atomic.svg" />
   <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="launch.css" />
+  <link rel="stylesheet" href="launch.css?v=20261029-header-cta" />
   <link rel="stylesheet" href="early-access.css" />
   <script src="app.js" defer></script>
   <script src="early-access.js" defer></script>
@@ -49,7 +49,7 @@
         <form id="hero-idea-form" class="prompt-composer">
           <label class="sr-only" for="hero-idea">Describe the app you want to build</label>
           <textarea id="hero-idea" name="idea" rows="3" maxlength="1200" placeholder="Describe the app you’ve been thinking about…" aria-describedby="hero-idea-note"></textarea>
-          <div class="composer-footer"><span><img src="assets/atomic.svg" width="20" height="20" alt="" /> An idea is all it takes.</span><button class="button button-primary" type="submit">Request early access</button></div>
+          <div class="composer-footer"><span><img src="assets/atomic.svg" width="20" height="20" alt="" /> An idea is all it takes.</span><button class="composer-submit" type="submit" aria-label="Request early access" title="Request early access"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button></div>
         </form>
         <div class="prompt-suggestions" role="group" aria-label="Try an app idea"><button type="button" data-prompt="Build a booking app for my studio, where clients can choose a service and request a time.">Studio bookings</button><button type="button" data-prompt="Build an online shop for my small brand with a product catalog and shopping bag.">An online shop</button><button type="button" data-prompt="Build a client portal where clients can follow their projects and see what comes next.">A client portal</button></div>
         <p id="hero-idea-note" class="prompt-launch-note">Early access opens soon. Share your idea to join the waitlist.</p>

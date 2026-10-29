@@ -25,7 +25,7 @@ Documentation screenshots in `dist/assets/docs/` are 1440 px wide captures of a 
 - `/legal/`: Privacy Policy (final, covering the website and early-access sign-up), draft Terms of Service, Acceptable Use Policy, DPA, Subprocessor List, and Cookies & Storage Notice. Each draft is clearly marked not effective and excluded from indexing; the Privacy Policy is indexable.
 - `dist/404.html`: branded fallback for hosts supporting a static 404 page.
 
-The header shows Product, Solutions, Docs, Blog, Pricing, and About. The footer includes all six solution pages. Resources is a footer grouping for Documentation, Blog, Security & trust, About Atomic, and Contact; there is no separate Resources page.
+The header has the logo on the left, Product, Solutions, Docs, Blog, Pricing, and About centred, and a Request early access button on the right; the mobile menu ends with the same link. The footer includes all six solution pages. Resources is a footer grouping for Documentation, Blog, Security & trust, About Atomic, and Contact; there is no separate Resources page.
 
 Every page includes shared responsive navigation, a skip link, and an Atomic-led footer. The footer links to Atomic's X and Instagram profiles and Abstract Machines' GitHub and LinkedIn profiles. Nested pages use root-relative links and work on a host serving `dist/` at its root.
 
