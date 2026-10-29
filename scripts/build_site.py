@@ -107,7 +107,7 @@ plans = [
     {
         'name': 'Builder', 'price': '$25', 'badge': 'Start building', 'featured': True,
         'description': 'Turn your idea into a working app, with accounts, real data, and people building beside you.',
-        'credits': '2,500', 'credit_label': 'credits each month', 'apps': '3', 'app_label': 'published apps',
+        'credits': '2,500', 'credit_label': 'credits each month', 'apps': '10', 'app_label': 'published apps',
         'groups': [
             ('Everything in Free, plus', ['A backend and database for every app', 'User sign-in and app access controls', 'Your own custom domain', 'No “Made with Atomic” badge', 'The last 100 versions of each app']),
             ('Build together', ['Shared team workspaces', '5 invited collaborators per app', 'Editor and Admin collaborator roles', '3 app previews open at once', 'On-demand credit top-ups'])
@@ -117,9 +117,9 @@ plans = [
     {
         'name': 'Pro', 'price': '$50', 'badge': 'Keep growing', 'featured': False,
         'description': 'Keep several apps moving with a bigger team and more room to build, refine, and publish.',
-        'credits': '5,000', 'credit_label': 'credits each month', 'apps': '10', 'app_label': 'published apps',
+        'credits': '5,000', 'credit_label': 'credits each month', 'apps': '20', 'app_label': 'published apps',
         'groups': [
-            ('Everything in Builder, plus', ['Up to 10 custom domains', 'Every version of every app, kept', '2× Builder’s monthly credits', '10 published apps at once', '5 app previews open at once']),
+            ('Everything in Builder, plus', ['Up to 10 custom domains', 'Every version of every app, kept', '2× Builder’s monthly credits', '20 published apps at once', '5 app previews open at once']),
             ('More room for your team', ['10 invited collaborators per app', 'Up to 50 apps', '100 GB of storage', 'Shared workspaces with Editor and Admin roles', 'On-demand credit top-ups'])
         ],
         'boundary': 'For a portfolio of client apps: more domains, full history, and room for a bigger team. Top-ups keep the same rate on both paid plans.'
@@ -137,7 +137,7 @@ pricing = hero('PLANS FOR WHAT COMES NEXT','A little idea.<br /><em>Room to grow
 pricing += f'<section class="page-section"><div class="container"><div class="price-grid">{pricecards}</div><p class="pricing-footnote">Proposed launch plans in USD, billed monthly. Applicable taxes are extra and will be shown before purchase. Free allowances and collaboration limits are subject to launch validation. Storage, bandwidth, and concurrency limits will be published before subscriptions open. No payment is collected here.</p><div class="enterprise-strip"><div><h3>Something bigger in mind?</h3><p>Tell us about your organization, deployment needs, and support requirements.</p></div><a class="text-action" href="{CONTACT}?subject=Atomic%20organization%20inquiry">Talk to the Atomic team ↗</a></div></div></section>'
 comparison_rows = [
     ('Best for', 'Explore an idea on your own', 'Launch and refine your apps', 'Build several apps with a team'),
-    ('Published apps at once', '1', '3', '10'),
+    ('Published apps at once', '1', '10', '20'),
     ('Invited collaborators per app', 'Not included', '5', '10'),
     ('Editor and Admin collaborator roles', 'Not included', 'Included', 'Included'),
     ('Shared workspaces and team collaboration', 'Not included', 'Included', 'Included'),
@@ -166,7 +166,7 @@ pricing += '<section class="page-section"><div class="container"><div class="sec
 pricing += '<section id="credit-rules" class="page-section"><div class="container faq-layout"><div><p class="eyebrow">A FEW PRACTICAL DETAILS</p><h2>Before you choose.</h2></div><div class="faq-list">'
 for q,a in [
     ('Can I subscribe today?','Not yet. These are proposed launch plans. The early-access form adds you to the waitlist; it does not create an account, reserve a price, or start a subscription.'),
-    ('What is included in the subscription?','Builder includes 2,500 monthly credits and up to 3 published apps for $25/month. Pro includes 5,000 monthly credits and up to 10 published apps for $50/month. Both include a backend, database, user authentication, team collaboration, custom domains, private projects, and source downloads. Builder proposes 5 invited collaborators per app; Pro proposes 10. Collaborators can work together with Editor and Admin roles, using the app owner’s credits. Your subscription pays for the platform as well as the included usage.'),
+    ('What is included in the subscription?','Builder includes 2,500 monthly credits and up to 10 published apps for $25/month. Pro includes 5,000 monthly credits and up to 20 published apps for $50/month. Both include a backend, database, user authentication, team collaboration, custom domains, private projects, and source downloads. Builder proposes 5 invited collaborators per app; Pro proposes 10. Collaborators can work together with Editor and Admin roles, using the app owner’s credits. Your subscription pays for the platform as well as the included usage.'),
     ('How does Free work?','The proposed Free plan includes 250 credits each month. Build on your own and publish one app on an Atomic subdomain, with a small “Made with Atomic” badge. One of your apps can have a backend, database, and user sign-in; your other apps keep their screens on sample data. Collaboration, custom domains, removing the badge, credit purchases, and backends for more apps require Builder or Pro. When the month’s credits are used, wait for them to renew or upgrade to keep building.'),
     ('Do unused credits expire?','Monthly subscription credits reset at renewal and do not roll over. Purchased top-up credits do not expire. Monthly credits are used before purchased credits. Free’s monthly credits reset the same way.'),
     ('Is hosting included?','Your included credits can pay for metered hosting and persistent storage. Hosting is not unlimited, and storage can still cost credits when an app is stopped. We plan to let you protect part of your balance for hosting. Storage, bandwidth, concurrency limits, and hosting exhaustion and retention rules will be published before billing opens.'),
