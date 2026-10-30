@@ -1,0 +1,40 @@
+Product overview
+From an idea to a working app.
+
+Start with your idea.
+Atomic is an AI app builder from Abstract Machines that turns plain-language ideas into web applications, with visual editing, previews, source access and publishing.
+Templates · choose a working starting point for your app
+An idea or a head start
+Describe the app you have in mind, or explore a template with screens, roles and sample data already in place. A booking service, shop, client portal or internal tool can begin here.
+atomicapp.dev · Press room and complete media kit
+
+Build in conversation.
+Builder · a working app beside a staged demonstration conversation
+Keep the brief and the result together
+Tell Atomic what the app should do, review the working preview and refine it through conversation. The builder keeps the discussion beside the app, so each change can be checked in context.
+Shown here: a sample salon booking app with services, appointments and a studio workflow.
+
+Shape it together.
+Canvas · screens and states arranged for review
+Shape the experience with your team
+Move between screens, zoom into a flow and check how the pieces fit together. Tune the app’s colours and typography, select an element to refine its properties, and attach feedback to the part you mean.
+Builder and Pro support collaboration. The full gallery includes separate views of theme controls, element editing and contextual comments.
+
+Review. Publish. Manage.
+App dashboard · publication, access and app-user settings
+From a reviewed version to a shared app
+Review changes in version history, choose what to publish and decide who can use the finished app. Manage access and app users in the dashboard, and return to your projects from the applications list.
+Workspace collaborators and finished-app users are separate. Restoring code does not restore business data; publication rollback depends on migration compatibility. This local sample has not been publicly deployed.
+
+See what is happening.
+Request logs · filter activity and inspect individual entries
+Understand activity and usage
+Searchable preview logs on Builder and Pro help you investigate app behaviour. Recent-session usage and account billing views show credits, time spent and plan information, so the work can be followed beyond the initial build.
+The gallery includes request logs, usage and billing views. Shown traffic and values are local demonstration data.
+
+Your code, in view.
+Source browser · app files, component code, a version selector and download controls
+Inspect the code. Download the source.
+Open the file tree, read the generated code and inspect the version you are working with. Source browsing is available on every plan. Builder and Pro let you download the app’s source code.
+The download contains code. App users, business data and hosting infrastructure are separate; the archive is not a complete portable deployment package.
+Watch the 35-second launch film · See the workflow in widescreen, square or vertical format.
