@@ -1,0 +1,21 @@
+Video & social assets
+Choose the right asset.
+
+10-second square teaser: 05-video/atomic-teaser-square.mp4
+1080 × 1080 · 30 fps · H.264/AAC
+10-second vertical teaser: 05-video/atomic-teaser-vertical.mp4
+1080 × 1920 · 30 fps · H.264/AAC
+35-second product demo: 05-video/atomic-product-demo.mp4
+1920 × 1080 · 30 fps · H.264/AAC
+Teaser
+Imagine it. Build it. Coming soon. The teaser ends with Tuesday, 3 November, and works without narration. Square and vertical versions use the same approved ElevenLabs music and timing.
+Product demo
+The longer demo covers describing an idea, choosing a template, editing on the Canvas, contextual comments, source access and publication. Its browser sequences show a local sample app. The evergreen launch film shows atomicapp.dev in the opening, Canvas and closing scenes, with no launch date. Narration and music use the approved ElevenLabs audio.
+Cover images
+The 06-social folder contains square and vertical launch covers matching the teasers. The vertical layout leaves space around the main message for viewing controls.
+Captions and context
+The longer demo includes an SRT subtitle file and a plain-text transcript. The teasers carry their message on screen. Sample apps and businesses demonstrate workflows; they are not customer endorsements.
+Availability
+The short teasers announce the 3 November 2026 launch; the longer film can also be used after launch. Visit atomicapp.dev for product information. For interviews, walkthroughs or access details, use the press contact.
+Drasko Draskovic · Founder & CEO
+drasko@absmach.eu · General enquiries: info@absmach.eu

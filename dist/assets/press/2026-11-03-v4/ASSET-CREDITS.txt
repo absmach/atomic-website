@@ -1,0 +1,6 @@
+Atomic product screenshots and campaign graphics: supplied company assets and locally recorded sample-app demonstrations. Suggested credit: Courtesy of Atomic / Abstract Machines.
+Portraits: supplied company materials. Suggested credit: Courtesy of Abstract Machines. Individual photographer names were not supplied. Portraits retain their original resolution.
+Sample-app photographs remain part of the illustrated product view; they are not supplied as standalone stock photography.
+Atomic symbol: canonical supplied SVG geometry, with the same colour converted to sRGB for compatibility. Wordmark: outlined Manrope 750, matching the approved campaign treatment.
+Manrope: SIL Open Font License, included under assets/Manrope-OFL.txt.
+Audio: previously generated and approved ElevenLabs narration and instrumental music. Audio copied from the approved videos, with no new generation requests.
