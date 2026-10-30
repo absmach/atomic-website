@@ -1,0 +1,27 @@
+Brand guide
+Present Atomic clearly.
+
+Use the full logo where space allows. Use the standalone symbol for compact placements such as avatars and icon grids.
+Colour and type
+Logo violet#5959E6
+Campaign accent#5C32F7
+Ink#1F152C
+Soft background#F4EAFF
+Manrope is the campaign typeface. The supplied wordmark is outlined vector artwork, so recipients do not need to install the font. The logo’s canonical violet is preserved; the brighter purple is the campaign accent. The font licence is included in the assets folder.
+Space and legibility
+Leave clear space of at least half the symbol’s height around the full logo. As a practical starting point, use the full lockup at 120 pixels wide or larger, and the symbol at 24 pixels or larger. Check legibility at the final display size.
+Usage
+Keep proportions and colours intact. Use the white version on a dark background and the colour or black version on a light one. Avoid stretching, outlining, adding effects or placing the mark over busy imagery. Write the product name as “Atomic” in text.
+
+Which file should I use?
+SVG: Best for web, digital publishing and design work. Scales cleanly; all wordmark lettering is outlined.
+Transparent PNG: For slides, social graphics and tools that need a bitmap. Supplied at 512 and 2048 pixels wide.
+Vector PDF: For print and page-layout software. RGB artwork; a printer can handle any required colour conversion.
+What is in the logo folder?
+Lockup: symbol and wordmark together.
+Wordmark: the lettering alone.
+Symbol: the atom graphic alone.
+Each is supplied in colour, black and white.
+Editorial credits
+Suggested credit for product screenshots and campaign artwork: “Courtesy of Atomic / Abstract Machines.” Suggested credit for team portraits: “Courtesy of Abstract Machines.” The kit does not identify individual photographers.
+Sample-app photographs appear within product screenshots. Those screenshots are supplied to illustrate Atomic; the embedded photographs are not supplied as separate stock assets. Preserve context and avoid implying the sample businesses are customers.

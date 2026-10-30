@@ -1,0 +1,19 @@
+Company overview
+The team behind Atomic.
+
+Abstract Machines is a Paris-based applied AI company building intelligent software and the infrastructure behind it. Its work combines application development, open-source engineering and research across connected systems, identity and confidential computing. Atomic is its AI app builder; Atom is the open-source backend providing identity, permissions and application data.
+Company: Abstract Machines
+Location: Paris, France
+Founded: 2023
+Founder: Drasko Draskovic
+Focus: Applied AI, open-source software and systems engineering
+From infrastructure to applications
+Abstract Machines’ engineering background includes connected systems, identity and access management, and cloud and edge software. Atomic brings that experience to people who want to build useful applications from a description of their business needs.
+Three names, different roles
+Atomic: The AI app builder: conversation, visual editing, previews, source and publication.
+Atom: The open-source backend for identities, permissions and application data.
+Abstract Machines: The company developing Atomic and Atom, alongside its wider software and research portfolio.
+Engineering and research
+The company develops open-source infrastructure including Magistrala, its IoT platform, and contributes to European research in orchestration, confidential computing and security. Atomic is a product of Abstract Machines, not the name of a separate company in this kit.
+Drasko Draskovic · Founder & CEO
+drasko@absmach.eu · General enquiries: info@absmach.eu
