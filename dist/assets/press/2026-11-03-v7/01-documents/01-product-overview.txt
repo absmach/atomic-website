@@ -1,0 +1,17 @@
+Product overview
+Your idea. A working app.
+
+Atomic is an AI app builder from Abstract Machines that turns plain-language ideas into web applications, with visual editing, previews, source access and publishing.
+The Atomic home screen · a drafted prompt in a sample workspace
+Start with the app you have in mind
+Describe a booking service, shop, client portal or internal tool. Start from your own words or explore a working template, then review and refine the result.
+atomicapp.dev · Press room and complete media kit
+
+Canvas theme controls · shape the appearance of a sample salon app
+Describe. Shape. Publish.
+Build and refine through conversation; preview the result as you work.
+Explore screens on the Canvas, edit selected elements and tune colours, type, spacing and shape.
+Leave feedback in context and collaborate with your team.
+Inspect source and version history, then publish a release you have reviewed.
+Atom provides identities, permissions and application data. A source download contains code; it does not export app users, business data or hosting infrastructure.
+Watch the 35-second launch film · Square and vertical versions are available in the press room.

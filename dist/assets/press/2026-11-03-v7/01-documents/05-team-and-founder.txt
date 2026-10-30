@@ -1,0 +1,31 @@
+People
+Meet the people behind Atomic.
+
+Drasko Draskovic · Founder & CEO
+Drasko Draskovic
+Founder & CEO · Paris, France
+Drasko Draskovic is the founder of Abstract Machines and the founder and CEO behind Atomic. A deep-tech entrepreneur and systems engineer, he brings more than 20 years of experience in IoT and cloud-computing systems. His background includes work at Texas Instruments, Alcatel-Lucent, Nokia, Sequans and Devialet. He co-founded Datapace with George Saleh as an internal venture at Nokia, where he served as CTO. His work spans open-source infrastructure and the identity, data and execution systems that support applications.
+Short bio
+Drasko Draskovic is the founder of Abstract Machines and the founder and CEO behind Atomic. He is a systems engineer and entrepreneur with more than 20 years of experience in IoT and cloud computing.
+Interview topics
+Taking an app from a plain-language idea through Canvas editing to a reviewed release.
+Why application identity, permissions and data matter in AI app building.
+Source visibility and open-source infrastructure.
+Drasko Draskovic · Founder & CEO
+drasko@absmach.eu · General enquiries: info@absmach.eu
+atomicapp.dev
+
+Dusan Borovcanin
+Technical leadership
+Dusan Borovcanin is Tech Lead at Abstract Machines, with more than 10 years of experience in distributed systems. His work includes confidential-computing infrastructure for AI and the engineering foundations behind Atomic. He previously built cocos-ai alongside Drasko Draskovic at Ultraviolet.
+George Saleh
+Finance & Operations
+George Saleh leads finance and operations for Atomic. He brings more than 27 years of technology-leadership experience spanning AI, blockchain, enterprise architecture and digital transformation. He co-founded Datapace with Drasko Draskovic as an internal venture at Nokia. His background includes Distinguished Member of Technical Staff standing at Nokia.
+Portraits included
+Drasko Draskovic: 4096 × 3072 JPEG · original supplied photograph
+Dusan Borovcanin: 288 × 288 PNG · supplied profile portrait
+George Saleh: 460 × 460 JPEG · supplied profile portrait
+Portraits are supplied at their original resolution. Dusan’s and George’s files are suitable for small digital placements; ask the press contact for larger publication requirements. Suggested credit: Courtesy of Abstract Machines. Photographer names were not supplied.
+Pair portraits with the product story
+Use the homepage as the lead product visual, then the Canvas and collaboration views to illustrate the workflow. The current 35-second launch film and matching covers are available in the press room. Portraits remain the supplied originals.
+atomicapp.dev · Press room and complete media kit

@@ -428,5 +428,5 @@ page('_not-found','Page not found','Find your way back to Atomic.',hero('404 / A
 (DIST / '_not-found').rmdir()
 render_solutions(page)
 # The approved press index is maintained as content, with compact local previews.
-page('press','Press kit','Atomic product information, launch documents, logos, screenshots, videos and media contacts. Download the complete press kit.',(ROOT/'content/press.html').read_text(),extra_head='<link rel="stylesheet" href="/press.css?v=20261029-v3" />')
+page('press','Press kit','Atomic product information, editorial copy, logos, screenshots, videos and media contacts. Download the complete press kit.',(ROOT/'content/press.html').read_text(),extra_head='<link rel="stylesheet" href="/press.css?v=20261029-v3" />')
 print(f'Generated {len(list(DIST.rglob("*.html")))} HTML pages.')

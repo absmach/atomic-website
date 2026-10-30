@@ -1,0 +1,147 @@
+Screenshot captions
+The current product gallery.
+
+Recommended lead image · start with the Atomic homepage
+Choose images to support the story
+First impression: 01 home · 02 templates · 03 template preview
+Build and refine: 04 builder · 05 Canvas · 06 theme · 07 element editing · 08 collaboration
+Manage the workspace: 09 applications · 10 billing · 13 app dashboard
+Inspect and review: 11 source · 12 versions
+Finished experience: 14 sample salon app · 15 responsive preview
+Each numbered page that follows contains the current presentation image, its caption and the clean-capture filename. Presentation PNGs are 2560 × 1920; raw captures keep their native dimensions. Capture dates describe the original screenshots, not this document revision.
+atomicapp.dev · Press room and complete media kit
+
+Home
+Start with an idea.
+The Atomic home screen with a drafted salon-booking prompt. The prompt has not been submitted.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data.
+Presentation file: 01-home.png · 2560 × 1920
+Clean capture: raw/01-home.png · 2880 × 1800
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
+
+Templates
+Find your head start.
+The template catalogue, including a photo-based salon booking template and other starting points.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data.
+Presentation file: 02-templates.png · 2560 × 1920
+Clean capture: raw/02-templates.png · 2880 × 1800
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
+
+Template preview
+Explore before you build.
+The salon booking template detail page, with its interactive preview and screen navigation.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data.
+Presentation file: 03-template-preview.png · 2560 × 1920
+Clean capture: raw/03-template-preview.png · 2880 × 1800
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
+
+Builder
+Shape it in conversation.
+The builder pairs a sample salon application with a staged demonstration conversation.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data.
+Presentation file: 04-builder.png · 2560 × 1920
+Clean capture: raw/04-builder.png · 2880 × 1800
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
+
+Canvas
+Every screen, in view.
+The Canvas shows the booking flow, confirmation dialog and appointment screens together at a readable zoom level.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data.
+Presentation file: 05-canvas.png · 2560 × 1920
+Clean capture: raw/05-canvas.png · 2880 × 1800
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
+
+Theme controls
+Make it feel like you.
+Whole-app theme controls are open beside the sample app on the Canvas.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data.
+Presentation file: 06-theme.png · 2560 × 1920
+Clean capture: raw/06-theme.png · 2880 × 1800
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
+
+Element editing
+Get the details right.
+A headline is selected on the Canvas, with the Properties inspector open.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data.
+Presentation file: 07-element.png · 2560 × 1920
+Clean capture: raw/07-element.png · 2880 × 1800
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
+
+Collaboration
+Keep feedback in context.
+An element-linked comment composer is open on the Canvas. This is an unsent draft; no AI change has been requested.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data.
+Presentation file: 08-collaboration.png · 2560 × 1920
+Clean capture: raw/08-collaboration.png · 2880 × 1800
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
+
+Applications
+Your apps, together.
+The applications list shows three local sample projects: Fern & Fringe, Hearth & Field and Northstar CRM.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data.
+Presentation file: 09-applications.png · 2560 × 1920
+Clean capture: raw/09-applications.png · 2880 × 1800
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
+
+Billing
+Know where you stand.
+The account billing panel shows plan, credits, storage and upgrade controls. This is a local demo account; usage and allowances are illustrative, not confirmed launch entitlements.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data.
+Presentation file: 10-billing.png · 2560 × 1920
+Clean capture: raw/10-billing.png · 1424 × 764
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
+
+Source browser
+See what is being built.
+The source browser displays the sample app’s home-page component, file tree and version selector. Source downloads exclude users, business data and hosting infrastructure.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data.
+Presentation file: 11-source.png · 2560 × 1920
+Clean capture: raw/11-source.png · 2880 × 1800
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
+
+Version history
+A version to return to.
+Version history shows locally prepared sample revisions. These are compiled demonstration checkpoints; the capture does not show a restore being performed.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data.
+Presentation file: 12-versions.png · 2560 × 1920
+Clean capture: raw/12-versions.png · 2880 × 1800
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
+
+App dashboard
+Put your app in order.
+The app dashboard shows publication, access and app-user settings for the local salon demo. The app has not been publicly deployed.
+Real product capture from a local demonstration workspace, with an external branded presentation frame. Sample apps and data.
+Presentation file: 13-dashboard.png · 2560 × 1920
+Clean capture: raw/13-dashboard.png · 2880 × 1800
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
+
+Sample application
+From idea to experience.
+Fern & Fringe, a photo-based sample salon application, shown as a standalone preview with local demonstration data.
+Real local sample-app preview with external branded framing. Business names, photographs and content illustrate the template; they are not customer claims.
+Presentation file: 14-salon-app.png · 2560 × 1920
+Clean capture: raw/14-salon-app.png · 2880 × 1800
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
+
+Responsive preview
+Made for smaller screens.
+The sample salon application at a 390-pixel mobile viewport. This is a responsive web-app preview, not a native mobile-app export.
+Real local sample-app preview with external branded framing. Business names, photographs and content illustrate the template; they are not customer claims.
+Presentation file: 15-responsive.png · 2560 × 1920
+Clean capture: raw/15-responsive.png · 780 × 1688
+Captured: 2026-10-29
+Credit: Courtesy of Atomic / Abstract Machines
