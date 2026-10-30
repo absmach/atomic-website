@@ -9,11 +9,11 @@ Start by describing the app you want. Review the preview and refine it through c
 What can I build?
 Booking apps, online shops, client portals and internal tools are typical starting points. The commerce starter records order requests; it does not by itself collect payments.
 What does the Canvas do?
-Navigate screens and states, select elements, tune whole-app styling and leave contextual comments. Shared workspaces support collaboration; workspace builders and finished-app users have separate accounts and access flows.
+Navigate screens and states, select elements, tune whole-app styling and leave contextual comments. Builder and Pro support shared workspaces; workspace builders and finished-app users have separate accounts and access flows.
 
 Source browser · a sample app’s component, file tree and version selector
 Can I inspect and download the code?
-Yes. Atomic exposes generated source and version history. A source archive excludes app users, business data and hosting infrastructure; it is not a complete portable deployment package.
+All plans support source browsing. Source downloads are available on Builder and Pro. An archive contains code, not app users, business data or hosting infrastructure; it is not a complete portable deployment package.
 What does “Verified” mean?
 It identifies a version that passed the configured automated checks, including build and browser smoke checks. It is not a guarantee that every business workflow is correct or an independent security audit.
 atomicapp.dev · Press room and complete media kit
@@ -24,6 +24,6 @@ Source history and publication history concern code. Restoring source or rolling
 Is Atomic open source?
 Atom, the backend for identities, permissions and application data, is open source. This does not mean the Atomic builder itself is open source.
 What plans does Atomic offer?
-Free ($0), Builder at $25/month, and Pro at $50/month. Product information: atomicapp.dev.
+Free ($0), Builder at $25/month, and Pro at $50/month. Free includes 250 credits per month, used at up to 50 a day. Source downloads and collaboration require Builder or Pro. Product information: atomicapp.dev.
 Where are the current screenshots and films?
 Press room and complete media kit provides 15 captioned product views, three 35-second launch-film formats and matching opening covers. Contact drasko@absmach.eu for interviews.

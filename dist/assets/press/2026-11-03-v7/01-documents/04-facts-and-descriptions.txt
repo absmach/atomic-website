@@ -7,6 +7,8 @@ Company: Abstract Machines · Paris, France
 Website: atomicapp.dev
 Launch date: 3 November 2026
 Plans: Free ($0), Builder at $25/month, and Pro at $50/month.
+Free allowance: 250 credits per month, used at up to 50 a day
+Paid-plan features: Source downloads and team collaboration: Builder / Pro
 For: Founders, freelancers and small businesses
 Examples: Bookings, shops, client portals and internal tools
 Media: 15 product views · 3 launch-film formats · 3 matching covers

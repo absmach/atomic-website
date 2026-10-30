@@ -11,7 +11,7 @@ Canvas theme controls · shape the appearance of a sample salon app
 Describe. Shape. Publish.
 Build and refine through conversation; preview the result as you work.
 Explore screens on the Canvas, edit selected elements and tune colours, type, spacing and shape.
-Leave feedback in context and collaborate with your team.
+Leave feedback in context; collaborate with your team on Builder or Pro.
 Inspect source and version history, then publish a release you have reviewed.
-Atom provides identities, permissions and application data. A source download contains code; it does not export app users, business data or hosting infrastructure.
+Atom provides identities, permissions and application data. Source downloads are available on Builder and Pro. They contain code, not app users, business data or hosting infrastructure.
 Watch the 35-second launch film · Square and vertical versions are available in the press room.
