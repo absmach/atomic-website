@@ -47,16 +47,17 @@ def footer():
     menus = ''.join(f'<nav class="footer-column" aria-label="{title}"><h2>{title}</h2>{"".join(link(label,url) for label,url in items)}</nav>' for title, items in columns)
     return f'''<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic.svg" width="29" height="29" alt="" />atomic</a><p>Small idea. Real possibilities.<br />Build what comes next.</p><div class="social-placeholders" role="group" aria-label="Atomic and Abstract Machines social channels">{social_links()}</div><p class="social-note">Follow Atomic and Abstract Machines</p></div>{menus}</div><div class="footer-bottom"><span>© <span id="year">2026</span> Atomic. A product by <a href="https://absmach.eu" target="_blank" rel="noopener noreferrer">Abstract Machines</a>.</span><span>Describe it. Shape it. Make it real.</span></div></div></footer>'''
 
-def page(path, title, description, body, active='', draft=False, extra_head='', canonical=''):
+def page(path, title, description, body, active='', draft=False, extra_head='', canonical='', social_card=None):
     folder = DIST / path
     folder.mkdir(parents=True, exist_ok=True)
     robots = '<meta name="robots" content="noindex, nofollow" />' if draft else ''
-    # Every page shares the social card; published pages also name their own URL.
+    # Pages use the shared social card unless a specific media cover is supplied.
+    image_url,image_alt,image_width,image_height=social_card or (SOCIAL_IMAGE,SOCIAL_ALT,1200,630)
     if not canonical and not draft and path != '_not-found':
         canonical = f'/{path}/'
     if canonical:
         extra_head += f'<link rel="canonical" href="https://atomicapp.dev{canonical}" /><meta property="og:url" content="https://atomicapp.dev{canonical}" />'
-    extra_head += f'<meta property="og:image" content="{SOCIAL_IMAGE}" /><meta property="og:image:type" content="image/png" /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content="{SOCIAL_ALT}" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:image:alt" content="{SOCIAL_ALT}" />'
+    extra_head += f'<meta property="og:image" content="{image_url}" /><meta property="og:image:type" content="image/png" /><meta property="og:image:width" content="{image_width}" /><meta property="og:image:height" content="{image_height}" /><meta property="og:image:alt" content="{image_alt}" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:image:alt" content="{image_alt}" />'
     robots += extra_head
     html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#191329" /><title>{escape(title)} — Atomic</title><meta name="description" content="{escape(description, quote=True)}" /><meta property="og:title" content="{escape(title, quote=True)} — Atomic" /><meta property="og:description" content="{escape(description, quote=True)}" /><meta property="og:type" content="website" />{robots}<link rel="icon" type="image/svg+xml" href="/assets/atomic.svg" /><link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin /><link rel="stylesheet" href="/styles.css" /><link rel="stylesheet" href="/pages.css?v=20261029-cookie-banner" /><link rel="stylesheet" href="/early-access.css?v=20261029-early-access-page" /><script src="/site.js?v=20261029-cookie-banner" defer></script><script src="/early-access.js?v=20261029-early-access-page" defer></script></head><body>{header(active)}<main id="main">{body}</main>{footer()}</body></html>'''
     (folder / 'index.html').write_text(html)
@@ -431,5 +432,8 @@ page('_not-found','Page not found','Find your way back to Atomic.',hero('404 / A
 (DIST / '_not-found').rmdir()
 render_solutions(page)
 # The approved press index is maintained as content, with compact local previews.
-page('press','Press kit','Atomic product information, editorial copy, logos, screenshots, videos and media contacts. Download the complete press kit.',(ROOT/'content/press.html').read_text(),extra_head='<link rel="stylesheet" href="/press.css?v=20261029-v3" />')
+press_content=(ROOT/'content/press.html').read_text()
+press_cover=re.search(r'href="([^"]*/06-social/atomic-launch-widescreen-cover\.png)"',press_content)
+if not press_cover:raise ValueError('The press page needs its matching widescreen cover.')
+page('press','Press kit','Read the Atomic product story, browse the full screenshot catalogue, and download editorial documents, logos, portraits and launch films.',press_content,extra_head='<link rel="stylesheet" href="/press.css?v=20261030-story" />',social_card=('https://atomicapp.dev'+press_cover[1],'Atomic — Big idea? Make it real.',1920,1080))
 print(f'Generated {len(list(DIST.rglob("*.html")))} HTML pages.')

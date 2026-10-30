@@ -46,3 +46,24 @@
  .press-logo-show{padding:24px}
  .press-contact{padding:22px}
 }
+
+/* The complete gallery follows the six chapters of the editorial book. */
+.press-edition-summary{max-width:780px}
+.press-story-nav{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 30px}
+.press-catalog .press-story-nav a{display:inline-block;padding:10px 14px;border:1px solid #e0d5f1;border-radius:999px;background:#f5f0fc;font-size:13px;font-weight:650;text-decoration:none}
+.press-story-section{margin-top:42px;scroll-margin-top:110px}
+.press-story-header{margin-bottom:22px;max-width:780px}
+.press-story-header .eyebrow{font-size:11px;font-weight:750;letter-spacing:2px;color:#6544ed;margin-bottom:8px}
+.press-story-header h3{font-size:28px;letter-spacing:-.7px;margin:0 0 10px}
+.press-story-header p{margin:0}
+.press-gallery-featured{grid-template-columns:minmax(0,1fr)}
+.press-gallery-featured figure{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:center}
+.press-gallery-featured figure img{height:auto;max-height:360px}
+.press-gallery-featured figcaption{margin-top:0}
+@media(max-width:700px){
+ .press-story-header h3{font-size:25px}
+ .press-story-section{margin-top:34px}
+ .press-gallery-featured figure{grid-template-columns:minmax(0,1fr);gap:20px}
+ .press-story-nav{gap:8px}
+ .press-catalog .press-story-nav a{font-size:12px;padding:9px 12px}
+}
