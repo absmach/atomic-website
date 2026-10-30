@@ -1,0 +1,29 @@
+Press FAQ
+Questions worth answering.
+
+A template can be explored before it is adapted
+What is Atomic?
+Atomic helps founders, freelancers and small businesses turn an idea into a web application. Start with a prompt or template, refine the result in conversation and on the Canvas, inspect the source, and publish a reviewed version. Atom, the open-source backend from the same team, provides application identities, permissions and data.
+Do I need to know how to code?
+Start by describing the app you want. Review the preview and refine it through conversation or visual editing. You should still test the workflows before sharing it.
+What can I build?
+Booking apps, online shops, client portals and internal tools are typical starting points. The commerce starter records order requests; it does not by itself collect payments.
+What does the Canvas do?
+Navigate screens and states, select elements, tune whole-app styling and leave contextual comments. Builder and Pro support shared workspaces; workspace builders and finished-app users have separate accounts and access flows.
+
+Source browser · a sample app’s component, file tree and version selector
+Can I inspect and download the code?
+All plans support source browsing. Source downloads are available on Builder and Pro. An archive contains code, not app users, business data or hosting infrastructure; it is not a complete portable deployment package.
+What does “Verified” mean?
+It identifies a version that passed the configured automated checks, including build and browser smoke checks. It is not a guarantee that every business workflow is correct or an independent security audit.
+atomicapp.dev · Press room and complete media kit
+
+Version history · locally prepared demonstration checkpoints
+Can I restore an earlier version?
+Source history and publication history concern code. Restoring source or rolling back a release does not restore business data; publication rollback also depends on compatibility with applied data migrations.
+Is Atomic open source?
+Atom, the backend for identities, permissions and application data, is open source. This does not mean the Atomic builder itself is open source.
+What plans does Atomic offer?
+Free ($0), Builder at $25/month, and Pro at $50/month. Free includes 250 credits once, used at up to 50 a day. Source downloads, searchable preview logs and collaboration require Builder or Pro. Product information: atomicapp.dev.
+Where are the current screenshots and films?
+Press room and complete media kit provides 17 captioned product views, three 35-second launch-film formats and matching opening covers. Contact drasko@absmach.eu for interviews.

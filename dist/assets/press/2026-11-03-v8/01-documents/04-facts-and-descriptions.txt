@@ -1,0 +1,25 @@
+Facts & reusable copy
+Atomic, at a glance.
+
+Applications · a workspace containing three sample projects
+Product: Atomic · AI web-application builder
+Company: Abstract Machines · Paris, France
+Website: atomicapp.dev
+Launch date: 3 November 2026
+Plans: Free ($0), Builder at $25/month, and Pro at $50/month.
+Free allowance: 250 credits once, used at up to 50 a day
+Paid-plan features: Source downloads, searchable preview logs and collaboration: Builder / Pro
+For: Founders, freelancers and small businesses
+Examples: Bookings, shops, client portals and internal tools
+Media: 17 product views · 3 launch-film formats · 3 matching covers
+Press contact: Drasko Draskovic · drasko@absmach.eu
+
+One sentence
+Atomic is an AI app builder from Abstract Machines that turns plain-language ideas into web applications, with visual editing, previews, source access and publishing.
+Short description
+Atomic helps founders, freelancers and small businesses turn an idea into a web application. Start with a prompt or template, refine the result in conversation and on the Canvas, inspect the source, and publish a reviewed version. Atom, the open-source backend from the same team, provides application identities, permissions and data.
+Company boilerplate
+Abstract Machines is a Paris-based applied AI company building intelligent software and the infrastructure behind it. Its work combines application development, open-source engineering and research across connected systems, identity and confidential computing. Atomic is its AI app builder; Atom is the open-source backend providing identity, permissions and application data.
+Usage · recent sample building sessions, credits and duration
+Names and image context
+Write “Atomic” for the product, “Abstract Machines” for the company and “Atom” for the backend. Product views use local sample applications and data. Billing values are illustrative; use the confirmed plan prices above for editorial copy.

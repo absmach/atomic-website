@@ -1,0 +1,41 @@
+Product overview
+Build an app, step by step.
+
+Build in conversation.
+Atomic is an AI app builder from Abstract Machines that turns plain-language ideas into web applications, with visual editing, previews, source access and publishing.
+Builder · a working preview beside a staged sample conversation
+The builder is the centre of the workflow
+Describe what the app should do, review the working preview and refine it through conversation. Start from an idea or a template, then keep the brief and the result together as you build.
+The example is a salon booking app with services, appointments and a studio workflow.
+atomicapp.dev · Press room and complete media kit
+
+Explore the whole Canvas.
+Canvas · booking screens, a confirmation dialog and appointment views
+See how the screens fit together
+Navigate the visual board, zoom into a screen and review the states that make up a complete flow. A booking journey includes more than its landing page: choices, confirmation and the next appointment all need attention.
+Preview the app at different sizes and test the paths your users will take.
+
+Make it your own.
+Theme controls · colours, typography, spacing and shape
+Shape the whole app, then refine the details
+Tune the overall style on the Canvas. Select an individual element to inspect its properties, and attach feedback to the part you mean. Builder and Pro support collaboration with teammates.
+The gallery also includes element editing and an element-linked comment draft.
+
+Keep track of every version.
+Version history · prepared sample revisions for a local demo app
+Review the work behind each change
+Inspect the source and move through version history before choosing what to release. Source browsing is available on all plans; Builder and Pro also include source downloads.
+Restoring source or rolling back a publication concerns code, not business data. Publication rollback depends on compatibility with applied data migrations. Downloads exclude users, business data and hosting infrastructure.
+
+Review. Publish. Manage.
+Publishing and app dashboard · publication, access and app-user settings
+Choose who can use the finished app
+Review the version, choose the access model and publish. The dashboard brings publication and app-user settings together, including public access, open signup and invitation-only entry.
+Workspace collaborators edit the project; app users use the finished app. These are separate roles. This local sample has not been publicly deployed.
+
+See what is happening.
+Request monitoring · a filtered log and expanded request details
+Inspect activity in the preview
+Searchable preview logs on Builder and Pro let you filter requests and inspect individual entries when investigating app behaviour. The usage view provides another perspective: recent building sessions, credits used and time spent.
+Shown traffic and usage are local demonstration data. Atom provides the underlying identities, permissions and application data.
+Watch the 35-second launch film · Square and vertical versions are available in the press room.
