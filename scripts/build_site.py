@@ -102,14 +102,14 @@ plans = [
             ('Create and refine', ['AI generation and revisions', 'Visual canvas and in-place text editing', 'Theme, typography, and layout controls', 'Screen previews and visual annotations', 'Image and design-reference uploads']),
             ('Keep and share your work', ['A backend, database, and user sign-in for one app', 'Private projects', 'Browse generated source', 'The latest version of each app, and one to go back to', 'Publish on an Atomic subdomain, with a “Made with Atomic” badge'])
         ],
-        'boundary': 'Solo building · Backend for one app. Source downloads, more backends, your own domain, no badge, collaboration, and top-ups start with Builder.'
+        'boundary': 'Solo building · Backend for one app. Source downloads, integrations, more backends, your own domain, no badge, collaboration, and top-ups start with Builder.'
     },
     {
         'name': 'Builder', 'price': '$25', 'badge': 'Start building', 'featured': True,
         'description': 'Turn your idea into a working app, with accounts, real data, and people building beside you.',
         'credits': '2,500', 'credit_label': 'credits each month', 'apps': '10', 'app_label': 'published apps',
         'groups': [
-            ('Everything in Free, plus', ['Download your apps’ source', 'A backend and database for every app', 'User sign-in and app access controls', 'Your own custom domain', 'No “Made with Atomic” badge', 'The last 100 versions of each app']),
+            ('Everything in Free, plus', ['Download your apps’ source', 'Integrations (coming soon)', 'A backend and database for every app', 'User sign-in and app access controls', 'Your own custom domain', 'No “Made with Atomic” badge', 'The last 100 versions of each app']),
             ('Build together', ['Shared team workspaces', '5 invited collaborators per app', 'Editor and Admin collaborator roles', '3 app previews open at once', 'On-demand credit top-ups'])
         ],
         'boundary': 'Building and metered hosting use your credits. Top-ups: $10 for 1,000 credits, with no expiry.'
@@ -119,7 +119,7 @@ plans = [
         'description': 'Keep several apps moving with a bigger team and more room to build, refine, and publish.',
         'credits': '5,000', 'credit_label': 'credits each month', 'apps': '20', 'app_label': 'published apps',
         'groups': [
-            ('Everything in Builder, plus', ['Up to 10 custom domains', 'Every version of every app, kept', '2× Builder’s monthly credits', '20 published apps at once', '5 app previews open at once']),
+            ('Everything in Builder, plus', ['Advanced metrics and monitoring (coming soon)', 'Single sign-on (coming soon)', 'Up to 10 custom domains', 'Every version of every app, kept', '2× Builder’s monthly credits', '20 published apps at once', '5 app previews open at once']),
             ('More room for your team', ['10 invited collaborators per app', 'Up to 50 apps', '100 GB of storage', 'Shared workspaces with Editor and Admin roles', 'On-demand credit top-ups'])
         ],
         'boundary': 'For a portfolio of client apps: more domains, full history, and room for a bigger team. Top-ups keep the same rate on both paid plans.'
@@ -156,6 +156,9 @@ comparison_rows = [
     ('Searchable preview logs', 'Included', 'Included', 'Included'),
     ('Private projects and source browsing', 'Included', 'Included', 'Included'),
     ('Download your app’s source', 'Not included', 'Included', 'Included'),
+    ('Integrations', 'Not included', 'Coming soon', 'Coming soon'),
+    ('Advanced metrics and monitoring', 'Not included', 'Not included', 'Coming soon'),
+    ('Single sign-on (SSO)', 'Not included', 'Not included', 'Coming soon'),
     ('Daily credit limit', 'Up to 50 a day', 'None', 'None'),
     ('Version history and source restore', 'Latest version and one to go back to', 'Last 100 versions', 'Every version'),
     ('Per-app build and usage history', 'Included', 'Included', 'Included'),
