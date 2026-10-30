@@ -1,0 +1,24 @@
+ATOMIC — PRESS KIT
+Updated 30 October 2026
+Product: https://atomicapp.dev/
+Press room: https://atomicapp.dev/press/
+
+Open index.html for the offline catalogue. Read 01-documents/00-complete-press-book.pdf for the complete illustrated book. Individual documents are supplied as PDF, DOCX, HTML and TXT, with current screenshots and cover artwork embedded where relevant.
+
+01-documents — Product, company, announcement, facts, people, FAQ, brand guidance, 17-image caption catalogue, video guide and evergreen social copy.
+02-logos — Outlined SVG, transparent PNG and vector PDF.
+03-screenshots — 17 framed product views plus 17 native clean captures; captions and context included.
+04-portraits — Supplied founder and team originals.
+05-video — Three date-free 35-second films: widescreen, square and vertical. Approved narration and music; built-in captions in the social formats. SRT, VTT and transcript included.
+06-social — Matching opening-design covers for all three films and evergreen social copy.
+
+Lead product image: 03-screenshots/04-builder.png.
+Workflow: builder, source access and download, Canvas, theme, versions, publishing and request monitoring.
+Book cover: Atomic home screen. The product walkthrough opens with the builder; the homepage also appears in the complete image catalogue.
+Recommended cover: the matching atomic-launch-*-cover.png for each format.
+All product imagery shows local sample applications and data. Builder conversations are staged; the screenshot comment composer is a draft. Billing values are illustrative.
+
+MEDIA CONTACT
+Drasko Draskovic, Founder & CEO
+drasko@absmach.eu
+General enquiries: info@absmach.eu
