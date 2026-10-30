@@ -1,0 +1,37 @@
+Video & social assets
+Choose the right asset.
+
+10-second square teaser: 05-video/atomic-teaser-square.mp4
+1080 × 1080 · 30 fps · H.264/AAC
+10-second vertical teaser: 05-video/atomic-teaser-vertical.mp4
+1080 × 1920 · 30 fps · H.264/AAC
+35-second product demo: 05-video/atomic-product-demo.mp4
+1920 × 1080 · 30 fps · H.264/AAC
+Teaser
+Imagine it. Build it. Coming soon. The teaser ends with Tuesday, 3 November, and works without narration. Square and vertical versions use the same approved ElevenLabs music and timing.
+Product demo
+The longer demo covers describing an idea, choosing a template, editing on the Canvas, contextual comments, source access and publication. Its browser sequences show a local sample app. The evergreen launch film shows atomicapp.dev in the opening, Canvas and closing scenes, with no launch date. Narration and music use the approved ElevenLabs audio.
+Cover images
+The 06-social folder contains square and vertical launch covers matching the teasers. The vertical layout leaves space around the main message for viewing controls.
+Captions and context
+The longer demo includes an SRT subtitle file and a plain-text transcript. The teasers carry their message on screen. Sample apps and businesses demonstrate workflows; they are not customer endorsements.
+Availability
+The short teasers announce the 3 November 2026 launch; the longer film can also be used after launch. Visit atomicapp.dev for product information. For interviews, walkthroughs or access details, use the press contact.
+Drasko Draskovic · Founder & CEO
+drasko@absmach.eu · General enquiries: info@absmach.eu
+
+Launch film: choose your format
+YouTube / website · 16:9: 05-video/atomic-product-demo.mp4
+1920 × 1080 · 35 seconds
+LinkedIn / X · 1:1: 05-video/atomic-launch-square.mp4
+1080 × 1080 · 35 seconds
+Instagram Reels · 9:16: 05-video/atomic-launch-vertical.mp4
+1080 × 1920 · 35 seconds
+Made for the feed
+The square and vertical versions use larger typography and built-in English captions. The vertical framing follows the recorded Canvas overview, theme controls and collaboration comment. Both keep the approved narration, music and timing, with atomicapp.dev visible in the opening, Canvas and closing scenes.
+Posting
+Upload the appropriate MP4 directly to the platform. The square file serves both LinkedIn and X. The vertical file is for Reels and also fits Stories or YouTube Shorts. Avoid adding a second layer of automatic captions over the built-in captions.
+Covers and subtitles
+Matching covers are in 06-social: atomic-launch-square-cover.png and atomic-launch-vertical-cover.png. The existing product-demo SRT and VTT files share the same narration timing across all three launch formats. The 10-second coming-soon teasers remain separate assets.
+Drasko Draskovic · Founder & CEO
+drasko@absmach.eu · General enquiries: info@absmach.eu
