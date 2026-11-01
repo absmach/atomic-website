@@ -1,0 +1,25 @@
+Video & social assets
+Choose the right asset.
+
+Click to watch the widescreen launch film
+The 35-second launch film
+All three launch formats have the same approved ElevenLabs narration, music and timing. The website appears in the opening, Canvas and closing scenes. The film carries no launch date.
+YouTube / website · 16:9: atomic-product-demo.mp4
+1920 × 1080 · optional SRT/VTT captions
+LinkedIn / X · 1:1: atomic-launch-square.mp4
+1080 × 1080 · built-in English captions
+Instagram Reels · 9:16: atomic-launch-vertical.mp4
+1080 × 1920 · built-in English captions
+MP4 · H.264 video / AAC audio · 30 fps. The square file serves both LinkedIn and X. The vertical framing follows the actual recorded Canvas controls and collaboration comment.
+
+Launch cover · square · “Big idea? Make it real.”
+Launch cover · vertical · “Big idea? Make it real.”
+Choose the matching cover
+Use atomic-launch-widescreen-cover.png, atomic-launch-square-cover.png or atomic-launch-vertical-cover.png from 06-social. These clean opening designs include the logo and website address. Choose the cover explicitly when the publishing platform offers that option.
+Captions and uploading
+Upload the matching MP4. Square and vertical films already contain captions; avoid adding a duplicate caption layer. The product-demo SRT and VTT files share the same speech timing across all three formats. A plain-text transcript is included.
+Use the current edition
+The current kit supplies the three date-free launch formats and their opening-design covers. Refer to the public press room for the latest product imagery, downloadable documents and media files.
+Editorial context
+The footage records local sample-app interactions, with framing and a brief effect around the selected element. The standalone screenshots may show different demo states. Sample businesses and data are illustrations, not customer endorsements.
+atomicapp.dev · Press room and complete media kit

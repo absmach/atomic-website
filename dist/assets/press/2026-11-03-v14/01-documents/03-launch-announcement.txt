@@ -1,0 +1,20 @@
+Product announcement
+Turn ideas into applications.
+
+Abstract Machines announces an AI app builder for founders, freelancers and small businesses.
+Main page · describe your idea to start building with Atomic
+Abstract Machines introduces Atomic, an AI app builder for people who know what they want to create. Atomic helps turn plain-language ideas into web applications, refine them through conversation and visual editing, and publish a version they have reviewed.
+Users can begin with a prompt or a template. The Canvas brings screens and styling controls together, while contextual comments keep feedback attached to the part of an app being discussed.
+Product information: atomicapp.dev · Press room and complete media kit
+
+From an idea to a reviewed release
+Atomic combines a working preview, a visual Canvas, source access and version history. Users can adjust whole-app styling, refine individual elements and work with teammates. Generated applications use Atom, the open-source backend from the same team, for identities, permissions and business data.
+“We built Atomic for people who know what their business needs but don’t want to start with a blank code editor. Describe the app, shape it with AI, and make it something your customers can use.”Drasko Draskovic, Founder & CEO
+Product information
+Free ($0), Builder at $25/month, and Pro at $50/month. Visit atomicapp.dev for product information and access details.
+Media accompanying this announcement
+The current gallery follows the product from its home screen and templates through the builder, Canvas, theme controls, collaboration, source, versions and publishing. Applications, billing, request monitoring and usage show how the work is managed. A 35-second launch film is supplied in widescreen, square and vertical formats, with matching “Big idea? Make it real.” covers.
+About Abstract Machines
+Abstract Machines is a Paris-based applied AI company building intelligent software and the infrastructure behind it. Its work combines application development, open-source engineering and research across connected systems, identity and confidential computing. Atomic is its AI app builder; Atom is the open-source backend providing identity, permissions and application data.
+Drasko Draskovic · Founder & CEO
+drasko@absmach.eu · General enquiries: info@absmach.eu

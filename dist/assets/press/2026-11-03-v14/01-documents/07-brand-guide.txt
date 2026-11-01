@@ -1,0 +1,23 @@
+Brand guide
+Present Atomic clearly.
+
+Use the full logo where space allows. Use the standalone symbol for compact placements such as avatars and icon grids.
+Colour and type
+Logo violet#5959E6
+Launch-film violet#6544ED
+Ink#221C30
+Launch-film paper#FBFAF8
+Manrope is the campaign typeface. The supplied wordmark is outlined vector artwork, so recipients do not need to install the font. The canonical logo violet is preserved. The current launch film uses #6544ED violet, #221C30 ink and #FBFAF8 paper; use the supplied colours and artwork for consistent product coverage. The font licence is included in the assets folder.
+Space and legibility
+Leave clear space of at least half the symbol’s height around the full logo. As a practical starting point, use the full lockup at 120 pixels wide or larger, and the symbol at 24 pixels or larger. Check legibility at the final display size.
+Usage
+Keep proportions and colours intact. Use the white version on a dark background and the colour or black version on a light one. Avoid stretching, outlining, adding effects or placing the mark over busy imagery. Write the product name as “Atomic” in text.
+
+Launch cover · widescreen · “Big idea? Make it real.”
+One opening design, three shapes
+Use the supplied widescreen, square or vertical “Big idea? Make it real.” cover with its matching launch film. Each includes the Atomic logo and atomicapp.dev. Preserve the artwork’s proportions and clear space; choose the prepared format instead of cropping a different one.
+Logo artwork: Outlined SVG for web/design; transparent PNG for slides; vector PDF for print.
+Launch covers: 1920 × 1080 widescreen · 1080 × 1080 square · 1080 × 1920 vertical.
+Editorial credit: Courtesy of Atomic / Abstract Machines. For portraits: Courtesy of Abstract Machines.
+Manrope is the campaign typeface; its licence is included under assets. The logo wordmark is outlined. Sample-app photographs remain part of the product views and are not separate stock assets.
+atomicapp.dev · Press room and complete media kit

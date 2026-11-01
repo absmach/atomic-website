@@ -1,0 +1,30 @@
+People
+Meet the people behind Atomic.
+
+Drasko Draskovic · Founder & CEO
+Drasko Draskovic
+Founder & CEO · Paris, France
+Drasko Draskovic is the founder of Abstract Machines and the founder and CEO behind Atomic. A deep-tech entrepreneur and systems engineer, he brings more than 20 years of experience in IoT and cloud-computing systems. His background includes work at Texas Instruments, Alcatel-Lucent, Nokia, Sequans and Devialet. He co-founded Datapace as an internal venture at Nokia, where he served as CTO. His work spans open-source infrastructure and the identity, data and execution systems that support applications.
+LinkedIn: https://www.linkedin.com/in/draskodraskovic/
+X: https://x.com/draskodraskovic
+Short bio
+Drasko Draskovic is the founder of Abstract Machines and the founder and CEO behind Atomic. He is a systems engineer and entrepreneur with more than 20 years of experience in IoT and cloud computing.
+Interview topics
+Taking an app from a plain-language idea through Canvas editing to a reviewed release.
+Why application identity, permissions and data matter in AI app building.
+Source visibility and open-source infrastructure.
+Drasko Draskovic · Founder & CEO
+drasko@absmach.eu · General enquiries: info@absmach.eu
+atomicapp.dev
+
+Dusan Borovcanin
+Technical leadership
+Dusan Borovcanin is Tech Lead at Abstract Machines, with more than 10 years of experience in distributed systems. His work includes confidential-computing infrastructure for AI and the engineering foundations behind Atomic. He previously built cocos-ai alongside Drasko Draskovic at Ultraviolet.
+LinkedIn: https://www.linkedin.com/in/du%C5%A1an-borov%C4%8Danin-82015b165/
+X: https://x.com/dusan__b
+Filip Bugarski
+Finance & Operations
+Filip Bugarski coordinates and organizes company-wide operations at Ultraviolet, an Abstract Machines subsidiary focused on cybersecurity in Eastern Europe. He also oversees the financial operations of Abstract Machines France.
+LinkedIn: https://www.linkedin.com/in/filip-bugarski-8923b6234/
+X: https://x.com/fgrobarski
+atomicapp.dev · Press room and complete media kit

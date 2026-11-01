@@ -11,6 +11,7 @@ CONTACT = 'mailto:info@absmach.eu'
 # Social preview card for every page; regenerate with scripts/render-social-card.py.
 SOCIAL_IMAGE = 'https://atomicapp.dev/assets/atomic-social-v3.png'
 SOCIAL_ALT = 'Atomic — Imagine it. Build it.'
+FAVICON_LINKS = '<link rel="icon" href="/favicon.ico" sizes="any" /><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />'
 NAV = [('Product', '/'), ('Solutions', '/solutions/'), ('Docs', '/docs/'), ('Blog', '/blog/'), ('Pricing', '/pricing/'), ('About', '/about/')]
 
 def link(label, url, active=''):
@@ -59,7 +60,7 @@ def page(path, title, description, body, active='', draft=False, extra_head='', 
         extra_head += f'<link rel="canonical" href="https://atomicapp.dev{canonical}" /><meta property="og:url" content="https://atomicapp.dev{canonical}" />'
     extra_head += f'<meta property="og:image" content="{image_url}" /><meta property="og:image:type" content="image/png" /><meta property="og:image:width" content="{image_width}" /><meta property="og:image:height" content="{image_height}" /><meta property="og:image:alt" content="{image_alt}" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:image:alt" content="{image_alt}" />'
     robots += extra_head
-    html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#191329" /><title>{escape(title)} — Atomic</title><meta name="description" content="{escape(description, quote=True)}" /><meta property="og:title" content="{escape(title, quote=True)} — Atomic" /><meta property="og:description" content="{escape(description, quote=True)}" /><meta property="og:type" content="website" />{robots}<link rel="icon" type="image/svg+xml" href="/assets/atomic.svg" /><link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin /><link rel="stylesheet" href="/styles.css" /><link rel="stylesheet" href="/pages.css?v=20261029-cookie-banner" /><link rel="stylesheet" href="/early-access.css?v=20261029-early-access-page" /><script src="/site.js?v=20261029-cookie-banner" defer></script><script src="/early-access.js?v=20261029-early-access-page" defer></script></head><body>{header(active)}<main id="main">{body}</main>{footer()}</body></html>'''
+    html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#191329" /><title>{escape(title)} — Atomic</title><meta name="description" content="{escape(description, quote=True)}" /><meta property="og:title" content="{escape(title, quote=True)} — Atomic" /><meta property="og:description" content="{escape(description, quote=True)}" /><meta property="og:type" content="website" />{robots}{FAVICON_LINKS}<link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin /><link rel="stylesheet" href="/styles.css" /><link rel="stylesheet" href="/pages.css?v=20261029-cookie-banner" /><link rel="stylesheet" href="/early-access.css?v=20261029-early-access-page" /><script src="/site.js?v=20261029-cookie-banner" defer></script><script src="/early-access.js?v=20261029-early-access-page" defer></script></head><body>{header(active)}<main id="main">{body}</main>{footer()}</body></html>'''
     (folder / 'index.html').write_text(html)
 
 def hero(kicker, title, intro, center=False, extra=''):
@@ -84,6 +85,9 @@ def article(path, title, intro, sections, category='Documentation', active='/doc
 
 # Homepage retains its original, interactive product presentation.
 home = (ROOT / 'content/home.html').read_text()
+home = re.sub(r'<link[^>]+rel="(?:icon|apple-touch-icon)"[^>]*>', '', home)
+home = re.sub(r'(?m)^[ \t]+$', '', home)
+home = home.replace('</head>', FAVICON_LINKS + '\n</head>')
 home = re.sub(r'  <a class="skip-link".*?</header>', header('/'), home, count=1, flags=re.S)
 home = re.sub(r'<footer class="site-footer">.*?</footer>', footer(), home, count=1, flags=re.S)
 home = home.replace('<script src="app.js" defer></script>', '<link rel="stylesheet" href="/pages.css?v=20261029-cookie-banner" />\n  <script src="/site.js?v=20261029-cookie-banner" defer></script>\n  <script src="/app.js" defer></script>')

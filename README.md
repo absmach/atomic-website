@@ -138,10 +138,16 @@ Legal review is required before launch to finalize processor/provider details, a
 
 `content/press.html` leads with the illustrated press book and nine individual documents, supplied as PDF, editable Word and plain text. Product screenshots can be viewed and downloaded directly from the page. Logos, portraits, three launch-film formats and their covers are also available. The Resources footer links to `/press/` on every page.
 
-The current edition is `2026-11-03-v13`, with assets under `dist/assets/press/2026-11-03-v13/`. The book is 23 pages. The complete ZIP and original screenshots/portraits are attached to the public release at `https://github.com/absmach/atomic-website/releases/tag/press-kit-2026-11-03`. Use `atomic-press-kit-2026-11-03-v13.zip` for the current kit; its checksum is supplied alongside it.
+The current edition is `2026-11-03-v14`, with assets under `dist/assets/press/2026-11-03-v14/`. The book is 23 pages. The complete ZIP and original screenshots/portraits are attached to the public release at `https://github.com/absmach/atomic-website/releases/tag/press-kit-2026-11-03`. Use `atomic-press-kit-2026-11-03-v14.zip` for the current kit; its checksum is supplied alongside it.
 
 `dist/press.css` provides the responsive page layout. Screenshot previews use optimized WebP files with explicit dimensions and lazy loading. Videos use `preload="none"`; the press page uses the approved widescreen launch cover for social sharing.
 
 For a new edition, use a new asset directory and versioned ZIP filename under the existing release tag. Update the document and media links, file sizes and metadata, then regenerate and check the site. Keep the ZIP out of `dist/` and Git history because of the Workers Static Assets per-file limit. Preserve earlier release files so previously shared links remain usable.
 
 Editorial requirement: the first product screenshot in every standalone product document must be the main page (`01-home.png`), including the product overview, announcement, facts sheet and FAQ. Verify the exported PDF and Word images, not only the book cover. The facts sheet uses the main page first and the builder second.
+
+The v14 team documents include the approved business portraits, corrected Filip Bugarski biography and LinkedIn/X links for all three team members. Portrait downloads have edition-specific filenames so earlier release links remain intact.
+
+## Favicons
+
+All pages use the shared Atomic SVG favicon, a multi-size `/favicon.ico`, a 32px PNG fallback and a 180px Apple touch icon. To regenerate raster icons after editing `dist/favicon.svg`, run `python3 scripts/generate-favicons.py` (requires Pillow and `rsvg-convert`), then rebuild the pages.
