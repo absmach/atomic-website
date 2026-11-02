@@ -111,3 +111,31 @@ html[data-theme=dark] .closing{background:#4a33b8}
 html[data-theme=dark] .brand-light{display:none}
 html[data-theme=dark] .brand-dark{display:block}
 
+/* Pricing, docs, blog, legal and about. */
+html[data-theme=dark] .pill{background:var(--soft);color:var(--violet-dark)}
+html[data-theme=dark] .price-card{background:var(--surface)}
+html[data-theme=dark] .price-card.featured{box-shadow:0 0 0 1px var(--violet),0 14px 45px #0006}
+html[data-theme=dark] .plan-overview{background:var(--surface-raised)}
+html[data-theme=dark] .featured .plan-overview{background:linear-gradient(145deg,#2a2148,#1f1a2c)}
+html[data-theme=dark] .table-wrap{background:var(--surface)}
+html[data-theme=dark] thead th{background:var(--surface-raised)}
+html[data-theme=dark] :is(th,td){border-color:var(--line)}
+html[data-theme=dark] .resource-card{background:var(--surface)}
+html[data-theme=dark] .resource-card:hover{border-color:#5b4a86}
+html[data-theme=dark] .resource-banner{background:#0e0c13;border:1px solid var(--line)}
+html[data-theme=dark] .search-field input{background:var(--surface);border-color:var(--line);color:var(--ink)}
+html[data-theme=dark] .article-card .article-cover{background:#2a2148;color:#d8caff}
+html[data-theme=dark] .article-card:nth-child(2) .article-cover{background:#1d2b26;color:#a9d3bf}
+html[data-theme=dark] .contents a{border-bottom-color:var(--line)}
+html[data-theme=dark] .prose{color:var(--text-soft)}
+html[data-theme=dark] .prose :is(h2,h3,h4,strong){color:var(--ink)}
+html[data-theme=dark] .prose blockquote,html[data-theme=dark] .prose code{background:var(--soft);color:#d8caff}
+html[data-theme=dark] .prose kbd,html[data-theme=dark] .prose .pager a{background:var(--surface);border-color:var(--line)}
+html[data-theme=dark] .prose .pager a:hover{border-color:#5b4a86}
+html[data-theme=dark] .notice{background:#201a30;border-color:#3a3150;color:var(--text-soft)}
+html[data-theme=dark] .notice strong{color:var(--ink)}
+html[data-theme=dark] .mini-cta{background:#18151e;border-top:1px solid var(--line)}
+html[data-theme=dark] .about-company .about-evidence{background:#0e0c13;border:1px solid var(--line)}
+html[data-theme=dark] .docs-nav a[aria-current=page]{background:var(--soft)}
+html[data-theme=dark] .doc-shot{box-shadow:0 14px 40px #0006}
+
