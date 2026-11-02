@@ -139,3 +139,39 @@ html[data-theme=dark] .about-company .about-evidence{background:#0e0c13;border:1
 html[data-theme=dark] .docs-nav a[aria-current=page]{background:var(--soft)}
 html[data-theme=dark] .doc-shot{box-shadow:0 14px 40px #0006}
 
+/* Solutions, early access and press. The solutions' app mock-ups keep their
+   own colours; their frames and the pages around them go dark. */
+html[data-theme=dark] .solutions-hero{background:radial-gradient(ellipse at 50% 75%,#2a2148 0,transparent 62%)}
+html[data-theme=dark] .collage-prompt{background:var(--surface);border-color:var(--line);box-shadow:0 10px 30px #0006}
+html[data-theme=dark] :is(.collage-site,.collage-store,.collage-portal){box-shadow:0 20px 55px #0008}
+html[data-theme=dark] .solution-filters button{border-color:var(--line);color:var(--text-soft)}
+html[data-theme=dark] .solution-filters button:hover{background:var(--soft);border-color:#5b4a86}
+html[data-theme=dark] .solution-filters button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#131118}
+html[data-theme=dark] .solution-card{background:var(--surface)}
+html[data-theme=dark] .solution-card:hover{border-color:#5b4a86;box-shadow:0 12px 32px #0006}
+html[data-theme=dark] .art-website{background:#1f2620}
+html[data-theme=dark] :is(.art-store,.art-internal){background:#29221c}
+html[data-theme=dark] .art-booking{background:#251d2c}
+html[data-theme=dark] .art-portal{background:#1c222b}
+html[data-theme=dark] .art-prototype{background:#25241a}
+html[data-theme=dark] .benefit-number{background:var(--soft)}
+html[data-theme=dark] .solution-plan-note{background:#201a30;border-color:#3a3150;color:var(--text-soft)}
+html[data-theme=dark] .solution-closing{background:#18151e;border-top-color:var(--line)}
+html[data-theme=dark] .solution-idea-form{background:var(--surface);border-color:var(--line);box-shadow:none}
+html[data-theme=dark] .solution-idea-form textarea{background:#15121b;border-color:#3a3150;color:var(--ink)}
+html[data-theme=dark] .solution-idea-form textarea::placeholder{color:#8a8098}
+html[data-theme=dark] .solution-detail-visual{border-color:var(--line)}
+html[data-theme=dark] .solution-detail-visual figcaption,html[data-theme=dark] .solution-detail-visual figcaption>span{color:var(--text-faint)}
+html[data-theme=dark] .solution-starting{background:#18151e;border-color:var(--line)}
+html[data-theme=dark] .solution-prompt,html[data-theme=dark] .solution-faq{background:var(--surface);border-color:var(--line)}
+html[data-theme=dark] .solution-prompt:hover{border-color:#5b4a86;box-shadow:none}
+html[data-theme=dark] .solution-related nav a:hover{background:var(--soft);border-color:#5b4a86}
+html[data-theme=dark] .press-catalog{color:var(--ink)}
+html[data-theme=dark] .press-intro .eyebrow{color:var(--violet)}
+html[data-theme=dark] .press-catalog p,html[data-theme=dark] .press-catalog small,html[data-theme=dark] .press-catalog article>span,html[data-theme=dark] .press-contact p{color:var(--muted)}
+html[data-theme=dark] .press-catalog a:not(.button){color:var(--violet-dark);text-decoration-color:#b4a1ff55}
+html[data-theme=dark] .press-sections{border-color:var(--line)}
+html[data-theme=dark] :is(.press-catalog article,.press-catalog figure){background:var(--surface);border-color:var(--line)}
+html[data-theme=dark] .press-catalog video{background:var(--soft)}
+html[data-theme=dark] :is(.press-catalog th,.press-catalog td){border-color:var(--line)}
+html[data-theme=dark] .press-contact{background:#18151e}
