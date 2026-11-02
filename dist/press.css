@@ -48,3 +48,9 @@
 }
 
 .press-intro .press-contact-link{display:inline-block;margin:14px 12px;font-size:14px}
+
+/* Light and dark variants of the November 2026 identity. */
+.press-catalog .brand-sample{height:145px;display:grid;place-items:center;background:#f7f5fb;border-radius:10px;padding:18px}
+.press-catalog .brand-sample.on-dark{background:#111118}
+.press-catalog .brand-sample img{display:block;width:100%;height:auto;max-height:110px;object-fit:contain}
+.press-catalog .logo-grid article:last-child img{width:100px}

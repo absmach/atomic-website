@@ -176,3 +176,9 @@ body { font-synthesis: none; }
     min-height:32px;padding:6px 14px;font-size:.72rem;
   }
 }
+
+/* Supplied outlined wordmark: keep the symbol and lettering as one asset. */
+.brand{width:max-content;max-width:100%;gap:0}
+.brand>img{display:block;width:154px;height:auto;max-width:100%}
+.footer-brand .brand>img{width:144px}
+@media(max-width:700px){.brand>img{width:136px}}

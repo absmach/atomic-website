@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#fff"/><g transform="translate(2 2)"><g fill="none" stroke="#5959e6" stroke-width="2"><ellipse cx="14" cy="14" rx="11.2" ry="4.6"/><ellipse cx="14" cy="14" rx="11.2" ry="4.6" transform="rotate(60 14 14)"/><ellipse cx="14" cy="14" rx="11.2" ry="4.6" transform="rotate(120 14 14)"/></g><circle cx="14" cy="14" r="3.1" fill="#5959e6"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-256 -256 512 512" role="img" aria-label="Atomic"><title>Atomic</title>
+<defs><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="-226" y1="0" x2="226" y2="0"><stop offset="0" stop-color="#4338ca"/><stop offset="1" stop-color="#7c72ff"/></linearGradient><linearGradient id="b" gradientUnits="userSpaceOnUse" x1="0" y1="-226" x2="0" y2="226"><stop offset="0" stop-color="#ff8a6b"/><stop offset="0.5" stop-color="#c95bb4"/><stop offset="1" stop-color="#7c72ff"/></linearGradient><clipPath id="front"><path d="M-400-400L400 400H-400Z"/></clipPath><clipPath id="back"><path d="M-400-400L400 400V-400Z"/></clipPath><filter id="s" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="16"/></filter><clipPath id="ia"><ellipse rx="226" ry="96"/></clipPath><clipPath id="ib"><ellipse rx="96" ry="226"/></clipPath></defs>
+<g transform="rotate(-20)">
+<ellipse rx="96" ry="226" fill="url(#b)"/>
+<g clip-path="url(#ib)"><g clip-path="url(#back)"><g filter="url(#s)"><ellipse rx="226" ry="96" fill="#1a1466" fill-opacity=".55"/></g></g></g>
+<ellipse rx="226" ry="96" fill="url(#a)"/>
+<g clip-path="url(#ia)"><g clip-path="url(#front)"><g filter="url(#s)"><ellipse rx="96" ry="226" fill="#1a1466" fill-opacity=".55"/></g></g></g>
+<g clip-path="url(#front)"><ellipse rx="96" ry="226" fill="url(#b)"/></g>
+</g>
+</svg>

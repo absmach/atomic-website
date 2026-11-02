@@ -78,12 +78,12 @@ Product images and the Atomic mark come from `~/ideas/vc/atomic/pitch-deck`. Ima
 
 Every page includes Open Graph and X large-image card metadata (`SOCIAL_IMAGE` in
 `scripts/build_site.py`; the homepage's tags are in `content/home.html`) pointing to
-`https://atomicapp.dev/assets/atomic-social-v3.png`. The 1200 × 630 PNG shows only
+`https://atomicapp.dev/assets/atomic-social-v4.png`. The 1200 × 630 PNG shows only
 the Atomic mark and name with the tagline “Imagine it. Build it.”, centred on the
 site’s paper background with a soft lavender glow, using the brand palette and the
 bundled Manrope font at the header and hero letter-spacing. Regenerate it with
-`python3 scripts/render-social-card.py` (requires Pillow with FreeType/WOFF2
-support for authoring; the website still has no runtime dependencies).
+`python3 scripts/render-social-card.py` (requires Node, Playwright and Chromium
+for authoring; the website still has no runtime dependencies).
 
 Deploy `dist/index.html` and the image together to the public domain. Verify
 that the image URL returns an actual PNG without authentication. When changing
@@ -138,7 +138,7 @@ Legal review is required before launch to finalize processor/provider details, a
 
 `content/press.html` leads with the illustrated press book and nine individual documents, supplied as PDF, editable Word and plain text. Product screenshots can be viewed and downloaded directly from the page. Logos, portraits, three launch-film formats and their covers are also available. The Resources footer links to `/press/` on every page.
 
-The current edition is `2026-11-03-v14`, with assets under `dist/assets/press/2026-11-03-v14/`. The book is 23 pages. The complete ZIP and original screenshots/portraits are attached to the public release at `https://github.com/absmach/atomic-website/releases/tag/press-kit-2026-11-03`. Use `atomic-press-kit-2026-11-03-v14.zip` for the current kit; its checksum is supplied alongside it.
+The current edition is `2026-11-03-v15`, with assets under `dist/assets/press/2026-11-03-v15/`. The book is 23 pages. The complete ZIP and original screenshots/portraits are attached to the public release at `https://github.com/absmach/atomic-website/releases/tag/press-kit-2026-11-03`. Use `atomic-press-kit-2026-11-03-v15.zip` for the current kit; its checksum is supplied alongside it.
 
 `dist/press.css` provides the responsive page layout. Screenshot previews use optimized WebP files with explicit dimensions and lazy loading. Videos use `preload="none"`; the press page uses the approved widescreen launch cover for social sharing.
 
@@ -146,8 +146,32 @@ For a new edition, use a new asset directory and versioned ZIP filename under th
 
 Editorial requirement: the first product screenshot in every standalone product document must be the main page (`01-home.png`), including the product overview, announcement, facts sheet and FAQ. Verify the exported PDF and Word images, not only the book cover. The facts sheet uses the main page first and the builder second.
 
-The v14 team documents include the approved business portraits, corrected Filip Bugarski biography and LinkedIn/X links for all three team members. Portrait downloads have edition-specific filenames so earlier release links remain intact.
+The team documents include the approved business portraits, corrected Filip Bugarski biography and LinkedIn/X links for all three team members. Portrait downloads have edition-specific filenames so earlier release links remain intact.
 
 ## Favicons
 
 All pages use the shared Atomic SVG favicon, a multi-size `/favicon.ico`, a 32px PNG fallback and a 180px Apple touch icon. To regenerate raster icons after editing `dist/favicon.svg`, run `python3 scripts/generate-favicons.py` (requires Pillow and `rsvg-convert`), then rebuild the pages.
+
+## November 2 brand refresh
+
+The shared header and footer use the supplied uppercase Atomic SVG lockup, with
+its original outlined lettering. Composer and solution icons use the new gradient
+symbol. `dist/assets/brand/originals/` retains all 12 supplied source files,
+including the lowercase and dark-background alternatives. Brand URLs, favicon
+queries, shared styles and the social card are versioned to refresh caches.
+
+The v15 press edition uses the new logo in documents, gallery frames and social
+covers. Recorded product screenshots and existing films retain the identity
+visible when captured. Earlier press assets remain available at their original
+URLs. New release attachments use edition-specific filenames, including screenshots.
+
+Import a prepared kit with `PRESS_KIT_DIR=/absolute/path/to/atomic-press-kit-2026-11-03-v15
+PRESS_RELEASE_STAGE=/absolute/path/to/release-staging python3 scripts/import-press-kit.py`
+(as one command), then run the normal site build and checks. Upload the staged
+attachments to the existing `press-kit-2026-11-03` GitHub release before deploying
+the page. The ZIP stays outside Git and the static hosting directory.
+
+For social-card rendering, set `PLAYWRIGHT_MODULE` to an installed Playwright
+module and `CHROME_BIN` to Chromium if those are not available by default.
+`python3 scripts/render-social-card.py` calls the SVG-based browser renderer;
+it uses the exact supplied logo and the bundled Manrope font.
