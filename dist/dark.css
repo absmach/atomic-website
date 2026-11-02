@@ -1,0 +1,113 @@
+/* Dark theme. `site.js` and the script in every page's head set
+   `data-theme` on <html> from the visitor's choice, or from their system's
+   when they made none. Every rule here hangs off it, so there is one set.
+
+   Pictures of apps -- the home page's examples and demo, the solutions'
+   mock-ups, product screenshots -- stay as the apps are, light: recoloured,
+   they would show a product that does not exist. The rule after the
+   tokens puts the light ones back inside them. */
+
+html[data-theme=dark]{
+  color-scheme:dark;
+  --paper:#131118;--ink:#ece8f4;--muted:#a39bae;
+  --violet:#7c5cff;--violet-dark:#b4a1ff;
+  --line:#2f2a39;--soft:#221e2b;
+  --surface:#1b1822;--surface-raised:#221e2a;--text-soft:#c4bccf;--text-faint:#8f879a
+}
+html[data-theme=dark] :is(.demo-app,.app-mock,.preview-image,.showcase-stage .product-figure,.doc-shot,.press-catalog figure img){
+  color-scheme:light;
+  --paper:#fbfaf8;--ink:#221c30;--muted:#696471;--violet:#6544ed;--violet-dark:#5031d3;--line:#dfdbe3;--soft:#eeebf7;
+  color:var(--ink)
+}
+
+/* The switch: one button, showing what the theme follows now. */
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;flex-shrink:0;border-radius:50%;background:transparent;color:var(--muted);transition:background .15s,color .15s}
+.theme-toggle:hover{background:var(--soft);color:var(--ink)}
+.theme-toggle svg{width:19px;height:19px;display:none}
+html:not([data-theme-choice]) .theme-icon-system,
+html[data-theme-choice=system] .theme-icon-system,
+html[data-theme-choice=light] .theme-icon-light,
+html[data-theme-choice=dark] .theme-icon-dark{display:block}
+
+/* Shared: base, buttons, header, footer, dialogs. */
+html[data-theme=dark] ::selection{background:#4c3a96;color:#fff}
+html[data-theme=dark] .button{background:var(--ink);color:#131118}
+html[data-theme=dark] .button:hover{background:#fff}
+html[data-theme=dark] .button-primary,html[data-theme=dark] .header-actions>.button{background:var(--violet);color:#fff;box-shadow:none}
+html[data-theme=dark] .button-primary:hover,html[data-theme=dark] .header-actions>.button:hover{background:#6544ed;color:#fff}
+html[data-theme=dark] .button-secondary{background:transparent;color:var(--ink);border-color:var(--line)}
+html[data-theme=dark] .button-secondary:hover{background:var(--soft)}
+html[data-theme=dark] .skip-link{background:var(--surface)}
+html[data-theme=dark] .site-header{border-bottom-color:var(--line)}
+html[data-theme=dark] .desktop-nav a{color:var(--text-soft)}
+html[data-theme=dark] .desktop-nav a[aria-current]{color:var(--violet-dark)}
+html[data-theme=dark] .mobile-nav{box-shadow:0 20px 25px #0006}
+html[data-theme=dark] .mobile-nav a{border-bottom-color:var(--line)}
+html[data-theme=dark] .site-footer{background:var(--paper);border-top:1px solid var(--line)}
+html[data-theme=dark] .site-footer p{color:var(--text-faint)}
+html[data-theme=dark] .site-footer nav a,html[data-theme=dark] .site-footer .footer-column a{color:var(--text-soft)}
+html[data-theme=dark] .footer-row>span{color:var(--text-faint)}
+html[data-theme=dark] .social-icon{background:var(--soft);border-color:var(--line)}
+html[data-theme=dark] .social-link:hover .social-icon,html[data-theme=dark] .social-link:focus-visible .social-icon{background:#2c2540}
+html[data-theme=dark] #access-dialog{background:var(--surface);border-color:var(--line);box-shadow:0 30px 100px #000a}
+html[data-theme=dark] #access-dialog::backdrop{background:#000b}
+html[data-theme=dark] .dialog-close{background:var(--soft);color:var(--text-soft)}
+html[data-theme=dark] .access-card{background:var(--surface);border-color:var(--line);box-shadow:0 24px 70px #0007}
+html[data-theme=dark] .access-wizard :is(textarea,input[type=text],input[type=email]),
+html[data-theme=dark] .idea-form textarea{background:#15121b;border-color:#3a3150;color:var(--ink)}
+html[data-theme=dark] .idea-form textarea::placeholder{color:#8a8098}
+html[data-theme=dark] .form-error{color:#ff8a80}
+html[data-theme=dark] .noscript-note{background:var(--soft)}
+html[data-theme=dark] .cookie-panel{background:var(--surface);border-color:var(--line);box-shadow:0 8px 25px #0008}
+html[data-theme=dark] .cookie-panel.is-customizing,html[data-theme=dark] .cookie-options label{background:var(--surface-raised)}
+
+/* Home. */
+html[data-theme=dark] .prompt-hero::before{background:
+  radial-gradient(ellipse at 50% 22%,#131118 15%,#13111800 68%),
+  radial-gradient(ellipse at 4% 82%,#3d2a7a 0,#2a1f5070 40%,#2a1f5000 68%),
+  radial-gradient(ellipse at 100% 95%,#46275e 0,#2f1d4070 40%,#2f1d4000 68%),
+  linear-gradient(180deg,#131118 0%,#16131d 55%,#231a38 100%)}
+html[data-theme=dark] .prompt-intro{color:var(--muted)}
+html[data-theme=dark] .prompt-composer{background:var(--surface);border-color:#3a3150;box-shadow:0 20px 55px #0006}
+html[data-theme=dark] .prompt-composer:focus-within,html[data-theme=dark] .prompt-composer:has(textarea:focus-visible){border-color:#7c5cff;box-shadow:0 20px 55px #0006,0 0 0 3px #7c5cff33}
+html[data-theme=dark] .prompt-composer textarea{background:transparent;color:var(--ink)}
+html[data-theme=dark] .prompt-composer textarea::placeholder{color:#8a8098}
+html[data-theme=dark] .composer-footer>span,html[data-theme=dark] .prompt-launch-note{color:var(--text-faint)}
+html[data-theme=dark] .prompt-suggestions button{background:#1b182299;border-color:var(--line);color:var(--text-soft)}
+html[data-theme=dark] .prompt-suggestions button:hover{background:var(--surface-raised);border-color:#5b4a86}
+html[data-theme=dark] .preview-tile small{color:var(--text-faint)}
+html[data-theme=dark] .examples{background:var(--paper)}
+html[data-theme=dark] .example-tabs button{border-color:var(--line);color:var(--text-soft)}
+html[data-theme=dark] .example-tabs button span{color:var(--text-faint)}
+html[data-theme=dark] .example-tabs button:hover{background:var(--soft);border-color:#5b4a86}
+html[data-theme=dark] .example-tabs button.selected{background:var(--ink);border-color:var(--ink);color:#131118}
+html[data-theme=dark] .example-tabs button.selected span{color:#5f5770}
+html[data-theme=dark] .demo-frame{background:var(--surface);border-color:var(--line)}
+html[data-theme=dark] .demo-toolbar{background:var(--surface-raised);border-bottom-color:var(--line)}
+html[data-theme=dark] :is(.demo-label,.demo-toolbar button,.demo-brief .eyebrow,.demo-brief>div>p){color:var(--text-faint)}
+html[data-theme=dark] .demo-brief{background:var(--surface);border-color:var(--line)}
+html[data-theme=dark] .demo-stage{background:#1f1b28}
+html[data-theme=dark] .workflow{border-bottom-color:var(--line)}
+html[data-theme=dark] .workflow-steps li{border-top-color:#3a3150}
+html[data-theme=dark] .builder-section{background:#18151e}
+html[data-theme=dark] .view-switch{background:var(--soft);border-color:var(--line)}
+html[data-theme=dark] .view-switch button{color:var(--text-faint)}
+html[data-theme=dark] .view-switch button:hover{color:var(--ink)}
+html[data-theme=dark] .view-switch button.selected{background:#332c45;color:#fff;box-shadow:none}
+html[data-theme=dark] .showcase-stage{border-color:var(--line);background:radial-gradient(ellipse at 5% 40%,#2e2150 0,transparent 60%),radial-gradient(ellipse at 100% 90%,#26224d,transparent 60%),#1b1724}
+html[data-theme=dark] .showcase-stage::before{border-color:#ffffff14;background:#ffffff08}
+html[data-theme=dark] :is(.showcase-stage-label,.showcase-notes p){color:var(--text-faint)}
+html[data-theme=dark] .showcase-kicker,html[data-theme=dark] .showcase-notes strong{color:#c9b6ef}
+html[data-theme=dark] .product-figure{background:#2a2338;border-color:#3a3150;box-shadow:none}
+html[data-theme=dark] .product-figure figcaption{color:var(--text-soft)}
+html[data-theme=dark] .foundation{background:#0e0c13}
+html[data-theme=dark] .faq-list,html[data-theme=dark] .faq-list details{border-color:var(--line)}
+html[data-theme=dark] .faq-list details>p{color:var(--muted)}
+html[data-theme=dark] .home-pricing{background:#18151e}
+html[data-theme=dark] .closing{background:#4a33b8}
+
+/* The wordmark's lettering is dark; a light copy shows on dark pages. */
+:root .brand-dark{display:none}
+html[data-theme=dark] .brand-light{display:none}
+html[data-theme=dark] .brand-dark{display:block}
+

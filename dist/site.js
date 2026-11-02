@@ -178,3 +178,29 @@ if (docsNav) {
   if (!choice) show(false);
   else wrap.hidden = true;
 })();
+
+// Theme: match the system, light, or dark, in turn. The page's head script
+// applied the saved choice before drawing; this keeps it and follows the
+// system while that is the choice.
+{
+  const root = document.documentElement;
+  const system = window.matchMedia('(prefers-color-scheme: dark)');
+  const labels = {system: 'Theme: match system', light: 'Theme: light', dark: 'Theme: dark'};
+  const next = {system: 'light', light: 'dark', dark: 'system'};
+  const apply = choice => {
+    root.dataset.themeChoice = choice;
+    root.dataset.theme = choice === 'dark' || (choice === 'system' && system.matches) ? 'dark' : 'light';
+    document.querySelectorAll('[data-theme-toggle]').forEach(button => {
+      button.setAttribute('aria-label', labels[choice]);
+      button.title = labels[choice];
+    });
+  };
+  apply(root.dataset.themeChoice || 'system');
+  document.addEventListener('click', event => {
+    if (!event.target.closest('[data-theme-toggle]')) return;
+    const choice = next[root.dataset.themeChoice] || 'light';
+    try { choice === 'system' ? localStorage.removeItem('atomic-theme') : localStorage.setItem('atomic-theme', choice); } catch (_) {}
+    apply(choice);
+  });
+  system.addEventListener('change', () => apply(root.dataset.themeChoice || 'system'));
+}

@@ -29,6 +29,8 @@ Documentation screenshots in `dist/assets/docs/` are 1440 px wide captures of a 
 
 The header has the logo on the left, Product, Solutions, Docs, Blog, Pricing, and About centred, and a Request early access button on the right; the mobile menu ends with the same link. The footer includes all six solution pages. Resources is a footer grouping for Documentation, Blog, Security & trust, About Atomic, and Contact; there is no separate Resources page.
 
+Every page has a light and a dark theme. It follows the visitor's system until they choose with the header's theme button (match system, light, dark), which is remembered in the browser. A script in each page's head applies it before the page is drawn; `dist/dark.css` holds the dark rules, all under `html[data-theme=dark]`. Pictures of apps (the home page's examples and demo, solution mock-ups, product screenshots) keep their light colours in both themes.
+
 Every page includes shared responsive navigation, a skip link, and an Atomic-led footer. The footer links to Atomic's X and Instagram profiles and Abstract Machines' GitHub and LinkedIn profiles. Nested pages use root-relative links and work on a host serving `dist/` at its root.
 
 ## Before public launch
