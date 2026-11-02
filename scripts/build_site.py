@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / 'dist'
 CONTACT = 'mailto:info@absmach.eu'
 # Social preview card for every page; regenerate with scripts/render-social-card.py.
-SOCIAL_IMAGE = 'https://atomicapp.dev/assets/atomic-social-v4.png'
+SOCIAL_IMAGE = 'https://atomicapp.dev/assets/atomic-social-v5.png'
 SOCIAL_ALT = 'Atomic — Imagine it. Build it.'
 FAVICON_LINKS = '<link rel="icon" href="/favicon.ico?v=20261102" sizes="any" /><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261102" /><link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261102" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261102" />'
 NAV = [('Product', '/'), ('Solutions', '/solutions/'), ('Docs', '/docs/'), ('Blog', '/blog/'), ('Pricing', '/pricing/'), ('About', '/about/')]
@@ -21,7 +21,7 @@ def link(label, url, active=''):
 def header(active):
     links = ''.join(link(label, url, active) for label, url in NAV)
     return f'''<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="container header-row"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic-logo-v2.svg" width="1512" height="512" alt="" /></a><nav class="desktop-nav" aria-label="Main navigation">{links}</nav><div class="header-actions"><a class="button button-small" href="/early-access/"><span class="cta-full">Request early access</span><span class="cta-short">Early access</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button></div></div><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>{links}<a href="/early-access/">Request early access</a></nav></header>'''
+<header class="site-header"><div class="container header-row"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic-logo-lowercase-v3.svg" width="1462" height="512" alt="" /></a><nav class="desktop-nav" aria-label="Main navigation">{links}</nav><div class="header-actions"><a class="button button-small" href="/early-access/"><span class="cta-full">Request early access</span><span class="cta-short">Early access</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation"><span></span><span></span></button></div></div><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>{links}<a href="/early-access/">Request early access</a></nav></header>'''
 
 def social_links():
     icons = {
@@ -46,7 +46,7 @@ def footer():
         ('Legal', [('Legal overview', '/legal/'), ('Privacy', '/legal/privacy/'), ('Terms of Service', '/legal/terms/'), ('Acceptable Use', '/legal/acceptable-use/'), ('Data Processing', '/legal/dpa/'), ('Subprocessors', '/legal/subprocessors/'), ('Cookies & storage', '/legal/cookies/')])
     ]
     menus = ''.join(f'<nav class="footer-column" aria-label="{title}"><h2>{title}</h2>{"".join(link(label,url) for label,url in items)}</nav>' for title, items in columns)
-    return f'''<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic-logo-v2.svg" width="1512" height="512" alt="" /></a><p>Small idea. Real possibilities.<br />Build what comes next.</p><div class="social-placeholders" role="group" aria-label="Atomic and Abstract Machines social channels">{social_links()}</div><p class="social-note">Follow Atomic and Abstract Machines</p></div>{menus}</div><div class="footer-bottom"><span>© <span id="year">2026</span> Atomic. A product by <a href="https://absmach.eu" target="_blank" rel="noopener noreferrer">Abstract Machines</a>.</span><span>Describe it. Shape it. Make it real.</span></div></div></footer>'''
+    return f'''<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/" aria-label="Atomic home"><img src="/assets/atomic-logo-lowercase-v3.svg" width="1462" height="512" alt="" /></a><p>Small idea. Real possibilities.<br />Build what comes next.</p><div class="social-placeholders" role="group" aria-label="Atomic and Abstract Machines social channels">{social_links()}</div><p class="social-note">Follow Atomic and Abstract Machines</p></div>{menus}</div><div class="footer-bottom"><span>© <span id="year">2026</span> Atomic. A product by <a href="https://absmach.eu" target="_blank" rel="noopener noreferrer">Abstract Machines</a>.</span><span>Describe it. Shape it. Make it real.</span></div></div></footer>'''
 
 def page(path, title, description, body, active='', draft=False, extra_head='', canonical='', social_card=None):
     folder = DIST / path
@@ -60,7 +60,7 @@ def page(path, title, description, body, active='', draft=False, extra_head='', 
         extra_head += f'<link rel="canonical" href="https://atomicapp.dev{canonical}" /><meta property="og:url" content="https://atomicapp.dev{canonical}" />'
     extra_head += f'<meta property="og:image" content="{image_url}" /><meta property="og:image:type" content="image/png" /><meta property="og:image:width" content="{image_width}" /><meta property="og:image:height" content="{image_height}" /><meta property="og:image:alt" content="{image_alt}" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:image:alt" content="{image_alt}" />'
     robots += extra_head
-    html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#191329" /><title>{escape(title)} — Atomic</title><meta name="description" content="{escape(description, quote=True)}" /><meta property="og:title" content="{escape(title, quote=True)} — Atomic" /><meta property="og:description" content="{escape(description, quote=True)}" /><meta property="og:type" content="website" />{robots}{FAVICON_LINKS}<link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin /><link rel="stylesheet" href="/styles.css" /><link rel="stylesheet" href="/pages.css?v=20261102-brand" /><link rel="stylesheet" href="/early-access.css?v=20261029-early-access-page" /><script src="/site.js?v=20261029-cookie-banner" defer></script><script src="/early-access.js?v=20261029-early-access-page" defer></script></head><body>{header(active)}<main id="main">{body}</main>{footer()}</body></html>'''
+    html = f'''<!doctype html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#191329" /><title>{escape(title)} — Atomic</title><meta name="description" content="{escape(description, quote=True)}" /><meta property="og:title" content="{escape(title, quote=True)} — Atomic" /><meta property="og:description" content="{escape(description, quote=True)}" /><meta property="og:type" content="website" />{robots}{FAVICON_LINKS}<link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin /><link rel="stylesheet" href="/styles.css" /><link rel="stylesheet" href="/pages.css?v=20261102-lowercase" /><link rel="stylesheet" href="/early-access.css?v=20261029-early-access-page" /><script src="/site.js?v=20261029-cookie-banner" defer></script><script src="/early-access.js?v=20261029-early-access-page" defer></script></head><body>{header(active)}<main id="main">{body}</main>{footer()}</body></html>'''
     (folder / 'index.html').write_text(html)
 
 def hero(kicker, title, intro, center=False, extra=''):
@@ -90,7 +90,7 @@ home = re.sub(r'(?m)^[ \t]+$', '', home)
 home = home.replace('</head>', FAVICON_LINKS + '\n</head>')
 home = re.sub(r'  <a class="skip-link".*?</header>', header('/'), home, count=1, flags=re.S)
 home = re.sub(r'<footer class="site-footer">.*?</footer>', footer(), home, count=1, flags=re.S)
-home = home.replace('<script src="app.js" defer></script>', '<link rel="stylesheet" href="/pages.css?v=20261102-brand" />\n  <script src="/site.js?v=20261029-cookie-banner" defer></script>\n  <script src="/app.js" defer></script>')
+home = home.replace('<script src="app.js" defer></script>', '<link rel="stylesheet" href="/pages.css?v=20261102-lowercase" />\n  <script src="/site.js?v=20261029-cookie-banner" defer></script>\n  <script src="/app.js?v=20261102-lowercase" defer></script>')
 home = home.replace('<script src="early-access.js" defer></script>', '<script src="/early-access.js?v=20261029-early-access-page" defer></script>')
 home = home.replace('We’ll share availability and final plan details as launch approaches.', 'Explore our <a class="text-action" href="/pricing/">proposed launch plans</a>, with Free, Builder, and Pro. Subscriptions are not open yet.')
 home = home.replace('<section class="faq-section', '<section class="home-pricing"><div class="container"><div><p class="eyebrow">ROOM FOR YOUR NEXT IDEA</p><h2>Start small. Build from there.</h2><p>Start with Free, build with Builder at $25/month, or grow with Pro at $50/month.</p></div><a href="/pricing/" class="button button-secondary">Explore launch plans <span aria-hidden="true">↗</span></a></div></section>\n<section class="faq-section')
@@ -439,5 +439,5 @@ render_solutions(page)
 press_content=(ROOT/'content/press.html').read_text()
 press_cover=re.search(r'href="([^"]*/06-social/atomic-launch-widescreen-cover\.png)"',press_content)
 if not press_cover:raise ValueError('The press page needs its matching widescreen cover.')
-page('press','Press kit','Read the Atomic press book and download product information, editorial documents, screenshots, logos and launch films.',press_content,extra_head='<link rel="stylesheet" href="/press.css?v=20261102-brand" />',social_card=('https://atomicapp.dev'+press_cover[1],'Atomic — Big idea? Make it real.',1920,1080))
+page('press','Press kit','Read the Atomic press book and download product information, editorial documents, screenshots, logos and launch films.',press_content,extra_head='<link rel="stylesheet" href="/press.css?v=20261102-lowercase" />',social_card=('https://atomicapp.dev'+press_cover[1],'Atomic — Big idea? Make it real.',1920,1080))
 print(f'Generated {len(list(DIST.rglob("*.html")))} HTML pages.')

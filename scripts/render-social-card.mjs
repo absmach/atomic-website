@@ -6,7 +6,7 @@ import {fileURLToPath} from 'node:url';
 const {chromium}=await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const font=(await readFile(join(root,'dist/assets/fonts/manrope-latin.woff2'))).toString('base64');
-const logo=(await readFile(join(root,'dist/assets/atomic-logo-v2.svg'))).toString('base64');
+const logo=(await readFile(join(root,'dist/assets/atomic-logo-lowercase-v3.svg'))).toString('base64');
 const browser=await chromium.launch({headless:true,...(process.env.CHROME_BIN?{executablePath:process.env.CHROME_BIN}:{}),args:['--no-sandbox']});
 try {
   const page=await browser.newPage({viewport:{width:1200,height:630},deviceScaleFactor:1});
@@ -16,6 +16,6 @@ try {
   img{width:550px;height:auto;display:block}h1{font-size:52px;letter-spacing:-2px;line-height:1.2;font-weight:650;margin:25px 0 0}
   </style></head><body><img src="data:image/svg+xml;base64,${logo}" alt="Atomic"><h1>Imagine it. Build it.</h1></body></html>`);
   await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode()));});
-  await page.screenshot({path:join(root,'dist/assets/atomic-social-v4.png')});
-  console.log('Rendered dist/assets/atomic-social-v4.png (1200 × 630).');
+  await page.screenshot({path:join(root,'dist/assets/atomic-social-v5.png')});
+  console.log('Rendered dist/assets/atomic-social-v5.png (1200 × 630).');
 } finally {await browser.close();}

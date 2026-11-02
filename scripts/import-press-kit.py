@@ -31,7 +31,7 @@ def release_asset(relative):
 def preview(relative):
  source=KIT/relative
  name=source.stem+'.webp';target=ASSETS/'previews'/name;target.parent.mkdir(exist_ok=True)
- im=Image.open(source);im.thumbnail((960,960));im.convert('RGB').save(target,'WEBP',quality=88,method=6)
+ im=Image.open(source);im.thumbnail((1920,1920));im.convert('RGB').save(target,'WEBP',quality=92,method=6)
  return PUBLIC+'previews/'+name,im.size
 
 archive=KIT.with_suffix('.zip');shutil.copyfile(archive,STAGE/archive.name)

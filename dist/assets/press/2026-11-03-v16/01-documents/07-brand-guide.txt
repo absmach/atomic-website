@@ -1,0 +1,28 @@
+Brand guide
+Present Atomic clearly.
+Use the supplied gradient symbol and outlined wordmark. The primary lockup in this kit is lowercase “atomic”; the uppercase alternative is included.
+Colour and artwork
+The symbol blends indigo #4338CA, violet #7C72FF, coral #FF8A6B and magenta #C95BB4. Light-background lettering is #16161D. Preserve the supplied gradients, overlap and shading.
+Choose a background
+Use the standard version on light backgrounds and the dark-background version with light lettering on dark backgrounds. Both retain the coloured symbol. Use the standalone symbol for compact placements.
+Space and legibility
+Leave clear space of at least half the symbol’s height around the logo. As a starting point, use the lockup at 120 pixels wide or larger and the symbol at 24 pixels or larger; check legibility at final size.
+Keep the identity intact
+Do not stretch, recolour, re-typeset or add effects. Write “Atomic” in editorial text. Manrope remains the document and campaign typeface; the supplied logo lettering is already outlined.
+
+Brand guide
+Present Atomic clearly.
+Choose the right file
+SVG
+Original vector masters, including gradients, shading and outlined lettering. Best for web and design work.
+Transparent PNG
+512 and 2048 pixels wide, for slides, documents and social graphics.
+PDF
+Appearance-preserving exports for page layout. Shadow filters may contain raster elements; use SVG as the master.
+Originals
+All 12 supplied files, including light/dark lockups, the symbol and logo application mockups.
+Social covers and product media
+Widescreen, square and vertical covers use the new primary lockup with “Big idea? Make it real.” Choose the supplied format rather than cropping another layout.
+The logo files, document branding, presentation frames and social covers use the 2 November 2026 identity. App screenshot branding uses the current lowercase identity. The three existing films retain the identity visible when recorded. Supplied logo application mockups are design references, not product captures.
+Editorial credits
+Courtesy of Atomic / Abstract Machines. For portraits: Courtesy of Abstract Machines. The Manrope licence is included under assets. Sample-app photographs remain part of product screenshots and are not standalone stock assets.

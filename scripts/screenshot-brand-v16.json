@@ -1,0 +1,471 @@
+{
+  "description": "SVG screenshot composites preserve the embedded source pixels outside the logo regions. Background scanline rectangles use crispEdges to prevent seams at fractional scales. Regions are x, y, width, height, logo type.",
+  "screenshots": [
+    {
+      "source": "dist/assets/docs/template-preview.jpg",
+      "svg": "dist/assets/screenshots-v16/template-preview.svg",
+      "size": [
+        1440,
+        1060
+      ],
+      "logo_regions": [
+        [
+          18,
+          19,
+          94,
+          35,
+          "lockup"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/brief.jpg",
+      "svg": "dist/assets/screenshots-v16/brief.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          18,
+          19,
+          94,
+          35,
+          "lockup"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/screens-menu.jpg",
+      "svg": "dist/assets/screenshots-v16/screens-menu.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          14,
+          12,
+          23,
+          23,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/template-data.jpg",
+      "svg": "dist/assets/screenshots-v16/template-data.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          18,
+          19,
+          94,
+          35,
+          "lockup"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/builds-failed.jpg",
+      "svg": "dist/assets/screenshots-v16/builds-failed.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          18,
+          19,
+          94,
+          35,
+          "lockup"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/account-register.jpg",
+      "svg": "dist/assets/screenshots-v16/account-register.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          662,
+          148,
+          118,
+          44,
+          "lockup"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/use-template.jpg",
+      "svg": "dist/assets/screenshots-v16/use-template.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          18,
+          19,
+          94,
+          35,
+          "lockup"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/play-as-owner.jpg",
+      "svg": "dist/assets/screenshots-v16/play-as-owner.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          15,
+          32,
+          23,
+          23,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/new-app.jpg",
+      "svg": "dist/assets/screenshots-v16/new-app.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          18,
+          19,
+          94,
+          35,
+          "lockup"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/annotation.jpg",
+      "svg": "dist/assets/screenshots-v16/annotation.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          14,
+          12,
+          23,
+          23,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/templates-gallery.jpg",
+      "svg": "dist/assets/screenshots-v16/templates-gallery.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          18,
+          19,
+          94,
+          35,
+          "lockup"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/logs.jpg",
+      "svg": "dist/assets/screenshots-v16/logs.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          15,
+          12,
+          22,
+          22,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/version-history.jpg",
+      "svg": "dist/assets/screenshots-v16/version-history.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          16,
+          33,
+          21,
+          21,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/design-type.jpg",
+      "svg": "dist/assets/screenshots-v16/design-type.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          14,
+          12,
+          23,
+          23,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/builds.jpg",
+      "svg": "dist/assets/screenshots-v16/builds.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          18,
+          19,
+          94,
+          35,
+          "lockup"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/canvas.jpg",
+      "svg": "dist/assets/screenshots-v16/canvas.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          14,
+          12,
+          23,
+          23,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/dashboard.jpg",
+      "svg": "dist/assets/screenshots-v16/dashboard.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          18,
+          19,
+          94,
+          35,
+          "lockup"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/canvas-board.jpg",
+      "svg": "dist/assets/screenshots-v16/canvas-board.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          14,
+          12,
+          23,
+          23,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/canvas-selected.jpg",
+      "svg": "dist/assets/screenshots-v16/canvas-selected.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          14,
+          12,
+          23,
+          23,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/code.jpg",
+      "svg": "dist/assets/screenshots-v16/code.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          14,
+          12,
+          23,
+          23,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/canvas-tweaks.jpg",
+      "svg": "dist/assets/screenshots-v16/canvas-tweaks.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          14,
+          12,
+          23,
+          23,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/build-running.jpg",
+      "svg": "dist/assets/screenshots-v16/build-running.svg",
+      "size": [
+        1440,
+        560
+      ],
+      "logo_regions": [
+        [
+          15,
+          12,
+          21,
+          21,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/preview-mobile.jpg",
+      "svg": "dist/assets/screenshots-v16/preview-mobile.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          15,
+          12,
+          22,
+          22,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/app-page-labelled.jpg",
+      "svg": "dist/assets/screenshots-v16/app-page-labelled.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          15,
+          12,
+          22,
+          22,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/docs/design-choices.jpg",
+      "svg": "dist/assets/screenshots-v16/design-choices.svg",
+      "size": [
+        1440,
+        900
+      ],
+      "logo_regions": [
+        [
+          14,
+          12,
+          23,
+          23,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/builder.png",
+      "svg": "dist/assets/screenshots-v16/builder.svg",
+      "size": [
+        2560,
+        1640
+      ],
+      "logo_regions": [
+        [
+          38,
+          34,
+          48,
+          48,
+          "symbol"
+        ],
+        [
+          36,
+          516,
+          40,
+          40,
+          "symbol"
+        ]
+      ]
+    },
+    {
+      "source": "dist/assets/source.png",
+      "svg": "dist/assets/screenshots-v16/source.svg",
+      "size": [
+        2560,
+        1640
+      ],
+      "logo_regions": [
+        [
+          38,
+          34,
+          48,
+          48,
+          "symbol"
+        ]
+      ]
+    }
+  ]
+}

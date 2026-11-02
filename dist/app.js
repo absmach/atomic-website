@@ -1,7 +1,7 @@
 // Homepage product demonstrations and email draft flow. Shared navigation is in site.js.
 const views = {
-  builder: { src: 'assets/builder.png', alt: 'Illustrative Atomic builder with a conversation and studio booking app preview.', caption: 'A conversation on the left. Your app coming to life on the right.' },
-  source: { src: 'assets/source.png', alt: 'Illustrative Atomic source browser showing the booking app source files and code.', caption: 'See what was built. Browse your files. Keep your source.' }
+  builder: { src: 'assets/screenshots-v16/builder.svg', alt: 'Illustrative Atomic builder with a conversation and studio booking app preview.', caption: 'A conversation on the left. Your app coming to life on the right.' },
+  source: { src: 'assets/screenshots-v16/source.svg', alt: 'Illustrative Atomic source browser showing the booking app source files and code.', caption: 'See what was built. Browse your files. Keep your source.' }
 };
 document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {
   const view = views[button.dataset.view];
