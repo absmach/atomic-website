@@ -1,0 +1,30 @@
+Atomic supplied logo — verified typeface identity
+
+Family: Inter
+Style: SemiBold
+Weight: 600
+Matching font release: Inter 3.19 (font version 3.019)
+Official source: https://github.com/rsms/inter/releases/tag/v3.19
+
+Verification: the complete glyph segment structure and control points for both
+atomic-logo-malo.svg (atomic) and atomic-logo-veliko.svg (Atomic) match the
+Inter SemiBold font, after scale and translation, within the SVG coordinate
+rounding tolerance. Maximum coordinate discrepancy is below 0.061 SVG units.
+Both supplied light/dark variants retain these same letter shapes.
+
+The SVGs contain outlined letters and do not require a font to render.
+The original supplied artwork remains unchanged.
+
+Previous website identity: lowercase atomic in Manrope, weight 600,
+letter spacing -0.075em, beside the purple orbit symbol.
+
+Decision: keep the current supplied Inter SemiBold wordmark. The lighter
+comparison was a local study and has not been applied to the website.
+
+Verification script: scripts/audit-logo-font.py
+Detailed report: output/logo-font-audit/verified-font-identity.json
+
+MONOCHROME: use the masters under monochrome/. The symbol must have four
+separate shapes with transparent overlap gaps, matching the supplied black
+reference. Black and white variants use identical geometry. Never flatten
+the colour symbol into a solid silhouette. The wordmark remains unchanged.

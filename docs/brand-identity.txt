@@ -21,8 +21,8 @@ Original masters live in dist/assets/brand/originals/:
 The website uses dist/assets/atomic-logo-lowercase-v3.svg and its -dark variant.
 The outlined SVGs render without an installed font. Preserve the original
 letter shapes, spacing, proportions and symbol when exporting other formats.
-The launch-film closing lockup uses an entirely white symbol and wordmark
-on purple, matching the approved closing treatment.
+The launch-film closing lockup uses the monochrome white symbol and wordmark
+on purple. Use the four separated shapes and transparent gaps specified below.
 
 TYPEFACE VERIFICATION
 All glyph segments and control points in both supplied wordmarks were
@@ -40,3 +40,14 @@ font family despite sharing the 600 weight label. The old launch film used
 a separate Manrope 750 text treatment; do not use that as the old-logo reference.
 Manrope remains website/campaign text typography and must not be mistaken
 for the current logo's Inter SemiBold wordmark.
+
+MONOCHROME LOGO — APPROVED REFERENCE, 3 NOVEMBER 2026
+Black and white monochrome marks must preserve four distinct shapes with
+transparent gaps at the overlaps, as shown in the supplied black reference.
+The gap reveals the background; it is not a white stroke painted into the logo.
+Never use a merged solid silhouette, brightness/invert recolouring of the
+gradient mark, or a monochrome conversion that removes the overlap gaps.
+Masters: dist/assets/brand/monochrome/atomic-symbol-black.svg and -white.svg;
+complete lowercase lockups: atomic-lowercase-black.svg and -white.svg.
+Both colours use identical geometry. The Inter SemiBold 600 wordmark stays
+unchanged. Colour and dark-background colour variants remain separate assets.

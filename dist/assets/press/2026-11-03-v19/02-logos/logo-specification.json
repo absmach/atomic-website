@@ -1,0 +1,76 @@
+{
+  "updated": "2026-11-03",
+  "primary": "atomic-lowercase-color",
+  "source": "Original supplied SVG artwork; lettering is outlined, not re-typeset.",
+  "palette": [
+    "#4338CA",
+    "#7C72FF",
+    "#FF8A6B",
+    "#C95BB4",
+    "#16161D"
+  ],
+  "pdf_note": "SVG filter effects may be rasterized by the PDF exporter; SVG is the master artwork.",
+  "logos": [
+    {
+      "name": "atomic-lockup-color",
+      "label": "Atomic \u00b7 light background",
+      "original": "atomic-logo-veliko.svg",
+      "sha256": "4bc76de0366ee40ec198b1febcd6f7a30b8a96f79d2f90ed62689dddb05a45a5"
+    },
+    {
+      "name": "atomic-lockup-dark",
+      "label": "Atomic \u00b7 dark background",
+      "original": "atomic-logo-veliko-dark.svg",
+      "sha256": "e07fa077aa9859142b0492a53c840dd963d10a574e5ff1319294d03f059ff5ea"
+    },
+    {
+      "name": "atomic-lowercase-color",
+      "label": "atomic \u00b7 light background",
+      "original": "atomic-logo-malo.svg",
+      "sha256": "ac4e17829a623ca2d07149cc7b190749729be072828e0819be36f89994af71cb"
+    },
+    {
+      "name": "atomic-lowercase-dark",
+      "label": "atomic \u00b7 dark background",
+      "original": "atomic-logo-malo-dark.svg",
+      "sha256": "484a56e353331c94887e84819e38050827bdde4cda7c55b35a2cf8169928b9ff"
+    },
+    {
+      "name": "atomic-symbol-color",
+      "label": "Standalone symbol",
+      "original": "atomic-znak.svg",
+      "sha256": "749a23a80820f9e2ac37763ec91efa0027f36a66b7bdf30e5c5eb659ea784067"
+    },
+    {
+      "name": "atomic-symbol-white",
+      "sha256": "4948111f76ce23fae66cbee7eb379d6e9e435c0e3dccf265530ab3d011ce9a7c",
+      "monochrome": true,
+      "transparent_gaps": true
+    },
+    {
+      "name": "atomic-lowercase-black",
+      "sha256": "142b5a9afa3b7c171d32ed3ada3f74f0598e6b4753ff4f3a770967b25c03b377",
+      "monochrome": true,
+      "transparent_gaps": true
+    },
+    {
+      "name": "atomic-symbol-black",
+      "sha256": "88725edfeede92e492b21384903aea0f1aa239e42b3f4ec625385c36f7eb7e46",
+      "monochrome": true,
+      "transparent_gaps": true
+    },
+    {
+      "name": "atomic-lowercase-white",
+      "sha256": "9d69f3429638f192ed52a2fee139834ac53ab0b3ecbc7c911b4ce1537770a17d",
+      "monochrome": true,
+      "transparent_gaps": true
+    }
+  ],
+  "typeface": {
+    "family": "Inter",
+    "style": "SemiBold",
+    "weight": 600,
+    "matching_release": "3.19"
+  },
+  "monochrome": "Four separated vector shapes; gaps are transparent. Never flatten the symbol into a solid silhouette."
+}

@@ -1,0 +1,15 @@
+{
+  "free_credits": 250,
+  "renewal": "once",
+  "daily_limit": null,
+  "documents": [
+    "04-facts-and-descriptions",
+    "06-press-faq",
+    "00-complete-press-book"
+  ],
+  "formats": [
+    "HTML",
+    "PDF",
+    "DOCX"
+  ]
+}

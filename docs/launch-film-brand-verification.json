@@ -1,7 +1,7 @@
 {
-  "edition": "2026-11-03-v18",
+  "edition": "2026-11-03-v19",
   "identity": "Supplied lowercase outlined wordmark and gradient symbol",
-  "closing_treatment": "Entire symbol and wordmark white on purple, matching the original film",
+  "closing_treatment": "White monochrome symbol with four separate shapes and transparent overlap gaps, matching the supplied reference; original Inter SemiBold 600 wordmark",
   "wordmark": "Exact supplied SVG outlines; no added stroke, font-weight change, or reconstructed text",
   "logo_placement": "Replaces existing logos and introductory atom graphic; checked against original compositions and recorded frames",
   "source_compositing": {
@@ -19,7 +19,7 @@
       "frames": 1050,
       "audio_preserved": true,
       "full_decode": "passed",
-      "sha256": "717b67e2d0c3f0897c2b3e2db4ae97805459aeef84824e81254f1bf8d7ef0b6d",
+      "sha256": "488c27e217dd6438fcdc781a4b647f90f86e540e14077f9fd597e8d47d2e8c79",
       "branding": [
         "opening lockup",
         "decorative symbol",
@@ -38,7 +38,7 @@
       "frames": 1050,
       "audio_preserved": true,
       "full_decode": "passed",
-      "sha256": "6ba50ca0d85b395ee0ca24175d11f295720ee0a9a31b951e678019efe58dff13",
+      "sha256": "ffe83f9318ad608cea041d2632797f694cce5b70d1713252c60fcbea8e4c6a94",
       "branding": [
         "opening lockup",
         "decorative symbol",
@@ -57,7 +57,7 @@
       "frames": 1050,
       "audio_preserved": true,
       "full_decode": "passed",
-      "sha256": "8ebd830425052a46d436d1156d3c8353c9bfb7882248a5dff5d4a60753e402da",
+      "sha256": "f21ea82ed91667d852db399742fac3ba052d33d82937f973b61041c2a6c14383",
       "branding": [
         "opening lockup",
         "decorative symbol",
@@ -68,5 +68,9 @@
         "closing lockup"
       ]
     }
+  ],
+  "monochrome_sources": [
+    "dist/assets/brand/monochrome/atomic-symbol-white.svg",
+    "dist/assets/brand/monochrome/atomic-lowercase-white.svg"
   ]
 }
