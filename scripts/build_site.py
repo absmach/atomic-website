@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / 'dist'
 CONTACT = 'mailto:info@absmach.eu'
 # Social preview card for every page; regenerate with scripts/render-social-card.py.
-SOCIAL_IMAGE = 'https://atomicapp.dev/assets/atomic-social-v6.png'
+SOCIAL_IMAGE = 'https://atomicapp.dev/assets/atomic-social-v7.png'
 SOCIAL_ALT = 'Atomic — Imagine it. Build it.'
 FAVICON_LINKS = '<link rel="icon" href="/favicon.ico?v=20261102" sizes="any" /><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261102" /><link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261102" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261102" />'
 NAV = [('Product', '/'), ('Solutions', '/solutions/'), ('Docs', '/docs/'), ('Blog', '/blog/'), ('Pricing', '/pricing/'), ('About', '/about/')]
