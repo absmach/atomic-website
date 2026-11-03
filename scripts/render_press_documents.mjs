@@ -7,7 +7,7 @@ import { tmpdir } from 'node:os';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const kit = resolve(process.argv[2]);
-const output = join(root, 'dist/assets/press/2026-11-03-v22/01-documents');
+const output = join(root, `dist/assets/press/${process.env.PRESS_EDITION || '2026-11-03-v22'}/01-documents`);
 const temp = await mkdtemp(join(tmpdir(), 'atomic-press-'));
 await mkdir(join(temp, '01-documents'));
 for (const name of await readdir(kit)) {

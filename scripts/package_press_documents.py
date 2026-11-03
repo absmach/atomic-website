@@ -2,26 +2,31 @@
 """Compress rendered press PDFs and package them within the static-host limit."""
 from pathlib import Path
 import re
+import os
 import subprocess
 import tempfile
 import zipfile
 
 ROOT = Path(__file__).resolve().parent.parent
-BASE = ROOT / 'dist/assets/press/2026-11-03-v22'
+EDITION = os.getenv('PRESS_EDITION', '2026-11-03-v22')
+BASE = ROOT / 'dist/assets/press' / EDITION
 
 
 def main():
     with tempfile.TemporaryDirectory(prefix='atomic-press-pdf-') as temp:
         for source in (BASE / '01-documents').glob('*.pdf'):
+            if source.stat().st_size < 1_000_000:
+                continue
             target = Path(temp) / source.name
             subprocess.run([
                 'gs', '-sDEVICE=pdfwrite', '-dCompatibilityLevel=1.7',
-                '-dPDFSETTINGS=/ebook', '-dNOPAUSE', '-dBATCH', '-dQUIET',
+                '-dPDFSETTINGS=/ebook', '-sColorConversionStrategy=RGB',
+                '-dOverrideICC=true', '-dUseFastColor=true', '-dDetectDuplicateImages=true', '-dNOPAUSE', '-dBATCH', '-dQUIET',
                 '-sOutputFile=' + str(target), str(source),
             ], check=True)
             if target.stat().st_size < source.stat().st_size:
                 source.write_bytes(target.read_bytes())
-    archive = BASE / 'atomic-editorial-documents-v22.zip'
+    archive = BASE / ('atomic-editorial-documents-' + EDITION.rsplit('-',1)[-1] + '.zip')
     with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as bundle:
         for file in sorted((BASE / '01-documents').iterdir()):
             bundle.write(file, '01-documents/' + file.name)

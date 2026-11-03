@@ -337,7 +337,7 @@
         "visibleAddresses": []
       },
       {
-        "time": 24,
+        "time": 22.5,
         "openingAddress": false,
         "closingAddress": false,
         "alignmentDelta": 0,
@@ -373,7 +373,7 @@
         "visibleAddresses": []
       },
       {
-        "time": 26.8,
+        "time": 23.7,
         "openingAddress": false,
         "closingAddress": false,
         "alignmentDelta": 0,
@@ -409,7 +409,7 @@
         "visibleAddresses": []
       },
       {
-        "time": 28,
+        "time": 26.5,
         "openingAddress": false,
         "closingAddress": false,
         "alignmentDelta": 0,
@@ -445,7 +445,43 @@
         "visibleAddresses": []
       },
       {
-        "time": 33,
+        "time": 27.3,
+        "openingAddress": false,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": true,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "0",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
+        "sourceAddress": false,
+        "visibleAddresses": []
+      },
+      {
+        "time": 31,
         "openingAddress": false,
         "closingAddress": true,
         "alignmentDelta": 0,
@@ -822,7 +858,7 @@
         "visibleAddresses": []
       },
       {
-        "time": 24,
+        "time": 22.5,
         "openingAddress": false,
         "closingAddress": false,
         "alignmentDelta": 0,
@@ -858,7 +894,7 @@
         "visibleAddresses": []
       },
       {
-        "time": 26.8,
+        "time": 23.7,
         "openingAddress": false,
         "closingAddress": false,
         "alignmentDelta": 0,
@@ -894,7 +930,7 @@
         "visibleAddresses": []
       },
       {
-        "time": 28,
+        "time": 26.5,
         "openingAddress": false,
         "closingAddress": false,
         "alignmentDelta": 0,
@@ -930,7 +966,43 @@
         "visibleAddresses": []
       },
       {
-        "time": 33,
+        "time": 27.3,
+        "openingAddress": false,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": true,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "0",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
+        "sourceAddress": false,
+        "visibleAddresses": []
+      },
+      {
+        "time": 31,
         "openingAddress": false,
         "closingAddress": true,
         "alignmentDelta": 0,
@@ -1307,7 +1379,7 @@
         "visibleAddresses": []
       },
       {
-        "time": 24,
+        "time": 22.5,
         "openingAddress": false,
         "closingAddress": false,
         "alignmentDelta": 0,
@@ -1343,7 +1415,7 @@
         "visibleAddresses": []
       },
       {
-        "time": 26.8,
+        "time": 23.7,
         "openingAddress": false,
         "closingAddress": false,
         "alignmentDelta": 0,
@@ -1379,7 +1451,7 @@
         "visibleAddresses": []
       },
       {
-        "time": 28,
+        "time": 26.5,
         "openingAddress": false,
         "closingAddress": false,
         "alignmentDelta": 0,
@@ -1415,7 +1487,43 @@
         "visibleAddresses": []
       },
       {
-        "time": 33,
+        "time": 27.3,
+        "openingAddress": false,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": true,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "0",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
+        "sourceAddress": false,
+        "visibleAddresses": []
+      },
+      {
+        "time": 31,
         "openingAddress": false,
         "closingAddress": true,
         "alignmentDelta": 0,

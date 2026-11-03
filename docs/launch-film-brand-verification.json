@@ -1,5 +1,5 @@
 {
-  "edition": "2026-11-03-v23",
+  "edition": "2026-11-03-v24",
   "identity": "Supplied lowercase outlined wordmark and gradient symbol",
   "closing_treatment": "White monochrome symbol with four separate shapes and transparent overlap gaps, matching the supplied reference; original Inter SemiBold 600 wordmark",
   "wordmark": "Exact supplied SVG outlines; no added stroke, font-weight change, or reconstructed text",
@@ -15,65 +15,83 @@
       "file": "atomic-product-demo.mp4",
       "width": 1920,
       "height": 1080,
-      "duration": 35,
-      "frames": 1050,
-      "audio_preserved": true,
+      "duration": 33,
+      "frames": 990,
+      "original_voice_stems_preserved": true,
+      "audio_matches_retimed_mix": true,
       "full_decode": "passed",
-      "sha256": "ed1c5ed36259ad2f4e332f5d85f60ed592ff8e6bb1d0e79d214ac240946720eb",
-      "branding": [
-        "opening lockup",
-        "decorative symbol",
-        "prompt icon",
-        "template recording",
-        "Canvas recording header and action button",
-        "source screenshot",
-        "closing lockup"
-      ]
+      "sha256": "a2e1983ef8e966a7efa07a0f4bd4ba01ab6be52da8ed9c283ee4b3e36e91ab6e",
+      "scenes": {
+        "canvas": [
+          14,
+          23
+        ],
+        "code": [
+          23,
+          27.5
+        ],
+        "closing": [
+          27.5,
+          33
+        ]
+      }
     },
     {
       "file": "atomic-launch-square.mp4",
       "width": 1080,
       "height": 1080,
-      "duration": 35,
-      "frames": 1050,
-      "audio_preserved": true,
+      "duration": 33,
+      "frames": 990,
+      "original_voice_stems_preserved": true,
+      "audio_matches_retimed_mix": true,
       "full_decode": "passed",
-      "sha256": "68df508c956bd02413efe2f1034268b87ac2d40ffd84e3d8b2a4fb5f2c3c538a",
-      "branding": [
-        "opening lockup",
-        "decorative symbol",
-        "prompt icon",
-        "template recording",
-        "Canvas recording header and action button",
-        "source screenshot",
-        "closing lockup"
-      ]
+      "sha256": "b76eb10575b12cbbd0c78dd0bc937c6b1dbd64fbe6391fca8166f8aff48979a3",
+      "scenes": {
+        "canvas": [
+          14,
+          23
+        ],
+        "code": [
+          23,
+          27.5
+        ],
+        "closing": [
+          27.5,
+          33
+        ]
+      }
     },
     {
       "file": "atomic-launch-vertical.mp4",
       "width": 1080,
       "height": 1920,
-      "duration": 35,
-      "frames": 1050,
-      "audio_preserved": true,
+      "duration": 33,
+      "frames": 990,
+      "original_voice_stems_preserved": true,
+      "audio_matches_retimed_mix": true,
       "full_decode": "passed",
-      "sha256": "0697e1678d6079930f96d689f2e9a418ca86e61f3b53586d9da1ab3683ea22be",
-      "branding": [
-        "opening lockup",
-        "decorative symbol",
-        "prompt icon",
-        "template recording",
-        "Canvas recording header and action button",
-        "source screenshot",
-        "closing lockup"
-      ]
+      "sha256": "3edec53658dcb347e8e078079e7a44d7a1e864dd081d7eccfb1f1f383e9e1131",
+      "scenes": {
+        "canvas": [
+          14,
+          23
+        ],
+        "code": [
+          23,
+          27.5
+        ],
+        "closing": [
+          27.5,
+          33
+        ]
+      }
     }
   ],
   "monochrome_sources": [
     "dist/assets/brand/monochrome/atomic-symbol-white.svg",
     "dist/assets/brand/monochrome/atomic-lowercase-white.svg"
   ],
-  "source_scene_header": "White monochrome lockup only, from 26.23 seconds until the source scene fades out at 29.5 seconds.",
+  "source_scene_header": "White monochrome lockup only, from 23.03 seconds until the code scene fades out at 27.5 seconds.",
   "covers": "Covers match the fully visible title at frame zero. The opening logo, headline and aligned URL are visible before animation begins in all three native MP4 formats.",
   "destination_placement": "atomicapp.dev appears only in the opening header (vertically centered with the logo) and closing button. No destination URL in prompt, template, Canvas or code-download scenes.",
   "first_frame_requirement": "Inspect the first frame decoded from each finished MP4; compare the logo, headline and URL regions to the complete cover. Do not rely only on a separate poster.",
@@ -82,7 +100,7 @@
       "layout": "widescreen",
       "file": "atomic-product-demo.mp4",
       "first_frame_matches_complete_cover": true,
-      "mean_pixel_difference": 2.3175834297839506,
+      "mean_pixel_difference": 3.036357381687243,
       "regions": [
         {
           "box": [
@@ -91,7 +109,7 @@
             385,
             165
           ],
-          "mean_pixel_difference": 2.45797052154195
+          "mean_pixel_difference": 3.1756462585034018
         },
         {
           "box": [
@@ -100,7 +118,7 @@
             850,
             725
           ],
-          "mean_pixel_difference": 3.4736017897091718
+          "mean_pixel_difference": 4.275051454138702
         },
         {
           "box": [
@@ -109,10 +127,10 @@
             1825,
             165
           ],
-          "mean_pixel_difference": 6.671133786848073
+          "mean_pixel_difference": 7.383004535147393
         }
       ],
-      "sha256": "ed1c5ed36259ad2f4e332f5d85f60ed592ff8e6bb1d0e79d214ac240946720eb"
+      "sha256": "a2e1983ef8e966a7efa07a0f4bd4ba01ab6be52da8ed9c283ee4b3e36e91ab6e"
     },
     {
       "layout": "square",
@@ -148,13 +166,13 @@
           "mean_pixel_difference": 6.685544973544974
         }
       ],
-      "sha256": "68df508c956bd02413efe2f1034268b87ac2d40ffd84e3d8b2a4fb5f2c3c538a"
+      "sha256": "b76eb10575b12cbbd0c78dd0bc937c6b1dbd64fbe6391fca8166f8aff48979a3"
     },
     {
       "layout": "vertical",
       "file": "atomic-launch-vertical.mp4",
       "first_frame_matches_complete_cover": true,
-      "mean_pixel_difference": 2.3581950874485598,
+      "mean_pixel_difference": 3.098541505915638,
       "regions": [
         {
           "box": [
@@ -163,7 +181,7 @@
             355,
             330
           ],
-          "mean_pixel_difference": 2.3475162418790605
+          "mean_pixel_difference": 3.0790904547726137
         },
         {
           "box": [
@@ -172,7 +190,7 @@
             840,
             850
           ],
-          "mean_pixel_difference": 3.445208302075519
+          "mean_pixel_difference": 4.2367381845461365
         },
         {
           "box": [
@@ -181,11 +199,29 @@
             975,
             330
           ],
-          "mean_pixel_difference": 3.7135758651286603
+          "mean_pixel_difference": 4.4687488908606925
         }
       ],
-      "sha256": "0697e1678d6079930f96d689f2e9a418ca86e61f3b53586d9da1ab3683ea22be"
+      "sha256": "3edec53658dcb347e8e078079e7a44d7a1e864dd081d7eccfb1f1f383e9e1131"
     }
   ],
-  "editorial_documents": "Preserved current v22 editorial documents; only videos, covers and related page references changed."
+  "editorial_documents": "Current editorial copy retained; runtime references updated to 33 seconds and opening-URL placement corrected.",
+  "pacing": {
+    "canvas": [
+      14,
+      23
+    ],
+    "code": [
+      23,
+      27.5
+    ],
+    "closing": [
+      27.5,
+      33
+    ],
+    "old_duration": 35,
+    "new_duration": 33,
+    "comment_narration_ends": 21.546,
+    "music": "Original continuous music bed, trimmed to 33 seconds with a one-second end fade; no time stretching."
+  }
 }
