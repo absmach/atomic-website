@@ -4,9 +4,9 @@ A responsive, dependency-free, multi-page product site built from the Atomic app
 
 ## Generate and check
 
-Run `python3 scripts/build_site.py` after changing content or shared markup. Run `python3 scripts/check_site.py` to validate every local page link, fragment, asset, heading, title, ID, and image alt attribute. Check JavaScript syntax with `node --check dist/site.js`, `node --check dist/app.js`, and `node --check dist/early-access.js`. Run the Worker tests with `node --test src/worker.test.js`.
+Run `python3 scripts/build_site.py` after changing content or shared markup. Run `python3 scripts/check_site.py` to validate every local page link, fragment, asset, heading, title, ID, and image alt attribute. Check JavaScript syntax with `node --check dist/site.js`, `node --check dist/app.js`, and `node --check dist/early-access.js`. Run signup and consent regression tests with `node --test src/worker.test.js src/consent.test.js`.
 
-`content/home.html` contains the original homepage presentation. `scripts/build_site.py` owns the shared navigation and footer, homepage additions, pricing copy, articles, and legal drafts.
+`content/home.html` contains the original homepage presentation. `scripts/build_site.py` owns the shared navigation and footer, homepage additions, pricing copy and articles. `scripts/legal_content.py` contains the legal notices. Terms of Service are edited in `content/legal/terms/en.html` and `fr.html`, with their version and status in `metadata.json`; see [the editing guide](content/legal/terms/README.md). Run `python3 scripts/build_legal_pdf.py` after legal-copy changes to refresh the French download (requires Pandoc, XeLaTeX and Noto Serif).
 
 Each documentation guide's body is `content/docs/<section>/<slug>.html`: a run of `<section id="…"><h2>…</h2>…</section>` blocks, from which the page's contents list is read. `DOCS` in `scripts/build_site.py` lists the sections and, in order, each guide's slug, title, card summary, introduction and reading time. The docs index, the docs menu on every guide and the previous/next links follow that order. A guide is served at `/docs/<slug>/` whichever section holds it, so moving it between sections keeps its address. To add a guide, write its content file and add it to `DOCS`. Reading times are computed from each guide's words.
 
@@ -24,7 +24,7 @@ Documentation screenshots in `dist/assets/docs/` are 1440 px wide captures of a 
 - `/press/`: the public visual press-kit index, including editorial documents, logos, all product screenshots, videos, portraits, social artwork and media contact. The ZIP and original screenshots/portraits download from the published GitHub release; previews and documents are static website assets.
 - `/about/`: Atomic’s purpose and the team at Abstract Machines, with links to the company, Atom, and its public open-source work.
 - `/security/`: verified product boundaries and the existing team contact for reporting concerns; no invented certifications or SLA.
-- `/legal/`: Privacy Policy (final, covering the website and early-access sign-up), draft Terms of Service, Acceptable Use Policy, DPA, Subprocessor List, and Cookies & Storage Notice. Each draft is clearly marked not effective and excluded from indexing; the Privacy Policy is indexable.
+- `/legal/`: three concise documents: Terms & company details (including acceptable use), Privacy & Cookies (including provider information), and a customer DPA. French text is one downloadable PDF; no separate French pages. Terms and DPA remain proposed until prerequisites are completed and agreements accepted. Old legal URLs redirect to the relevant sections. Private review evidence stays in ignored `private/legal/`.
 - `dist/404.html`: branded fallback for hosts supporting a static 404 page.
 
 The header has the logo on the left, Product, Solutions, Docs, Blog, Pricing, and About centred, and a Request early access button on the right; the mobile menu ends with the same link. The footer includes all six solution pages. Resources is a footer grouping for Documentation, Blog, Security & trust, About Atomic, and Contact; there is no separate Resources page.
@@ -37,12 +37,12 @@ Every page includes shared responsive navigation, a skip link, and an Atomic-led
 
 The website structure and content are prepared; operational and commercial facts still need confirmation. The legal pages are substantive drafting material, not effective agreements or a completed compliance program.
 
-- Confirm the full contracting/controller entity, registered address, company identifiers, applicable jurisdictions, and legal contacts. Abstract Machines is a brand reference until those details are verified.
+- Company identity is verified in the legal notice. A company telephone number is still required for the current legal notice under LCEN Article 1-1; do not publish a personal number. Appoint the consumer mediator before offering consumer contracts.
 - Implement and validate the proposed Free, Builder, and Pro catalog and credit rules before opening subscriptions, including Free’s one-backend-app and collaboration restrictions. Confirm collaboration, storage, bandwidth, and concurrency limits; qualify hosting rates and protected budgets; finalize retry treatment, taxes, cancellation, refunds, and retention rules.
 - Finalize and review the legal drafts with counsel, including consumer rights and limitations of liability. Complete the DPA processing description, verified security measures, transfer clauses, and acceptance mechanism.
-- Inventory actual vendors, their roles, processing/access locations, retention, and AI training settings. Publish an approved subprocessor register and change-notification process.
+- Inventory actual vendors, their roles, processing/access locations, retention, and AI training settings. Supply the approved subprocessor register privately with the customer DPA and implement written change notifications. Public notices disclose meaningful recipient categories without publishing sensitive infrastructure details.
 - Verify inquiry, account, prompt, log, billing, and backup retention/deletion rules and the customer data export process.
-- Audit cookies, storage, and logging on the actual deployed host, including its access gate. The application itself sets no cookies or persistent browser storage; hosting behavior has not been certified. Add consent controls if the actual technologies require them.
+- Audit cookies, storage, and logging on the actual deployed host, including its access gate. The website stores consent and theme preferences locally and documentation navigation in session storage; deployed hosting/tag behavior has not been certified. Add consent controls if the actual technologies require them.
 - Replace the early-access waitlist with the approved onboarding/payment flow when available, add final effective policies and acceptance records, and add any remaining social channels when their official URLs are confirmed.
 - The production domain is `atomicapp.dev`, with homepage canonical and social metadata configured. Complete canonical metadata for the remaining pages, submit a domain-specific sitemap, and review indexing before launch. Draft legal pages remain `noindex, nofollow` until finalized.
 
@@ -100,6 +100,8 @@ image meta tags in `content/home.html` to avoid stale image caches. Social platf
 - Secrets: `LISTMONK_API_TOKEN`, `TURNSTILE_SECRET` (`wrangler secret put <name>`, or `.dev.vars` locally; copy `.dev.vars.example`).
 - Public Turnstile site key: `sitekey` in `dist/early-access.js`.
 
+The signup request includes `noticeVersion: "2026-11-03"`; the Worker rejects missing/obsolete notice versions and records the permission scope and version. This permission covers application review and related trial emails, not unrelated marketing. Previously unsubscribed addresses require assistance instead of automatic resubscription. Supplier error response bodies are not logged.
+
 Subscriber attributes written to Listmonk: `idea`, `app_type`, `stage`, `role`, `company`, `source`, `applied_at`, any `utm_source`, `utm_medium`, `utm_campaign`, `utm_term` and `utm_content` from the page URL, plus `app_type_other` and `role_other` when "Something else" is chosen. Radio values in `dist/early-access.js` must match `CHOICES` in `src/worker.js`.
 
 Local run: `npx wrangler dev` serves the site and the Worker together.
@@ -130,11 +132,11 @@ Other branches deploy a Preview with `npx wrangler preview`, which reads the `pr
 
 ## Marketing analytics and consent (October 2026)
 
-The shared `dist/site.js` adds a small consent card (bottom-left on desktop, a slim bar on phones, below the builder on the mobile homepage) with one sentence, a Cookie policy link, and equally styled Reject and Accept buttons; the Necessary, Analytics and Marketing categories are under Settings. It also adds a footer Cookie Preferences control and Google Consent Mode v2 default-denied behavior. It injects GTM `GTM-NDHNWJMJ` dynamically only after analytics or marketing is accepted; intentionally no unconditional GTM noscript iframe is installed, because that would bypass consent. Preferences are stored as `atomic-cookie-consent-v1` in localStorage. Withdrawing a previously granted category reloads the page to stop already loaded third-party scripts. The `atomic_early_access_success` dataLayer event fires only after a successful API response and only when analytics consent is granted; it contains no personal details.
+The shared `dist/site.js` adds a small consent card (bottom-left on desktop, a slim bar on phones, below the builder on the mobile homepage) with one sentence, a Cookie policy link, and equally styled Reject and Accept buttons; the Necessary, Analytics and Marketing categories are under Settings. It also adds a footer Cookie Preferences control and Google Consent Mode v2 default-denied behavior. It injects GTM `GTM-NDHNWJMJ` dynamically only after analytics or marketing is accepted; intentionally no unconditional GTM noscript iframe is installed, because that would bypass consent. Preferences are stored as `atomic-cookie-consent-v2` in localStorage and renewed after six months. Earlier notice versions, invalid dates and future dates require a new choice. Consent controls also support French text when a page declares that language. Withdrawing a previously granted category reloads the page to stop already loaded third-party scripts. The `atomic_early_access_success` dataLayer event fires only after a successful API response and only when analytics consent is granted; it contains no personal details.
 
 In GTM, configure GA4 Measurement ID `G-0516MSWR7R` with analytics consent checks and avoid duplicate pageviews. Add Meta Pixel and LinkedIn Insight Tag only after their IDs are supplied and configure marketing-consent requirements. Test with Tag Assistant and a clean browser session; don't publish tags until consent behavior is verified. Campaign UTM values are already stored with early-access subscriber attributes in Listmonk by the Worker regardless of optional analytics choice.
 
-Legal review is required before launch to finalize processor/provider details, actual tracker/cookie lifetimes and cross-border transfer disclosures. The cookie notice currently remains a draft pending that review.
+Legal review is required before launch to finalize processor/provider details, actual tracker/cookie lifetimes and cross-border transfer disclosures. The cookie notice now describes the verified source behavior and identifies the remaining deployment checks. Updating notices is not a certification of external tag configuration.
 
 ## Press kit
 
@@ -184,3 +186,9 @@ For social-card rendering, set `PLAYWRIGHT_MODULE` to an installed Playwright
 module and `CHROME_BIN` to Chromium if those are not available by default.
 `python3 scripts/render-social-card.py` calls the SVG-based browser renderer;
 it uses the exact supplied Inter SemiBold logo and the bundled Manrope font for surrounding copy.
+
+## Concise legal and editorial revision
+
+The legal set has two public notices/contracts plus a customer DPA. Edit the ToS clause files and version metadata as described in `content/legal/terms/README.md`; regenerate the French PDF after any legal change. Statutory deadlines remain, while optional fixed retention and service deadlines have been removed. A revision does not amend existing customer agreements automatically.
+
+The press page now serves v22 corrected editorial PDF, DOCX and TXT files and a local documents-only ZIP. Media assets remain from the approved v21 edition; older editions stay at their existing URLs as historical assets. `content/press-documents/` holds the retained print layouts. `scripts/revise_press_documents.py ORIGINAL_V21_KIT` prepares the revised sources and Word/text formats; `scripts/render_press_documents.mjs ORIGINAL_V21_KIT` renders PDFs with the original approved media. Rendering requires Playwright and Chromium; `PLAYWRIGHT_MODULE` and `CHROME_EXECUTABLE` can select existing installations. Run `python3 scripts/package_press_documents.py` after rendering to compress the PDFs with Ghostscript, rebuild the documents ZIP and update its displayed size; it enforces the static-host size budget. Do not reimport v21 over the corrections.

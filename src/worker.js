@@ -1,6 +1,7 @@
 const TURNSTILE_ACTION = "early_access";
 const TURNSTILE_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const EARLY_ACCESS_NOTICE_VERSION = "2026-11-03";
 
 // Keep in sync with the radio values in content/home.html.
 const CHOICES = {
@@ -52,6 +53,9 @@ async function handleApplication(request, env, ctx) {
 
   const outcome = await saveSubscriber(application, listId, env);
   if (!outcome) return json({ error: "Could not save your request. Please try again." }, 502);
+  if (outcome === "unsubscribed") {
+    return json({ error: "This address cannot be subscribed through this form. Contact privacy@absmach.eu for help." }, 409);
+  }
 
   // Repeat submissions from someone already on the list don't get another email.
   if (outcome !== "already") ctx.waitUntil(sendThanksEmail(application.email, env));
@@ -59,6 +63,7 @@ async function handleApplication(request, env, ctx) {
 }
 
 function parseApplication(body) {
+  if (body.noticeVersion !== EARLY_ACCESS_NOTICE_VERSION) return null;
   const idea = str(body.idea);
   const name = str(body.name);
   const company = str(body.company);
@@ -67,7 +72,11 @@ function parseApplication(body) {
   if (!name || name.length > 100 || company.length > 100) return null;
   if (!EMAIL_RE.test(email) || email.length > 254) return null;
 
-  const attribs = { idea, company, source: "website", applied_at: new Date().toISOString() };
+  const attribs = {
+    idea, company, source: "website", applied_at: new Date().toISOString(),
+    atomic_early_access_notice_version: EARLY_ACCESS_NOTICE_VERSION,
+    atomic_early_access_permission: "application_and_related_trial_emails",
+  };
   for (const key of UTM_KEYS) {
     const value = str(body[key]).slice(0, 100);
     if (value) attribs[key] = value;
@@ -139,7 +148,7 @@ async function saveSubscriber({ email, name, attribs }, listId, env) {
       }),
     });
     if (res.status === 409) return await updateExisting(email, attribs, listId, env);
-    if (!res.ok) console.error("listmonk create failed", res.status, await res.text());
+    if (!res.ok) console.error("listmonk create failed", res.status);
     return res.ok && "created";
   } catch (err) {
     console.error("listmonk create error", err);
@@ -163,11 +172,15 @@ async function updateExisting(email, attribs, listId, env) {
     return false;
   }
   if (existing.status === "blocklisted") return "already";
+  // A public form cannot prove mailbox ownership or reverse a withdrawal.
+  if (existing.lists.some((l) => l.id === listId && l.subscription_status === "unsubscribed")) {
+    return "unsubscribed";
+  }
 
   const lists = new Set(
     existing.lists.filter((l) => l.subscription_status !== "unsubscribed").map((l) => l.id),
   );
-  // Someone who left our list earlier is put back without another email.
+  // Keep active membership; never silently restore a withdrawn subscription.
   const wasOnList = existing.lists.some((l) => l.id === listId);
   lists.add(listId);
 
@@ -182,7 +195,7 @@ async function updateExisting(email, attribs, listId, env) {
       preconfirm_subscriptions: true,
     }),
   });
-  if (!res.ok) console.error("listmonk update failed", res.status, await res.text());
+  if (!res.ok) console.error("listmonk update failed", res.status);
   return res.ok && (wasOnList ? "already" : "added");
 }
 
@@ -201,7 +214,7 @@ async function sendThanksEmail(email, env) {
         content_type: "html",
       }),
     });
-    if (!res.ok) console.error("thank-you email failed", res.status, await res.text());
+    if (!res.ok) console.error("thank-you email failed", res.status);
   } catch (err) {
     console.error("thank-you email error", err);
   }

@@ -58,7 +58,7 @@ if (docsNav) {
 
 // Privacy-first marketing tags. GTM is loaded only after optional consent.
 (() => {
-  const KEY = 'atomic-cookie-consent-v1';
+  const KEY = 'atomic-cookie-consent-v2';
   const ID = 'GTM-NDHNWJMJ';
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { window.dataLayer.push(arguments); };
@@ -71,7 +71,14 @@ if (docsNav) {
   let saved = null;
   try {
     const parsed = JSON.parse(localStorage.getItem(KEY));
-    if (parsed && parsed.version === 1 && typeof parsed.analytics === 'boolean' && typeof parsed.marketing === 'boolean') saved = parsed;
+    const selectedAt = new Date(parsed?.savedAt);
+    const expiresAt = new Date(selectedAt);
+    expiresAt.setUTCMonth(expiresAt.getUTCMonth() + 6);
+    if (parsed && parsed.version === 2 && typeof parsed.analytics === 'boolean' && typeof parsed.marketing === 'boolean'
+        && Number.isFinite(selectedAt.getTime()) && selectedAt.getTime() <= Date.now() && Date.now() < expiresAt.getTime()) saved = parsed;
+    else localStorage.removeItem(KEY);
+    // A new notice/purpose version needs a new choice, including for old opt-ins.
+    localStorage.removeItem('atomic-cookie-consent-v1');
   } catch {}
   let choice = saved;
   let loaded = false;
@@ -124,7 +131,17 @@ if (docsNav) {
   wrap.className = 'cookie-panel';
   wrap.setAttribute('aria-label', 'Cookie preferences');
   // A short first layer with equal Reject and Accept; categories live under Settings.
-  wrap.innerHTML = '<div class="cookie-panel-inner"><div class="cookie-intro"><h2 hidden>Cookie settings</h2><p>We use cookies to improve your experience. <a href="/legal/cookies/">Cookie policy</a></p></div><div class="cookie-options" hidden><label><span><strong>Necessary</strong><small>Essential site functionality and your consent choice</small></span><input type="checkbox" checked disabled /></label><label><span><strong>Analytics</strong><small>Understand visits and early-access requests</small></span><input id="cookie-analytics" type="checkbox" /></label><label><span><strong>Marketing</strong><small>Measure advertising campaigns</small></span><input id="cookie-marketing" type="checkbox" /></label></div><div class="cookie-actions"><button type="button" class="cookie-settings" data-cookie="customize">Settings</button><button type="button" class="button button-secondary" data-cookie="reject">Reject</button><button type="button" class="button button-secondary" data-cookie="accept">Accept</button><button type="button" class="button button-primary" data-cookie="save" hidden>Save choices</button></div></div>';
+  const french = document.documentElement.lang === 'fr';
+  const labels = french
+    ? ['Préférences cookies', 'Avec votre accord, nous utilisons des technologies facultatives de Google pour mesurer les visites et les campagnes publicitaires. Vous pouvez accepter, refuser ou choisir les finalités.', 'Notice cookies', '/legal/downloads/atomic-documents-juridiques-fr.pdf', 'Nécessaires', 'Fonctionnement du site et mémorisation du choix', 'Audience', 'Comprendre les visites et les demandes d’accès anticipé', 'Publicité', 'Mesurer les campagnes publicitaires', 'Réglages', 'Refuser', 'Accepter', 'Enregistrer']
+    : ['Cookie settings', 'With your permission, we use optional Google technologies to measure visits and advertising campaigns. You can accept, reject or choose purposes.', 'Cookie policy', '/legal/privacy/#cookies', 'Necessary', 'Essential site functionality and your consent choice', 'Analytics', 'Understand visits and early-access requests', 'Marketing', 'Measure advertising campaigns', 'Settings', 'Reject', 'Accept', 'Save choices'];
+  wrap.setAttribute('aria-label', labels[0]);
+  if (french) {
+    privacyLink.href = '/legal/downloads/atomic-documents-juridiques-fr.pdf';
+    privacyLink.textContent = 'Confidentialité';
+    link.textContent = 'Préférences cookies';
+  }
+  wrap.innerHTML = `<div class="cookie-panel-inner"><div class="cookie-intro"><h2 hidden>${labels[0]}</h2><p>${labels[1]} <a href="${labels[3]}">${labels[2]}</a></p></div><div class="cookie-options" hidden><label><span><strong>${labels[4]}</strong><small>${labels[5]}</small></span><input type="checkbox" checked disabled /></label><label><span><strong>${labels[6]}</strong><small>${labels[7]}</small></span><input id="cookie-analytics" type="checkbox" /></label><label><span><strong>${labels[8]}</strong><small>${labels[9]}</small></span><input id="cookie-marketing" type="checkbox" /></label></div><div class="cookie-actions"><button type="button" class="cookie-settings" data-cookie="customize">${labels[10]}</button><button type="button" class="button button-secondary" data-cookie="reject">${labels[11]}</button><button type="button" class="button button-secondary" data-cookie="accept">${labels[12]}</button><button type="button" class="button button-primary" data-cookie="save" hidden>${labels[13]}</button></div></div>`;
   // On phones, the cookie panel follows both the suggested prompts and early-access note.
   // Desktop and inner pages keep the compact viewport-anchored panel.
   const composer = document.querySelector('.prompt-opening .prompt-composer');
@@ -159,7 +176,7 @@ if (docsNav) {
   }
   function save(analytics, marketing) {
     const revoked = !!choice && ((choice.analytics && !analytics) || (choice.marketing && !marketing));
-    choice = { version: 1, analytics, marketing, savedAt: new Date().toISOString() };
+    choice = { version: 2, analytics, marketing, savedAt: new Date().toISOString() };
     try { localStorage.setItem(KEY, JSON.stringify(choice)); } catch {}
     updateGoogle();
     wrap.hidden = true;

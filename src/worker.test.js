@@ -23,6 +23,7 @@ const valid = {
   email: "ada@example.com",
   website: "",
   turnstileToken: "token",
+  noticeVersion: "2026-11-03",
 };
 
 const turnstileOk = { success: true, action: "early_access", hostname: "atomicapp.dev" };
@@ -76,6 +77,8 @@ test("rejects incomplete or invalid answers before calling any service", async (
     { role: "astronaut" },
     { role: "other" },
     { company: "x".repeat(101) },
+    { noticeVersion: undefined },
+    { noticeVersion: "2026-10-21" },
   ]) {
     const res = await submit({ ...valid, ...patch });
     assert.equal(res.status, 400, JSON.stringify(patch));
@@ -115,6 +118,8 @@ test("creates a subscriber with the answers as attributes", async () => {
   assert.equal(sent.email, "ada@example.com");
   assert.equal(sent.attribs.idea, valid.idea);
   assert.equal(sent.attribs.app_type, "booking");
+  assert.equal(sent.attribs.atomic_early_access_notice_version, valid.noticeVersion);
+  assert.equal(sent.attribs.atomic_early_access_permission, "application_and_related_trial_emails");
   assert.equal(sent.attribs.source, "website");
   assert.equal(sent.attribs.company, "Clay & Co");
 });
@@ -205,11 +210,10 @@ test("adds an existing subscriber to the list, keeps their other lists, and emai
   assert.equal(calls[4].url, "https://mail.example/api/tx");
 });
 
-test("does not email someone who is on the list, left it earlier, or is blocklisted", async () => {
+test("does not email someone who is on the list or is blocklisted", async () => {
   const onList = { ...existing, lists: [{ id: 12, subscription_status: "confirmed" }] };
-  const left = { ...existing, lists: [{ id: 12, subscription_status: "unsubscribed" }] };
   const blocked = { ...existing, status: "blocklisted" };
-  for (const found of [onList, left, blocked]) {
+  for (const found of [onList, blocked]) {
     calls = [];
     responders = [
       reply(turnstileOk),
@@ -221,6 +225,16 @@ test("does not email someone who is on the list, left it earlier, or is blocklis
     assert.equal(res.status, 200);
     assert.ok(calls.every((c) => !c.url.endsWith("/api/tx")));
   }
+});
+
+test("does not restore a withdrawn subscription or send an email on public resubmission", async () => {
+  const left = { ...existing, lists: [{ id: 12, subscription_status: "unsubscribed" }] };
+  responders = [reply(turnstileOk), reply({ message: "exists" }, 409), reply({ data: { results: [left] } })];
+  const res = await submit(valid);
+  assert.equal(res.status, 409);
+  assert.match((await res.json()).error, /privacy@absmach.eu/);
+  assert.equal(calls.length, 3);
+  assert.ok(calls.every((c) => c.init?.method !== "PUT" && !c.url.endsWith("/api/tx")));
 });
 
 test("reports a listmonk failure", async () => {

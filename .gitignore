@@ -4,3 +4,5 @@ node_modules/
 .wrangler/
 .dev.vars
 __pycache__/
+# Local legal evidence may include confidential supplier and deployment details.
+private/
