@@ -19,7 +19,7 @@ def build():
              'La notice de confidentialité précise les traitements qu’elle couvre.</p>']
     for slug in DOCUMENT_ORDER:
         d = documents[slug]
-        status = 'Projet d’accord — Pas encore en vigueur' if d['draft'] else ('Information relative au site' if slug == 'privacy' else 'Version')
+        status = 'Projet d’accord — Pas encore en vigueur' if d['draft'] else ('Notice de confidentialité' if slug == 'privacy' else 'Version')
         parts.append(f'<h1 id="{slug}">{escape(d["titles"][1])}</h1>'
                      f'<p><strong>{status}</strong> · {d.get("updated_fr", UPDATED_FR)}</p>'
                      f'<p>{escape(d["intros"][1])}</p>')
