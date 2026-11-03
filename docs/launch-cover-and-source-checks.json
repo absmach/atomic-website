@@ -3,11 +3,190 @@
     "layout": "widescreen",
     "checks": [
       {
+        "time": 0,
+        "openingAddress": true,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": null
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": null
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": null
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": null
+          }
+        ],
+        "openingComplete": true,
+        "sourceAddress": false,
+        "visibleAddresses": [
+          "atomicapp.dev"
+        ]
+      },
+      {
+        "time": 0.03333333333333333,
+        "openingAddress": true,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": true,
+        "sourceAddress": false,
+        "visibleAddresses": [
+          "atomicapp.dev"
+        ]
+      },
+      {
+        "time": 0.2,
+        "openingAddress": true,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": true,
+        "sourceAddress": false,
+        "visibleAddresses": [
+          "atomicapp.dev"
+        ]
+      },
+      {
+        "time": 1,
+        "openingAddress": true,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": true,
+        "sourceAddress": false,
+        "visibleAddresses": [
+          "atomicapp.dev"
+        ]
+      },
+      {
         "time": 2.6,
         "openingAddress": true,
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": true,
         "sourceAddress": false,
         "visibleAddresses": [
           "atomicapp.dev"
@@ -19,6 +198,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -28,6 +234,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -37,6 +270,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -46,6 +306,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -55,6 +342,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -64,6 +378,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": true,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "0",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -73,6 +414,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": true,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "0",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -82,6 +450,33 @@
         "closingAddress": true,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "0",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": [
           "atomicapp.dev ↗"
@@ -93,11 +488,190 @@
     "layout": "square",
     "checks": [
       {
+        "time": 0,
+        "openingAddress": true,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": null
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": null
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": null
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": null
+          }
+        ],
+        "openingComplete": true,
+        "sourceAddress": false,
+        "visibleAddresses": [
+          "atomicapp.dev"
+        ]
+      },
+      {
+        "time": 0.03333333333333333,
+        "openingAddress": true,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": true,
+        "sourceAddress": false,
+        "visibleAddresses": [
+          "atomicapp.dev"
+        ]
+      },
+      {
+        "time": 0.2,
+        "openingAddress": true,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": true,
+        "sourceAddress": false,
+        "visibleAddresses": [
+          "atomicapp.dev"
+        ]
+      },
+      {
+        "time": 1,
+        "openingAddress": true,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": true,
+        "sourceAddress": false,
+        "visibleAddresses": [
+          "atomicapp.dev"
+        ]
+      },
+      {
         "time": 2.6,
         "openingAddress": true,
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": true,
         "sourceAddress": false,
         "visibleAddresses": [
           "atomicapp.dev"
@@ -109,6 +683,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -118,6 +719,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -127,6 +755,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -136,6 +791,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -145,6 +827,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -154,6 +863,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": true,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "0",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -163,6 +899,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": true,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "0",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -172,6 +935,33 @@
         "closingAddress": true,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "0",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": [
           "atomicapp.dev ↗"
@@ -183,11 +973,190 @@
     "layout": "vertical",
     "checks": [
       {
+        "time": 0,
+        "openingAddress": true,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": null
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": null
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": null
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": null
+          }
+        ],
+        "openingComplete": true,
+        "sourceAddress": false,
+        "visibleAddresses": [
+          "atomicapp.dev"
+        ]
+      },
+      {
+        "time": 0.03333333333333333,
+        "openingAddress": true,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": true,
+        "sourceAddress": false,
+        "visibleAddresses": [
+          "atomicapp.dev"
+        ]
+      },
+      {
+        "time": 0.2,
+        "openingAddress": true,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": true,
+        "sourceAddress": false,
+        "visibleAddresses": [
+          "atomicapp.dev"
+        ]
+      },
+      {
+        "time": 1,
+        "openingAddress": true,
+        "closingAddress": false,
+        "alignmentDelta": 0,
+        "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": true,
+        "sourceAddress": false,
+        "visibleAddresses": [
+          "atomicapp.dev"
+        ]
+      },
+      {
         "time": 2.6,
         "openingAddress": true,
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": true,
         "sourceAddress": false,
         "visibleAddresses": [
           "atomicapp.dev"
@@ -199,6 +1168,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -208,6 +1204,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -217,6 +1240,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -226,6 +1276,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -235,6 +1312,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "1",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -244,6 +1348,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": true,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "0",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -253,6 +1384,33 @@
         "closingAddress": false,
         "alignmentDelta": 0,
         "sourceLogo": true,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "0",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": []
       },
@@ -262,6 +1420,33 @@
         "closingAddress": true,
         "alignmentDelta": 0,
         "sourceLogo": false,
+        "openingDetails": [
+          {
+            "s": "#intro",
+            "opacity": "0",
+            "visibility": "hidden",
+            "style": "opacity: 0; visibility: hidden;"
+          },
+          {
+            "s": "#intro h1",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": "#intro p",
+            "opacity": "1",
+            "visibility": "hidden",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;"
+          },
+          {
+            "s": ".brand:not(.source-brand)",
+            "opacity": "0",
+            "visibility": "visible",
+            "style": "translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0; visibility: inherit;"
+          }
+        ],
+        "openingComplete": false,
         "sourceAddress": false,
         "visibleAddresses": [
           "atomicapp.dev ↗"

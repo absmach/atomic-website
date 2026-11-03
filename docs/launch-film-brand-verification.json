@@ -1,5 +1,5 @@
 {
-  "edition": "2026-11-03-v21",
+  "edition": "2026-11-03-v23",
   "identity": "Supplied lowercase outlined wordmark and gradient symbol",
   "closing_treatment": "White monochrome symbol with four separate shapes and transparent overlap gaps, matching the supplied reference; original Inter SemiBold 600 wordmark",
   "wordmark": "Exact supplied SVG outlines; no added stroke, font-weight change, or reconstructed text",
@@ -19,7 +19,7 @@
       "frames": 1050,
       "audio_preserved": true,
       "full_decode": "passed",
-      "sha256": "e086e8100ea3514243f9b905c0f0dc9137297472b760c7d0e5e5c168b6c0bd87",
+      "sha256": "ed1c5ed36259ad2f4e332f5d85f60ed592ff8e6bb1d0e79d214ac240946720eb",
       "branding": [
         "opening lockup",
         "decorative symbol",
@@ -27,7 +27,6 @@
         "template recording",
         "Canvas recording header and action button",
         "source screenshot",
-        "white source-scene logo without destination URL",
         "closing lockup"
       ]
     },
@@ -39,7 +38,7 @@
       "frames": 1050,
       "audio_preserved": true,
       "full_decode": "passed",
-      "sha256": "151094a651bf641621147c93d2e259a0d6ee25b48daa74bd218acbe0ace14550",
+      "sha256": "68df508c956bd02413efe2f1034268b87ac2d40ffd84e3d8b2a4fb5f2c3c538a",
       "branding": [
         "opening lockup",
         "decorative symbol",
@@ -47,7 +46,6 @@
         "template recording",
         "Canvas recording header and action button",
         "source screenshot",
-        "white source-scene logo without destination URL",
         "closing lockup"
       ]
     },
@@ -59,7 +57,7 @@
       "frames": 1050,
       "audio_preserved": true,
       "full_decode": "passed",
-      "sha256": "af84151f0cbd84dc9a2191feed812a8e4fcb52c0d25772ecdcc0c4c3334d583b",
+      "sha256": "0697e1678d6079930f96d689f2e9a418ca86e61f3b53586d9da1ab3683ea22be",
       "branding": [
         "opening lockup",
         "decorative symbol",
@@ -67,7 +65,6 @@
         "template recording",
         "Canvas recording header and action button",
         "source screenshot",
-        "white source-scene logo without destination URL",
         "closing lockup"
       ]
     }
@@ -77,6 +74,118 @@
     "dist/assets/brand/monochrome/atomic-lowercase-white.svg"
   ],
   "source_scene_header": "White monochrome lockup only, from 26.23 seconds until the source scene fades out at 29.5 seconds.",
-  "covers": "Fresh timeline capture at 2.6 seconds with complete opening headline and address vertically centered with the logo; verified in all three layouts.",
-  "destination_placement": "atomicapp.dev appears only in the opening header (vertically centered with the logo) and closing button. No destination URL in prompt, template, Canvas or code-download scenes."
+  "covers": "Covers match the fully visible title at frame zero. The opening logo, headline and aligned URL are visible before animation begins in all three native MP4 formats.",
+  "destination_placement": "atomicapp.dev appears only in the opening header (vertically centered with the logo) and closing button. No destination URL in prompt, template, Canvas or code-download scenes.",
+  "first_frame_requirement": "Inspect the first frame decoded from each finished MP4; compare the logo, headline and URL regions to the complete cover. Do not rely only on a separate poster.",
+  "encoded_first_frame_checks": [
+    {
+      "layout": "widescreen",
+      "file": "atomic-product-demo.mp4",
+      "first_frame_matches_complete_cover": true,
+      "mean_pixel_difference": 2.3175834297839506,
+      "regions": [
+        {
+          "box": [
+            105,
+            60,
+            385,
+            165
+          ],
+          "mean_pixel_difference": 2.45797052154195
+        },
+        {
+          "box": [
+            105,
+            325,
+            850,
+            725
+          ],
+          "mean_pixel_difference": 3.4736017897091718
+        },
+        {
+          "box": [
+            1545,
+            60,
+            1825,
+            165
+          ],
+          "mean_pixel_difference": 6.671133786848073
+        }
+      ],
+      "sha256": "ed1c5ed36259ad2f4e332f5d85f60ed592ff8e6bb1d0e79d214ac240946720eb"
+    },
+    {
+      "layout": "square",
+      "file": "atomic-launch-square.mp4",
+      "first_frame_matches_complete_cover": true,
+      "mean_pixel_difference": 2.7151328875171465,
+      "regions": [
+        {
+          "box": [
+            60,
+            45,
+            320,
+            150
+          ],
+          "mean_pixel_difference": 2.421184371184371
+        },
+        {
+          "box": [
+            60,
+            300,
+            700,
+            600
+          ],
+          "mean_pixel_difference": 5.157256944444445
+        },
+        {
+          "box": [
+            800,
+            45,
+            1025,
+            150
+          ],
+          "mean_pixel_difference": 6.685544973544974
+        }
+      ],
+      "sha256": "68df508c956bd02413efe2f1034268b87ac2d40ffd84e3d8b2a4fb5f2c3c538a"
+    },
+    {
+      "layout": "vertical",
+      "file": "atomic-launch-vertical.mp4",
+      "first_frame_matches_complete_cover": true,
+      "mean_pixel_difference": 2.3581950874485598,
+      "regions": [
+        {
+          "box": [
+            65,
+            215,
+            355,
+            330
+          ],
+          "mean_pixel_difference": 2.3475162418790605
+        },
+        {
+          "box": [
+            65,
+            420,
+            840,
+            850
+          ],
+          "mean_pixel_difference": 3.445208302075519
+        },
+        {
+          "box": [
+            730,
+            215,
+            975,
+            330
+          ],
+          "mean_pixel_difference": 3.7135758651286603
+        }
+      ],
+      "sha256": "0697e1678d6079930f96d689f2e9a418ca86e61f3b53586d9da1ab3683ea22be"
+    }
+  ],
+  "editorial_documents": "Preserved current v22 editorial documents; only videos, covers and related page references changed."
 }

@@ -1,20 +1,20 @@
 [
   {
-    "poster": "dist/assets/press/2026-11-03-v21/previews/atomic-launch-square-cover.webp",
-    "cover": "dist/assets/press/2026-11-03-v21/06-social/atomic-launch-square-cover.png",
-    "poster_sha256": "3b7955434e8845da8e964d660515af4051e2f44f9b159da297af12bf15d78117",
-    "cover_sha256": "505d78268a1399096bd09f4050448cf941e555d18bc6697b911fbd73f4bdaee6"
+    "poster": "dist/assets/press/2026-11-03-v23/previews/atomic-launch-widescreen-cover.webp",
+    "cover": "dist/assets/press/2026-11-03-v23/06-social/atomic-launch-widescreen-cover.png",
+    "poster_sha256": "7d28e104bf008531f9a346154c47a8cc84e2931c85599f06a94844e6a2fb0c67",
+    "cover_sha256": "507aca4765976378e83ef24fe3c7178ef7a717d591dcee6272b8099d7691daa5"
   },
   {
-    "poster": "dist/assets/press/2026-11-03-v21/previews/atomic-launch-vertical-cover.webp",
-    "cover": "dist/assets/press/2026-11-03-v21/06-social/atomic-launch-vertical-cover.png",
-    "poster_sha256": "d8b395f28023110577e950a092d759c6eafa6267dbe4c5f1995ca64cd996df99",
-    "cover_sha256": "a33d4bdec44ae2c4c2ccdd32f74ff4a2cee88b17153187c01f2452151a45b417"
+    "poster": "dist/assets/press/2026-11-03-v23/previews/atomic-launch-square-cover.webp",
+    "cover": "dist/assets/press/2026-11-03-v23/06-social/atomic-launch-square-cover.png",
+    "poster_sha256": "3b2d4ce2865812a4009b3f631221bd8e47ba52186f7ff889b40f62b6a2475ea9",
+    "cover_sha256": "50d85c0280f15fe4f6675089fd79b4558b008f2075d8dffa612f477b0ec2f0a4"
   },
   {
-    "poster": "dist/assets/press/2026-11-03-v21/previews/atomic-launch-widescreen-cover.webp",
-    "cover": "dist/assets/press/2026-11-03-v21/06-social/atomic-launch-widescreen-cover.png",
-    "poster_sha256": "83e187cc8f59034b85c54ffccc6dd6631ee9cd89c647440502c4e16e665b5cdb",
-    "cover_sha256": "2aae942311b5b4f2daea16e73254419b05718a6d28923a981f20b7c225d9b037"
+    "poster": "dist/assets/press/2026-11-03-v23/previews/atomic-launch-vertical-cover.webp",
+    "cover": "dist/assets/press/2026-11-03-v23/06-social/atomic-launch-vertical-cover.png",
+    "poster_sha256": "aca766147c9b6b872c79ab089adc811edee9d29e4906c5c3c3cf78e0bfa1e54a",
+    "cover_sha256": "1a0ab730b8fa845d7e52e1d93a0f6f1d97b021d048cf2a85864ae3202741ed66"
   }
 ]

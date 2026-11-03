@@ -58,3 +58,10 @@ In the opening frame and all thumbnails, center the URL vertically with the
 logo. Omit the URL from prompt, template, Canvas and source-code scenes.
 Keep the scene logos, including the white monochrome source-scene logo.
 Apply this rule consistently to widescreen, square and vertical versions.
+
+NATIVE VIDEO UPLOAD PREVIEWS
+The first encoded frame must contain the complete logo, opening headline and
+aligned destination URL in every format. Do not fade those elements in from
+an empty opening frame. Verify frame zero extracted from each final MP4,
+not just a website poster or browser preview. The opening title remains
+fully visible until its existing transition to the next scene.
