@@ -156,6 +156,11 @@ All pages use the shared Atomic SVG favicon, a multi-size `/favicon.ico`, a 32px
 
 ## November 2 brand refresh
 
+The approved logo uses **Inter SemiBold (600)**, with lowercase `atomic`.
+See [Brand identity](docs/brand-identity.txt) for the source SVGs, verification,
+and the decision to retain the supplied weight. The previous orbit logo used
+Manrope 600; website text typography is separate from the current wordmark.
+
 The shared header and footer use the supplied lowercase atomic SVG lockup, with
 its original outlined lettering. Composer and solution icons use the new gradient
 symbol. `dist/assets/brand/originals/` retains all 12 supplied source files,
@@ -178,4 +183,4 @@ the page. The ZIP stays outside Git and the static hosting directory.
 For social-card rendering, set `PLAYWRIGHT_MODULE` to an installed Playwright
 module and `CHROME_BIN` to Chromium if those are not available by default.
 `python3 scripts/render-social-card.py` calls the SVG-based browser renderer;
-it uses the exact supplied logo and the bundled Manrope font.
+it uses the exact supplied Inter SemiBold logo and the bundled Manrope font for surrounding copy.

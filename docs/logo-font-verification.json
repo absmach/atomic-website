@@ -1,0 +1,109 @@
+{
+  "family": "Inter",
+  "style": "SemiBold",
+  "weight": 600,
+  "font_version": "Version 3.019;git-0a5106e0b",
+  "source": "https://github.com/rsms/inter/releases/tag/v3.19",
+  "font_sha256": "2de533bda937a063c595b07c6bd9b70c8c5087d0649a1c8330f7ac11fcc05602",
+  "units_per_em": 2816,
+  "logos": [
+    {
+      "file": "atomic-logo-malo.svg",
+      "sha256": "ac4e17829a623ca2d07149cc7b190749729be072828e0819be36f89994af71cb",
+      "glyphs": [
+        {
+          "letter": "a",
+          "control_and_anchor_points": 65,
+          "max_coordinate_error_svg_units": 0.053457,
+          "translation_x": 539.9948,
+          "baseline": 337.997
+        },
+        {
+          "letter": "t",
+          "control_and_anchor_points": 29,
+          "max_coordinate_error_svg_units": 0.054947,
+          "translation_x": 696.6692,
+          "baseline": 338.0101
+        },
+        {
+          "letter": "o",
+          "control_and_anchor_points": 50,
+          "max_coordinate_error_svg_units": 0.054932,
+          "translation_x": 798.8766,
+          "baseline": 337.9911
+        },
+        {
+          "letter": "m",
+          "control_and_anchor_points": 46,
+          "max_coordinate_error_svg_units": 0.053594,
+          "translation_x": 964.907,
+          "baseline": 337.9954
+        },
+        {
+          "letter": "i",
+          "control_and_anchor_points": 22,
+          "max_coordinate_error_svg_units": 0.048993,
+          "translation_x": 1212.0768,
+          "baseline": 338.0058
+        },
+        {
+          "letter": "c",
+          "control_and_anchor_points": 43,
+          "max_coordinate_error_svg_units": 0.060307,
+          "translation_x": 1280.8649,
+          "baseline": 338.002
+        }
+      ],
+      "all_segments_match": true
+    },
+    {
+      "file": "atomic-logo-veliko.svg",
+      "sha256": "4bc76de0366ee40ec198b1febcd6f7a30b8a96f79d2f90ed62689dddb05a45a5",
+      "glyphs": [
+        {
+          "letter": "A",
+          "control_and_anchor_points": 14,
+          "max_coordinate_error_svg_units": 0.046713,
+          "translation_x": 540.0022,
+          "baseline": 348.0129
+        },
+        {
+          "letter": "t",
+          "control_and_anchor_points": 29,
+          "max_coordinate_error_svg_units": 0.055319,
+          "translation_x": 739.8519,
+          "baseline": 348.0101
+        },
+        {
+          "letter": "o",
+          "control_and_anchor_points": 50,
+          "max_coordinate_error_svg_units": 0.054932,
+          "translation_x": 843.4326,
+          "baseline": 347.9911
+        },
+        {
+          "letter": "m",
+          "control_and_anchor_points": 46,
+          "max_coordinate_error_svg_units": 0.053409,
+          "translation_x": 1010.8548,
+          "baseline": 347.9954
+        },
+        {
+          "letter": "i",
+          "control_and_anchor_points": 22,
+          "max_coordinate_error_svg_units": 0.047882,
+          "translation_x": 1259.4268,
+          "baseline": 348.0058
+        },
+        {
+          "letter": "c",
+          "control_and_anchor_points": 43,
+          "max_coordinate_error_svg_units": 0.059976,
+          "translation_x": 1329.5974,
+          "baseline": 348.002
+        }
+      ],
+      "all_segments_match": true
+    }
+  ]
+}

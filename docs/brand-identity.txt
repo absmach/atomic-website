@@ -1,0 +1,42 @@
+ATOMIC BRAND IDENTITY
+Recorded 3 November 2026
+
+APPROVED LOGO
+Primary wordmark: lowercase atomic.
+Typeface: Inter.
+Style and weight: SemiBold, 600.
+Verified matching release: Inter 3.19, font version 3.019.
+Symbol: the supplied overlapping purple/coral gradient symbol.
+Decision: retain the current supplied logo. The lighter wordmark study was
+reviewed and rejected on 3 November 2026; it is not an approved brand variant.
+
+SOURCE OF TRUTH
+Use the supplied outlined SVG artwork, rather than retyping the name.
+Original masters live in dist/assets/brand/originals/:
+- atomic-logo-malo.svg: primary lowercase wordmark on a light background.
+- atomic-logo-malo-dark.svg: lowercase wordmark with light lettering.
+- atomic-znak.svg: standalone gradient symbol.
+- atomic-logo-veliko.svg and atomic-logo-veliko-dark.svg: supplied capital-A
+  alternatives; lowercase remains the primary identity.
+The website uses dist/assets/atomic-logo-lowercase-v3.svg and its -dark variant.
+The outlined SVGs render without an installed font. Preserve the original
+letter shapes, spacing, proportions and symbol when exporting other formats.
+The launch-film closing lockup uses an entirely white symbol and wordmark
+on purple, matching the approved closing treatment.
+
+TYPEFACE VERIFICATION
+All glyph segments and control points in both supplied wordmarks were
+compared against the official Inter SemiBold font from Inter 3.19. They match
+after scale and translation within the SVG's rounded coordinate precision
+(maximum discrepancy below 0.061 SVG units).
+Official font source: https://github.com/rsms/inter/releases/tag/v3.19
+The detailed measurements and source-file hashes are retained alongside this
+file in logo-font-verification.json.
+
+PREVIOUS IDENTITY AND WEBSITE TYPOGRAPHY
+The previous website logo paired the purple orbit symbol with lowercase
+atomic in Manrope 600, using letter spacing -0.075em. It was a different
+font family despite sharing the 600 weight label. The old launch film used
+a separate Manrope 750 text treatment; do not use that as the old-logo reference.
+Manrope remains website/campaign text typography and must not be mistaken
+for the current logo's Inter SemiBold wordmark.
