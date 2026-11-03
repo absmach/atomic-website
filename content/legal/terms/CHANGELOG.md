@@ -1,5 +1,10 @@
 # Terms revision history
 
+## 2026-11-03 — Clearer legal guarantees section
+
+- Rewrote section 5: consumer scope, responsible company and how to claim.
+- Moved the statutory guarantee notice to an appendix, without changing its text.
+
 ## 2026-11-03 — Legal notice, acceptable use and business terms
 
 - Moved company and host details to a separate Legal Notice; the terms keep the parties.
