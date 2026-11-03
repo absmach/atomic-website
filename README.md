@@ -81,11 +81,10 @@ Product images and the Atomic mark come from `~/ideas/vc/atomic/pitch-deck`. Ima
 
 Pages include Open Graph and explicit X large-image card metadata (`SOCIAL_IMAGE` in
 `scripts/build_site.py`; the homepage's tags are in `content/home.html`) pointing to
-`https://atomicapp.dev/assets/atomic-social-v7.png`. The 1200 × 630 PNG shows only
-the approved lowercase Inter SemiBold logo, the aligned atomicapp.dev address,
-and the tagline “Imagine it. Build it.” in bundled Manrope on a paper background
-with lavender and coral gradients. The renderer also refreshes legacy shared-card
-URLs v1–v6 so crawlers holding older metadata receive the current identity when
+`https://atomicapp.dev/assets/atomic-social-v8.png`. The 1200 × 630 PNG shows only
+the approved lowercase Inter SemiBold logo above the tagline “Imagine it. Build it.”
+in bundled Manrope, centered on the original paper background with a soft lavender glow. The renderer also refreshes legacy shared-card
+URLs v1–v7 so crawlers holding older metadata receive the current identity when
 they next fetch an image.
 The press page uses its edition-specific launch cover. Regenerate the shared card with
 `python3 scripts/render-social-card.py` (requires Node, Playwright and Chromium
