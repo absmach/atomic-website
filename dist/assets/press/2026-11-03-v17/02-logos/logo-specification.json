@@ -1,0 +1,45 @@
+{
+  "updated": "2026-11-02",
+  "primary": "atomic-lowercase-color",
+  "source": "Original supplied SVG artwork; lettering is outlined, not re-typeset.",
+  "palette": [
+    "#4338CA",
+    "#7C72FF",
+    "#FF8A6B",
+    "#C95BB4",
+    "#16161D"
+  ],
+  "pdf_note": "SVG filter effects may be rasterized by the PDF exporter; SVG is the master artwork.",
+  "logos": [
+    {
+      "name": "atomic-lockup-color",
+      "label": "Atomic \u00b7 light background",
+      "original": "atomic-logo-veliko.svg",
+      "sha256": "4bc76de0366ee40ec198b1febcd6f7a30b8a96f79d2f90ed62689dddb05a45a5"
+    },
+    {
+      "name": "atomic-lockup-dark",
+      "label": "Atomic \u00b7 dark background",
+      "original": "atomic-logo-veliko-dark.svg",
+      "sha256": "e07fa077aa9859142b0492a53c840dd963d10a574e5ff1319294d03f059ff5ea"
+    },
+    {
+      "name": "atomic-lowercase-color",
+      "label": "atomic \u00b7 light background",
+      "original": "atomic-logo-malo.svg",
+      "sha256": "ac4e17829a623ca2d07149cc7b190749729be072828e0819be36f89994af71cb"
+    },
+    {
+      "name": "atomic-lowercase-dark",
+      "label": "atomic \u00b7 dark background",
+      "original": "atomic-logo-malo-dark.svg",
+      "sha256": "484a56e353331c94887e84819e38050827bdde4cda7c55b35a2cf8169928b9ff"
+    },
+    {
+      "name": "atomic-symbol-color",
+      "label": "Standalone symbol",
+      "original": "atomic-znak.svg",
+      "sha256": "749a23a80820f9e2ac37763ec91efa0027f36a66b7bdf30e5c5eb659ea784067"
+    }
+  ]
+}

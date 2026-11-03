@@ -1,0 +1,14 @@
+Atomic product screenshots and campaign graphics: supplied company assets and locally recorded sample-app demonstrations. Suggested credit: Courtesy of Atomic / Abstract Machines.
+Drasko portrait: studio edit of the supplied company photograph, with business clothing and a neutral background. Dusan portrait: AI-assisted studio edit of the previously supplied company portrait. Filip portrait: AI-assisted studio edit of the conference photograph supplied by the user from LinkedIn; event background and lanyard removed. All three team portraits use AI-assisted editing. Dusan and Filip: neutral studio background, business styling and adjusted framing; these are edited portraits, not unretouched camera originals. Suggested credit: Courtesy of Abstract Machines. Individual photographers were not identified. Filip biography and current responsibilities: provided by Drasko Draskovic. LinkedIn: https://www.linkedin.com/in/filip-bugarski-8923b6234/. Finance & Operations role confirmed by Drasko Draskovic.
+Sample-app photographs remain part of the illustrated product view; they are not supplied as standalone stock photography.
+Atomic logo: original gradient symbol and outlined uppercase/lowercase wordmarks supplied on 2 November 2026. SVG masters are unchanged; PNG/PDF files are exports.
+Manrope: SIL Open Font License, included under assets/Manrope-OFL.txt.
+Audio: previously generated and approved ElevenLabs narration and instrumental music. Audio copied from the approved videos, with no new generation requests.
+Opening covers: refreshed with the new primary logo using the existing composition in widescreen, square and vertical formats. All use “Big idea? Make it real.” with the Atomic logo and website.
+Editorial edition: updated 3 November 2026, using the approved product gallery, three evergreen launch-film formats and matching covers.
+
+The logo files, document branding, presentation frames and social covers use the 2 November 2026 identity. App screenshot branding uses the current lowercase identity. All three launch films use the current lowercase identity throughout, including recorded app screens. Original narration, music and timing are preserved.
+
+Screenshot refresh: supplied SVG logos composited into existing logo positions. Original screen content and annotations are preserved outside those regions. SVG masters embed the original screenshot with vector logo overlays; PNG exports are supplied for editorial compatibility.
+
+Launch films refreshed 3 November 2026: supplied SVG lockups and symbol replace the previous identity in opening and closing scenes, prompt icon, decorative symbol, template footage, Canvas header and action button, and source screenshot. Original app interactions, captions, narration and music are preserved.

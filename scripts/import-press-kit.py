@@ -3,7 +3,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 from bs4 import BeautifulSoup
 from PIL import Image
-import shutil,json,hashlib,os,re,subprocess,xml.etree.ElementTree as ET
+import shutil,json,hashlib,os,re,subprocess,copy,xml.etree.ElementTree as ET
 
 ROOT=Path(__file__).resolve().parent.parent
 KIT=Path(os.environ['PRESS_KIT_DIR']).resolve()
@@ -79,7 +79,14 @@ download['class']=['button','button-secondary','press-download']
 download.insert_before(book_link.extract())
 contact_link=intro.find('a',href='mailto:drasko@absmach.eu')
 contact_link['class']=['press-contact-link']
-intro.find_all('p')[-1].string=os.getenv('PRESS_UPDATED_LABEL','Updated 2 November 2026 · Paris, France')
+intro.find_all('p')[-1].string=os.getenv('PRESS_UPDATED_LABEL','Updated 3 November 2026 · Paris, France')
+# Preserve the press intro's light/dark logo treatment when importing a new kit.
+intro_logo=intro.find('img')
+intro_logo['class']=['brand-light']
+dark_logo=copy.copy(intro_logo)
+dark_logo['class']=['brand-dark']
+dark_logo['src']=copy_local('02-logos/svg/atomic-lowercase-dark.svg')
+intro_logo.insert_after(dark_logo)
 nav=soup.new_tag('nav',attrs={'class':'press-sections','aria-label':'Press kit sections'})
 sections=[('documents','Documents'),('logos','Logos'),('screenshots','Screenshots'),('video','Video'),('people','People'),('social','Social artwork')]
 for h2,(slug,label) in zip(main.find_all('h2'),sections):

@@ -1,0 +1,69 @@
+{
+  "edition": "2026-11-03-v17",
+  "identity": "Supplied lowercase outlined wordmark and gradient symbol",
+  "source_compositing": {
+    "template_frames": 171,
+    "canvas_frames": 366,
+    "canvas_action_icon_frames": 201,
+    "source_screenshot": "SVG composite"
+  },
+  "exports": [
+    {
+      "file": "atomic-product-demo.mp4",
+      "width": 1920,
+      "height": 1080,
+      "duration": 35,
+      "frames": 1050,
+      "audio_preserved": true,
+      "full_decode": "passed",
+      "sha256": "a1c5b1e22fdbafcc186105ee1dc1cba83d03b85054c184ebcbda2e7e4cc172a7",
+      "branding": [
+        "opening lockup",
+        "decorative symbol",
+        "prompt icon",
+        "template recording",
+        "Canvas recording header and action button",
+        "source screenshot",
+        "closing lockup"
+      ]
+    },
+    {
+      "file": "atomic-launch-square.mp4",
+      "width": 1080,
+      "height": 1080,
+      "duration": 35,
+      "frames": 1050,
+      "audio_preserved": true,
+      "full_decode": "passed",
+      "sha256": "19a4bf2f079eefc86da80566d0ce411222153f2cde1d675ea66f734c3a8008bb",
+      "branding": [
+        "opening lockup",
+        "decorative symbol",
+        "prompt icon",
+        "template recording",
+        "Canvas recording header and action button",
+        "source screenshot",
+        "closing lockup"
+      ]
+    },
+    {
+      "file": "atomic-launch-vertical.mp4",
+      "width": 1080,
+      "height": 1920,
+      "duration": 35,
+      "frames": 1050,
+      "audio_preserved": true,
+      "full_decode": "passed",
+      "sha256": "409c1870ea47e2bdf0aab3f81d707769e89799d416e46bc8dfd17fa32fb76794",
+      "branding": [
+        "opening lockup",
+        "decorative symbol",
+        "prompt icon",
+        "template recording",
+        "Canvas recording header and action button",
+        "source screenshot",
+        "closing lockup"
+      ]
+    }
+  ]
+}
