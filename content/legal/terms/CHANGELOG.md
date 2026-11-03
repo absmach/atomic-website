@@ -4,7 +4,7 @@
 
 - Moved company and host details to a separate Legal Notice; the terms keep the parties.
 - Added the statutory consumer guarantee notice (annex to article D. 211-4, Consumer Code).
-- Prohibited crypto-asset, gambling and pornography websites and apps, and anything illegal in France or the customer’s country of origin.
+- Prohibited crypto-asset, gambling and pornography websites and apps, and anything illegal in France, the customer’s country of origin or a country where the app is offered, and phishing or forged websites and apps.
 - Added stock-image limits on personal branding and on passing images off as original work.
 - Added a route for reporting illegal content.
 - Added business-only warranty, liability, indemnity and jurisdiction terms.
