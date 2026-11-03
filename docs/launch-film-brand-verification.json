@@ -1,5 +1,5 @@
 {
-  "edition": "2026-11-03-v20",
+  "edition": "2026-11-03-v21",
   "identity": "Supplied lowercase outlined wordmark and gradient symbol",
   "closing_treatment": "White monochrome symbol with four separate shapes and transparent overlap gaps, matching the supplied reference; original Inter SemiBold 600 wordmark",
   "wordmark": "Exact supplied SVG outlines; no added stroke, font-weight change, or reconstructed text",
@@ -19,7 +19,7 @@
       "frames": 1050,
       "audio_preserved": true,
       "full_decode": "passed",
-      "sha256": "fa282699109bebd1dd91065f0b752a4f79a20ea104a7e8e86560e4288d48f013",
+      "sha256": "e086e8100ea3514243f9b905c0f0dc9137297472b760c7d0e5e5c168b6c0bd87",
       "branding": [
         "opening lockup",
         "decorative symbol",
@@ -27,7 +27,7 @@
         "template recording",
         "Canvas recording header and action button",
         "source screenshot",
-        "white source-scene header logo and atomicapp.dev",
+        "white source-scene logo without destination URL",
         "closing lockup"
       ]
     },
@@ -39,7 +39,7 @@
       "frames": 1050,
       "audio_preserved": true,
       "full_decode": "passed",
-      "sha256": "45de386b83ff1132d0d3ba08065067c1a1f9046cf4a6969c7bf946082ff0102e",
+      "sha256": "151094a651bf641621147c93d2e259a0d6ee25b48daa74bd218acbe0ace14550",
       "branding": [
         "opening lockup",
         "decorative symbol",
@@ -47,7 +47,7 @@
         "template recording",
         "Canvas recording header and action button",
         "source screenshot",
-        "white source-scene header logo and atomicapp.dev",
+        "white source-scene logo without destination URL",
         "closing lockup"
       ]
     },
@@ -59,7 +59,7 @@
       "frames": 1050,
       "audio_preserved": true,
       "full_decode": "passed",
-      "sha256": "493c60da0612d804cecd74e633485e479c8d9ca3ff7a5594e7e31905b90f7d1e",
+      "sha256": "af84151f0cbd84dc9a2191feed812a8e4fcb52c0d25772ecdcc0c4c3334d583b",
       "branding": [
         "opening lockup",
         "decorative symbol",
@@ -67,7 +67,7 @@
         "template recording",
         "Canvas recording header and action button",
         "source screenshot",
-        "white source-scene header logo and atomicapp.dev",
+        "white source-scene logo without destination URL",
         "closing lockup"
       ]
     }
@@ -76,6 +76,7 @@
     "dist/assets/brand/monochrome/atomic-symbol-white.svg",
     "dist/assets/brand/monochrome/atomic-lowercase-white.svg"
   ],
-  "source_scene_header": "White monochrome lockup and atomicapp.dev fade in at 26.23 seconds and fade out with the scene at 29.5 seconds in all three formats.",
-  "covers": "Fresh timeline capture at 2.6 seconds with visible opening headline, decorative symbol, logo and address; all three layouts visually checked."
+  "source_scene_header": "White monochrome lockup only, from 26.23 seconds until the source scene fades out at 29.5 seconds.",
+  "covers": "Fresh timeline capture at 2.6 seconds with complete opening headline and address vertically centered with the logo; verified in all three layouts.",
+  "destination_placement": "atomicapp.dev appears only in the opening header (vertically centered with the logo) and closing button. No destination URL in prompt, template, Canvas or code-download scenes."
 }

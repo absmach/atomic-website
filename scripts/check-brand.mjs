@@ -27,7 +27,7 @@ try {
           overlap:rect.right>actions.left,social:document.querySelector('meta[property="og:image"]').content};
       });
       if(state.scrollWidth>width||!state.loaded||state.overlap||state.logo!=='/assets/atomic-logo-lowercase-v3.svg'||state.footer!==state.logo||state.logoWidth<100||state.logoHeight>60)throw Error(path+' '+JSON.stringify(state));
-      if(!state.social.includes(path==='/press/'?'2026-11-03-v20':'atomic-social-v5.png'))throw Error('Stale social card: '+path);
+      if(!state.social.includes(path==='/press/'?'2026-11-03-v21':'atomic-social-v5.png'))throw Error('Stale social card: '+path);
       if(path==='/'&&(width===1440||width===390))await page.screenshot({path:`${output}/home-${width}.png`});
       if(path==='/press/'&&width===1440){await page.locator('#logos').scrollIntoViewIfNeeded();await page.screenshot({path:`${output}/logos-desktop.png`});}
       if(width===390&&path==='/'){

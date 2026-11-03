@@ -51,3 +51,10 @@ Masters: dist/assets/brand/monochrome/atomic-symbol-black.svg and -white.svg;
 complete lowercase lockups: atomic-lowercase-black.svg and -white.svg.
 Both colours use identical geometry. The Inter SemiBold 600 wordmark stays
 unchanged. Colour and dark-background colour variants remain separate assets.
+
+LAUNCH-FILM DESTINATION PLACEMENT — 3 NOVEMBER 2026
+Show atomicapp.dev only in the opening header and in the closing button.
+In the opening frame and all thumbnails, center the URL vertically with the
+logo. Omit the URL from prompt, template, Canvas and source-code scenes.
+Keep the scene logos, including the white monochrome source-scene logo.
+Apply this rule consistently to widescreen, square and vertical versions.
