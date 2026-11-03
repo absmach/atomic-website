@@ -1,0 +1,20 @@
+[
+  {
+    "poster": "dist/assets/press/2026-11-03-v20/previews/atomic-launch-square-cover.webp",
+    "cover": "dist/assets/press/2026-11-03-v20/06-social/atomic-launch-square-cover.png",
+    "poster_sha256": "b762aa9fb985941afee77df6d50c1b83a1cc18e9022c8af5f4321affdd2c6a58",
+    "cover_sha256": "9ba001cb01a58e6e0146eb5e8c8785adaa5a7d8fa585d6212ce8cfe8e5f3f712"
+  },
+  {
+    "poster": "dist/assets/press/2026-11-03-v20/previews/atomic-launch-vertical-cover.webp",
+    "cover": "dist/assets/press/2026-11-03-v20/06-social/atomic-launch-vertical-cover.png",
+    "poster_sha256": "65e0c0d8975c0dcee3263b77cf2c031e5e98a9a6059937b9dea550418f295d20",
+    "cover_sha256": "cab68f7851bddb3f5ee3d19de235e2a738a4e3b31098085a9a61f3858d6c1e39"
+  },
+  {
+    "poster": "dist/assets/press/2026-11-03-v20/previews/atomic-launch-widescreen-cover.webp",
+    "cover": "dist/assets/press/2026-11-03-v20/06-social/atomic-launch-widescreen-cover.png",
+    "poster_sha256": "2d620c93b9755ba01e178d99d7bf35a52307315e1a1643ae3e971bb1eddd43b9",
+    "cover_sha256": "e9746db36e35cddb9f140bbc1d43327890cac80340822472366ddd79b1c2208d"
+  }
+]

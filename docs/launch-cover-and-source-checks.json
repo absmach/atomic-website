@@ -1,0 +1,149 @@
+[
+  {
+    "layout": "widescreen",
+    "opening": [
+      {
+        "selector": "#intro",
+        "visible": true,
+        "opacity": "1",
+        "text": "EVERY APP STARTS SOMEWHERE.Big idea?Make it real.Meet Atomic. Your AI app builder."
+      },
+      {
+        "selector": "#intro h1",
+        "visible": true,
+        "opacity": "1",
+        "text": "Big idea?Make it real."
+      },
+      {
+        "selector": ".brand:not(.source-brand)",
+        "visible": true,
+        "opacity": "1",
+        "text": ""
+      },
+      {
+        "selector": ".site-address:not(.source-address)",
+        "visible": true,
+        "opacity": "1",
+        "text": "atomicapp.dev"
+      }
+    ],
+    "source": [
+      {
+        "selector": ".source-brand",
+        "visible": true,
+        "x": 110,
+        "y": 65,
+        "width": 265,
+        "height": 92.796875,
+        "inside": true
+      },
+      {
+        "selector": ".source-address",
+        "visible": true,
+        "x": 1558.796875,
+        "y": 80,
+        "width": 251.203125,
+        "height": 49,
+        "inside": true
+      }
+    ]
+  },
+  {
+    "layout": "square",
+    "opening": [
+      {
+        "selector": "#intro",
+        "visible": true,
+        "opacity": "1",
+        "text": "EVERY APP STARTS SOMEWHERE.Big idea?Make it real.Meet Atomic. Your AI app builder."
+      },
+      {
+        "selector": "#intro h1",
+        "visible": true,
+        "opacity": "1",
+        "text": "Big idea?Make it real."
+      },
+      {
+        "selector": ".brand:not(.source-brand)",
+        "visible": true,
+        "opacity": "1",
+        "text": ""
+      },
+      {
+        "selector": ".site-address:not(.source-address)",
+        "visible": true,
+        "opacity": "1",
+        "text": "atomicapp.dev"
+      }
+    ],
+    "source": [
+      {
+        "selector": ".source-brand",
+        "visible": true,
+        "x": 64,
+        "y": 52,
+        "width": 240,
+        "height": 84.046875,
+        "inside": true
+      },
+      {
+        "selector": ".source-address",
+        "visible": true,
+        "x": 808.5,
+        "y": 61,
+        "width": 207.5,
+        "height": 41,
+        "inside": true
+      }
+    ]
+  },
+  {
+    "layout": "vertical",
+    "opening": [
+      {
+        "selector": "#intro",
+        "visible": true,
+        "opacity": "1",
+        "text": "EVERY APP STARTS SOMEWHERE.Big idea?Make it real.Meet Atomic. Your AI app builder."
+      },
+      {
+        "selector": "#intro h1",
+        "visible": true,
+        "opacity": "1",
+        "text": "Big idea?Make it real."
+      },
+      {
+        "selector": ".brand:not(.source-brand)",
+        "visible": true,
+        "opacity": "1",
+        "text": ""
+      },
+      {
+        "selector": ".site-address:not(.source-address)",
+        "visible": true,
+        "opacity": "1",
+        "text": "atomicapp.dev"
+      }
+    ],
+    "source": [
+      {
+        "selector": ".source-brand",
+        "visible": true,
+        "x": 72,
+        "y": 224,
+        "width": 275,
+        "height": 96.296875,
+        "inside": true
+      },
+      {
+        "selector": ".source-address",
+        "visible": true,
+        "x": 736.5,
+        "y": 237,
+        "width": 223.5,
+        "height": 44,
+        "inside": true
+      }
+    ]
+  }
+]
