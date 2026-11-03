@@ -140,7 +140,7 @@ Legal review is required before launch to finalize processor/provider details, a
 
 `content/press.html` leads with the illustrated press book and nine individual documents, supplied as PDF, editable Word and plain text. Product screenshots can be viewed and downloaded directly from the page. Logos, portraits, three launch-film formats and their covers are also available. The Resources footer links to `/press/` on every page.
 
-The current edition is `2026-11-03-v17`, with assets under `dist/assets/press/2026-11-03-v17/`. The book is 23 pages. The complete ZIP and original screenshots/portraits are attached to the public release at `https://github.com/absmach/atomic-website/releases/tag/press-kit-2026-11-03`. Use `atomic-press-kit-2026-11-03-v17.zip` for the current kit; its checksum is supplied alongside it.
+The current edition is `2026-11-03-v18`, with assets under `dist/assets/press/2026-11-03-v18/`. The book is 23 pages. The complete ZIP and original screenshots/portraits are attached to the public release at `https://github.com/absmach/atomic-website/releases/tag/press-kit-2026-11-03`. Use `atomic-press-kit-2026-11-03-v18.zip` for the current kit; its checksum is supplied alongside it.
 
 `dist/press.css` provides the responsive page layout. Screenshot previews use optimized WebP files with explicit dimensions and lazy loading. Videos use `preload="none"`; the press page uses the approved widescreen launch cover for social sharing.
 
@@ -162,14 +162,14 @@ symbol. `dist/assets/brand/originals/` retains all 12 supplied source files,
 including the lowercase and dark-background alternatives. Brand URLs, favicon
 queries, shared styles and the social card are versioned to refresh caches.
 
-The v17 press edition uses the lowercase logo in documents, gallery frames and
+The v18 press edition uses the lowercase logo in documents, gallery frames and
 social covers. Updated screenshots in `dist/assets/screenshots-v16/` preserve
 the original UI image and annotations, with the supplied vector logo composited
 in its original position. The press ZIP includes SVG screenshot masters and
-full-resolution PNG exports. All three launch films use the current lowercase identity throughout, including the opening and closing scenes, template and Canvas recordings, action icon and source screenshot. Original narration, music, captions and timing are preserved. Earlier press assets remain available at their original
+full-resolution PNG exports. All three launch films use the current lowercase identity throughout, including the opening and closing scenes, template and Canvas recordings, action icon and source screenshot. The closing symbol and wordmark are entirely white on purple, matching the original film treatment. Original narration, music, captions and timing are preserved. Earlier press assets remain available at their original
 URLs. New release attachments use edition-specific filenames, including screenshots.
 
-Import a prepared kit with `PRESS_KIT_DIR=/absolute/path/to/atomic-press-kit-2026-11-03-v17
+Import a prepared kit with `PRESS_KIT_DIR=/absolute/path/to/atomic-press-kit-2026-11-03-v18
 PRESS_RELEASE_STAGE=/absolute/path/to/release-staging python3 scripts/import-press-kit.py`
 (as one command), then run the normal site build and checks. Upload the staged
 attachments to the existing `press-kit-2026-11-03` GitHub release before deploying

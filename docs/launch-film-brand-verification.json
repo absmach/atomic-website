@@ -1,6 +1,9 @@
 {
-  "edition": "2026-11-03-v17",
+  "edition": "2026-11-03-v18",
   "identity": "Supplied lowercase outlined wordmark and gradient symbol",
+  "closing_treatment": "Entire symbol and wordmark white on purple, matching the original film",
+  "wordmark": "Exact supplied SVG outlines; no added stroke, font-weight change, or reconstructed text",
+  "logo_placement": "Replaces existing logos and introductory atom graphic; checked against original compositions and recorded frames",
   "source_compositing": {
     "template_frames": 171,
     "canvas_frames": 366,
@@ -16,7 +19,7 @@
       "frames": 1050,
       "audio_preserved": true,
       "full_decode": "passed",
-      "sha256": "a1c5b1e22fdbafcc186105ee1dc1cba83d03b85054c184ebcbda2e7e4cc172a7",
+      "sha256": "717b67e2d0c3f0897c2b3e2db4ae97805459aeef84824e81254f1bf8d7ef0b6d",
       "branding": [
         "opening lockup",
         "decorative symbol",
@@ -35,7 +38,7 @@
       "frames": 1050,
       "audio_preserved": true,
       "full_decode": "passed",
-      "sha256": "19a4bf2f079eefc86da80566d0ce411222153f2cde1d675ea66f734c3a8008bb",
+      "sha256": "6ba50ca0d85b395ee0ca24175d11f295720ee0a9a31b951e678019efe58dff13",
       "branding": [
         "opening lockup",
         "decorative symbol",
@@ -54,7 +57,7 @@
       "frames": 1050,
       "audio_preserved": true,
       "full_decode": "passed",
-      "sha256": "409c1870ea47e2bdf0aab3f81d707769e89799d416e46bc8dfd17fa32fb76794",
+      "sha256": "8ebd830425052a46d436d1156d3c8353c9bfb7882248a5dff5d4a60753e402da",
       "branding": [
         "opening lockup",
         "decorative symbol",
