@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / 'dist'
 CONTACT = 'mailto:info@absmach.eu'
 # Social preview card for every page; regenerate with scripts/render-social-card.py.
-SOCIAL_IMAGE = 'https://atomicapp.dev/assets/atomic-social-v5.png'
+SOCIAL_IMAGE = 'https://atomicapp.dev/assets/atomic-social-v6.png'
 SOCIAL_ALT = 'Atomic — Imagine it. Build it.'
 FAVICON_LINKS = '<link rel="icon" href="/favicon.ico?v=20261102" sizes="any" /><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20261102" /><link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261102" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261102" />'
 NAV = [('Product', '/'), ('Solutions', '/solutions/'), ('Docs', '/docs/'), ('Blog', '/blog/'), ('Pricing', '/pricing/'), ('About', '/about/')]
@@ -68,7 +68,7 @@ def page(path, title, description, body, active='', draft=False, extra_head='', 
         canonical = f'/{path}/'
     if canonical:
         extra_head += f'<link rel="canonical" href="https://atomicapp.dev{canonical}" /><meta property="og:url" content="https://atomicapp.dev{canonical}" />'
-    extra_head += f'<meta property="og:image" content="{image_url}" /><meta property="og:image:type" content="image/png" /><meta property="og:image:width" content="{image_width}" /><meta property="og:image:height" content="{image_height}" /><meta property="og:image:alt" content="{image_alt}" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:image:alt" content="{image_alt}" />'
+    extra_head += f'<meta property="og:image" content="{image_url}" /><meta property="og:image:type" content="image/png" /><meta property="og:image:width" content="{image_width}" /><meta property="og:image:height" content="{image_height}" /><meta property="og:image:alt" content="{image_alt}" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:image" content="{image_url}" /><meta name="twitter:image:alt" content="{image_alt}" />'
     robots += extra_head
     html = f'''<!doctype html><html lang="{lang}"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="theme-color" content="#191329" /><title>{escape(title)} — Atomic</title><meta name="description" content="{escape(description, quote=True)}" /><meta property="og:title" content="{escape(title, quote=True)} — Atomic" /><meta property="og:description" content="{escape(description, quote=True)}" /><meta property="og:type" content="website" />{robots}{FAVICON_LINKS}{THEME_HEAD}<link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin /><link rel="stylesheet" href="/styles.css" /><link rel="stylesheet" href="/pages.css?v=20261102-lowercase" /><link rel="stylesheet" href="/early-access.css?v=20261029-early-access-page" /><script src="/site.js?v=20261103-legal" defer></script><script src="/early-access.js?v=20261103-legal-contact" defer></script></head><body>{header(active)}<main id="main">{body}</main>{footer()}</body></html>'''
     (folder / 'index.html').write_text(html)

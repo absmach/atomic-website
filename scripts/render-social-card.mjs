@@ -16,6 +16,6 @@ try {
   img{width:550px;height:auto;display:block}h1{font-size:52px;letter-spacing:-2px;line-height:1.2;font-weight:650;margin:25px 0 0}
   </style></head><body><img src="data:image/svg+xml;base64,${logo}" alt="Atomic"><h1>Imagine it. Build it.</h1></body></html>`);
   await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode()));});
-  await page.screenshot({path:join(root,'dist/assets/atomic-social-v5.png')});
-  console.log('Rendered dist/assets/atomic-social-v5.png (1200 × 630).');
+  await page.screenshot({path:join(root,'dist/assets/atomic-social-v6.png')});
+  console.log('Rendered dist/assets/atomic-social-v6.png (1200 × 630).');
 } finally {await browser.close();}

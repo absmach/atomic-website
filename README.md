@@ -79,12 +79,13 @@ Product images and the Atomic mark come from `~/ideas/vc/atomic/pitch-deck`. Ima
 
 ## Social preview
 
-Every page includes Open Graph and X large-image card metadata (`SOCIAL_IMAGE` in
+Pages include Open Graph and explicit X large-image card metadata (`SOCIAL_IMAGE` in
 `scripts/build_site.py`; the homepage's tags are in `content/home.html`) pointing to
-`https://atomicapp.dev/assets/atomic-social-v4.png`. The 1200 × 630 PNG shows only
+`https://atomicapp.dev/assets/atomic-social-v6.png`. The 1200 × 630 PNG shows only
 the Atomic mark and name with the tagline “Imagine it. Build it.”, centred on the
 site’s paper background with a soft lavender glow, using the brand palette and the
-bundled Manrope font at the header and hero letter-spacing. Regenerate it with
+approved lowercase Inter SemiBold logo and bundled Manrope font for the tagline.
+The press page uses its edition-specific launch cover. Regenerate the shared card with
 `python3 scripts/render-social-card.py` (requires Node, Playwright and Chromium
 for authoring; the website still has no runtime dependencies).
 
