@@ -14,13 +14,12 @@ ROOT = Path(__file__).resolve().parent.parent
 def build():
     documents = {d['slug']: d for d in DOCUMENTS}
     parts = ['<html><head><meta charset="utf-8"></head><body>',
-             '<p>Les notices concernent le site de présentation d’Atomic. '
-             'Les conditions de service, règles d’utilisation et accord de traitement '
-             'restent des projets jusqu’à leur finalisation et acceptation. '
-             'Leur lecture ne crée ni abonnement ni accord de traitement conclu.</p>']
+             '<p>Les conditions de service s’appliquent à l’offre Atomic acceptée. '
+             'L’accord de traitement s’applique après acceptation avec sa fiche de traitement. '
+             'La notice de confidentialité précise les traitements qu’elle couvre.</p>']
     for slug in DOCUMENT_ORDER:
         d = documents[slug]
-        status = 'Projet d’accord — Pas encore en vigueur' if d['draft'] else 'Information relative au site'
+        status = 'Projet d’accord — Pas encore en vigueur' if d['draft'] else ('Information relative au site' if slug == 'privacy' else 'Version')
         parts.append(f'<h1 id="{slug}">{escape(d["titles"][1])}</h1>'
                      f'<p><strong>{status}</strong> · {d.get("updated_fr", UPDATED_FR)}</p>'
                      f'<p>{escape(d["intros"][1])}</p>')

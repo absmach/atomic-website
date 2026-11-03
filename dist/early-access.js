@@ -42,7 +42,7 @@ const wizard = `
       <button id="access-back" class="button button-secondary" type="button">Back</button>
       <button id="access-next" class="button button-primary" type="submit">Continue</button>
     </div>
-    <p class="consent-note">By requesting early access, you consent to Abstract Machines SAS reviewing your answers and emailing you about the requested trial. You can withdraw at any time at privacy@absmach.eu. This does not subscribe you to unrelated marketing emails. <a href="/legal/privacy/" target="_blank" rel="noopener">Privacy policy</a> · <a href="/legal/downloads/atomic-documents-juridiques-fr.pdf" lang="fr" target="_blank" rel="noopener">Français (PDF)</a></p>
+    <p class="consent-note">By requesting early access, you consent to Abstract Machines SAS reviewing your answers and emailing you about the requested trial. You can withdraw at any time at privacy@absmach.eu. This does not subscribe you to unrelated marketing emails. <a href="/legal/privacy/" target="_blank" rel="noopener">Privacy policy</a></p>
   </form>
   <div id="access-done" tabindex="-1" hidden>
     <p class="eyebrow">YOU’RE ON THE LIST</p>

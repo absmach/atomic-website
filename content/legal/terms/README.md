@@ -7,9 +7,9 @@ continue to work. Renumber visible headings when needed. The build rejects
 missing translations, duplicate IDs and mismatched clause order.
 
 Set `version` in `metadata.json` to the revision date (`YYYY-MM-DD`). This sets
-the date on the English page and the French PDF's terms section. `status` remains
-`proposed` until the agreement and operational prerequisites are ready; changing
-it to `effective` is a publication setting, not customer acceptance.
+the date on the English page and the French PDF's terms section. `status` is `effective` for the published version. This publication setting does
+not record customer acceptance or certify operational compliance. Keep unresolved
+review findings in the private legal review; do not publish internal draft banners.
 
 Regenerate and validate:
 
