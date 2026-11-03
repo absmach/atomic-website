@@ -1,6 +1,15 @@
 # Terms revision history
 
-## 2026-11-03 — Proposed, not yet effective
+## 2026-11-03 — Legal notice, acceptable use and business terms
+
+- Moved company and host details to a separate Legal Notice; the terms keep the parties.
+- Added the statutory consumer guarantee notice (annex to article D. 211-4, Consumer Code).
+- Prohibited crypto-asset, gambling and pornography websites and apps, and anything illegal in France or the customer’s country of origin.
+- Added stock-image limits on personal branding and on passing images off as original work.
+- Added a route for reporting illegal content.
+- Added business-only warranty, liability, indemnity and jurisdiction terms.
+
+## 2026-11-03 — First published version
 
 - Added business and consumer terms, withdrawal form, statutory guarantees,
   cancellation, data responsibilities and French-law dispute provisions.

@@ -10,6 +10,19 @@ from legal_content import DOCUMENTS, DOCUMENT_ORDER, FRENCH_PDF, UPDATED_FR
 
 ROOT = Path(__file__).resolve().parent.parent
 
+# The consumer guarantee notice must appear as a box in the general terms.
+BOX_FILTER = r"""
+function Div(el)
+  if el.classes:includes('statutory-box') then
+    local open = '\\par\\medskip\\noindent\\fbox{\\begin{minipage}{\\dimexpr\\linewidth-2\\fboxsep-2\\fboxrule\\relax}\\setlength{\\parskip}{4pt}'
+    local blocks = {pandoc.RawBlock('latex', open)}
+    for _, block in ipairs(el.content) do table.insert(blocks, block) end
+    table.insert(blocks, pandoc.RawBlock('latex', '\\end{minipage}}\\par\\medskip'))
+    return blocks
+  end
+end
+"""
+
 
 def build():
     documents = {d['slug']: d for d in DOCUMENTS}
@@ -42,6 +55,8 @@ def build():
         source.write_text(html)
         header = Path(temp) / 'language.tex'
         header.write_text(r'\AtBeginDocument{\hypersetup{pdflang={fr-FR}}}' + '\n' + r'\renewcommand{\contentsname}{Sommaire}')
+        box_filter = Path(temp) / 'statutory-box.lua'
+        box_filter.write_text(BOX_FILTER)
         subprocess.run([
             'pandoc', str(source), '--from=html', '--pdf-engine=xelatex',
             '--toc', '--toc-depth=1', '--metadata=toc-title:Sommaire',
@@ -50,7 +65,7 @@ def build():
             f'--metadata=date:{UPDATED_FR}',
             '--variable=papersize:a4', '--variable=geometry:margin=22mm', '--variable=fontsize:10pt',
             '--variable=mainfont:Noto Serif', '--variable=colorlinks:true',
-            '--include-in-header', str(header), '--output', str(output),
+            '--include-in-header', str(header), '--lua-filter', str(box_filter), '--output', str(output),
         ], check=True)
     print(f'Generated {output.relative_to(ROOT)}')
 
