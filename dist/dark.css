@@ -175,3 +175,5 @@ html[data-theme=dark] :is(.press-catalog article,.press-catalog figure){backgrou
 html[data-theme=dark] .press-catalog video{background:var(--soft)}
 html[data-theme=dark] :is(.press-catalog th,.press-catalog td){border-color:var(--line)}
 html[data-theme=dark] .press-contact{background:#18151e}
+
+html[data-theme=dark] .pill-soon{background:#3a2c0b;color:#f3c969}
